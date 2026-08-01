@@ -1,0 +1,23 @@
+# Fine-tune Helsinki-NLP/opus-mt-en-zh on medical EN->ZH data (NEJM-enzh / ParaMed).
+# Data expected at data/processed/en-zh/{train,val}.{en,zh}
+# (produced by: python src/data_prep.py --lang-pair en-zh --raw-dir data/raw/en-zh --out-dir data/processed/en-zh)
+
+base_model: Helsinki-NLP/opus-mt-en-zh
+output_dir: models/opus-mt-en-zh-medical
+
+train_src: data/processed/en-zh/train.en
+train_tgt: data/processed/en-zh/train.zh
+val_src: data/processed/en-zh/val.en
+val_tgt: data/processed/en-zh/val.zh
+
+max_source_length: 128
+max_target_length: 128
+
+num_train_epochs: 3
+learning_rate: 2.0e-5
+per_device_train_batch_size: 16
+per_device_eval_batch_size: 16
+weight_decay: 0.01
+early_stopping_patience: 3
+save_total_limit: 2
+report_to: []

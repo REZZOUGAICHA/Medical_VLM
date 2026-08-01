@@ -1,0 +1,22 @@
+data/raw/**
+!data/raw/**/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+models/**
+!models/.gitkeep
+*.pyc
+__pycache__/
+.venv/
+@"
+data/
+*.tar.gz
+*.zip
+*.tsv
+*.csv
+checkpoints/
+*.pt
+*.bin
+__pycache__/
+.venv/
+*.pyc
+"@ | Out-File -Encoding utf8 .gitignore
