@@ -1,0 +1,2158 @@
+{
+  "label": "baseline",
+  "model": "Helsinki-NLP/opus-mt-en-hi",
+  "lang_pair": "en-hi",
+  "device": "cpu",
+  "labse_model": "sentence-transformers/LaBSE",
+  "timestamp_utc": "2026-08-01T23:01:29.070235+00:00",
+  "data_source": {
+    "src_file": "data\\eval\\tico19_hi\\tico19.en",
+    "tgt_file": "data\\eval\\tico19_hi\\tico19.hi",
+    "description": "TICO-19 en-hi test split (2,100 pairs), medical/COVID-domain, human-translated"
+  },
+  "reference_translation_provenance": "Real human-translated held-out test data, never generated or invented.",
+  "pilot_term_coverage": {
+    "cardiomegaly": 0,
+    "pleural_effusion": 1,
+    "pneumothorax": 1,
+    "edema": 2,
+    "no_acute_cardiopulmonary_abnormality_EXACT_PHRASE": 0,
+    "cardiopulmonary_BROAD_LOOSE_MATCH": 3,
+    "support_devices": 0,
+    "atelectasis": 0,
+    "consolidation": 3
+  },
+  "sample_size_requested": 200,
+  "seed": 42,
+  "per_sentence": [
+    {
+      "test_split_index": 2,
+      "pilot_terms_matched": [],
+      "source_en": "and along with a fever",
+      "reference": "और बुखार के साथ",
+      "hypothesis": "और काले धुएँ की छाँव में,",
+      "labse_cosine": 0.5438099433540039,
+      "sentence_bleu": 6.567274736060395,
+      "inference_seconds": 0.2289438999723643
+    },
+    {
+      "test_split_index": 13,
+      "pilot_terms_matched": [],
+      "source_en": "and it get the chest pain",
+      "reference": "और इससे छाती में दर्द होता है",
+      "hypothesis": "और यह छाती दर्द मिलता है",
+      "labse_cosine": 0.9401930051287501,
+      "sentence_bleu": 9.71654721818804,
+      "inference_seconds": 0.19127670000307262
+    },
+    {
+      "test_split_index": 26,
+      "pilot_terms_matched": [],
+      "source_en": "are you having any shortness of breath?",
+      "reference": "क्या आपकी साँस फूल रही है?",
+      "hypothesis": "आप साँस की कोई कमी कर रहे हैं?",
+      "labse_cosine": 0.821071169146773,
+      "sentence_bleu": 5.669791110976001,
+      "inference_seconds": 0.25110770005267113
+    },
+    {
+      "test_split_index": 29,
+      "pilot_terms_matched": [],
+      "source_en": "but also we shouldn't be put aside for the heart cardiac origin chest pain",
+      "reference": "लेकिन हमें हृदय अर्थात दिल से संबंधित, सीने के दर्द को भी जुदा नहीं रखना चाहिए",
+      "hypothesis": "लेकिन हम भी स्तन उद्घाटन दर्द के लिए अलग रखा जाना चाहिए",
+      "labse_cosine": 0.7677395754904336,
+      "sentence_bleu": 3.3383922484634216,
+      "inference_seconds": 0.3410483000334352
+    },
+    {
+      "test_split_index": 47,
+      "pilot_terms_matched": [],
+      "source_en": "however i take tests for the diabetes",
+      "reference": "हालाँकि, मैं मधुमेह के परीक्षण करवाता हूँ",
+      "hypothesis": "आई. वी.",
+      "labse_cosine": 0.2359636275950649,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.20560420001856983
+    },
+    {
+      "test_split_index": 60,
+      "pilot_terms_matched": [],
+      "source_en": "i'm having some chest pain today",
+      "reference": "मुझे आज छाती में थोड़ा दर्द हो रहा है",
+      "hypothesis": "मैं आज कुछ सीने दर्द हो रहा हूँ",
+      "labse_cosine": 0.9377154707032603,
+      "sentence_bleu": 19.493995755254467,
+      "inference_seconds": 0.24125069996807724
+    },
+    {
+      "test_split_index": 79,
+      "pilot_terms_matched": [],
+      "source_en": "occasionally i have some chest pain",
+      "reference": "कभी-कभी मुझे छाती में हल्का दर्द होता है",
+      "hypothesis": "कभी-कभी मैं कुछ छाती दर्द होता है",
+      "labse_cosine": 0.9406051312628458,
+      "sentence_bleu": 24.0785655451027,
+      "inference_seconds": 0.33108639996498823
+    },
+    {
+      "test_split_index": 86,
+      "pilot_terms_matched": [],
+      "source_en": "so do you think that some of these symptoms could be related to being pregnant?",
+      "reference": "तो क्या आपको लगता है कि इनमें से कुछ लक्षण गर्भवती होने से संबंधित हो सकते हैं?",
+      "hypothesis": "तो क्या आपको लगता है कि इनमें से कुछ लक्षण गर्भवती होने से सम्बन्धित हो सकते हैं?",
+      "labse_cosine": 0.9994765312135415,
+      "sentence_bleu": 83.94327083733333,
+      "inference_seconds": 0.5126352999359369
+    },
+    {
+      "test_split_index": 102,
+      "pilot_terms_matched": [],
+      "source_en": "you know i got diabetes and stuff",
+      "reference": "मैं आपको बताना चाहूँगा कि मुझे मधुमेह इत्यादि है",
+      "hypothesis": "तुम्हें पता है मैं डायबिटीज़ और सामान मिला",
+      "labse_cosine": 0.6946726605727297,
+      "sentence_bleu": 5.795599612995366,
+      "inference_seconds": 0.3230817000148818
+    },
+    {
+      "test_split_index": 108,
+      "pilot_terms_matched": [],
+      "source_en": "On 9 January 2020, the China Center for Disease Control and Prevention reported the causative agent as being a novel coronavirus now referred to as severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+      "reference": "9 जनवरी 2020 को रोग नियंत्रण एवं रोकथाम केंद्र, चीन ने नोवेल कोरोनावायरस, जिसे अब गंभीर तीव्र श्वसन सिंड्रोम कोरोनावायरस 2 (SARS-CoV-2) के रूप में संदर्भित किया जाता है को रोगकारक के रूप में सूचित किया।",
+      "hypothesis": "9 जनवरी 2020 को, रोग नियंत्रण और बचाव के लिए चीन केंद्र ने कैफीन एजेंट को एक उपन्यास के रूप में रिपोर्ट दी कि एक उपन्यास कोरस के रूप में अब बहुत तेज़ श्‍वेत श्‍वेत श्‍वेत श्‍वस २ के रूप में वर्णित किया गया है।",
+      "labse_cosine": 0.8076228386049757,
+      "sentence_bleu": 11.162282906100117,
+      "inference_seconds": 2.447453700006008
+    },
+    {
+      "test_split_index": 122,
+      "pilot_terms_matched": [],
+      "source_en": "At the European Centre for Disease Prevention and Control (ECDC), the notified COVID-19 case counts in each country worldwide, obtained from only official sources such as the countries’ Ministry of Health, national and regional health authorities and the WHO, are updated each day at 8:00 a.m.",
+      "reference": "यूरोपीय रोग रोकथाम एवं नियंत्रण केंद्र (ECDC) में, केवल आधिकारिक स्रोत जैसे कि देशों के स्वास्थ्य मंत्रालय, राष्ट्रीय तथा क्षेत्रीय स्वास्थ्य प्राधिकरण तथा WHO से प्राप्त विश्व के प्रत्येक देश से सूचित COVID-19 मामलों की गणना हर दिन सुबह 8:00 बजे अद्यतित की जाती है।",
+      "hypothesis": "(EDC) के लिए यूरोपीय केंद्र और नियंत्रण (ECDC) पर, CVID-19 मामले को दुनिया भर में केवल औपचारिक स्रोतों से प्राप्त किया गया है, जैसे कि देशों की स्वास्थ्य सेवा, राष्ट्रीय और राष्ट्रीय स्वास्थ्य अधिकारी और WHO में हर दिन ८:०० बजे अद्यतन किया जाता है.",
+      "labse_cosine": 0.9074102838493051,
+      "sentence_bleu": 6.7998697901161576,
+      "inference_seconds": 2.2383884999435395
+    },
+    {
+      "test_split_index": 128,
+      "pilot_terms_matched": [],
+      "source_en": "For the EU/EEA and the UK overall, the cumulative incidence of COVID-19 started to increase around 21 February and then increased sharply around 28 February 2020 (Supplementary material).",
+      "reference": "EU/EEA और सम्पूर्ण UK में, COVID-19 की समग्र संचयी व्यापकता 21 फरवरी के आसपासबढ़नी शुरू हुई और 28 फरवरी 2020 के आसपास तेजी से बढ़ी (अनुपूरक सामग्री)।",
+      "hypothesis": "EU/EA और यू.के पूरे रूप में, CCOVD-19 की बैटरी 21 फरवरी के आसपास वृद्धि करने के लिए शुरू हुई और फिर 28 फरवरी के आस - पास तीव्र वृद्धि हुई (स.",
+      "labse_cosine": 0.8432867927941455,
+      "sentence_bleu": 9.360429155107477,
+      "inference_seconds": 1.663465499994345
+    },
+    {
+      "test_split_index": 130,
+      "pilot_terms_matched": [],
+      "source_en": "Figure 2 shows the cumulative number of COVID-19 cases, in EU/EEA countries and the UK compared with that in Italy for the 31 January–15 March 2020 period.",
+      "reference": "चित्र 2 EU/EEA देशों और UK में इटली की तुलना में COVID-19 मामलों की संचयी संख्या 31 जनवरी - 15 मार्च 2020 की अवधि में दिखाता है।",
+      "hypothesis": "छवि 2 आंकड़े CUED- 19 मामले बताता है, EU/EAA देशों में और अमरीका में 31 जनवरी, 1515 मार्च 2020 अवधि के लिए उस की तुलना में अमरीका में।",
+      "labse_cosine": 0.8319385827762216,
+      "sentence_bleu": 8.118954092206375,
+      "inference_seconds": 1.5014511999906972
+    },
+    {
+      "test_split_index": 131,
+      "pilot_terms_matched": [],
+      "source_en": "It highlights that, as at 15 March 8:00 a.m., 15 other EU/EEA countries and the UK had already reported a total number of cases comparable to that of Italy just 3 weeks prior or less.",
+      "reference": "यह विशेष रूप से दर्शाता है कि 15 मार्च सुबह 8:00 बजे तक, 15 अन्य EU/EEA देशों और UK ने पहले ही केवल 3 सप्ताह पहले या कम समय में ही इटली के मामलों से तुलनीय मामलों की कुल संख्या सूचित कर दी थी।",
+      "hypothesis": "यह विशिष्ट करता है कि जैसे 15 मार्च ८: 00 में, अन्य ईयूयू/EA देशों और यूके ने पहले ही इटली के सिर्फ़ ३ सप्ताह से पहले या उससे कम या कम के मामलों की कुल संख्या रिपोर्ट दी थी.",
+      "labse_cosine": 0.9525998758225461,
+      "sentence_bleu": 13.220451860790156,
+      "inference_seconds": 1.7207889000419527
+    },
+    {
+      "test_split_index": 177,
+      "pilot_terms_matched": [],
+      "source_en": "SARS-CoV-2 infected people of all ages, but mainly at the age of 30-65.",
+      "reference": "SARS-CoV-2 से सभी आयु के लोग संक्रमित हुए, परंतु मुख्य रूप से 30-65 वर्ष की आयु के।",
+      "hypothesis": "SarthS-CV-2 सभी उम्र के लोगों को संक्रमित करता है, लेकिन खासकर 30- 65 की उम्र में.",
+      "labse_cosine": 0.897546345566352,
+      "sentence_bleu": 9.136211397676322,
+      "inference_seconds": 0.9950307999970391
+    },
+    {
+      "test_split_index": 187,
+      "pilot_terms_matched": [],
+      "source_en": "Three major risk factors for COVID-19 were sex (male), age (≥60), and severe pneumonia.",
+      "reference": "COVID-19 के तीन प्रमुख जोखिम कारक लिंग (पुरुष), आयु (≥60), और गंभीर निमोनिया थे।",
+      "hypothesis": "COCOD-19 के लिए तीन मुख्य कारण थे सेक्स (जैसे, उम्र), और तीव्र वेदना ।",
+      "labse_cosine": 0.7876328831388719,
+      "sentence_bleu": 8.841712731739833,
+      "inference_seconds": 0.9072382999584079
+    },
+    {
+      "test_split_index": 192,
+      "pilot_terms_matched": [],
+      "source_en": "The first genomic sequence of SARS-CoV-2 was reported on January 10, 2020.",
+      "reference": "SARS-CoV-2 का पहला जीनोमीक अनुक्रम 10 जनवरी 2020 को सूचित किया गया था।",
+      "hypothesis": "SARS- को- को- को- को- 2 के प्रथम अनुक्रम को जनवरी 10, 2020 में रिपोर्ट की गई थी.",
+      "labse_cosine": 0.8869845394311239,
+      "sentence_bleu": 2.8629993657668873,
+      "inference_seconds": 1.004604599904269
+    },
+    {
+      "test_split_index": 207,
+      "pilot_terms_matched": [],
+      "source_en": "Ji, et al., proposed snakes as a carrier of the virus from bats to humans which involved homologous recombination within the S protein.",
+      "reference": "Ji, et al., ने सांप को चमगादड़ से मानव में वायरस के संवाहक के रूप में प्रस्तावित किया जिसमें S प्रोटीन के साथ समान पुनर्संयोजन शामिल था।",
+      "hypothesis": "ई., ई. ए., अमरीका (g02 3 / 22)",
+      "labse_cosine": 0.17859830508097327,
+      "sentence_bleu": 2.1398205882297647,
+      "inference_seconds": 0.5275368998991325
+    },
+    {
+      "test_split_index": 221,
+      "pilot_terms_matched": [],
+      "source_en": "T lymphocytes including CD4+ and CD8+ T cells play an important role in the defense.",
+      "reference": "CD4+ और CD8+ T कोशिकाओं सहित T लसीकाकोशिकाएं रक्षा में महत्वपूर्ण भूमिका निभाती हैं।",
+      "hypothesis": "TELONTENTENTAN(4+ और CD8+ TTC), बचाव में एक अहम भूमिका निभा रही है.",
+      "labse_cosine": 0.8080710717305455,
+      "sentence_bleu": 14.025775160081475,
+      "inference_seconds": 1.1936908999923617
+    },
+    {
+      "test_split_index": 229,
+      "pilot_terms_matched": [],
+      "source_en": "It is common that for people who are exposed to a large number of viruses or whose immune functions are compromised, they have higher chance to be infected than others.",
+      "reference": "यह आम बात है कि जो लोग वायरस की अधिक संख्या के संपर्क में आते हैं या जिनके प्रतिरोधक कार्य मिले-जुले होते हैं, दूसरे की अपेक्षा उनके संक्रमित होने की अधिक संभावना होती है।",
+      "hypothesis": "यह आम बात है कि ऐसे लोगों के लिए जो बड़े - बड़े वायरस के संपर्क में आते हैं या जिनके प्रतिरक्षा तंत्रों में समझौता किया जाता है, उन्हें दूसरों से ज़्यादा संक्रमित होने का मौका मिलता है ।",
+      "labse_cosine": 0.8998348187106738,
+      "sentence_bleu": 25.292585758849835,
+      "inference_seconds": 1.4199534999206662
+    },
+    {
+      "test_split_index": 237,
+      "pilot_terms_matched": [],
+      "source_en": "Some patients experienced dyspnea and/or hypoxemia one week after the onset of the disease.",
+      "reference": "कुछ रोगियों ने रोग की शुरुआत के एक सप्ताह बाद श्वास कष्ट और/या हाइपोक्सेमिया का अनुभव किया।",
+      "hypothesis": "कुछ मरीज़ों ने रोग के उद्‌गम के एक सप्ताह बाद द हाइपोआ और / या आर्जिया का अनुभव किया ।",
+      "labse_cosine": 0.9284434425505081,
+      "sentence_bleu": 21.576146358278564,
+      "inference_seconds": 0.8802298000082374
+    },
+    {
+      "test_split_index": 241,
+      "pilot_terms_matched": [],
+      "source_en": "Similar findings were reported in two recent studies of a family cluster and a cluster caused by transmission from an asymptomatic individual.",
+      "reference": "परिवार झुंड और लक्षणहीन व्यक्ति से संचरण के द्वारा उत्पन्न झुंड के दो हालिया अध्ययनों में समान निष्कर्ष सूचित किए गए।",
+      "hypothesis": "इसी तरह की खोजों को हाल ही में एक परिवार के गुच्छों के दो अध्ययनों में और एक गुच्छे के कारण एक असंतुलनीय व्यक्‍ति से भेज दिया गया ।",
+      "labse_cosine": 0.8166059116029498,
+      "sentence_bleu": 4.327969719414173,
+      "inference_seconds": 1.2759919000091031
+    },
+    {
+      "test_split_index": 248,
+      "pilot_terms_matched": [],
+      "source_en": "For MERS, based on a demographic study in June 2012, the mortality was 37% of 2,494 confirmed cases.",
+      "reference": "MERS के लिये, जून 2012 के जनसांख्यिकीय अध्ययन के आधार पर मृत्यु दर 2,494 पुष्टिकृत मामलों की 37% थी।",
+      "hypothesis": "सन्‌ 2012 के जून के महीने में एक लोकतंत्रवादी अध्ययन पर आधारित, मृत्यु २,४९४ में से ३७% मामलों की पुष्टि की गयी ।",
+      "labse_cosine": 0.8610711825158144,
+      "sentence_bleu": 5.054882708299087,
+      "inference_seconds": 1.0378229999914765
+    },
+    {
+      "test_split_index": 260,
+      "pilot_terms_matched": [],
+      "source_en": "Abnormalities in chest radiography are found in most COVID-19 patients and featured by bilateral patchy shadows or ground glass opacity in the lungs.",
+      "reference": "अधिकतर COVID-19 रोगियों में सीने की रेडियोग्राफी में असामान्यताएं पाई जाती हैं और फेफड़ों में द्विपक्षीय धब्बेदार छवियां या ग्राउंड ग्लास अस्पष्टता द्वारा दर्शाया गया है।",
+      "hypothesis": "स्तन रेडियोग्राफी में कमीएं सबसे सीनेट-19 मरीज़ों में पायी जाती हैं और फेफड़ों में ब्लैण्ड या मैदान- गिरना अपारदर्शिता द्वारा प्रदर्शित की जाती हैं.",
+      "labse_cosine": 0.8316846193914792,
+      "sentence_bleu": 17.445413343910907,
+      "inference_seconds": 1.2759806000394747
+    },
+    {
+      "test_split_index": 262,
+      "pilot_terms_matched": [],
+      "source_en": "When ARDS happens, uncontrolled inflammation, fluid accumulation, and progressive fibrosis severely compromise the gas exchange.",
+      "reference": "जब ARDS होता है, तो अनियंत्रित प्रदाह, द्रव्य संचय तथा प्रगतिशील फाइब्रोसिस के कारण गैस विनिमय से गंभीर रूप से समझौता होता है।",
+      "hypothesis": "इसके अलावा, यह गैस गैस के बदले में बढ़ जाता है ।",
+      "labse_cosine": 0.4845949066473592,
+      "sentence_bleu": 1.735615297903861,
+      "inference_seconds": 0.7430730999913067
+    },
+    {
+      "test_split_index": 271,
+      "pilot_terms_matched": [],
+      "source_en": "Hopefully, the new technique can dramatically enhance the sensitivity and convenience if verified in clinical samples.",
+      "reference": "यदि नैदानिक नमूनों में सत्यापित हो जाती है, तो आशा है कि नई तकनीक नाटकीय रुप से संवेदनशीलता और सुविधा बढ़ा सकती है।",
+      "hypothesis": "आशा की जाती है कि नयी तकनीक, अगर रसायन - विज्ञान के नमूनेों की जाँच की जाए, तो वह सहजता और सुविधा को उल्लेखनीय रूप से बढ़ा सकती है ।",
+      "labse_cosine": 0.8610594349102214,
+      "sentence_bleu": 5.539213583846188,
+      "inference_seconds": 1.1613892000168562
+    },
+    {
+      "test_split_index": 276,
+      "pilot_terms_matched": [],
+      "source_en": "SARS-CoV-2 mainly attacks the lungs in the beginning and probably also attacks, to a lesser degree, other organs that express ACE2, such as the gastrointestinal system and the kidneys.",
+      "reference": "SARS-CoV-2 शुरुआत में मुख्य रूप से फेफड़ों पर आक्रमण करता है और संभवतः कम सीमा में अन्य अंगों पर भी, जो ACE2 व्यक्त करते हैं जैसे कि जठरांत्रीय प्रणाली और गुर्दे।",
+      "hypothesis": "SARS-CV-2 मुख्य रूप से शुरू में फेफड़ों पर हमला करता है और शायद हमला भी करता है, कुछ हद तक अन्य अंगों को जो एनईएस2 को व्यक्‍त करते हैं, जैसे कि गैसोमीटर सिस्टम और गुर्दे ।",
+      "labse_cosine": 0.9374252161453451,
+      "sentence_bleu": 9.624361575161998,
+      "inference_seconds": 1.8286535000661388
+    },
+    {
+      "test_split_index": 279,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "Patients with severe respiratory symptoms have to be supported by extracorporeal membrane oxygenation (ECMO), a modified cardiopulmonary bypass technique used for the treatment of life-threatening cardiac or respiratory failure.",
+      "reference": "गंभीर श्वसन लक्षणों वाले रोगियों की एक्स्ट्राकॉरपोरियल मेंब्रेन ऑक्सिजनेशन (ECMO), जीवन घातक हृदय या श्वसन असफलता के उपचार में उपयोग की जाने वाली संशोधित हृदय-फुफ्फुसीय उपमार्ग तकनीक द्वारा सहायता करनी पड़ती है।",
+      "hypothesis": "मरीज़ों को गंभीर श्‍वास के लक्षणों के साथ समर्थन करना पड़ता है अतिरिक्त सहज रूप से ऑक्सीजन परीक्षण (EMMO), जीवन के उपचार के लिए प्रयोग किया गया एक प्राथमिक विरंजरररी तकनीक, जो जीवन के उपचार के लिए इस्तेमाल किया जाता है।",
+      "labse_cosine": 0.7552101046606948,
+      "sentence_bleu": 4.525609534546192,
+      "inference_seconds": 1.9566743000177667
+    },
+    {
+      "test_split_index": 284,
+      "pilot_terms_matched": [],
+      "source_en": "Immunosuppression is essential in the treatment of cytokine storms, especially in severe patients.",
+      "reference": "प्रतिरक्षादमन साईटोकाइन स्टॉर्म के उपचार में आवश्यक है, विशेष रूप से गंभीर रोगियों में।",
+      "hypothesis": "खासकर उन लोगों के साथ सख्ती से पेश आते वक्‍त, जब वे बहुत बीमार पड़ जाते हैं, तो वे निराश हो जाते हैं ।",
+      "labse_cosine": 0.5158758614075402,
+      "sentence_bleu": 1.9011755113058344,
+      "inference_seconds": 0.9321047000121325
+    },
+    {
+      "test_split_index": 285,
+      "pilot_terms_matched": [],
+      "source_en": "Corticosteroids and tocilizumab, an anti-IL6 monoclonal antibody, have been used to treat cytokine storm.",
+      "reference": "कॉर्टिकोस्टेरॉइड और टोसिलिज़ुमाब, IL6-रोधी मोनोक्लोनल प्रतिरक्षी, साईटोकाइन स्टॉर्म के उपचार के लिए उपयोग किए गए हैं।",
+      "hypothesis": "कोंलेटाइड्स और Ucuticiummmamm, एक विरोधी विरोधी एकल पदार्थ, का इलाज करने के लिए इस्तेमाल किया गया है तूफान का इलाज करने के लिए इस्तेमाल किया गया है.",
+      "labse_cosine": 0.6354149647680541,
+      "sentence_bleu": 3.2677968802443296,
+      "inference_seconds": 1.5100151000078768
+    },
+    {
+      "test_split_index": 291,
+      "pilot_terms_matched": [],
+      "source_en": "At the time of writing, no effective antiviral therapy has been confirmed.",
+      "reference": "लेखन के समय तक, किसी भी प्रभावी एंटीवायरल थेरेपी की पुष्टि नहीं की गई है।",
+      "hypothesis": "लेखन के समय, कोई प्रभावकारी चिकित्सा पुष्टि नहीं की गयी है ।",
+      "labse_cosine": 0.9061230734735342,
+      "sentence_bleu": 15.956527441621375,
+      "inference_seconds": 0.46139700000640005
+    },
+    {
+      "test_split_index": 293,
+      "pilot_terms_matched": [],
+      "source_en": "Remdesivir is a novel antiviral drug developed by Gilead initially for the treatment of diseases caused by Ebola and Marlburg viruses.",
+      "reference": "रेमडेसिविर शुरुआत में इबोला और मालबर्ग वायरसों द्वारा उत्पन्न रोगों के उपचार के लिए गिलियड द्वारा विकसित नोवेल एंटीवायरल दवा है।",
+      "hypothesis": "गिलियड द्वारा शुरू - शुरू में ऐरोका और मारलबर्ग वायरस द्वारा उत्पन्‍न बीमारियों के इलाज के लिए, एक उपन्यास - विज्ञानक दवा है ।",
+      "labse_cosine": 0.8153250581571786,
+      "sentence_bleu": 5.217592866832707,
+      "inference_seconds": 1.1339087000815198
+    },
+    {
+      "test_split_index": 309,
+      "pilot_terms_matched": [],
+      "source_en": "It is difficult to develop and produce specific antibodies rapidly enough to fight against a global epidemic.",
+      "reference": "वैश्विक महामारी से लड़ने के लिए इतनी तेजी से विशिष्ट प्रतिरक्षियों को विकसित करना और उत्पादित करना कठिन है।",
+      "hypothesis": "एक विश्‍वव्यापी महामारी के विरुद्ध लड़ने के लिए पर्याप्त तेज़ी से पैमाने पर एडस्‌ उत्पन्‍न करना मुश्‍किल है ।",
+      "labse_cosine": 0.8223256322621488,
+      "sentence_bleu": 8.961672320242714,
+      "inference_seconds": 0.9248742000199854
+    },
+    {
+      "test_split_index": 323,
+      "pilot_terms_matched": [],
+      "source_en": "It would also be intriguing to characterize the mechanism of actions and clarify the effective components of TCM treatments or their combinations if possible.",
+      "reference": "क्रियाओं की प्रणाली को चिन्हित करना और यदि संभव हो तो TCM उपचारों या उनके संयोजनों के प्रभावी घटकों को स्पष्ट करना भी दिलचस्प होगा।",
+      "hypothesis": "यह भी दिलचस्प होगा कि कार्यों की प्रक्रिया की विशेषता क्या होगी और टीसीएम उपचार के प्रभावकारी अवयव या यदि संभव हो तो उनके संयोजन को स्पष्ट करें ।",
+      "labse_cosine": 0.9207873069997536,
+      "sentence_bleu": 12.288887055424896,
+      "inference_seconds": 1.03406710003037
+    },
+    {
+      "test_split_index": 327,
+      "pilot_terms_matched": [],
+      "source_en": "Mandatory contact tracing and quarantine, as a part of the public health responses to the COVID-19 outbreak, can make people more anxious and guilty about the effects of the contagion, quarantine, and stigma on their families and friends.",
+      "reference": "COVID-19 प्रकोप की सार्वजनिक स्वास्थ्य प्रतिक्रियाओं के भाग के रूप में अनिवार्य संपर्क ढूंढना और क्वारंटीन; लोगों को छूत, क्वारंटीन और उनके परिवारों व मित्रों पर कलंक के प्रभावों के बारे में और अधिक बेचैन तथा ग्लानिपूर्ण बना सकता है।",
+      "hypothesis": "आम स्वास्थ्य प्रतिक्रिया के एक भाग के रूप में CVID-19 की शुरुआत, लोगों को अधिक चिंता और अपराधी बना सकते हैं उनके परिवार और दोस्तों पर कलंक.",
+      "labse_cosine": 0.7761523709453497,
+      "sentence_bleu": 8.393734184892296,
+      "inference_seconds": 1.0346852999646217
+    },
+    {
+      "test_split_index": 351,
+      "pilot_terms_matched": [],
+      "source_en": "It is worth noting that age and underlying disease are strongly correlated and might interfere with each other.",
+      "reference": "यह ध्यान देने योग्य है कि आयु और अंतर्निहित रोग में गहरी सहसंबंधता है और एक-दूसरे के साथ हस्तक्षेप कर सकते हैं।",
+      "hypothesis": "यह इस बात पर निर्भर नहीं कि उम्र और मूलभूत रोग को अत्यधिक रूप से प्रभावित किया जाता है और एक दूसरे में बाधा डाल सकते हैं ।",
+      "labse_cosine": 0.743960308982448,
+      "sentence_bleu": 3.776949794525175,
+      "inference_seconds": 0.9494556999998167
+    },
+    {
+      "test_split_index": 357,
+      "pilot_terms_matched": [],
+      "source_en": "Major clinical symptoms: Chest radiography and temporal progression of clinical symptoms should be considered together with the other issues for the prediction of outcomes and complications of COVID-19.",
+      "reference": "प्रमुख नैदानिक लक्षण: अन्य समस्याओं के साथ सीने की रेडियोग्राफी और नैदानिक लक्षणों की सामयिक प्रगति की COVID-19 के परिणामों और जटिलताओं के पूर्वानुमान के लिए विचार किया जाना चाहिए।",
+      "hypothesis": "मुख्य रसायनीय लक्षण: TEVD-19 की भविष्यवाणी के अन्य मुद्दों और CVID-19 की समस्याओं के बारे में जाँच की जानी चाहिए।",
+      "labse_cosine": 0.7718357534151314,
+      "sentence_bleu": 4.108728345448725,
+      "inference_seconds": 1.1728028999641538
+    },
+    {
+      "test_split_index": 373,
+      "pilot_terms_matched": [],
+      "source_en": "Ira Longini, et al., established a model to predict the outcome of the epidemic and suggested that SARS-CoV-2 could infect two-thirds of the global population.",
+      "reference": "इरा लॉन्गिनी, et al., ने महामारी के परिणाम का पूर्वानुमान लगाने के लिए प्रतिरूप स्थापित किया और संकेत दिया कि SARS-CoV-2 विश्व की दो-तिहाई जनसंख्या को संक्रमित कर सकता है।",
+      "hypothesis": "आईरा लिशनी, ईट अल ने एक मॉडल स्थापित किया जो महामारी के परिणाम का वर्णन करने के लिए और सुझाव दिया कि SAAS-CV-S-S-S-S-S-S-S-S-S-S-S-को वैश्विक जनसंख्या के दो तिहाई कोमा सकता है।",
+      "labse_cosine": 0.7715905160651476,
+      "sentence_bleu": 12.302193984783559,
+      "inference_seconds": 2.172688000020571
+    },
+    {
+      "test_split_index": 380,
+      "pilot_terms_matched": [],
+      "source_en": "SARS-CoV-2 is highly transmittable through coughing or sneezing, and possibly also through direct contact with materials contaminated by the virus.",
+      "reference": "SARS-CoV-2 खांसने या छींकने और संभवतः वायरस से दूषित सामग्रियों के साथ प्रत्यक्ष संपर्क से भी अत्यधिक संचरणीय है।",
+      "hypothesis": "SARS-CV-V- 2 बीमारियों को रोकने या इलाज के माध्यम से बहुत अधिक ट्रांसमिटर है, और संभवतः वायरस द्वारा दूषित पदार्थों के साथ प्रत्यक्ष संपर्क के माध्यम से भी.",
+      "labse_cosine": 0.866537655936629,
+      "sentence_bleu": 13.461801293778903,
+      "inference_seconds": 1.3086107999552041
+    },
+    {
+      "test_split_index": 383,
+      "pilot_terms_matched": [],
+      "source_en": "Thus, great precaution should be used to protect humans, especially health-care providers, social workers, family members, colleagues, and even bystanders in contact with patients or infected people.",
+      "reference": "इसलिए, मनुष्यों, विशेष रूप से स्वास्थ्य देखभाल प्रदाताओं, सामाजिक कार्यकर्ताओं, पारिवारिक सदस्यों, सहकर्मियों और रोगियों के संपर्क में बगल में खड़े लोगों या संक्रमित लोगों की रक्षा के लिए भी बहुत सावधानी बरतनी चाहिए।",
+      "hypothesis": "इस प्रकार, मनुष्यों की रक्षा करने के लिए बड़े सावधानी का प्रयोग किया जाना चाहिए, ख़ासकर स्वास्थ्य - रक्षक प्रबन्धों, सामाजिक कर्मचारियों, परिवार के सदस्यों, साथ काम करनेवालों, और यहाँ तक कि बीमार लोगों के साथ संपर्क में रहने के लिए ।",
+      "labse_cosine": 0.9098960099057033,
+      "sentence_bleu": 4.179519500716226,
+      "inference_seconds": 1.535574399982579
+    },
+    {
+      "test_split_index": 384,
+      "pilot_terms_matched": [],
+      "source_en": "The first line of defense that could be used to lower the risk of infection is through wearing face masks; both the use of surgical masks and N95 respirator masks (series # 1860s) helps control the spread of viruses.",
+      "reference": "रक्षा की प्रथम पंक्ति जिसे संक्रमण के जोखिम को कम करने के लिए उपयोग किया जा सकता है, वह है मास्क पहनना है; शल्यचिकित्सीय मास्क और N95 श्वसन मास्क (सीरीज़ # 1860s) दोनों के उपयोग से वायरस के प्रसार को नियंत्रित करने में सहायता मिलती है।",
+      "hypothesis": "संक्रमण के ख़तरे को कम करने के लिए इस्तेमाल किया जा सकता है, पहली पंक्ति चेहरे के मास्क पहनने के द्वारा है; दोनों ऑपरेशन मास्कों का प्रयोग और N95 recrents मास्क (संबर # 1860) को फैलाने में मदद करती है ।",
+      "labse_cosine": 0.8957436872342232,
+      "sentence_bleu": 19.500105153422947,
+      "inference_seconds": 1.7243042999180034
+    },
+    {
+      "test_split_index": 387,
+      "pilot_terms_matched": [],
+      "source_en": "Since particles can penetrate even five surgical masks stacked together, health-care providers in direct contact with patients must wear N95 (series # 1860s) masks but not surgical masks.",
+      "reference": "चूंकि कण एक के ऊपर एक रखे गए पाँच शल्यचिकित्सीय मास्कों को भी पार कर सकते हैं, रोगियों के साथ प्रत्यक्ष संपर्क वाले स्वास्थ्य देखभाल प्रदाताओं को आवश्यक रूप से N95 (सीरीज़ # 1860s) मास्कें पहनने चाहिए, अपितु शल्यचिकित्सीय मास्कें नहीं।",
+      "hypothesis": "क्योंकि कण भी पाँच ऑपरेशन मास्कों में प्रवेश कर सकते हैं, मरीज़ों के साथ प्रत्यक्ष संपर्क में स्वास्थ्य - प्रबन्धियों को N95 (संबर # 1860s) मास्कों को पहनना चाहिए लेकिन नहीं.",
+      "labse_cosine": 0.8942067903955904,
+      "sentence_bleu": 15.193854602133698,
+      "inference_seconds": 1.4374846999999136
+    },
+    {
+      "test_split_index": 397,
+      "pilot_terms_matched": [],
+      "source_en": "This message remarkably relaxed the alarm of the public, especially when the entire country was preparing for the Spring Festival, and the critical time was missed to contain the disease at its minimal scale in Wuhan.",
+      "reference": "इस संदेश ने जनता को काफी भय मुक्त कर दिया, विशेष रूप से तब जब पूरा देश वसंतोत्सव की तैयारियाँ कर रहा था और रोग को वुहान में न्यूनतम स्तर तक सीमित करने का नाज़ुक समय निकल गया।",
+      "hypothesis": "इस संदेश ने जनता के अलार्म को बहुत ही तनाव में डाल दिया, खासकर जब पूरा देश वसंत के पर्व की तैयारी कर रहा था ।",
+      "labse_cosine": 0.8451909634964422,
+      "sentence_bleu": 11.780628179184184,
+      "inference_seconds": 0.9140368000371382
+    },
+    {
+      "test_split_index": 398,
+      "pilot_terms_matched": [],
+      "source_en": "The disease control agencies in China may take this hard lesson and make critical improvements in the future.",
+      "reference": "चीन में रोग नियंत्रण एजेंसियाँ इससे बड़ी सीख ले सकती हैं और भविष्य में महत्वपूर्ण सुधार कर सकती हैं।",
+      "hypothesis": "चीन में बीमारी नियंत्रण एजेन्सियाँ शायद इस कठिन सबक़ को लें और भविष्य में गंभीर सुधार करें ।",
+      "labse_cosine": 0.8723829942712206,
+      "sentence_bleu": 10.343956523537935,
+      "inference_seconds": 0.6865498999832198
+    },
+    {
+      "test_split_index": 402,
+      "pilot_terms_matched": [],
+      "source_en": "Since the virus is very similar to SARS-CoV and the symptoms are also similar between COVID-19 and SARS, the outbreak of COVID-19 has created a sense of SARS recurring.",
+      "reference": "चूँकि वायरस SARS-CoV के बहुत समान है और COVID-19 और SARS के बीच लक्षण भी समान हैं, COVID-19 के प्रकोप ने SARS के बार-बार होने का बोध कराया है।",
+      "hypothesis": "क्योंकि यह वायरस SAS-CV और लक्षणों के लिए बहुत ही समान है COVD-19 और SAS के बीच भी कुछ इसी तरह के लक्षण हैं, CCOVD-19 के प्रारंभ ने SIVD-19 की बारंबारता की भावना बनाई है।",
+      "labse_cosine": 0.8618779337433864,
+      "sentence_bleu": 4.608177475231873,
+      "inference_seconds": 2.0781964999623597
+    },
+    {
+      "test_split_index": 404,
+      "pilot_terms_matched": [],
+      "source_en": "COVID-19 affects more elderly individuals than youth and more men than women, and the severity and death rate are also higher in elderly individual than in youth.",
+      "reference": "COVID-19 युवा लोगों की अपेक्षा बूढ़े लोगों और महिलाओं की अपेक्षा पुरुषों को अधिक प्रभावित करता है, और बुजुर्गों में गंभीरता और मृत्यु दर भी युवाओं की अपेक्षा अधिक है।",
+      "hypothesis": "CVID-19 का असर युवाओं और स्त्रियों से अधिक बुज़ुर्ग लोगों पर पड़ता है, और जवानी के वृद्ध व्यक्‍ति से भी अधिक कठोर और मृत्यु दर है ।",
+      "labse_cosine": 0.9127617977230473,
+      "sentence_bleu": 8.931408835734649,
+      "inference_seconds": 1.6371285999193788
+    },
+    {
+      "test_split_index": 414,
+      "pilot_terms_matched": [],
+      "source_en": "What animal was the intermediate species to transmit the virus from the original host, say bats, to humans?",
+      "reference": "मूल पोषक, मान लीजिए चमगादड़ से मानव में वायरस के प्रसारण में मध्यवर्ती प्रजाति कौन-सा जंतु था?",
+      "hypothesis": "इस वायरस को शुरू के होस्ट से निकालने के लिए कौन - सी अनोखी जातियाँ थीं, जिन्हें इंसानों से कहा जाता है?",
+      "labse_cosine": 0.7045379620178011,
+      "sentence_bleu": 2.352622489487909,
+      "inference_seconds": 1.5431599000003189
+    },
+    {
+      "test_split_index": 419,
+      "pilot_terms_matched": [],
+      "source_en": "How long will the epidemic last?",
+      "reference": "महामारी कितने समय तक बनी रहेगी?",
+      "hypothesis": "यह महामारी कब तक रहेगी?",
+      "labse_cosine": 0.9414539628708197,
+      "sentence_bleu": 16.341219448835542,
+      "inference_seconds": 0.3635789999971166
+    },
+    {
+      "test_split_index": 420,
+      "pilot_terms_matched": [],
+      "source_en": "How is the virus genetically evolving during transmission among humans?",
+      "reference": "मानव में संचरण के दौरान वायरस किस प्रकार आनुवंशिक रूप से विकसित हो रहा है?",
+      "hypothesis": "इंसान के पैदा होने के दौरान यह वायरस किस तरह फैल जाता है?",
+      "labse_cosine": 0.892971077269763,
+      "sentence_bleu": 8.52790258816091,
+      "inference_seconds": 1.0068429000675678
+    },
+    {
+      "test_split_index": 436,
+      "pilot_terms_matched": [],
+      "source_en": "The current CoV disease 2019 (COVID-19) epidemic is discussed in this context.",
+      "reference": "वर्तमान CoV रोग 2019 (COVID-19) महामारी की इस परिप्रेक्ष्य में चर्चा की जाती है।",
+      "hypothesis": "मौजूदा कोवी रोग २०१९ (COVI-19) महामारी इस संदर्भ में चर्चा की जाती है।",
+      "labse_cosine": 0.9001485012893302,
+      "sentence_bleu": 28.939523428407796,
+      "inference_seconds": 1.1509296000003815
+    },
+    {
+      "test_split_index": 448,
+      "pilot_terms_matched": [],
+      "source_en": "To date, seven human CoVs (HCoVs) are known.",
+      "reference": "आज तक, सात मानवीय CoVs (HCoVs) ज्ञात हैं।",
+      "hypothesis": "तिथि के लिए, सात मानव कोवी (केवीस) जाना जाता है ।",
+      "labse_cosine": 0.7644362544288922,
+      "sentence_bleu": 6.754312828675709,
+      "inference_seconds": 0.8216296000173315
+    },
+    {
+      "test_split_index": 450,
+      "pilot_terms_matched": [],
+      "source_en": "The other five beta-CoVs include HCoV-OC43, HCoV-HKU1, severe acute respiratory syndrome coronavirus (SARS-CoV), Middle East respiratory syndrome coronavirus (MERS-CoV) and SARS-CoV-2.",
+      "reference": "अन्य पाँच बीटा-CoVs में HCoV-OC43, HCoV-HKU1, गंभीर तीव्र श्वसन सिंड्रोम कोरोनावायरस (SARS-CoV), मिडिल ईस्ट श्वसन सिंड्रोम कोरोनावायरस (MERS-CoV) और SARS-CoV-2 शामिल हैं।",
+      "hypothesis": "अन्य पांच पेसा- को- को- कोवी-ओ-ओ- 843, HTV-JUUUU, गंभीर श्‍वेत श्‍वेत श्‍वेत श्‍वेत श्‍व्सस (सा.",
+      "labse_cosine": 0.5842248036737393,
+      "sentence_bleu": 3.0077740543717595,
+      "inference_seconds": 3.8592051999876276
+    },
+    {
+      "test_split_index": 457,
+      "pilot_terms_matched": [],
+      "source_en": "Ten years later, the Middle East respiratory syndrome (MERS) outbreak resulted in a persistent epidemic in the Arabian Peninsula with sporadic spreading to the rest of the world.",
+      "reference": "दस वर्ष बाद, मध्य पूर्व श्वसन सिंड्रोम (MERS) प्रकोप ने विश्व में अन्यत्र छिटपुट प्रसार के साथ अरब प्रायद्वीप में लगातार बनी रहने वाली महामारी उत्पन्न की।",
+      "hypothesis": "दस साल बाद, मध्य पूर्व श्‍वेत श्‍वेत रक्‍त - क्षेत्र में एक लगातार महामारी फैलने लगी और दुनिया भर में फैल गयी ।",
+      "labse_cosine": 0.7777483562120158,
+      "sentence_bleu": 9.394627311725937,
+      "inference_seconds": 1.2677022999851033
+    },
+    {
+      "test_split_index": 459,
+      "pilot_terms_matched": [],
+      "source_en": "The alarm has been ringing and the world has to prepare for the coming pandemic of SARS-CoV-2.",
+      "reference": "चेतावनी की घंटी बज रही है और विश्व को SARS-CoV-2 की आने वाली महामारी के लिए तैयार होना है।",
+      "hypothesis": "अलार्म बज रहा है और दुनिया के लिए SarthS-CV--S-2 की आनेवाली महामारी के लिए तैयार किया गया है.",
+      "labse_cosine": 0.8751295409204508,
+      "sentence_bleu": 16.19557012853241,
+      "inference_seconds": 1.3985355000477284
+    },
+    {
+      "test_split_index": 470,
+      "pilot_terms_matched": [],
+      "source_en": "Before the first isolation of HCoV-229E strain B814 from the nasal discharge of patients who had contracted common cold, different CoVs had been isolated in various infected animals, including turkey, mouse, cow, pig, cat and dog.",
+      "reference": "संक्रमित आम जुकाम वाले रोगियों की नासिका बहाव से पहली बार पृथक किए गए HCoV-229E नस्ल के पहले, टर्की, चूहा, गाय, सूअर, बिल्ली और कुत्ते सहित कई संक्रमित जन्तुओं से भिन्न-भिन्न CoVs अलग किए गए थे।",
+      "hypothesis": "HTV- 229EECCEC के पहले अलगाव से पहले... ... उन मरीज़ों से जो सामान्य रूप से ठंड महसूस किया गया था, अलग कोवीक, माउस, गाय, सूअर, और कुत्ते के संपर्क में पृथक किया गया था.",
+      "labse_cosine": 0.8409533141474157,
+      "sentence_bleu": 11.085434134712651,
+      "inference_seconds": 2.4547305000014603
+    },
+    {
+      "test_split_index": 496,
+      "pilot_terms_matched": [],
+      "source_en": "Although it was identified in Netherlands, it is actually distributed globally.",
+      "reference": "हालांकि इसकी नीदरलैंड में पहचान की गई लेकिन वास्तव में यह विश्व भर में फैला हुआ है।",
+      "hypothesis": "हालाँकि इसे नेदरलैंड्‌स में पहचाना गया था, मगर असल में इसे दुनिया भर में वितरित किया गया है ।",
+      "labse_cosine": 0.9575158455699664,
+      "sentence_bleu": 4.553719184146073,
+      "inference_seconds": 1.077998699969612
+    },
+    {
+      "test_split_index": 512,
+      "pilot_terms_matched": [],
+      "source_en": "World Health Organization declared the ongoing outbreak of lower respiratory tract infection caused by SARS-CoV-2 a Public Health Emergency of International Concern and also named the disease COVID-19.",
+      "reference": "विश्व स्वास्थ संगठन ने SARS-CoV-2 के कारण निचले श्वसन मार्ग संक्रमण के चल रहे प्रकोप को अंतर्राष्ट्रीय चिंता वाली सार्वजनिक स्वास्थ्य आपातस्थिति घोषित किया और रोग को COVID-19 नाम भी दिया।",
+      "hypothesis": "विश्‍व स्वास्थ्य संगठन ने कम श्‍वेत रक्‍त संक्रमण की जारी वृद्धि की घोषणा की है SAV-CV-S-CV-2 अंतर्राष्ट्रीय चिंता के एक सार्वजनिक आपातकालीन और इस बीमारी के नाम भी.",
+      "labse_cosine": 0.8174890053301622,
+      "sentence_bleu": 4.947416800567726,
+      "inference_seconds": 2.458033400005661
+    },
+    {
+      "test_split_index": 516,
+      "pilot_terms_matched": [],
+      "source_en": "Diarrhea is also seen in some patients.",
+      "reference": "कुछ रोगियों में दस्त भी देखा जाता है।",
+      "hypothesis": "कुछ मरीज़ों में भी एम्बर्गा देखने को मिलती है ।",
+      "labse_cosine": 0.8305398277546618,
+      "sentence_bleu": 5.522397783539471,
+      "inference_seconds": 0.5697505000280216
+    },
+    {
+      "test_split_index": 526,
+      "pilot_terms_matched": [],
+      "source_en": "On the other hand, a small subset of severe cases of COVID-19 can also be seen as in the case of SARS-CoV infection, although the ratio is a bit lower.",
+      "reference": "दूसरी ओर, COVID-19 के गंभीर मामलों का एक छोटा सबसेट भी देखा जा सकता है, जैसा कि SARS-CoV के संक्रमण के मामले में है, हालांकि अनुपात थोड़ा कम है।",
+      "hypothesis": "दूसरी ओर, CAVD-19 के गंभीर मामलों का एक छोटा सा सबूत भी देखा जा सकता है जैसे SAAS - CS - CV संक्रमण के मामले में, जबकि अनुपात थोड़ा कम है।",
+      "labse_cosine": 0.9106156627625577,
+      "sentence_bleu": 42.76389890348464,
+      "inference_seconds": 1.8559278000611812
+    },
+    {
+      "test_split_index": 542,
+      "pilot_terms_matched": [],
+      "source_en": "These viruses do not need an animal reservoir.",
+      "reference": "इन वायरसों को जन्तु कोश की आवश्यकता नहीं है।",
+      "hypothesis": "इन वायरसों को एक पशु - चक्र की ज़रूरत नहीं है ।",
+      "labse_cosine": 0.9232581120006239,
+      "sentence_bleu": 14.323145079400492,
+      "inference_seconds": 0.6568584000924602
+    },
+    {
+      "test_split_index": 567,
+      "pilot_terms_matched": [],
+      "source_en": "These bats are positive for anti-SARS-CoV antibodies and genome sequence of SARSr-Rh-BatCoV HKU3.",
+      "reference": "ये चमगादड़ SARS-CoV-रोधी प्रतिरक्षियों और SARSr-Rh-BatCoV HKU3 के जीनोम अनुक्रम के प्रति सकारात्मक हैं।",
+      "hypothesis": "ये बल्ला विरोधी - कोर-कोव के अनुक्रम के लिए सकारात्मक हैं SARS-RSCYAT-RACKS HU3 के अनुक्रम के लिए।",
+      "labse_cosine": 0.7974156724486388,
+      "sentence_bleu": 5.751391809950023,
+      "inference_seconds": 1.7294063000008464
+    },
+    {
+      "test_split_index": 572,
+      "pilot_terms_matched": [],
+      "source_en": "WIV1 derived from fecal sample of bats was demonstrated to use bat, civet and human ACE2 as receptor for cell entry.",
+      "reference": "चमगादड़ों के मल के नमूनों से निकाले गए WIV1 को चमगादड़, सीवेट और मानव ACE2 को कोशिकीय प्रवेश के लिए ग्राही के रूप में उपयोग करने के लिए प्रदर्शित किया गया था।",
+      "hypothesis": "बिस्कुट की नमूना से प्राप्त वी१ प्रदर्शित किया गया था कि बफल, कैंची और मानव एएस2 को कक्ष प्रविष्टि के लिए क्लीक के रूप में प्रयोग करें.",
+      "labse_cosine": 0.8010206601537774,
+      "sentence_bleu": 9.42209932586259,
+      "inference_seconds": 1.5990301000420004
+    },
+    {
+      "test_split_index": 575,
+      "pilot_terms_matched": [],
+      "source_en": "Albeit the high homology between these two viruses, it is generally believed that WIV1 is not the immediate parental virus of SARS-CoV and bats are not the immediate reservoir host of SARS-CoV.",
+      "reference": "इन दोनों वायरसों में अधिक समानता के बावजूद, आमतौर पर यह माना जाता है कि WIV1 SARS-CoV का निकटतम पैतृक वायरस नहीं है और चमगादड़ SARS-CoV के निकटतम कोश पोषक नहीं हैं।",
+      "hypothesis": "इन दो वायरसों के बीच उच्च हॉबीनी, यह आम तौर पर माना जाता है कि SAVAS-CAV और बाइट के तत्काल माता - पिता वायरस नहीं हैं SASV की सेना SAV की है।",
+      "labse_cosine": 0.8248477194453973,
+      "sentence_bleu": 10.333984099535913,
+      "inference_seconds": 2.141494099982083
+    },
+    {
+      "test_split_index": 586,
+      "pilot_terms_matched": [],
+      "source_en": "However, questions still remain since many confirmed cases of MERS have no contact history with camels prior to symptom onset, plausibly ascribed to human-to-human transmission or unknown transmission routes involving unrecognized animal species that harbour MERS-CoV.",
+      "reference": "हालांकि, प्रश्न अभी भी उपस्थित हैं चूंकि MERS के कई पुष्ट मामलों के लक्षण की शुरुआत से पहले ऊंटों के साथ संपर्क का कोई इतिहास नहीं है, संभवतः इसका कारण मानव से मानव संचरण या कोई अज्ञात संचरण मार्ग होते हैं जिनमें MERS-CoV को आश्रय देने वाली जन्तुओं की प्रजाति शामिल होती है।",
+      "hypothesis": "हालांकि, इन प्रश्नों के बाद से अब तक जारी रहे हैं... ... Mners के कई ठोस मामलों पर लक्षणों से पहले ऊँट के साथ कोई संपर्क नहीं है, Waucuu-M-to-to-M-Cation या अज्ञात समाधानों के लिए, जो नकली जीव जाति के साथ Mn-CV.",
+      "labse_cosine": 0.7677291384374906,
+      "sentence_bleu": 5.127586209090712,
+      "inference_seconds": 2.615602600038983
+    },
+    {
+      "test_split_index": 627,
+      "pilot_terms_matched": [],
+      "source_en": "The evolutionary origin of MERS-CoV from bats is known at its initial identification and has also been strengthened by subsequent findings.",
+      "reference": "चमगादड़ों से MERS-CoV के क्रमिक विकास को इसकी प्राथमिक पहचाना पर जाना जाता है और बाद के निष्कर्षों द्वारा और भी मजबूत हुआ है।",
+      "hypothesis": "Born-CV से विकास उद्‌गम अपनी प्रारंभिक पहचान पर जाना जाता है और बाद में खोज से भी मजबूत किया गया है.",
+      "labse_cosine": 0.781118521944751,
+      "sentence_bleu": 23.1070984407577,
+      "inference_seconds": 1.152137800003402
+    },
+    {
+      "test_split_index": 637,
+      "pilot_terms_matched": [],
+      "source_en": "Several possibilities for interspecies transmission of SARS-CoV-2 from animals to humans have to be ruled in or ruled out in future studies.",
+      "reference": "जन्तुओं से मानव में SARS-CoV-2 के अंतर्जातीय संचरण की कई संभावनाओं को भविष्य के अध्ययनों में स्वीकार या खंडन किया जाना है।",
+      "hypothesis": "जानवरों में से मनुष्यों पर शासन करने या भविष्य के अध्ययनों में शासन करने की कई संभावनाएं हैं।",
+      "labse_cosine": 0.6983768170613393,
+      "sentence_bleu": 14.169028445914154,
+      "inference_seconds": 1.1863026999635622
+    },
+    {
+      "test_split_index": 648,
+      "pilot_terms_matched": [],
+      "source_en": "In comparison to other single-stranded RNA viruses, the estimated mutation rates of CoVs could be regarded as “moderate” to “high” with an average substitution rate being ~10-4 substitution per year per site 2, depending on the phase of CoV adaptation to novel hosts.",
+      "reference": "अन्य एकल-तंतु वाले RNA वायरसों की तुलना में, नए पोषको में CoV अनुकूलन के चरण पर निर्भर करते हुए ~10-4 प्रतिस्थापन प्रति वर्ष प्रति स्थल 2 की औसतन प्रतिस्थापन दर के साथ CoV की अनुमानित उत्परिवर्तन दर “मध्यम” से “उच्च” मानी जा सकती है।",
+      "hypothesis": "अन्य एकल-भरित RNA वायरस की तुलना में, कोवीएस के अनुमानित उत्परिवर्तन की दर को “कम ” के रूप में माना जा सकता है कि वह औसत अनुमानित दर प्रति वर्ष ~10-4 घटित हो रही है।",
+      "labse_cosine": 0.8714609201244109,
+      "sentence_bleu": 12.974503665235819,
+      "inference_seconds": 2.5606131999520585
+    },
+    {
+      "test_split_index": 654,
+      "pilot_terms_matched": [],
+      "source_en": "Compared to SARS-CoV with a high mutation rate, the mutation rate of SARS-CoV-2 is apparently lower, suggestive of a higher level of adaptation to humans.",
+      "reference": "उच्च उत्परिवर्तन दर के साथ SARS-CoV की तुलना में, SARS-CoV-2 की उत्परिवर्तन दर स्पष्ट रूप से कम है, जो मनुष्यों में अनुकूलन का उच्च स्तर की ओर इशारा करती है।",
+      "hypothesis": "SARS-CV की तुलना उच्च उत्परिवर्तन दर के साथ, SAAV- CV-S-T-2 की उत्परिवर्तन दर स्पष्ट रूप से कम है, मनुष्यों के लिए अनुकूलन के एक उच्च स्तर का सुझाव है.",
+      "labse_cosine": 0.9195227051080355,
+      "sentence_bleu": 41.10573751509463,
+      "inference_seconds": 1.7005496999481693
+    },
+    {
+      "test_split_index": 656,
+      "pilot_terms_matched": [],
+      "source_en": "In addition to SARS-CoV-2, this also applies to MERS-CoV, which is well adapted to dromedary camels.",
+      "reference": "SARS-CoV-2 के साथ, यह MERS-CoV पर भी लागू होता है जो कूबड़ वाले ऊंटों में अच्छी तरह से अनुकूलित हो गया है।",
+      "hypothesis": "Sarthas- CV-2 के अलावा, यह एम- को- कोवी पर भी लागू होता है, जो कि drodred ऊंटों के लिए अच्छी तरह से अनुकूल है।",
+      "labse_cosine": 0.8920795001149131,
+      "sentence_bleu": 21.62050865049026,
+      "inference_seconds": 1.3449627999216318
+    },
+    {
+      "test_split_index": 662,
+      "pilot_terms_matched": [],
+      "source_en": "Highly homologous full-length and subgenomic RNAs could recombine to generate new CoVs.",
+      "reference": "बेहद समान पूरी-लंबाई वाले और सबजीनोमिक RNA, पुनःसंयोजित होकर नए CoVs उत्पन्न कर सकते हैं।",
+      "hypothesis": "उच्च रूप से पूरा होमोथ पूरा और उपाणु आरएन आरईएल को नए कोवीस बनाने के लिए फिर से बना सकता है.",
+      "labse_cosine": 0.7303072941005302,
+      "sentence_bleu": 2.0540268312306345,
+      "inference_seconds": 1.1099630000535399
+    },
+    {
+      "test_split_index": 667,
+      "pilot_terms_matched": [],
+      "source_en": "Based on the comparative analysis between isolates of human and civet SARS-CoVs, SARS-CoV is thought to undergo rapid adaptation in different hosts, particularly with mutations at the RBD of the S protein.",
+      "reference": "मानव और सीवेट SARS-CoVs के बीच वियोजकों के तुलनात्मक विश्लेषण के आधार पर, विशेष रुप से S प्रोटीन के RBD पर उत्परिवर्तनों के साथ SARS-CoV को विभिन्न पोषकों में तेजी से अनुकूलित होने वाला माना जाता है।",
+      "hypothesis": "मानव और CARAS - CASV, SAAS-CV के बीच पर आधारित, सोचा जाता है कि अलग दलों में तेज़ी से समायोजन करने के लिए, विशेष रूप से SBD के RBD पर उत्परिवर्तन के साथ।",
+      "labse_cosine": 0.8339688358669086,
+      "sentence_bleu": 6.899167295120509,
+      "inference_seconds": 1.9916037000948563
+    },
+    {
+      "test_split_index": 670,
+      "pilot_terms_matched": [],
+      "source_en": "The RBD of SARS-CoV is capable of recognizing the ACE2 receptors of various animals, including bat, civet, mouse and raccoon dog, allowing interspecies transmission of the virus.",
+      "reference": "SARS-CoV का RBD चमगादड़, सीवेट, चूहा और रकून कुत्ते सहित विभिन्न जन्तुओं के ACE2 ग्राहियों को पहचानने में सक्षम है, जिससे वायरसों का अंतर्जातीय संचरण होता है।",
+      "hypothesis": "SARS-CV के RBD विभिन्न जानवरों के AAV को स्वीकार करने में सक्षम है, जिसमें बिस्कुट, कैफीन, और माउस के कुत्ते सम्मिलित हैं, वायरस के फैलाव की अनुमति देते हैं.",
+      "labse_cosine": 0.8692340806589279,
+      "sentence_bleu": 8.9682352483466,
+      "inference_seconds": 1.6273745000362396
+    },
+    {
+      "test_split_index": 677,
+      "pilot_terms_matched": [],
+      "source_en": "It will also be of interest to determine whether any other coreceptor might be required for SARS-CoV-2 transmission.",
+      "reference": "यह निर्धारित करना भी रुचिकर होगा कि क्या SARS-CoV-2 संचरण के लिए किसी अन्य सह-ग्राही की आवश्यकता होगी।",
+      "hypothesis": "यह भी यह यह पता लगाने के लिए दिलचस्प होगा कि क्या किसी भी कोर की आवश्यकता हो सकती है SAV-V-2 प्रेषण के लिए।",
+      "labse_cosine": 0.8280418840829575,
+      "sentence_bleu": 9.410489957951636,
+      "inference_seconds": 1.12055530003272
+    },
+    {
+      "test_split_index": 682,
+      "pilot_terms_matched": [],
+      "source_en": "The divergence of these host proteins between humans and natural reservoir hosts of HCoVs such as bats, dromedary camels and rodents might constitute a barrier to interspecies transmission.",
+      "reference": "मनुष्यों और HCoVs के प्राकृतिक कोश पोषक, जैसे कि चमगादड़, कूबड़ वाले ऊंट और मूषकों के बीच इन पोषक प्रोटीनों की भिन्नता अंतर्जातीय संचरण में बाधा बन सकती है।",
+      "hypothesis": "इन मेज़बानों में पाए जानेवाले प्रोटीन, HTVs के अंदर जैसे बफल, पैनी ऊँट और छड़ीएँ एक - दूसरे के लिए एक बाधा बन सकते हैं ।",
+      "labse_cosine": 0.7454781582109589,
+      "sentence_bleu": 3.587873839921291,
+      "inference_seconds": 1.5684312999946997
+    },
+    {
+      "test_split_index": 701,
+      "pilot_terms_matched": [],
+      "source_en": "Last but not least, the evolution of novel HCoVs is also driven by the selection pressure in their reservoir hosts.",
+      "reference": "अंत में लेकिन कम महत्वपूर्ण नहीं, नोवेल HCoVs का क्रमिक विकास अपने कोश पोषकों में चुनाव के दबाव से भी होता है।",
+      "hypothesis": "आखिर में, उपन्यासों का विकास भी उनके जल - शैलों में से चयन द्वारा चलाया जाता है ।",
+      "labse_cosine": 0.6233943400714616,
+      "sentence_bleu": 2.6677820539246824,
+      "inference_seconds": 0.7604327000444755
+    },
+    {
+      "test_split_index": 732,
+      "pilot_terms_matched": [],
+      "source_en": "They are widely distributed across the Middle East and Africa.",
+      "reference": "वे मध्य-पूर्व और अफ्रीका में व्यापक रूप से फैले हुए हैं।",
+      "hypothesis": "वे मध्य पूर्व और अफ्रीका के देशों में व्यापक रूप से वितरित किए जाते हैं ।",
+      "labse_cosine": 0.9454681612989781,
+      "sentence_bleu": 18.92240568795935,
+      "inference_seconds": 0.5599154999945313
+    },
+    {
+      "test_split_index": 752,
+      "pilot_terms_matched": [],
+      "source_en": "Continued investigations in this area will elucidate the evolutionary pathway of SARS-CoV-2 in animals, with important implications in the prevention and control of COVID-19 in humans.",
+      "reference": "इस क्षेत्र में निरंतर जांच मनुष्यों में COVID-19 की रोकथाम और नियंत्रण में महत्वपूर्ण प्रभावों के साथ जन्तुओं में SARS-CoV-2 के क्रमिक विकास मार्गों को स्पष्ट करेगी।",
+      "hypothesis": "इस क्षेत्र में जारी जांच SAS-CAV-TV-S-S-ओ के विकास की अनुमति देगा, जिसमें मनुष्यों में COVD-19 के बचाव और नियंत्रण केंद्र के साथ।",
+      "labse_cosine": 0.767790229165744,
+      "sentence_bleu": 8.663101115538417,
+      "inference_seconds": 1.36308000003919
+    },
+    {
+      "test_split_index": 780,
+      "pilot_terms_matched": [],
+      "source_en": "Bangladesh reports five new deaths due to COVID-19, a daily highest",
+      "reference": "बांग्लादेश में COVID-19 से पांच नई मौतें हुई, अब तक का सबसे अधिक एक-दिनी आंकड़ा",
+      "hypothesis": "बांग्लादेश की पांच नई मृत्यु रिपोर्ट देती है CCMVI-19, एक दैनिक उच्च",
+      "labse_cosine": 0.8157069727592424,
+      "sentence_bleu": 5.832991944906044,
+      "inference_seconds": 0.68160460004583
+    },
+    {
+      "test_split_index": 785,
+      "pilot_terms_matched": [],
+      "source_en": "In an online news briefing, the director of IEDCR, Dr Meerjady Sabrina Flora, said the fatalities included four males and one female.",
+      "reference": "एक ऑनलाइन समाचार ब्रीफ़िंग में, IEDCR की निदेशिका डॉ मीरजादी सबरीना फ़्लोरा ने बताया कि चार पुरुष और एक महिला की मौत हुई है।",
+      "hypothesis": "एक ऑनलाइन समाचार - पत्र में, ई. डी. सी. सी.",
+      "labse_cosine": 0.5876803758207363,
+      "sentence_bleu": 6.315382916346778,
+      "inference_seconds": 0.6184921000385657
+    },
+    {
+      "test_split_index": 788,
+      "pilot_terms_matched": [],
+      "source_en": "The World Health Organization (WHO) declared COVID-19 a pandemic on March 11.",
+      "reference": "विश्व स्वास्थ्य संगठन (WHO) ने 11 मार्च को COVID-19 को एक वैश्विक महामारी घोषित कर दिया है।",
+      "hypothesis": "दुनिया स्वास्थ्य संगठन (WHO) ने 11 मार्च में CVID-19 को एक महामारी घोषित की.",
+      "labse_cosine": 0.9256881759297259,
+      "sentence_bleu": 43.38561263793794,
+      "inference_seconds": 0.7260691999690607
+    },
+    {
+      "test_split_index": 815,
+      "pilot_terms_matched": [],
+      "source_en": "On Wednesday, Woolworths also limited toilet paper purchases for home delivery to one pack per order.",
+      "reference": "बुधवार को, वूलवर्थ्स ने होम डिलीवरी के लिए भी टॉयलेट पेपर खरीदने की सीमा प्रति ऑर्डर एक पैक पर सीमित कर दी।",
+      "hypothesis": "बुधवार को वुल्फवर्थ के पास भी घर के लिए कुछ शौचालय कागज़ खरीदने की सुविधा नहीं थी ।",
+      "labse_cosine": 0.7850585343653766,
+      "sentence_bleu": 5.856819014409219,
+      "inference_seconds": 0.7879620000021532
+    },
+    {
+      "test_split_index": 824,
+      "pilot_terms_matched": [],
+      "source_en": "In a News.com.au report, Dr Gary Mortimer, retail expert from Queensland University of Technology, said the stores fill the stock every night.",
+      "reference": "News.com.au की एक रिपोर्ट में क्वीन्सलैंड यूनिवर्सिटी ऑफ़ टेक्नॉलजी के एक रिटेल विशेषज्ञ डॉ गैरी मोर्टिमर ने बताया कि स्टोर हर रात स्टॉक भरते हैं।",
+      "hypothesis": "समाचार - पत्र कॉम में एक समाचार रिपोर्ट में, वैज्ञानिक विश्‍वविद्यालय के डॉ गैरी मोरर ने कहा कि दुकान हर रात भण्डार को भर देता है ।",
+      "labse_cosine": 0.8855916460539007,
+      "sentence_bleu": 5.0715243111463835,
+      "inference_seconds": 1.0728053000057116
+    },
+    {
+      "test_split_index": 859,
+      "pilot_terms_matched": [],
+      "source_en": "Schools and universities have closed either on a nationwide or local basis in 193 countries, affecting approximately 99.4 percent  of the world's student population.",
+      "reference": "193 देशों में विद्यालय और विश्वविद्यालय राष्ट्रव्यापी या स्थानीय आधार पर बंद हैं, जिससे विश्व के विद्यार्थियों की लगभग 99.4 प्रतिशत आबादी प्रभावित हुई है।",
+      "hypothesis": "स्कूल और विश्‍वविद्यालयों ने १९३ देशों में या स्थानीय आधार पर या स्थानीय आधार पर बंद कर दिया है, दुनिया के विद्यार्थी जनसंख्या के लगभग ९.४ प्रतिशत लोगों को प्रभावित किया है ।",
+      "labse_cosine": 0.9375109161455456,
+      "sentence_bleu": 12.88769653482832,
+      "inference_seconds": 1.696675300016068
+    },
+    {
+      "test_split_index": 865,
+      "pilot_terms_matched": [],
+      "source_en": "Of the early cluster of cases reported in December 2019, two-thirds were found to have a link with the market.",
+      "reference": "दिसंबर 2019 में सूचित किए गए मामलों के शुरुआती समूह में से दो-तिहाई का बाज़ार के साथ संबंध पाया गया।",
+      "hypothesis": "दिसंबर 2019 में रिपोर्ट के शुरू के मामले के बारे में बताया गया था, दो तिहाई बाजार के साथ एक संबंध रखने के लिए मिला था.",
+      "labse_cosine": 0.9002929811825331,
+      "sentence_bleu": 7.02969566273961,
+      "inference_seconds": 1.1103367999894544
+    },
+    {
+      "test_split_index": 868,
+      "pilot_terms_matched": [],
+      "source_en": "By 26 February, relatively few cases had been reported among youths, with those 19 and under making up 2.4% of cases worldwide.The United Kingdom's chief scientific adviser, Patrick Vallance, estimated that 60% of the British population would need to become infected before effective herd immunity could be achieved.",
+      "reference": "26 फरवरी तक, युवाओं में अपेक्षाकृत कम मामले सूचित किए गए थे, उनमें से 19 वर्ष और उससे कम आयु के लोग विश्वभर के मामलों का 2.4% थे। यूनाइटेड किंगडम के मुख्य वैज्ञानिक सलाहकार, पैट्रिक वालेंस, ने अनुमान लगाया कि प्रभावी समूह प्रतिरक्षा प्राप्त करने से पहले 60% ब्रिटिश आबादी को संक्रमित होने की आवश्यकता होगी।",
+      "hypothesis": "26 फरवरी तक, युवाओं के बीच अपेक्षाकृत थोड़े मामलों के बारे में रिपोर्ट दी गई थी, जिनमें 19 और 20 प्रतिशत मामले होते हैं ।",
+      "labse_cosine": 0.7025935688659908,
+      "sentence_bleu": 4.597147097380131,
+      "inference_seconds": 2.262972400058061
+    },
+    {
+      "test_split_index": 871,
+      "pilot_terms_matched": [],
+      "source_en": "A study published on 16 March found that in China, up to 23 January, an estimated 86% of COVID-19 infections had not been detected, and that these undocumented infections were the infection source for 79% of documented cases.",
+      "reference": "16 मार्च को प्रकाशित एक अध्ययन में पाया गया कि चीन में, 23 जनवरी तक, अनुमानित 86% COVID-19 संक्रमणों का पता नहीं लगाया गया था, और यह कि ये अप्रलेखित संक्रमण 79% प्रलेखित मामलों के लिए संक्रमण स्रोत थे।",
+      "hypothesis": "16 मार्च को प्रकाशित किए गए एक अध्ययन ने पाया कि चीन में 23 जनवरी को, CCOMD के अनुमानित 86% संक्रमण का पता नहीं लगाया गया था, और कि ये अनपेक्षित संक्रमण 79% के लिए संक्रमण का स्रोत थे।",
+      "labse_cosine": 0.9384026037190886,
+      "sentence_bleu": 35.877176189820254,
+      "inference_seconds": 1.6674582000123337
+    },
+    {
+      "test_split_index": 876,
+      "pilot_terms_matched": [],
+      "source_en": "For those who do not, the time from development of symptoms to death has been between 6 and 41 days, with the most common being 14 days.",
+      "reference": "जो ठीक नहीं होते हैं, उनमें लक्षणों के विकास से मृत्यु तक का समय 6 और 41 दिनों के बीच रहा है, जिसमें सबसे सामान्य 14 दिन हैं।",
+      "hypothesis": "जो लोग ऐसा नहीं करते, उनके लिए मृत्यु के लक्षणों के विकास से समय ६ और ४१ दिनों के बीच रहा है, जिसमें सबसे सामान्य होना १४ दिन है ।",
+      "labse_cosine": 0.9076807874559164,
+      "sentence_bleu": 35.598612929366965,
+      "inference_seconds": 1.0603911000071093
+    },
+    {
+      "test_split_index": 878,
+      "pilot_terms_matched": [],
+      "source_en": "In China, as of 5 February about 80% of deaths were in those over 60, and 75% had pre-existing health conditions including cardiovascular diseases and diabetes.Official tallies of deaths from the COVID-19 pandemic generally refer to dead people who tested positive for COVID according to official protocols.",
+      "reference": "चीन में, 5 फरवरी तक, लगभग 80% मृत्यु 60 से अधिक उम्र के लोगों में थीं, और 75% मामलों में हृदय संबंधी रोग और मधुमेह सहित पहले से मौजूद स्वास्थ्य संबंधी स्थितियाँ थीं। COVID-19 महामारी से होने वाली मृत्यु की आधिकारिक गणना सामान्य रूप से, आधिकारिक प्रोटोकॉलों के अनुसार COVID के लिए पॉज़िटिव पाए गए मृत लोगों को संदर्भित करती है।",
+      "hypothesis": "चीन में लगभग ८० प्रतिशत मृत्युओं के बारे में के रूप में उन 60 से अधिक थे, और 75% के पास शारीरिक स्वास्थ्य संबंधी बीमारियों और मधुमेह सहित थे ।",
+      "labse_cosine": 0.8150936582138341,
+      "sentence_bleu": 5.762529054464741,
+      "inference_seconds": 2.4830572000937536
+    },
+    {
+      "test_split_index": 882,
+      "pilot_terms_matched": [],
+      "source_en": "The first death outside mainland China occurred on 1 February in the Philippines, and the first death outside Asia was in France on 14 February.",
+      "reference": "मुख्य भूमि चीन के बाहर पहली मृत्यु 1 फरवरी को फिलीपींस में हुई थी, और एशिया के बाहर पहली मृत्यु 14 फरवरी को फ्रांस में हुई थी।",
+      "hypothesis": "चीन से बाहर पहली मृत्यु 1 फरवरी को हुई, और एशिया के बाहर की पहली मृत्यु 14 फरवरी को फ्रांस में हुई ।",
+      "labse_cosine": 0.9553110920037731,
+      "sentence_bleu": 54.45565428395555,
+      "inference_seconds": 0.829122900031507
+    },
+    {
+      "test_split_index": 896,
+      "pilot_terms_matched": [],
+      "source_en": "But it's almost impossible to make any sensible projection right now about when that will be\".",
+      "reference": "लेकिन वह कब होगा, इसके बारे में अभी कोई भी समझदारी भरा अनुमान लगाना लगभग असंभव है\"।",
+      "hypothesis": "लेकिन यह लगभग असंभव है के बारे में अभी के बारे में किसी भी गुप्त प्रक्षेपण करने के लिए. \"",
+      "labse_cosine": 0.8183090391383989,
+      "sentence_bleu": 12.58220555845937,
+      "inference_seconds": 0.6996190999634564
+    },
+    {
+      "test_split_index": 899,
+      "pilot_terms_matched": [],
+      "source_en": "According to the Imperial College study led by Neil Ferguson, physical distancing and other measures will be required \"until a vaccine becomes available (potentially 18 months or more)\".",
+      "reference": "नील फर्ग्यूसन के नेतृत्व में इम्पीरियल कॉलेज के अध्ययन के अनुसार, शारीरिक दूरी बनाना और अन्य उपायों की तब तक आवश्यकता होगी \"जब तक एक टीका उपलब्ध नहीं हो जाता है (संभवत: 18 महीने या अधिक)\"।",
+      "hypothesis": "\"यहाँ तक कि जब तक एक वैक्सीन उपलब्ध न हो (एक 18 महीने या उससे अधिक).",
+      "labse_cosine": 0.7226546546712289,
+      "sentence_bleu": 4.868704643700058,
+      "inference_seconds": 0.716261800029315
+    },
+    {
+      "test_split_index": 900,
+      "pilot_terms_matched": [],
+      "source_en": "William Schaffner of Vanderbilt University stated, \"I think it's unlikely that this coronavirus—because it's so readily transmissible—will disappear completely\" and it \"might turn into a seasonal disease, making a comeback every year\".",
+      "reference": "वेंडरबिल्ट यूनिवर्सिटी के विलियम शेफ़नर ने कहा, \"मुझे लगता है कि यह संभावना नहीं है कि यह कोरोनावायरस पूरी तरह से समाप्त हो जाएगा, क्योंकि यह बहुत आसानी से प्रसारित होता है\" और यह \"मौसमी रोग में बदल सकता है, जो हर वर्ष वापस आता है\"।",
+      "hypothesis": "\"मुझे लगता है कि यह Cavienus है - क्योंकि यह इतनी आसानी से समाप्त हो जाएगा - पूरी तरह से गायब हो जाएगा\" और यह \"muld एक जटिल बीमारी में बदल जाता है, हर साल आने के लिए. \"",
+      "labse_cosine": 0.7813801948338173,
+      "sentence_bleu": 22.686265244653566,
+      "inference_seconds": 1.8291735000675544
+    },
+    {
+      "test_split_index": 903,
+      "pilot_terms_matched": [],
+      "source_en": "The two most common symptoms are fever (88%) and dry cough (68%).",
+      "reference": "दो सबसे सामान्य लक्षण बुखार (88%) और सूखी खाँसी (68%) हैं।",
+      "hypothesis": "ये दो आम लक्षण हैं बुखार (8%) और सूखी जीवाणु (68%) ।",
+      "labse_cosine": 0.9264523969057712,
+      "sentence_bleu": 30.92852090394752,
+      "inference_seconds": 0.6257126999553293
+    },
+    {
+      "test_split_index": 914,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "Some medical procedures such as intubation and cardiopulmonary resuscitation (CPR) may cause respiratory secretions to be aerosolized and thus result in airborne spread.",
+      "reference": "कुछ चिकित्सा प्रक्रियाओं जैसे नलिका प्रवेशन और हृदय फुप्फुसीय चिकित्सा (CPR) के कारण श्वसन स्राव का वतिलयन हो सकता है और इस प्रकार वायुजनित प्रसार हो सकता है।",
+      "hypothesis": "कुछ चिकित्सा कार्य जैसे चिकित्सा कार्य, जैसे कि इंफेक्शन और अति - शक्‍ति रीज़निंग (सीपी), श्‍वेत रक्‍त - वाहिकाओं का कारण बन सकते हैं और इसका परिणाम हवा में फैला हुआ है ।",
+      "labse_cosine": 0.8389212662727181,
+      "sentence_bleu": 3.0518478495190844,
+      "inference_seconds": 1.7108244999544695
+    },
+    {
+      "test_split_index": 916,
+      "pilot_terms_matched": [],
+      "source_en": "While there are concerns it may spread by faeces, this risk is believed to be low.",
+      "reference": "हालाँकि ये चिंताएं भी हैं कि यह मल द्वारा फैल सकता है, इसका जोखिम कम माना जाता है।",
+      "hypothesis": "जबकि इसमें चिन्ताएं हो सकती हैं, इस ख़तरे को कम किया जा सकता है ।",
+      "labse_cosine": 0.6637081251320178,
+      "sentence_bleu": 5.098813553369431,
+      "inference_seconds": 0.5884801999200135
+    },
+    {
+      "test_split_index": 922,
+      "pilot_terms_matched": [],
+      "source_en": "This, however, varies based on the humidity and temperature.Pets and other animals have tested positive for COVID-19.",
+      "reference": "हालाँकि, यह आर्द्रता और तापमान के आधार पर भिन्न होता है। पालतू जानवर और अन्य जानवरों के COVID-19 के लिए परीक्षण पॉज़िटिव आए हैं।",
+      "hypothesis": "लेकिन, यह तापमान और तापमान पर अलग - अलग रूप से अलग होता है ।",
+      "labse_cosine": 0.7005301946730601,
+      "sentence_bleu": 4.361757447400334,
+      "inference_seconds": 0.5205826000310481
+    },
+    {
+      "test_split_index": 935,
+      "pilot_terms_matched": [],
+      "source_en": "The test uses real-time reverse transcription polymerase chain reaction (rRT-PCR).",
+      "reference": "यह परीक्षण रियल-टाइम रिवर्स ट्रांसक्रिप्शन पॉलीमरेज़ श्रृंखला अभिक्रिया (rRT-PCR) का उपयोग करता है।",
+      "hypothesis": "जाँच वर्तमान समय का उपयोग बहुमुखी पॉलीजिलिक प्रतिक्रियाओं का उपयोग करता है (rRT-PCR).",
+      "labse_cosine": 0.8404458923538001,
+      "sentence_bleu": 15.310245441182444,
+      "inference_seconds": 0.9201768999919295
+    },
+    {
+      "test_split_index": 939,
+      "pilot_terms_matched": [],
+      "source_en": "As of 6 April 2020, none of these has been proved sufficiently accurate to be approved for widespread use.",
+      "reference": "6 अप्रैल 2020 तक, इनमें से कोई भी व्यापक रूप से उपयोग हेतु अनुमोदित किए जाने के लिए पर्याप्त रूप से सटीक साबित नहीं हुआ है।",
+      "hypothesis": "अप्रैल 2020 के दौरान, इनमें से कोई भी व्यक्‍ति व्यापक उपयोग के लिए उचित रूप से स्वीकार नहीं किया गया है ।",
+      "labse_cosine": 0.8819704529713405,
+      "sentence_bleu": 19.273691558991754,
+      "inference_seconds": 0.8955965000204742
+    },
+    {
+      "test_split_index": 940,
+      "pilot_terms_matched": [],
+      "source_en": "In the US a serological test developed by Cellex has been approved for emergency use by certified laboratories only.",
+      "reference": "अमेरिका में Cellex द्वारा विकसित एक सीरोलॉजिकल परीक्षण केवल प्रमाणित प्रयोगशालाओं द्वारा आपातकालीन उपयोग के लिए अनुमोदित किया गया है।",
+      "hypothesis": "ऐलिक्स द्वारा विकसित किए गए एक सूक्ष्म परीक्षण में केवल आपातकालीन रूप से इस्तेमाल करने के लिए स्वीकार किया गया है.",
+      "labse_cosine": 0.730236369925484,
+      "sentence_bleu": 6.962249700749937,
+      "inference_seconds": 0.8465512999100611
+    },
+    {
+      "test_split_index": 941,
+      "pilot_terms_matched": [
+        "pleural_effusion"
+      ],
+      "source_en": "Characteristic imaging features on radiographs and computed tomography (CT) of people who are symptomatic include asymmetric peripheral ground glass opacities and absent pleural effusions.",
+      "reference": "लक्षणात्मक लोगों के रेडियोग्राफ़ और कम्प्यूटेड टोमोग्राफी (CT) पर अभिलक्षणिक छवि विशेषताओं में असममित परिधीय ग्राउंड ग्लास अस्पष्टताएं एवं अनुपस्थित फुफ्फुस स्राव शामिल हैं।",
+      "hypothesis": "कुछ लोगों का मानना है कि टीवी के ज़रिए लोगों के दिमाग में ऐसी जानकारी दी जाती है, जो उन्हें सही लगती है और उनकी सही - सही जानकारी देती है ।",
+      "labse_cosine": 0.4501646392614113,
+      "sentence_bleu": 2.6711961764401657,
+      "inference_seconds": 1.0904707999434322
+    },
+    {
+      "test_split_index": 945,
+      "pilot_terms_matched": [],
+      "source_en": "Artificial intelligence-based convolutional neural networks have been developed to detect imaging features of the virus with both radiographs and CT.",
+      "reference": "रेडियोग्राफ और CT दोनों के साथ वायरस की छविकरण विशेषताओं का पता लगाने के लिए कृत्रिम ज्ञान-आधारित घुमावदार न्यूरल नेटवर्क विकसित किए गए हैं।",
+      "hypothesis": "खगोलीय मानसिक विज्ञान पर आधारित तंत्रिका नेटवर्क विकसित हुए हैं जो दोनों रेडियोग्राफों और सीटी के साथ वायरस की जटिलताओं का पता लगाने के लिए विकसित किया गया है।",
+      "labse_cosine": 0.8741191509843007,
+      "sentence_bleu": 22.8721960134706,
+      "inference_seconds": 1.1455500000156462
+    },
+    {
+      "test_split_index": 955,
+      "pilot_terms_matched": [],
+      "source_en": "Hand washing is recommended to prevent the spread of the disease.",
+      "reference": "रोग के संचरण को रोकने के लिए हाथ धोने की अनुशंसा की जाती है।",
+      "hypothesis": "बीमारी फैलाने से रोकने के लिए हाथ धोने की सिफ़ारिश की जाती है ।",
+      "labse_cosine": 0.8860736415768754,
+      "sentence_bleu": 39.34995962231129,
+      "inference_seconds": 0.5366511999163777
+    },
+    {
+      "test_split_index": 956,
+      "pilot_terms_matched": [],
+      "source_en": "The CDC recommends that people wash hands often with soap and water for at least twenty seconds, especially after going to the toilet or when hands are visibly dirty; before eating; and after blowing one's nose, coughing, or sneezing.",
+      "reference": "CDC अनुशंसा करता है कि लोग कम से कम बीस सेकेंड के लिए बार-बार साबुन और पानी से हाथ धोएँ, खासकर शौचालय जाने के बाद या जब हाथ गंदे दिखाई दें; खाने से पहले; और नाक छिड़कने, खाँसने या छींकने के बाद।",
+      "hypothesis": "सीसी सलाह देती है कि लोग कम से कम बीस सेकंड के लिए साबुन और पानी के साथ हाथ धोते हैं, विशेष रूप से शौचालय जाने के बाद या जब हाथ साफ़ होते हैं या जब हाथ साफ़ होते हैं तो भोजन करने से पहले; और एक की नाक, मिंजन, या गनिंग के बाद.",
+      "labse_cosine": 0.9554044493901843,
+      "sentence_bleu": 27.57777242458314,
+      "inference_seconds": 2.129663899890147
+    },
+    {
+      "test_split_index": 971,
+      "pilot_terms_matched": [],
+      "source_en": "Thailand's health officials are encouraging people to make cloth facemasks at home and wash them daily.",
+      "reference": "थाईलैंड के स्वास्थ्य अधिकारी लोगों को घर पर कपड़े के चेहरे के मास्क बनाने और उन्हें रोज़ धोने के लिए प्रोत्साहित कर रहे हैं।",
+      "hypothesis": "थाइलैंड के स्वास्थ्य अधिकारी लोगों को प्रोत्साहित कर रहे हैं घर पर कपड़े धोने के लिए और उन्हें प्रतिदिन धोते हैं.",
+      "labse_cosine": 0.944382464973474,
+      "sentence_bleu": 30.240277272546756,
+      "inference_seconds": 0.7326946998946369
+    },
+    {
+      "test_split_index": 977,
+      "pilot_terms_matched": [],
+      "source_en": "Panama has made it obligatory to wear a face mask whenever going outside, while also recommending the manufacture of a homemade face mask for those who cannot purchase face masks.",
+      "reference": "पनामा ने बाहर जाते समय चेहरे का मास्क पहनना अनिवार्य कर दिया है, जबकि उन लोगों के लिए घर में बने चेहरे का मास्क बनाने की भी अनुशंसा की गई है जो चेहरे का मास्क नहीं खरीद सकते।",
+      "hypothesis": "पनामा ने जब भी बाहर जाता है, चेहरे को ढककर रखना ज़रूरी बना दिया है ।",
+      "labse_cosine": 0.6574231991773883,
+      "sentence_bleu": 2.4034951026457585,
+      "inference_seconds": 1.2681530000409111
+    },
+    {
+      "test_split_index": 983,
+      "pilot_terms_matched": [],
+      "source_en": "The maximum gathering size recommended by US government bodies and health organizations was swiftly reduced from 250 people (if there was no known COVID-19 spread in a region) to 50 people, and later to 10 people.",
+      "reference": "अमेरिकी सरकारी निकायों और स्वास्थ्य संगठनों द्वारा अनुशंसित अधिकतम जनसमूह में तेजी से कमी करके 250 लोगों (यदि किसी क्षेत्र में कोई ज्ञात COVID-19 संचरण नहीं था) से 50 लोगों तक किया गया, और बाद में 10 लोगों तक किया गया।",
+      "hypothesis": "अमेरिका की सरकारी संस्थाओं और स्वास्थ्य संगठनों द्वारा सिफ़ारिश किए गए अधिकतम आकार 250 लोगों से कम हो गया (यदि वहाँ कोई CVIID-19 में नहीं जाना गया था) 50 लोगों के लिए, और बाद में 10 लोगों के लिए.",
+      "labse_cosine": 0.9052870182362575,
+      "sentence_bleu": 21.694160752459176,
+      "inference_seconds": 1.5634965000208467
+    },
+    {
+      "test_split_index": 989,
+      "pilot_terms_matched": [],
+      "source_en": "The strongest self-quarantine instructions have been issued to those in high risk groups.",
+      "reference": "उच्च जोखिम वाले समूहों में सबसे कड़े स्व-क्वारंटीन निर्देशें जारी किए गए हैं।",
+      "hypothesis": "सबसे अधिक जोखिम समूहों के लिए कानून जारी किया गया है।",
+      "labse_cosine": 0.7448430532054306,
+      "sentence_bleu": 4.419021106340002,
+      "inference_seconds": 0.41655640001408756
+    },
+    {
+      "test_split_index": 998,
+      "pilot_terms_matched": [],
+      "source_en": "Other countries also adopted a variety of measures aimed at limiting the spread of the virus.",
+      "reference": "अन्य देशों ने भी वायरस के प्रसार को सीमित करने के उद्देश्य से कई प्रकार के उपायों को अपनाया।",
+      "hypothesis": "अन्य देशों ने तरह - तरह के क़दम उठाए, ताकि यह वायरस फैल सके ।",
+      "labse_cosine": 0.8870178209155916,
+      "sentence_bleu": 8.575148078150818,
+      "inference_seconds": 0.5922766000730917
+    },
+    {
+      "test_split_index": 1005,
+      "pilot_terms_matched": [],
+      "source_en": "There are no specific antiviral medications approved for COVID-19, but development efforts are underway, including testing of existing medications.",
+      "reference": "COVID-19 के लिए कोई विशिष्ट एंटीवायरल दवाएं अनुमोदित नहीं हैं, लेकिन मौजूदा दवाओं के परीक्षण सहित विकास के प्रयास चल रहे हैं।",
+      "hypothesis": "CCOCAD-19 के लिए कोई विशिष्ट संक्रमण चिकित्सा नहीं है, लेकिन विकास प्रयास चल रहे हैं, जिनमें मौजूदा दवाओं की जाँच भी शामिल हैं.",
+      "labse_cosine": 0.8939500652182164,
+      "sentence_bleu": 17.4932986566737,
+      "inference_seconds": 1.0793630999978632
+    },
+    {
+      "test_split_index": 1006,
+      "pilot_terms_matched": [],
+      "source_en": "Taking over-the-counter cold medications, drinking fluids, and resting may help alleviate symptoms.",
+      "reference": "बिना नुस्खे की सर्दी-जुकाम की दवाओं को लेने, तरल पदार्थ पीने और आराम करने से लक्षणों को कम करने में मदद मिल सकती है।",
+      "hypothesis": "और आराम करने से लक्षण कम हो सकते हैं।",
+      "labse_cosine": 0.6185661579780223,
+      "sentence_bleu": 5.334034103257643,
+      "inference_seconds": 0.3986619000788778
+    },
+    {
+      "test_split_index": 1013,
+      "pilot_terms_matched": [],
+      "source_en": "There are various theories about where the very first case (the so-called patient zero) may have originated.",
+      "reference": "इस बारे में कई मत हैं कि सबसे पहले मामले (तथाकथित रोगी शून्य) की उत्पत्ति कहाँ हुई हो सकती है।",
+      "hypothesis": "कई सिद्धांत हैं जिनमें पहला मामला (जो इतने लंबे मरीज़ शून्य) की शुरूआत हो सकती है.",
+      "labse_cosine": 0.7979268495374707,
+      "sentence_bleu": 9.100677950050219,
+      "inference_seconds": 0.6459735000971705
+    },
+    {
+      "test_split_index": 1018,
+      "pilot_terms_matched": [],
+      "source_en": "Eight of these doctors, including Li Wenliang, were admonished by the police for spreading false rumours, and another, Ai Fen, was reprimanded by her superiors for raising the alarm.",
+      "reference": "झूठी अफवाह फैलाने के आरोप में पुलिस ने ली वेनलियांग समेत आठ चिकित्सकों को चेतावनी दी और एक अन्य चिकित्सक आई फेन को उनके वरिष्ठों द्वारा फटकार लगाई गई।",
+      "hypothesis": "इन आठ डॉक्टरों को, जिनमें ली वेनेंग भी सम्मिलित था, झूठे समाचार फैलाने के लिए पुलिस द्वारा सलाह दी गयी, और एक और, ऐओन को अलार्म को उठाने के लिए उसके उच्च - प्रधानों द्वारा फटकारा गया ।",
+      "labse_cosine": 0.8586281563543803,
+      "sentence_bleu": 3.180854010823546,
+      "inference_seconds": 1.4613568000495434
+    },
+    {
+      "test_split_index": 1021,
+      "pilot_terms_matched": [],
+      "source_en": "In early and mid-January 2020, the virus spread to other Chinese provinces, helped by the Chinese New Year migration and Wuhan being a transport hub and major rail interchange.",
+      "reference": "जनवरी 2020 की शुरुआत और मध्य में, चीनी नव वर्ष के कारण आवाजाही और वुहान परिवहन केंद्र और प्रमुख रेल विनिमय होने के कारण वायरस अन्य चीनी प्रांतों में फैल गया।",
+      "hypothesis": "सन्‌ 2020 के आस - पास, वायरस चीनी देशों में फैल गया ।",
+      "labse_cosine": 0.6659247471098656,
+      "sentence_bleu": 2.1476428668150405,
+      "inference_seconds": 1.7443063000682741
+    },
+    {
+      "test_split_index": 1026,
+      "pilot_terms_matched": [],
+      "source_en": "National reactions have included containment measures such as quarantines (known as stay-at-home orders, shelter-in-place orders, or lockdown) and curfews.As of 2 April, nearly 300 million people, or about 90% of the population, are under some form of lockdown in the United States, more than 50 million people are in lockdown in the Philippines, about 59 million people are in lockdown in South Africa, and 1.3 billion people are in lockdown in India.",
+      "reference": "राष्ट्रीय प्रतिक्रियाओं में संरोधन उपाय जैसे क्वारंटीन (घर पर रहने के आदेश, अपने स्थान पर आश्रय के आदेश, या लॉकडाउन के रूप में जाना जाता है) और कर्फ्यू शामिल हैं। 2 अप्रैल तक, अमेरिका में लगभग 300 मिलियन लोग या लगभग 90% आबादी लॉकडाउन के किसी न किसी रूप में है, फिलीपींस में 50 मिलियन से अधिक लोग लॉकडाउन में हैं, दक्षिण अफ्रीका में लगभग 59 मिलियन लोग लॉकडाउन में हैं, और भारत में 1.3 अरब लोग लॉकडाउन में हैं।",
+      "hypothesis": "राष्ट्रीय प्रतिक्रियाओं में शामिल हैं जैसे कि घर-घर के आदेशों, शरण-स्थान के आदेशों, या घर की अनुमतिओं के रूप में। 2 अप्रैल के रूप में, लगभग 300 लाख लोगों, या लगभग 90 करोड़ लोगों की जनसंख्या के बारे में, संयुक्त राज्य अमेरिका में लॉक के कुछ रूप में कर रहे हैं, संयुक्त राज्य अमेरिका में 50 लाख से अधिक लोग नीचे लॉक कर रहे हैं, लगभग 59 लाख से अधिक लोग कर रहे हैं और दक्षिण अफ्रीका में कर रहे हैं।",
+      "labse_cosine": 0.8846092503006234,
+      "sentence_bleu": 7.815339890839952,
+      "inference_seconds": 3.172561699990183
+    },
+    {
+      "test_split_index": 1032,
+      "pilot_terms_matched": [],
+      "source_en": "The WHO was informed on the same day.",
+      "reference": "WHO को उसी दिन सूचित किया गया था।",
+      "hypothesis": "उसी दिन उसे बताया गया ।",
+      "labse_cosine": 0.7570964328952297,
+      "sentence_bleu": 12.872632311973014,
+      "inference_seconds": 0.3292722998885438
+    },
+    {
+      "test_split_index": 1079,
+      "pilot_terms_matched": [],
+      "source_en": "According to a WHO official, there may be five times more cases in Iran than what is being reported.",
+      "reference": "WHO के एक अधिकारी के अनुसार, ईरान में जितने मामले सूचित किए जा रहे हैं, उससे पांच गुना अधिक मामले हो सकते हैं।",
+      "hypothesis": "एक WHO अधिकारी के अनुसार, ईरान में पाँच गुना ज़्यादा मामले रिपोर्ट किए जा रहे हैं ।",
+      "labse_cosine": 0.9544018118074719,
+      "sentence_bleu": 29.64707489731573,
+      "inference_seconds": 0.7242028000764549
+    },
+    {
+      "test_split_index": 1081,
+      "pilot_terms_matched": [],
+      "source_en": "The UN High Commissioner for Human Rights has demanded economic sanctions to be eased for nations most affected by the pandemic, including Iran.",
+      "reference": "मानवाधिकारों के लिए संयुक्त राष्ट्र के उच्चायुक्त ने मांग की है कि ईरान सहित महामारी से सबसे अधिक प्रभावित राष्ट्रों के लिए आर्थिक प्रतिबंधों में राहत दी जाए।",
+      "hypothesis": "मानव अधिकारों के लिए संयुक्‍त राष्ट्र ने आर्थिक अधिकारियों की माँग की है कि वे राष्ट्रों के लिए कम से कम हानि उठाएँ, यहाँ तक कि ईरान भी ।",
+      "labse_cosine": 0.8362451221273178,
+      "sentence_bleu": 10.43550303311796,
+      "inference_seconds": 1.0593770000850782
+    },
+    {
+      "test_split_index": 1086,
+      "pilot_terms_matched": [],
+      "source_en": "Suspension of work activities and sports events has already been ordered in those areas.\"On 4 March, the Italian government ordered the full closure of all schools and universities nationwide as Italy reached 100 deaths.",
+      "reference": "उन क्षेत्रों में कार्य गतिविधियों और खेल कार्यक्रमों को स्थगित करने का आदेश पहले ही दिया जा चुका है। \"4 मार्च को इटली सरकार ने देश भर में सभी विद्यालयों और विश्वविद्यालयों को पूर्ण रूप से बंद करने का आदेश दिया, क्योंकि इटली में 100 मृत्यु हुईं।",
+      "hypothesis": "4 मार्च को इतालवी सरकार ने सभी स्कूलों और विश्‍वविद्यालयों में 100 लोगों की पूरी तरह से तबाही मचा दी ।",
+      "labse_cosine": 0.7800198793095747,
+      "sentence_bleu": 2.863382330053668,
+      "inference_seconds": 0.8005649000406265
+    },
+    {
+      "test_split_index": 1087,
+      "pilot_terms_matched": [],
+      "source_en": "All major sporting events, including Serie A football matches, were to be held behind closed doors until April, but on 9 March, all sport was suspended completely for at least one month.",
+      "reference": "सेरी A फुटबॉल मैचों सहित सभी प्रमुख खेल स्पर्धाओं को अप्रैल तक बिना प्रत्यक्षदर्शियों के किया जाना था, लेकिन 9 मार्च को, सभी खेलों को कम से कम एक महीने के लिए पूरी तरह से स्थगित कर दिया गया।",
+      "hypothesis": "लेकिन अप्रैल 9 मार्च को सभी खेलों को कम - से - कम एक महीने के लिए पूरी तरह बंद कर दिया गया ।",
+      "labse_cosine": 0.838947280599927,
+      "sentence_bleu": 21.415498504489218,
+      "inference_seconds": 0.8721874000038952
+    },
+    {
+      "test_split_index": 1088,
+      "pilot_terms_matched": [],
+      "source_en": "On 11 March, Prime Minister Conte ordered stoppage of nearly all commercial activity except supermarkets and pharmacies.On 6 March, the Italian College of Anaesthesia, Analgesia, Resuscitation and Intensive Care (SIAARTI) published medical ethics recommendations regarding triage protocols that might be employed.",
+      "reference": "11 मार्च को, प्रधान मंत्री कॉन्टे ने सुपरमार्केट और फ़ार्मेसी को छोड़कर लगभग सभी व्यावसायिक गतिविधियों को रोकने का आदेश दिया। 6 मार्च को, इटैलियन कॉलेज ऑफ एनेस्थेसिया, एनाल्जेसिया, रिससिटेशन एंड इंटेंसिव केयर (SIAARTI) ने नियोजित किए जा सकने वाले, गंभीर रोगियों की छँटाई के प्रोटोकॉल, के बारे में चिकित्सा नैतिकता अनुशंसाओं को प्रकाशित किया।",
+      "hypothesis": "11 मार्च को, प्रधानमंत्री कॉनस्ट ने एक - के - बाद - एक सभी व्यापारिक कार्यों को छोड़ लगभग सभी व्यापारिक कार्यों को रोकने का आदेश दिया ।",
+      "labse_cosine": 0.7633768956726098,
+      "sentence_bleu": 5.8531104388281125,
+      "inference_seconds": 1.1795047000050545
+    },
+    {
+      "test_split_index": 1095,
+      "pilot_terms_matched": [],
+      "source_en": "On 20 March, the government announced that all leisure establishments such as pubs and gyms were to close as soon as possible, and promised to pay up to 80% of workers' wages to a limit of £2,500 per month to prevent unemployment in the crisis.On 23 March, the Prime Minister announced tougher social distancing measures, banning gatherings of more than two people and restricting travel and outdoor activity to that deemed strictly necessary.",
+      "reference": "20 मार्च को, सरकार ने घोषणा की कि सभी मनोरंजन प्रतिष्ठानों जैसे पब और जिम को जल्द से जल्द बंद करा जाए, और संकट में बेरोजगारी को रोकने के लिए प्रति माह £2,500 की सीमा तक श्रमिकों की वेतन के 80% तक का भुगतान करने का वादा किया। 23 मार्च को, प्रधान मंत्री ने सख्त सामाजिक दूरी बनाने के उपायों की घोषणा की, जिसमें दो से अधिक लोगों के एकत्र होने पर प्रतिबंध लगाया गया और यात्रा व बाहरी गतिविधि को अत्यावश्यक मानी जाने वाली गतिविधि तक सीमित किया।",
+      "hypothesis": "20 मार्च, सरकार ने घोषणा की कि जैसे ही संभव हो वैसे ही सभी मनोरंजन और व्यवसायों के लिए निकट होना था, और कर्मचारियों की कीमत को देने का वादा किया था कि हर महीने बेरोज़गारी को रोकने के लिए 80%,00 डॉलर प्रति महीने। 23 मार्च, प्रधानमंत्री ने सामाजिक सुधार की घोषणा की, दो समूहनों से अधिक महत्वपूर्ण और अधिक लोगों की यात्रा की।",
+      "labse_cosine": 0.8829430773793832,
+      "sentence_bleu": 13.912339841467361,
+      "inference_seconds": 3.0702247000299394
+    },
+    {
+      "test_split_index": 1096,
+      "pilot_terms_matched": [],
+      "source_en": "Unlike previous measures, these restrictions were enforceable by police through the issuing of fines and the dispersal of gatherings.",
+      "reference": "पिछले उपायों के विपरीत, ये प्रतिबंध पुलिस द्वारा जुर्माना लगाने और भीड़ के छितराव के माध्यम से लागू किए गए थे।",
+      "hypothesis": "पिछले क़दमों से भिन्‍न, ये प्रतिबंध पुलिस द्वारा उत्तम और समूहनों के फैलाव के कारण लागू किए जाते थे ।",
+      "labse_cosine": 0.8639508330779317,
+      "sentence_bleu": 21.3341864587649,
+      "inference_seconds": 1.0181216000346467
+    },
+    {
+      "test_split_index": 1099,
+      "pilot_terms_matched": [],
+      "source_en": "The White House Coronavirus Task Force was established on 29 January.",
+      "reference": "द व्हाइट हाउस कोरोनावायरस टास्क फोर्स की स्थापना 29 जनवरी को की गई थी।",
+      "hypothesis": "सन्‌ 29 जनवरी को व्हाइट हाउस कोकोनाविक कार्य - नियुक्‍ति स्थापित की गयी ।",
+      "labse_cosine": 0.8427515000502215,
+      "sentence_bleu": 13.912311644176565,
+      "inference_seconds": 0.8283939000684768
+    },
+    {
+      "test_split_index": 1108,
+      "pilot_terms_matched": [],
+      "source_en": "On the same day President Trump signed the Coronavirus Preparedness and Response Supplemental Appropriations Act, which provided $8.3 billion in emergency funding for federal agencies to respond to the outbreak.",
+      "reference": "उसी दिन राष्ट्रपति ट्रम्प ने कोरोनावायरस तैयारी एवं प्रतिक्रिया अनुपूरक विनियोजन अधिनियम पर हस्ताक्षर किए, जिसने प्रकोप के प्रति प्रतिक्रिया हेतु संघीय एजेंसियों के लिए आपातकालीन वित्तपोषण में $8.3 अरब प्रदान किए।",
+      "hypothesis": "उसी दिन राष्ट्रपति ट्रैम्प ने कोनारोस को तैयार करने और प्रतिक्रिया के लिए तैयार करने पर हस्ताक्षर किए, जो कि $३ अरब लोगों को संयुक्‍त संघीय एजॆंसों के प्रति प्रतिक्रिया दिखाने में मदद करता है ।",
+      "labse_cosine": 0.8272619292298382,
+      "sentence_bleu": 13.428164547253449,
+      "inference_seconds": 1.901134599931538
+    },
+    {
+      "test_split_index": 1129,
+      "pilot_terms_matched": [],
+      "source_en": "Owing to the effective quarantine of public transport in Wuhan and Hubei, several countries have planned to evacuate their citizens and diplomatic staff from the area, primarily through chartered flights of the home nation, with Chinese authorities providing clearance.",
+      "reference": "वुहान और हुबेई में सार्वजनिक परिवहन के प्रभावी क्वारंटीन के कारण, कई देशों ने अपने नागरिकों और राजनयिक कर्मचारियों को क्षेत्र से बाहर निकालने की योजना बनाई है, मुख्य रूप से गृह राष्ट्र की चार्टर्ड उड़ानों के माध्यम से, जिसके लिए चीनी प्राधिकरणों ने मंजूरी प्रदान की है।",
+      "hypothesis": "अनेक देशों ने अपने नागरिकों और सरकारी कर्मचारी - वर्ग के सार्वजनिक परिवहन के प्रभावी प्रयोग की योजना बनायी है, मुख्यतः गृह राष्ट्र के अधिकारियों द्वारा, और चीनी अधिकारियों के साथ साफ - सफाई प्रदान करने के लिए ।",
+      "labse_cosine": 0.7931169423905807,
+      "sentence_bleu": 15.041113507119684,
+      "inference_seconds": 1.3479974999791011
+    },
+    {
+      "test_split_index": 1141,
+      "pilot_terms_matched": [],
+      "source_en": "In early March, the Indian government began evacuating its citizens from Iran.On 14 March a South African Airways aircraft chartered by the South African Government repatriated 112 South African citizens.",
+      "reference": "मार्च की शुरुआत में, भारत सरकार ने ईरान से अपने नागरिकों को निकालना शुरू कर दिया। 14 मार्च को दक्षिण अफ्रीकी सरकार द्वारा चार्टर्ड एक साउथ अफ्रीकन एयरवेज़ विमान ने 112 दक्षिण अफ्रीकी नागरिकों को प्रत्यावर्तित किया।",
+      "hypothesis": "मार्च १४ को दक्षिण अफ्रीका की एक अमरीकी सरकार ने दक्षिण अफ्रीका की सरकार ने वापस दक्षिण अफ्रीका के ११२ नागरिकों का पक्ष लिया ।",
+      "labse_cosine": 0.7113593229450144,
+      "sentence_bleu": 3.2615542083018867,
+      "inference_seconds": 0.9917976999422535
+    },
+    {
+      "test_split_index": 1142,
+      "pilot_terms_matched": [],
+      "source_en": "Medical screening was performed prior to departure, and four South Africans who were showing signs of coronavirus were left behind to mitigate risk.",
+      "reference": "प्रस्थान से पहले चिकित्सा जांच की गई थी, और चार दक्षिण अफ्रीकी जो कोरोनावायरस के लक्षण दिखा रहे थे, जोखिम के शमन के लिए पीछे छोड़ दिए गए थे।",
+      "hypothesis": "और दक्षिण अफ्रीका के चार लोगों को वहाँ जाने के खतरे के पीछे छोड़ दिया गया ।",
+      "labse_cosine": 0.7236139015527983,
+      "sentence_bleu": 1.6325939681399375,
+      "inference_seconds": 0.6074662000173703
+    },
+    {
+      "test_split_index": 1143,
+      "pilot_terms_matched": [],
+      "source_en": "Only South Africans who tested negative were repatriated.",
+      "reference": "केवल नेगेटिव परीक्षण वाले दक्षिण अफ्रीकियों को प्रत्यावर्तित किया गया था।",
+      "hypothesis": "सिर्फ दक्षिण अफ्रीका के लोग ही बुरे काम करते थे ।",
+      "labse_cosine": 0.7286039901246619,
+      "sentence_bleu": 3.7477767366779213,
+      "inference_seconds": 0.5414001999888569
+    },
+    {
+      "test_split_index": 1188,
+      "pilot_terms_matched": [],
+      "source_en": "The Daily Beast obtained a U.S. government cable outlining a communications stratagem with apparent origins in the National Security Council, with the strategy being quoted as \"Everything is about China.",
+      "reference": "द डेली बीस्ट ने एक अमेरिकी सरकारी तार प्राप्त की, जो राष्ट्रीय सुरक्षा परिषद में स्पष्ट उत्पत्ति के साथ संचार मोरचाबंदी को रेखांकित करती है, जिसमें रणनीति के रूप में उद्धृत किया गया है कि \"सब कुछ चीन के बारे में है।",
+      "hypothesis": "दैनिक पशु एक यू.एस सरकार ने एक संचार योजना प्राप्त की है... ... राष्ट्रीय सुरक्षा परिषद में प्रत्यक्ष उद्‌गम के साथ, जिस रणनीति का उल्लेख किया जा रहा है \"सभी चीन के बारे में है.",
+      "labse_cosine": 0.7943320477534966,
+      "sentence_bleu": 14.339770928720109,
+      "inference_seconds": 1.4812058000825346
+    },
+    {
+      "test_split_index": 1203,
+      "pilot_terms_matched": [],
+      "source_en": "The President of Lombardy, Attilio Fontana, and Italian Foreign Minister Luigi Di Maio dismissed the media reports and expressed their gratitude.",
+      "reference": "लोम्बार्डी के अध्यक्ष एटिलियो फोंटाना और इटली के विदेश मंत्री लुइगी डि मियो ने मीडिया रिपोर्टों का खंडन किया और उनका आभार व्यक्त किया।",
+      "hypothesis": "कुछ ही समय बाद, वे एक - दूसरे से बहुत प्यार करने लगे ।",
+      "labse_cosine": 0.3887040805122693,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.6259256000630558
+    },
+    {
+      "test_split_index": 1205,
+      "pilot_terms_matched": [],
+      "source_en": "Kremlin spokesman Dmitry Peskov said that \"when offering assistance to US colleagues, [Putin] assumes that when US manufacturers of medical equipment and materials gain momentum, they will also be able to reciprocate if necessary.\"",
+      "reference": "क्रेमलिन के प्रवक्ता दिमित्री पेसकोव ने कहा कि \"अमेरिकी सहयोगियों को सहायता की पेशकश करते हुए [पुतिन] यह मानते हैं कि जब चिकित्सा उपकरण और सामग्री के अमेरिकी निर्माता उत्पादन बढ़ा देंगे, तो वे आवश्यक होने पर प्रतिफल चुकाने में भी सक्षम होंगे।\"",
+      "hypothesis": "Kemmlin Cmocs Cassccscct ने कहा कि \" अमेरिका के सहकर्मियों के लिए मदद देते समय, [इन] लगता है कि जब अमेरिकी चिकित्सा उपकरण और सामग्री की गति प्राप्त करते हैं, तो वे भी प्रभावी हो जाएगा अगर आवश्यक हो. \"",
+      "labse_cosine": 0.818310131776748,
+      "sentence_bleu": 14.666103254913756,
+      "inference_seconds": 2.3937543999636546
+    },
+    {
+      "test_split_index": 1225,
+      "pilot_terms_matched": [],
+      "source_en": "Northern Italy with its significant agricultural production has not seen a large reduction, but prices may increase according to industry representatives.",
+      "reference": "उत्तरी इटली ने अपने महत्वपूर्ण कृषि उत्पादन में बड़ी कमी नहीं देखी है, लेकिन उद्योग प्रतिनिधियों के अनुसार कीमतें बढ़ सकती हैं।",
+      "hypothesis": "उत्तरी इटली में अपने महत्त्वपूर्ण कृषि उत्पादन के साथ एक बड़ी कमी नहीं देखी गयी है, लेकिन उद्योग के प्रतिनिधियों के अनुसार दाम बढ़ सकता है ।",
+      "labse_cosine": 0.9852923704609378,
+      "sentence_bleu": 24.601372576927535,
+      "inference_seconds": 0.9045105000259355
+    },
+    {
+      "test_split_index": 1262,
+      "pilot_terms_matched": [],
+      "source_en": "Arts and culture sector organizations attempted to uphold their (often publicly funded) mission to provide access to cultural heritage to the community, maintain the safety of their employees and the public, and support artists where possible.",
+      "reference": "कला और संस्कृति क्षेत्र के संगठनों ने समुदाय को सांस्कृतिक विरासत तक पहुँच प्रदान करने के लिए, अपने कर्मचारियों और जनता की सुरक्षा बनाए रखने और जहां संभव हो, कलाकारों का समर्थन करने के लिए उनके (प्राय: सार्वजनिक रूप से वित्त पोषित) मिशन को बनाए रखने का प्रयास किया।",
+      "hypothesis": "कला और संस्कृति के क्षेत्र संगठनों ने अपने (जो आम जनता के लिए दान दिया था) अपने समाज को सांस्कृतिक विरासत देने का अभियान शुरू किया, अपने कर्मचारियों और जनता की सुरक्षा बनाए रखी और जहाँ संभव हो वहाँ कलाकार हैं ।",
+      "labse_cosine": 0.9041073647408998,
+      "sentence_bleu": 20.681675196840654,
+      "inference_seconds": 1.4764359999680892
+    },
+    {
+      "test_split_index": 1279,
+      "pilot_terms_matched": [],
+      "source_en": "Some countries in Africa have also seen a rise in anti-Chinese sentiment.",
+      "reference": "अफ्रीका के कुछ देशों ने भी चीनी विरोधी भावना में वृद्धि देखी है।",
+      "hypothesis": "अफ्रीका के कुछ देशों ने भी विरोधी भावना में वृद्धि देखी है.",
+      "labse_cosine": 0.956674143945878,
+      "sentence_bleu": 67.03420896351791,
+      "inference_seconds": 0.4827903000405058
+    },
+    {
+      "test_split_index": 1291,
+      "pilot_terms_matched": [],
+      "source_en": "Many scientific publishers made scientific papers related to the outbreak available with open access.",
+      "reference": "कई वैज्ञानिक प्रकाशकों ने खुली पहुँच के साथ प्रकोप से संबंधित वैज्ञानिक पेपर उपलब्ध कराए।",
+      "hypothesis": "अनेक वैज्ञानिक प्रकाशकों ने खुले पहुँच के साथ उपलब्ध उपलब्ध होने से वैज्ञानिक कागजों को जोड़ा ।",
+      "labse_cosine": 0.8937050027797226,
+      "sentence_bleu": 15.844501337268932,
+      "inference_seconds": 0.6128022999037057
+    },
+    {
+      "test_split_index": 1295,
+      "pilot_terms_matched": [],
+      "source_en": "List of epidemics and pandemics – A list of death tolls due to infectious disease",
+      "reference": "महामारियों और सर्वव्यापी महामारियों की सूची - संक्रामक रोग के कारण मृत लोगों की सूची",
+      "hypothesis": "महामारी और महामारी की सूची — संक्रामक बीमारी की वजह से मौत की एक सूची",
+      "labse_cosine": 0.85024355477193,
+      "sentence_bleu": 6.917184228205474,
+      "inference_seconds": 0.5103019999805838
+    },
+    {
+      "test_split_index": 1330,
+      "pilot_terms_matched": [
+        "consolidation"
+      ],
+      "source_en": "Subpleural dominance, crazy paving and consolidation develop as the disease evolves.",
+      "reference": "जैसे-जैसे रोग बढ़ता है, सबप्लूरल का प्रभाव, क्रेज़ी पेविंग और समेकन विकसित होते हैं।",
+      "hypothesis": "जब बीमारी फैलती है, तो पागलों और दल - दल में दरार आ जाती है ।",
+      "labse_cosine": 0.5428128732907109,
+      "sentence_bleu": 5.061867434834413,
+      "inference_seconds": 0.7703487999970093
+    },
+    {
+      "test_split_index": 1331,
+      "pilot_terms_matched": [],
+      "source_en": "A study comparing PCR to CT in Wuhan at the point of origin of the current pandemic has suggested that CT is significantly more sensitive than PCR, though less specific, with many of its imaging features overlapping with other pneumonias and disease processes.",
+      "reference": "वर्तमान महामारी के स्रोत बिंदु, वुहान में PCR की CT से तुलना करने वाले अध्ययन ने सुझाया है कि CT के कई चित्रण विशेषताओं के दूसरे निमोनिया और रोग प्रक्रियाओं के समान होने के साथ, कम विशिष्ट होने के बावजूद यह PCR की अपेक्षा उल्लेखनीय रूप से अधिक संवेदनशील है।",
+      "hypothesis": "हाल की महामारी के उद्‌गम में सी. सी. सी.",
+      "labse_cosine": 0.39376803165347013,
+      "sentence_bleu": 0.2873360504483828,
+      "inference_seconds": 0.5021609000395983
+    },
+    {
+      "test_split_index": 1332,
+      "pilot_terms_matched": [],
+      "source_en": "As of March 2020, the American College of Radiology recommends that \"CT should not be used to screen for or as a first-line test to diagnose COVID-19\".As of March 2020, the CDC recommends PCR for initial screening.",
+      "reference": "मार्च 2020 तक, अमेरिकन कॉलेज ऑफ रेडियोलॉजी अनुशंसा करता है कि “CT की COVID-19 के निदान के लिए जाँच या प्रथम पंक्ति जाँच के रूप में उपयोग नहीं किया जाना चाहिए”। मार्च 2020 तक, CDC प्राथमिक जांच के लिए PCR की अनुशंसा करता है।",
+      "hypothesis": "मार्च २०२० के अनुसार, रेडियोलॉग का अमरीकी कॉलेज सलाह देता है कि \"प्रयोगी को स्क्रीन के लिए या एक पहली पंक्ति जाँच के रूप में उपयोग नहीं किया जाना चाहिए CTC CEV-19\" मार्च २०20 के रूप में, सीडी सी सी स्क्रीन के प्रारंभिक स्क्रीन पर प्रारंभिक करने के लिए सलाह देता है।",
+      "labse_cosine": 0.8613798565032075,
+      "sentence_bleu": 18.633196606662228,
+      "inference_seconds": 2.1024957000045106
+    },
+    {
+      "test_split_index": 1357,
+      "pilot_terms_matched": [],
+      "source_en": "The World Health Organization adopted the German recipe for manufacturing kits sent to low-income countries without the resources to develop their own.",
+      "reference": "विश्व स्वास्थ्य संगठन ने संसाधनों के अभाव वाले कम-आय वाले देशों को स्वयं विकसित करने हेतु किटों के निर्माण के लिए जर्मनी की विधि को अपनाया और भेजा।",
+      "hypothesis": "विश्‍व स्वास्थ्य संगठन ने जर्मनी की तकनीक को चुना है ताकि वे अपने ख़ुद को विकसित करने के लिए संसाधनों को कम - से - कम देशों में भेजे जा सकें ।",
+      "labse_cosine": 0.8465443227136725,
+      "sentence_bleu": 7.833630975156555,
+      "inference_seconds": 1.089354099938646
+    },
+    {
+      "test_split_index": 1382,
+      "pilot_terms_matched": [],
+      "source_en": "The five critical moments during the day where washing hands with soap is important include: before and after defecation, after cleaning a child's bottom or changing nappies, before feeding a child, before eating and before and after preparing food or handling raw meat, fish, or poultry.",
+      "reference": "दिन के दौरान पाँच महत्वपूर्ण क्षण जहाँ साबुन से हाथ धोना महत्वपूर्ण है, वे हैं: शौच से पहले और बाद में, बच्चे के नितम्ब की सफाई या लंगोट बदलने के बाद, बच्चे को खिलाने से पहले, खाने से पहले और भोजन तैयार करने या कच्चे मांस, मछली या मुर्गी के उपभोग से पहले और बाद में।",
+      "hypothesis": "जिस दिन साबुन से हाथ धोना ज़रूरी होता है, उस दिन के पाँच कठिन पल: पहले और बाद में, एक बच्चे के तल में सफाई करने के बाद, खाना खाने से पहले, खाना पकाने से पहले, खाना बनाने से पहले, खाना बनाने से पहले, मछली, मछली, या मुर्गी ।",
+      "labse_cosine": 0.9046431570718871,
+      "sentence_bleu": 18.821699189515137,
+      "inference_seconds": 2.10624559991993
+    },
+    {
+      "test_split_index": 1388,
+      "pilot_terms_matched": [],
+      "source_en": "After touching animal, animal feed, or animal waste.",
+      "reference": "पशु, पशु चारा, या पशु अपशिष्ट को छूने के बाद।",
+      "hypothesis": "जानवर, जानवर खाना, या पशु बर्बाद करने के बाद.",
+      "labse_cosine": 0.9187451182560488,
+      "sentence_bleu": 14.323145079400492,
+      "inference_seconds": 0.40238950005732477
+    },
+    {
+      "test_split_index": 1393,
+      "pilot_terms_matched": [],
+      "source_en": "Hand washing has many health benefits, including minimizing the spread of influenza, coronavirus, and other infectious diseases; preventing infectious causes of diarrhea; decreasing respiratory infections;",
+      "reference": "हाथ धोने से कई स्वास्थ्य लाभ होते हैं, जिसमें शामिल हैं: इन्फ्लूएंजा, कोरोनावायरस और अन्य संक्रामक रोगों का प्रसार कम करना; दस्त के संक्रामक कारणों की रोकथाम करना; श्वसन संबंधी संक्रमणों में कमी करना;",
+      "hypothesis": "हाथ धोने के बहुत - से फायदे होते हैं ।",
+      "labse_cosine": 0.6070869121148352,
+      "sentence_bleu": 0.6539307125495692,
+      "inference_seconds": 1.0299350999994203
+    },
+    {
+      "test_split_index": 1397,
+      "pilot_terms_matched": [],
+      "source_en": "This simple action can reduce the rate of mortality from these diseases by almost 50%.",
+      "reference": "यह सरल सा कार्य इन रोगों से मृत्यु दर को लगभग 50% तक कम कर सकता है।",
+      "hypothesis": "यह साधारण कार्यवाही इन रोगों से मृत्यु की दर को लगभग ५०% तक कम कर सकती है ।",
+      "labse_cosine": 0.9485775259647514,
+      "sentence_bleu": 31.872714733206724,
+      "inference_seconds": 0.6223232999909669
+    },
+    {
+      "test_split_index": 1412,
+      "pilot_terms_matched": [],
+      "source_en": "The \"Essential Health Care Program\" implemented by the Department of Education in the Philippines is an example of at scale action to promote children's health and education.",
+      "reference": "फिलीपींस में शिक्षा विभाग द्वारा लागू किया गया \"आवश्यक स्वास्थ्य देखभाल कार्यक्रम\" बच्चों के स्वास्थ्य और शिक्षा को बढ़ावा देने के लिए बड़े पैमाने पर कार्रवाई का एक उदाहरण है।",
+      "hypothesis": "फिलीपींस में शिक्षा विभाग द्वारा लागू किया गया \"प्री स्वास्थ्य सेवा कार्यक्रम\" पैमाने पर बच्चों के स्वास्थ्य और शिक्षण को बढ़ावा देने के लिए कार्य का एक उदाहरण है।",
+      "labse_cosine": 0.9358340621958326,
+      "sentence_bleu": 54.46420954986507,
+      "inference_seconds": 1.1511388999642804
+    },
+    {
+      "test_split_index": 1455,
+      "pilot_terms_matched": [],
+      "source_en": "Correct handwashing technique recommended by the US Centers for Disease Control  for prevention of transmission of disease includes the following steps:",
+      "reference": "रोग के संचरण की रोकथाम के लिए अमेरिकी रोग नियंत्रण एवं रोकथाम केंद्र द्वारा अनुशंसित हाथ धोने की सही तकनीक में निम्नलिखित चरण शामिल हैं:",
+      "hypothesis": "बीमारियों को रोकने के लिए अमेरिका केंद्रों द्वारा सिफ़ारिश हाथ धोने की तकनीक में निम्नलिखित क़दम शामिल हैं:",
+      "labse_cosine": 0.8442040871003164,
+      "sentence_bleu": 13.272130814342033,
+      "inference_seconds": 0.6698956000618637
+    },
+    {
+      "test_split_index": 1459,
+      "pilot_terms_matched": [],
+      "source_en": "Soap lifts germs from the skin, and studies show that people tend to wash their hands more thoroughly when soap is used rather than water alone.",
+      "reference": "साबुन त्वचा से कीटाणुओं को हटाता है, और अध्ययनों से पता चलता है कि लोग अकेले पानी के बजाय साबुन का उपयोग करने पर अपने हाथों को अधिक संपूर्णता से धोते हैं।",
+      "hypothesis": "अगर आप घर के काम में हाथ बँटाते हैं, तो आप क्या कर सकते हैं?",
+      "labse_cosine": 0.3744644176240063,
+      "sentence_bleu": 1.0611278378452587,
+      "inference_seconds": 0.6903579999925569
+    },
+    {
+      "test_split_index": 1474,
+      "pilot_terms_matched": [],
+      "source_en": "Drying with the jet-air dryer resulted in an increase on average of the total number of bacteria on the finger pads by 42% and on the palms by 15%.",
+      "reference": "जेट-एयर ड्रायर के साथ सूखने से जीवाणुओं की कुल संख्या में औसतन अंगुलियों की गद्दियों पर 42% और हथेलियों पर 15% की वृद्धि हुई।",
+      "hypothesis": "जेट विमान सूखार के साथ सूखाने के कारण कुल संख्या 42% पर और 15% तक की उंगली पर जीवाणु की कुल संख्या में वृद्धि हुई.",
+      "labse_cosine": 0.9115655509704655,
+      "sentence_bleu": 13.834368456410946,
+      "inference_seconds": 0.9620855000102893
+    },
+    {
+      "test_split_index": 1485,
+      "pilot_terms_matched": [],
+      "source_en": "One study has found decreased infection rates with their use.",
+      "reference": "एक अध्ययन में इनके उपयोग से संक्रमण दर में कमी पाई गई है।",
+      "hypothesis": "एक अध्ययन ने अपने प्रयोग से संक्रमण दरों को कम पाया है ।",
+      "labse_cosine": 0.9243813382259274,
+      "sentence_bleu": 8.737167851715874,
+      "inference_seconds": 0.4369209000142291
+    },
+    {
+      "test_split_index": 1486,
+      "pilot_terms_matched": [],
+      "source_en": "Medical hand-washing is for a minimum of 15 seconds, using generous amounts of soap and water or gel to lather and rub each part of the hands.",
+      "reference": "चिकित्सीय रूप से हाथों को न्यूनतम 15 सेकंड के लिए धोया जाता है, जिसमें साबुन और पानी या जेल की उचित मात्रा का उपयोग करके झाग बनाई जाती है और हाथों के प्रत्येक भाग को रगड़ा जाता है।",
+      "hypothesis": "चिकित्सा हाथ धोने के लिए 15 सेकंड के लिए है, साबुन और पानी या gels का उपयोग करके और हाथों के प्रत्येक भाग को धोने के लिए उदार रूप से.",
+      "labse_cosine": 0.8872162652780965,
+      "sentence_bleu": 28.765446381277666,
+      "inference_seconds": 1.1033682000124827
+    },
+    {
+      "test_split_index": 1490,
+      "pilot_terms_matched": [],
+      "source_en": "After drying, the paper towel should be used to turn off the water (and open any exit door if necessary).",
+      "reference": "सूखने के बाद, पानी को बंद करने के लिए पेपर टॉवेल का उपयोग किया जाना चाहिए (और यदि आवश्यक हो तो किसी भी निकास द्वार को खोल दिया जाना चाहिए)।",
+      "hypothesis": "अगर ज़रूरत पड़े, तो कागज़ का तौला जाना चाहिए (और ज़रूरत से बाहर निकलने के लिए दरवाज़ा खोलना चाहिए) ।",
+      "labse_cosine": 0.8184738406194068,
+      "sentence_bleu": 11.06770129285596,
+      "inference_seconds": 0.7854039999656379
+    },
+    {
+      "test_split_index": 1498,
+      "pilot_terms_matched": [],
+      "source_en": "The World Health Organization has \"Five Moments\" for washing hands:",
+      "reference": "विश्व स्वास्थ्य संगठन ने हाथ धोने के लिए \"पाँच मौके\" निर्धारित किए हैं:",
+      "hypothesis": "विश्‍व स्वास्थ्य संगठन के पास हाथों धोने के लिए \" पांच मिनट\" है:",
+      "labse_cosine": 0.8722647595697467,
+      "sentence_bleu": 19.667812291861896,
+      "inference_seconds": 0.5789192999945953
+    },
+    {
+      "test_split_index": 1520,
+      "pilot_terms_matched": [],
+      "source_en": "When minimum standards are achieved, schools can move from one to ultimately three stars.",
+      "reference": "जब न्यूनतम मानक हासिल किए जाते हैं, तो विद्यालय क्रमशः एक से तीन सितारों तक जा सकते हैं।",
+      "hypothesis": "जब न्यूनतम स्तर प्राप्त होते हैं, स्कूल आख़िर में तीन तारों से आगे बढ़ सकते हैं ।",
+      "labse_cosine": 0.8627484054085217,
+      "sentence_bleu": 6.609199691337808,
+      "inference_seconds": 0.6889695998979732
+    },
+    {
+      "test_split_index": 1533,
+      "pilot_terms_matched": [],
+      "source_en": "It has also been found that people, after having recalled or contemplated unethical acts, tend to wash hands more often than others, and tend to value hand washing equipment more.",
+      "reference": "यह भी पाया गया है कि लोग अनैतिक कार्यों को याद करने या चिंतन करने के बाद, दूसरों की तुलना में अधिक बार हाथ धोते हैं, और हाथ धोने के उपकरण को अधिक महत्व देते हैं।",
+      "hypothesis": "यह भी पाया गया है कि लोग, स्मरण किए जाने या कल्पना करने के बाद, दूसरों से ज़्यादा बार हाथ धोते हैं, और अकसर हाथ धोने के लिए हाथ धोते हैं ।",
+      "labse_cosine": 0.871768260553961,
+      "sentence_bleu": 39.64938038053596,
+      "inference_seconds": 1.3552107000723481
+    },
+    {
+      "test_split_index": 1535,
+      "pilot_terms_matched": [],
+      "source_en": "Religions prescribe hand washing for both hygienic and symbolic purposes.Symbolic hand washing, using water but no soap to wash hands, is a part of ritual hand washing featured in many religions, including Bahá'í Faith, Hinduism, tevilah and netilat yadayim in Judaism, Lavabo in Christianity, and Wudhu in Islam.Religions also prescribe hygienic hand washing, especially after certain actions.",
+      "reference": "धर्म स्वच्छता और प्रतीकात्मक दोनों उद्देश्यों के लिए हाथ धोने की सलाह देते हैं। हाथ धोने के लिए बिना साबुन के पानी के साथ प्रतीकात्मक हाथ धोना बाहाई धर्म, हिंदू धर्म, यहूदी धर्म में तेविला और नेटिलाट यदायिम, ईसाई धर्म में लावाबो, और इस्लाम में वज़ू सहित कई धर्मों में वर्णित रस्मी हाथ धोने का एक हिस्सा है। धर्म विशेष रूप से कुछ कार्यों के बाद स्वच्छता प्रदान करने के लिए हाथ धोने की भी सलाह देते हैं।",
+      "hypothesis": "धर्म दोनों शुद्ध और लाक्षणिक उद्देश्‍यों के लिए हाथ धोने का प्रबंध करता है ।",
+      "labse_cosine": 0.606120041626797,
+      "sentence_bleu": 0.267228730892895,
+      "inference_seconds": 0.5945053000468761
+    },
+    {
+      "test_split_index": 1554,
+      "pilot_terms_matched": [],
+      "source_en": "Objectives for response to an outbreak include reducing transmission among staff, protecting people who are at higher risk for adverse health complications, maintaining business operations, and minimizing adverse effects on other entities in their supply chains.",
+      "reference": "एक प्रकोप के प्रति प्रतिक्रिया के लक्ष्य में शामिल हैं: कर्मचारियों के बीच संचरण को कम करना, प्रतिकूल स्वास्थ्य जटिलताओं के उच्च जोखिम वाले लोगों की रक्षा करना, व्यवसाय संचालनों को बनाए रखना और उनकी आपूर्ति श्रृंखला में अन्य इकाईयों पर प्रतिकूल प्रभावों को कम से कम करना।",
+      "hypothesis": "शुरू - शुरू में जो लोग इस काम में हिस्सा लेते हैं, वे उन लोगों की हिफाज़त करते हैं जो खराब सेहत का खतरा मोल लेते हैं, बिज़नेस के काम में हाथ बँटाते हैं, साथ ही दूसरे निगमों के बुरे अंजाम भी होते हैं ।",
+      "labse_cosine": 0.6711251613214764,
+      "sentence_bleu": 2.0812170029507295,
+      "inference_seconds": 1.5821790000190958
+    },
+    {
+      "test_split_index": 1558,
+      "pilot_terms_matched": [],
+      "source_en": "Engineering controls involve isolating employees from work-related hazards without relying on worker behavior, and can be the most cost-effective solution to implement.",
+      "reference": "अभियांत्रिकी नियंत्रणों में कर्मचारियों को कार्य से संबंधित खतरों से कर्मी के व्यवहार पर निर्भर किए बिना अलग करना शामिल है, और यह लागू करने में सबसे अधिक किफायती समाधान हो सकता है।",
+      "hypothesis": "इंजीनियरिंग नियंत्रण में शामिल कर्मचारियों को काम से संबंधित खतरे से अलग करना है... काम पर भरोसा किए बिना, और सबसे अधिक लागतीय समाधान किया जा सकता है करने के लिए.",
+      "labse_cosine": 0.8263174296350648,
+      "sentence_bleu": 5.777358121551715,
+      "inference_seconds": 1.0894487000769004
+    },
+    {
+      "test_split_index": 1560,
+      "pilot_terms_matched": [],
+      "source_en": "Personal protective equipment (PPE) is considered less effective than engineering and administrative controls, but can help prevent some exposures.",
+      "reference": "व्यक्तिगत सुरक्षा उपकरण (PPE) को अभियांत्रिकी और प्रशासनिक नियंत्रणों से कम प्रभावी माना जाता है, लेकिन यह कुछ संपर्कों को रोकने में मदद कर सकता है।",
+      "hypothesis": "व्यक्‍तिगत सुरक्षा उपकरण (PPPE) इंजीनियरिंग और प्रशासन नियंत्रण से कम प्रभावकारी माना जाता है, लेकिन कुछ प्रदर्शनों को रोकने में मदद कर सकते हैं ।",
+      "labse_cosine": 0.930099321521012,
+      "sentence_bleu": 31.447527107538,
+      "inference_seconds": 1.1269570000004023
+    },
+    {
+      "test_split_index": 1567,
+      "pilot_terms_matched": [],
+      "source_en": "These include workers who have contact with the general public such as in schools, high-population-density work environments, and some high-volume retail settings.Engineering controls for this and higher risk groups include installing high-efficiency air filters, increasing ventilation rates, installing physical barriers such as clear plastic sneeze guards, and installing a drive-through window for customer service.Administrative controls for this and higher risk groups include encouraging sick workers to stay at home, replacing face-to-face meetings with virtual communications, establishing staggered shifts, discontinuing nonessential travel to locations with ongoing COVID-19 outbreaks, developing emergency communications plans including a forum for answering workers’ concerns, providing workers with up-to-date education and training on COVID-19 risk factors and protective behaviors, training workers who need to use protecting clothing and equipment how to use it, providing resources and a work environment that promotes personal hygiene, requiring regular hand washing, limiting customers' and the public's access to the worksite, and posting signage about hand washing and other COVID-19 protective measures.Depending on the work task, workers with at least medium exposure risk may need to wear personal protective equipment including some combination of gloves, a gown, a face shield or face mask, or goggles.",
+      "reference": "इनमें वे कर्मी शामिल हैं जिनका आम जनता से संपर्क होता है जैसे कि विद्यालय, उच्च जनसंख्या-घनत्व वाला कार्य वातावरण, और कुछ उच्च मात्रा वाली बिक्री व्यवस्थाएं। इस और उच्च जोखिम समूहों के लिए अभियांत्रिकी नियंत्रणों में उच्च दक्षता वाले एयर फिल्टर स्थापित करना, संवातन दर बढ़ाना, पारदर्शी प्लास्टिक स्नीज गार्ड जैसी भौतिक बाधाओं को स्थापित करना, और ग्राहक सेवा के लिए ड्राइव-थ्रू विंडो स्थापित करना शामिल हैं। इस और उच्च जोखिम समूहों के लिए प्रशासनिक नियंत्रणों में बीमार कर्मियों को घर पर रहने के लिए प्रोत्साहित करना, आमने-सामने की बैठकों को आभासी संचारों के साथ बदलना, सांतर पालियों की स्थापना करना, चल रहे COVID-19 प्रकोप वाले स्थानों के लिए अनावश्यक यात्रा को रोकना, आपातकालीन संचार योजनाएं विकसित करना, जिसमें शामिल हैं: कर्मियों की चिंताओं पर प्रतिक्रिया देने के लिए एक मंच स्थापित करना, कर्मियों को COVID-19 जोखिम कारकों और सुरक्षात्मक व्यवहारों पर नवीनतम शिक्षा और प्रशिक्षण प्रदान करना, उन कार्यकर्ताओं को उपयोग के तरीके के बारे में प्रशिक्षित करना जिन्हें सुरक्षा प्रदान करने वाले परिधान और उपकरणों का उपयोग करने की आवश्यकता है, ऐसे संसाधन और कार्य वातावरण प्रदान करना जो व्यक्तिगत स्वच्छता को बढ़ावा देते हैं, नियमित रूप से हाथ धोने को अनिवार्य करना, कार्यस्थल तक ग्राहकों और जनता की पहुंच को सीमित करना, और हाथ धोने और अन्य COVID-19 सुरक्षात्मक उपायों के बारे में संकेतक लगाना। किए जाने वाले कार्य पर निर्भर करते हुए, कम से कम मध्यम संपर्क जोखिम वाले कर्मियों को दस्ताने, चोंगा, चेहरे की शील्ड या चेहरे का मास्क या गॉगल्स के संयोजन सहित व्यक्तिगत सुरक्षा उपकरण पहनने की आवश्यकता हो सकती है।",
+      "hypothesis": "इन कर्मचारियों में शामिल हैं जिन्होंने आम जनता के साथ संपर्क किया है जैसे कि स्कूल में, उच्च जनता के काम वातावरण, और कुछ उच्च-वेषण विन्यास. इंजनिंग इस और बड़े जोखिम समूह के लिए नियंत्रण शामिल हैं जो उच्च गति के लिए लागू और अधिक जोखिम दरों, निर्माण गति दरों को स्थापित करते हैं जैसे कि प्लास्टिक के गार्ड, और एक ग्राहक विंडो सेवा के माध्यम से स्थापित करने के लिए.",
+      "labse_cosine": 0.7843472663984568,
+      "sentence_bleu": 0.6930174892902995,
+      "inference_seconds": 4.256735700066201
+    },
+    {
+      "test_split_index": 1580,
+      "pilot_terms_matched": [],
+      "source_en": "Aerosol-generating procedures include intubation, cough induction procedures, bronchoscopies, some dental procedures and exams, or invasive specimen collection.",
+      "reference": "एयरोसोल उत्पन्न करने वाली प्रक्रियाओं में नलिका प्रवेशन, कफ प्रेरण प्रक्रियाएं, ब्रोन्कोस्कोपी, कुछ दंत प्रक्रियाएं और परीक्षाएं, या चीर-फाड़ से नमूना एकत्र करना शामिल हैं।",
+      "hypothesis": "Aerososocutiol प्रक्रिया शामिल करते हैं, scates प्रक्रिया, scatesssssssies, कुछ दाँतों के ऑपरेशनों और परीक्षा, या इन्जेक्शनों में।",
+      "labse_cosine": 0.7891308678795481,
+      "sentence_bleu": 4.17342999338849,
+      "inference_seconds": 1.6410015999572352
+    },
+    {
+      "test_split_index": 1624,
+      "pilot_terms_matched": [],
+      "source_en": "This includes if you are sick and unable to work.",
+      "reference": "यदि आप बीमार हैं और काम नहीं कर सकते तो भी आपको वेतन मिलेगा।",
+      "hypothesis": "इसमें यह भी शामिल है कि आप बीमार हैं और काम करने में असमर्थ हैं ।",
+      "labse_cosine": 0.7371332801338799,
+      "sentence_bleu": 23.961829057131983,
+      "inference_seconds": 0.5420336000388488
+    },
+    {
+      "test_split_index": 1638,
+      "pilot_terms_matched": [],
+      "source_en": "We accept that circumstances have changed, and will work to set new targets and timelines where appropriate.",
+      "reference": "हम मानते हैं कि परिस्थितियां बदल चुकी हैं, और हम जहां उपयुक्त हो वहां नए लक्ष्य और समय-सीमाएं तय करने की दिशा में कार्य करेंगे।",
+      "hypothesis": "हम मानते हैं कि हालात बदल गए हैं, और नए लक्ष्य और समय - नियुक्‍त करने के लिए जहाँ उचित है, कार्य करेंगे ।",
+      "labse_cosine": 0.9744101063131331,
+      "sentence_bleu": 17.846877279661648,
+      "inference_seconds": 0.9865959000308067
+    },
+    {
+      "test_split_index": 1639,
+      "pilot_terms_matched": [],
+      "source_en": "What happens with the APP (Annual Planning)?",
+      "reference": "APP (वार्षिक नियोजन) के साथ क्या होगा?",
+      "hypothesis": "PPP (प्रयोगी योजना) के साथ क्या होता है?",
+      "labse_cosine": 0.791495177576979,
+      "sentence_bleu": 25.965358893403383,
+      "inference_seconds": 0.5070278999628499
+    },
+    {
+      "test_split_index": 1647,
+      "pilot_terms_matched": [],
+      "source_en": "However, out of an abundance of caution, we employed an antiviral cleaning crew to disinfect all surfaces in the San Francisco office.",
+      "reference": "हालांकि, भरपूर सावधानी बरतते हुए हमने सेन फ्रांसिस्को ऑफ़िस की सभी सतहों को विसंक्रमित करने के लिए एंटीवायरल सफाई कर्मीदल तैनात कर दिया।",
+      "hypothesis": "लेकिन, बहुत सावधानी से, हमने सैन फ्रांसिस्को ऑफिस में सभी सतहों को लकवा मारने के लिए एक शुद्ध सफ़ाई दल का प्रयोग किया ।",
+      "labse_cosine": 0.8863635649807975,
+      "sentence_bleu": 7.831957705977147,
+      "inference_seconds": 0.9112636999925599
+    },
+    {
+      "test_split_index": 1653,
+      "pilot_terms_matched": [],
+      "source_en": "As some of our NYC-based colleagues know, we have also been in discussion about leasing a location in Brooklyn.",
+      "reference": "जैसा कि हमारे कुछ NYC-स्थित सहकर्मी जानते हैं, ब्रुकलिन में एक स्थान पट्टे पर लेने की भी चर्चा चल रही है।",
+      "hypothesis": "जैसे कि हमारे कुछ प्रतिष्ठित साथी जानते हैं, हम ब्रुकलिन में एक स्थान के बारे में बात करने में भी रहे हैं.",
+      "labse_cosine": 0.8593880743607673,
+      "sentence_bleu": 18.641996229708283,
+      "inference_seconds": 0.8158299999777228
+    },
+    {
+      "test_split_index": 1668,
+      "pilot_terms_matched": [],
+      "source_en": "This coming week we will follow up with additional guidance on Wikimania and other regional and thematic community conferences.",
+      "reference": "इस आगामी हफ़्ते में हम विकिमेनिया और अन्य क्षेत्रीय एवं विषयक सामुदायिक सम्मेलनों के संबंध में अतिरिक्त मार्गदर्शन के साथ अनुवर्तन करेंगे।",
+      "hypothesis": "इस सप्ताह हम विकिमेनिया और अन्य क्षेत्रीय सम्मेलन पर अतिरिक्त मार्गदर्शन के साथ कदम उठाएँगे.",
+      "labse_cosine": 0.9282792284873439,
+      "sentence_bleu": 27.062395495883933,
+      "inference_seconds": 0.6306922999210656
+    },
+    {
+      "test_split_index": 1671,
+      "pilot_terms_matched": [],
+      "source_en": "Staying in touch around COVID-19 related issues",
+      "reference": "COVID-19 संबंधी मुद्दों के बारे में संपर्क बनाए रखना",
+      "hypothesis": "CODD-19 संबंधित मुद्दों के आसपास संपर्क में रहना",
+      "labse_cosine": 0.8615835602657367,
+      "sentence_bleu": 11.59119922599073,
+      "inference_seconds": 0.5078481000382453
+    },
+    {
+      "test_split_index": 1687,
+      "pilot_terms_matched": [],
+      "source_en": "Now, please -- wash your hands and don’t touch your face!",
+      "reference": "अब, कृपया अपने हाथ धो लें और अपना चेहरा न छुएं!",
+      "hypothesis": "अब कृपया अपने हाथ धो लीजिए और अपना चेहरा मत छूइए!",
+      "labse_cosine": 0.9928328894881364,
+      "sentence_bleu": 30.039183588157954,
+      "inference_seconds": 0.4553245999850333
+    },
+    {
+      "test_split_index": 1722,
+      "pilot_terms_matched": [],
+      "source_en": "The app was developed by the Ministry of Communication and Technology and Ministry of Health.",
+      "reference": "ऐप को संचार एवं प्रौद्योगिकी मंत्रालय और स्वास्थ्य मंत्रालय द्वारा विकसित किया गया था।",
+      "hypothesis": "इस बीमारी की वजह से लोगों की बातचीत और पढ़ाई - लिखाई और स्वास्थ्य सेवा में काफी सुधार आया ।",
+      "labse_cosine": 0.6292170673742733,
+      "sentence_bleu": 3.8292061380205022,
+      "inference_seconds": 0.6311900999862701
+    },
+    {
+      "test_split_index": 1732,
+      "pilot_terms_matched": [],
+      "source_en": "surveillance would have to be \"lawful, necessary and proportionate\";",
+      "reference": "निगरानी को \"वैध, आवश्यक और समानुपातिक\" होना होगा;",
+      "hypothesis": "निगरानी \"शुद्ध, आवश्यक और अनुपात\" होना चाहिए था।",
+      "labse_cosine": 0.8870050474414584,
+      "sentence_bleu": 17.423472443716534,
+      "inference_seconds": 0.4036702000303194
+    },
+    {
+      "test_split_index": 1733,
+      "pilot_terms_matched": [],
+      "source_en": "extensions of monitoring and surveillance would have to have sunset clauses;",
+      "reference": "पर्यवेक्षण और निगरानी के विस्तारों के लिए समापक खंड होना चाहिए;",
+      "hypothesis": "निगरानी और निगरानी का विस्तार सूर्यास्त होना होता;",
+      "labse_cosine": 0.7856763939071577,
+      "sentence_bleu": 8.125165710854512,
+      "inference_seconds": 0.3836314999498427
+    },
+    {
+      "test_split_index": 1735,
+      "pilot_terms_matched": [],
+      "source_en": "data security and anonymity would have to be protected and shown to be protected based on evidence;",
+      "reference": "डेटा सुरक्षा और अनामिकता को संरक्षित किया जाना चाहिए और प्रमाण के आधार पर संरक्षित दर्शाया जाना चाहिए;",
+      "hypothesis": "डाटा सुरक्षा तथा तत्कालार्थी को सुरक्षित रखा जाना चाहिए और दिखाया जाना चाहिए कि सबूतों पर आधारित किया जा सकता है;",
+      "labse_cosine": 0.9133728042156039,
+      "sentence_bleu": 9.614272376566879,
+      "inference_seconds": 0.9695649999193847
+    },
+    {
+      "test_split_index": 1737,
+      "pilot_terms_matched": [],
+      "source_en": "any sharing of data with third parties would have to be defined in law;",
+      "reference": "तीसरे पक्षों के साथ डेटा के किसी भी साझाकरण को कानून में परिभाषित करना चाहिए;",
+      "hypothesis": "तीसरे पार्टियों के साथ आंकड़ा का कोई साझा कानून में पारिभाषित होना चाहिए;",
+      "labse_cosine": 0.9277914024015637,
+      "sentence_bleu": 8.862962837251187,
+      "inference_seconds": 0.5973042000550777
+    },
+    {
+      "test_split_index": 1738,
+      "pilot_terms_matched": [],
+      "source_en": "there would have to be safeguards against abuse and the rights of citizens to respond to abuses;",
+      "reference": "दुरुपयोग के प्रति और दुरुपयोग पर प्रतिक्रिया के लिए नागरिकों के अधिकारों की सुरक्षा के उपाय होने चाहिए;",
+      "hypothesis": "दुर्व्यवहार के प्रति प्रतिक्रिया दिखाने के लिए नागरिकों के अधिकारों और अधिकारों की रक्षा करनी पड़ती;",
+      "labse_cosine": 0.8952482562029359,
+      "sentence_bleu": 25.65271158193807,
+      "inference_seconds": 0.7552533999551088
+    },
+    {
+      "test_split_index": 1758,
+      "pilot_terms_matched": [],
+      "source_en": "On 10 April 2020, Google and Apple, the companies that control the Android and iOS mobile platforms, announced an initiative for contact tracing, which they claimed would preserve privacy, based on a combination of Bluetooth Low Energy technology and privacy-preserving cryptography.",
+      "reference": "10 अप्रैल 2020 को, Google और Apple, Android और iOS मोबाइल प्लेटफ़ॉर्म को नियंत्रित करने वाली कंपनियों ने, संपर्क ट्रेसिंग के लिए एक पहल की घोषणा की, जिसके बारे में उन्होंने दावा किया कि यह ब्लूटूथ निम्न ऊर्जा तकनीक और गोपनीयता-संरक्षक क्रिप्टोग्राफी के संयोजन के आधार पर गोपनीयता को संरक्षित करेगी।",
+      "hypothesis": "10 अप्रैल 2020 को, गूगल और एपीप्प ने कहा कि इन कंपनियों ने एंड्रोद तथा आईयूएस मोबाइल मंच पर नियंत्रण किया है, संपर्क ज्ञानियों के लिए एक पहल की, जिसे उन्होंने दावा किया कि वे गोपनीयता बनाए रखेंगे, मीडिया कम ऊर्जा और गोपनीयताओं के एक संयोजन पर आधारित।",
+      "labse_cosine": 0.9005779797399918,
+      "sentence_bleu": 20.92166109017896,
+      "inference_seconds": 2.223720100009814
+    },
+    {
+      "test_split_index": 1769,
+      "pilot_terms_matched": [],
+      "source_en": "Chloroquine is an anti-malarial medication that is also used against some auto-immune diseases.",
+      "reference": "क्लोरोक्विन एक मलेरिया-रोधी दवा है जिसका उपयोग कुछ स्व-प्रतिरक्षा रोगों से सुरक्षा के लिए भी किया जाता है।",
+      "hypothesis": "क्लोरोपेन एक विरोधी चिकित्सा है जो कुछ स्वचालित रोगों के खिलाफ भी प्रयोग किया जाता है।",
+      "labse_cosine": 0.8542883680139154,
+      "sentence_bleu": 10.573119961590265,
+      "inference_seconds": 0.9239059999817982
+    },
+    {
+      "test_split_index": 1784,
+      "pilot_terms_matched": [],
+      "source_en": "It may not be safe for use by pregnant women or those trying to conceive.",
+      "reference": "यह गर्भवती महिलाओं या गर्भ धारण करने की कोशिश करने वाली महिलाओं के द्वारा उपयोग के लिए सुरक्षित नहीं हो सकती है।",
+      "hypothesis": "यह गर्भवती स्त्रियों या गर्भवती स्त्रियों द्वारा प्रयोग करने के लिए सुरक्षित नहीं हो सकता ।",
+      "labse_cosine": 0.9693897745857548,
+      "sentence_bleu": 19.78560003294961,
+      "inference_seconds": 0.6114020999521017
+    },
+    {
+      "test_split_index": 1798,
+      "pilot_terms_matched": [],
+      "source_en": "Women who are pregnant or breastfeeding or who do not have an effective contraceptive method are not eligible.",
+      "reference": "जो महिलाएं गर्भवती हैं या स्तनपान करा रही हैं या जो एक प्रभावी गर्भनिरोधक विधि का उपयोग नहीं कर रही हैं, वे पात्र नहीं हैं।",
+      "hypothesis": "जो स्त्रियाँ गर्भवती हैं या स्तन दूध पिलाने वाली हैं या जिनके पास एक प्रभावकारी गर्भ - संबंधी विधि नहीं है, वे योग्य नहीं हैं ।",
+      "labse_cosine": 0.9620255508692384,
+      "sentence_bleu": 8.863826494908315,
+      "inference_seconds": 0.8391451999777928
+    },
+    {
+      "test_split_index": 1819,
+      "pilot_terms_matched": [],
+      "source_en": "viral vector (Phase I developer and vaccine candidate: CanSino Biologics, adenovirus type 5 vector)",
+      "reference": "वायरल वेक्टर (चरण I विकासक और टीका उम्मीदवार: CanSino Biologics, एडेनोवायरस प्रकार 5 वेक्टर)",
+      "hypothesis": "वायरस सदिश (प्रेशस आईएपी आईएएस आईएएस आईए और वैक्सीन रक्षक: सेओो बॉइड्स, adivious क़िस्म 5 सदिश)",
+      "labse_cosine": 0.6191668757591078,
+      "sentence_bleu": 2.996515740268936,
+      "inference_seconds": 1.2228750999784097
+    },
+    {
+      "test_split_index": 1841,
+      "pilot_terms_matched": [],
+      "source_en": "The vaccine candidate is in laboratory research, with human testing planned for July or August 2020.",
+      "reference": "टीका उम्मीदवार प्रयोगशाला अनुसंधान में है, जिसकी जुलाई या अगस्त 2020 के लिए मानव परीक्षण की योजना है।",
+      "hypothesis": "इस वैक्सीन का लाभ उठाया जा सकता है ।",
+      "labse_cosine": 0.3752246080017457,
+      "sentence_bleu": 1.5694957190569983,
+      "inference_seconds": 0.3500283999601379
+    },
+    {
+      "test_split_index": 1843,
+      "pilot_terms_matched": [],
+      "source_en": "On 17 March 2020, American pharmaceutical company Pfizer announced a partnership with German company BioNTech to jointly develop a mRNA-based vaccine.",
+      "reference": "17 मार्च 2020 को, अमेरिकी दवा कंपनी फाइजर ने जर्मन कंपनी बायोएनटेक के साथ संयुक्त रूप से mRNA आधारित टीका विकसित करने के लिए साझेदारी की घोषणा की।",
+      "hypothesis": "17 मार्च, 2020 को अमरीकी चिकित्सा कंपनी पीफर ने जर्मन कंपनी बॉइओटी के साथ मिलकर एक एमईएन- आधारित वैक्सीन विकसित करने की घोषणा की ।",
+      "labse_cosine": 0.909774299792069,
+      "sentence_bleu": 9.95916657608585,
+      "inference_seconds": 1.2504811000544578
+    },
+    {
+      "test_split_index": 1853,
+      "pilot_terms_matched": [],
+      "source_en": "On 2 April 2020, researchers at the University of Pittsburgh School of Medicine reported on testing of PittCoVacc, a possible COVID-19 vaccine in mice, stating that \"MNA delivered SARS-CoV-2 S1 subunit vaccines elicited potent antigen-specific antibody responses [in the mice] that were evident beginning 2 weeks after immunization.\"",
+      "reference": "2 अप्रैल 2020 को, यूनिवर्सिटी ऑफ पिट्सबर्ग स्कूल ऑफ मेडिसिन के अनुसंधानकर्ताओं ने चूहों में एक संभावित COVID-19 टीका PittCoVacc के परीक्षण पर सूचना दी, जिसमें कहा गया है कि \"MNA प्रदान की गई SARS-CoV-2 S1 सबयूनिट टीकों ने एंटीजन-विशिष्ट एंटीबॉडी प्रतिक्रियाएं [चूहों में] प्रेरित की हैं, जो टीकाकरण के 2 सप्ताह बाद शुरू होनी स्पष्ट हो गई थी।\"",
+      "hypothesis": "2 अप्रैल 2020 के दिन, TATCOCTCO के स्कूल के खोजकर्ताओं ने कहा कि \"MAAAAAAS - CAS - CSSCS - CVCSSSSSCCSCSCOSCCSSSS -CTCTCTCTCOSSCACACACACTCTC के परीक्षण के परीक्षण के बारे में रिपोर्ट दी गयी थी।",
+      "labse_cosine": 0.6745484581415889,
+      "sentence_bleu": 2.857022197574225,
+      "inference_seconds": 4.021191400010139
+    },
+    {
+      "test_split_index": 1861,
+      "pilot_terms_matched": [],
+      "source_en": "Early research to assess vaccine efficacy using COVID-19-specific animal models, such as ACE2-transgenic mice, other laboratory animals, and non-human primates, indicate a need for biosafety-level 3 containment measures for handling live viruses, and international coordination to ensure standardized safety procedures.",
+      "reference": "COVID-19-विशिष्ट पशु मॉडल, जैसे ACE2-ट्रांसजेनिक चूहों, अन्य प्रयोगशाला पशुओं और गैर-मानव प्राइमेट का उपयोग करके टीके की प्रभावकारिता का आकलन करने वाले प्रारंभिक अनुसंधान, जीवित वायरस से निपटने के लिए जैव-सुरक्षा स्तर 3 संरोधन उपायों की आवश्यकता और मानकीकृत सुरक्षा प्रक्रियाओं को सुनिश्चित करने के लिए अंतर्राष्ट्रीय समन्वय का संकेत देते हैं।",
+      "hypothesis": "CEVD-19-19- विशिष्ट पशु मॉडलों, अन्य प्रयोगशालाओं, जानवरों, और गैर मानव मूल्यों के लिए एकीकरण की आवश्यकता सूचित करता है, जीवन - स्तरीय वायरस को नियंत्रित करने के लिए एक उपाय की आवश्यकता है, और अंतर्राष्ट्रीय इंफेक्शन के लिए मानक सुरक्षा प्रदान करने के लिए।",
+      "labse_cosine": 0.8274989162323623,
+      "sentence_bleu": 6.166785595011176,
+      "inference_seconds": 2.1707090000854805
+    },
+    {
+      "test_split_index": 1862,
+      "pilot_terms_matched": [],
+      "source_en": "Vaccines against SARS and MERS have been tested in non-human animal models.",
+      "reference": "गैर-मानव पशु मॉडलों में SARS और MERS से सुरक्षा के लिए टीकों का परीक्षण किया गया है।",
+      "hypothesis": "SARS और Morn के खिलाफ Ves की परीक्षा गैर मानव पशु मॉडल में की गई है.",
+      "labse_cosine": 0.8766093336301352,
+      "sentence_bleu": 5.751391809950023,
+      "inference_seconds": 0.7716611000942066
+    },
+    {
+      "test_split_index": 1883,
+      "pilot_terms_matched": [],
+      "source_en": "Local transmission of the disease has been recorded in most countries across all six WHO regions.",
+      "reference": "सभी छह WHO क्षेत्रों के अधिकांश देशों में रोग का स्थानीय संचरण दर्ज किया गया है।",
+      "hypothesis": "हर छः WHO के दौरान, इस बीमारी का स्थानीय प्रेषण अधिकांश देशों में रिकार्ड किया गया है ।",
+      "labse_cosine": 0.8804388951904014,
+      "sentence_bleu": 11.794224053267106,
+      "inference_seconds": 0.6244005999760702
+    },
+    {
+      "test_split_index": 1885,
+      "pilot_terms_matched": [],
+      "source_en": "Emergency symptoms include difficulty breathing, persistent chest pain or pressure, confusion, difficulty waking, and bluish face or lips; immediate medical attention is advised if these symptoms are present.",
+      "reference": "आपातकालीन लक्षणों में साँस लेने में कठिनाई, लगातार छाती में दर्द या दबाव, उलझन, जागने में कठिनाई और चेहरे या होंठों का नीला होना शामिल हैं; इन लक्षणों के उपस्थित होने पर तत्काल चिकित्सा देखभाल प्राप्त करने की सलाह दी जाती है।",
+      "hypothesis": "इस बीमारी के लक्षण भी हैं, लगातार साँस लेना, छाती में दर्द या दबाव आना, उलझन, बेचैनी होना, और मुँह बंद करना; तात्कालिक चिकित्सीय ध्यान की सलाह दी जाती है कि ये लक्षण मौजूद हैं या नहीं ।",
+      "labse_cosine": 0.8700130032476395,
+      "sentence_bleu": 17.63574139713993,
+      "inference_seconds": 1.405885300016962
+    },
+    {
+      "test_split_index": 1897,
+      "pilot_terms_matched": [],
+      "source_en": "Loud talking releases more droplets than normal talking.",
+      "reference": "ऊँची आवाज़ में बात करने से सामान्य आवाज़ में बात करने की तुलना में अधिक बूंदें निकलती हैं।",
+      "hypothesis": "लूत, आम बातचीत से ज़्यादा लंबी बातचीत करता है ।",
+      "labse_cosine": 0.6339423904874539,
+      "sentence_bleu": 1.9833734500134768,
+      "inference_seconds": 0.39790399989578873
+    },
+    {
+      "test_split_index": 1898,
+      "pilot_terms_matched": [],
+      "source_en": "A study in Singapore found that an uncovered cough can lead to droplets travelling up to 4.5 meters (15 feet).",
+      "reference": "सिंगापुर में एक अध्ययन में पाया गया कि बिना ढँके खांसी से 4.5 मीटर (15 फीट) तक जाने वाली बूंदें उत्पन्न हो सकती हैं।",
+      "hypothesis": "सिंगापुर में एक अध्ययन ने पाया कि एक उष्णकटिबंधी से ४.५ मीटर (१५ फीट) यात्रा करने की ओर ले जा सकता है ।",
+      "labse_cosine": 0.867449723623868,
+      "sentence_bleu": 12.71235700108297,
+      "inference_seconds": 0.9982743000146002
+    },
+    {
+      "test_split_index": 1900,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "Some medical procedures such as intubation and cardiopulmonary resuscitation (CPR) may cause respiratory secretions to be aerosolised and thus result in airborne spread.",
+      "reference": "कुछ चिकित्सा प्रक्रियाओं जैसे नलिका प्रवेशन और हृदय फुप्फुसीय चिकित्सा (CPR) के कारण श्वसन स्राव से एयरोसोल बन सकता है और इस प्रकार वायुवाहित प्रसार हो सकता है।",
+      "hypothesis": "कुछ चिकित्सा कार्य जैसे चिकित्सा कार्य, जैसे कि इंफेक्शन और अति - शक्‍ति रीज़निंग (CR) शायद श्‍वेत रक्‍त - वाहिकाओं का कारण हो और इसका परिणाम हवा में फैला हुआ हो ।",
+      "labse_cosine": 0.8015307336989681,
+      "sentence_bleu": 3.158092042483704,
+      "inference_seconds": 1.5873445000033826
+    },
+    {
+      "test_split_index": 1917,
+      "pilot_terms_matched": [],
+      "source_en": "Although SARS-COV-2 has a tropism for ACE2-expressing epithelial cells of the respiratory tract, patients with severe COVID-19 have symptoms of systemic hyperinflammation.",
+      "reference": "यद्यपि SARS-COV-2 में श्वसन मार्ग के ACE2-प्रकटनकारी उपकला कोशिकाओं के लिए एक अनुवर्तन होता है, गंभीर COVID-19 वाले रोगियों में दैहिक अतिप्रदाह के लक्षण होते हैं।",
+      "hypothesis": "हालांकि SARS-COV-OV-OV- 2 के पास श्‍वेत ट्रैक्ट की एएसिलल कोशिकाओं के लिए एक सहमति है, मरीज़ों को गंभीर COVDD-19 के लक्षण होते हैं।",
+      "labse_cosine": 0.8572778590201526,
+      "sentence_bleu": 18.395815190447387,
+      "inference_seconds": 2.1617097000125796
+    },
+    {
+      "test_split_index": 1922,
+      "pilot_terms_matched": [],
+      "source_en": "The test is typically done on respiratory samples obtained by a nasopharyngeal swab; however, a nasal swab or sputum sample may also be used.",
+      "reference": "यह परीक्षण सामान्य तौर पर एक नासाग्रसनी के फाह द्वारा प्राप्त श्वसन संबंधी नमूनों पर किया जाता है; हालाँकि, एक नाक का फाह या बलगम का नमूना भी इस्तेमाल किया जा सकता है।",
+      "hypothesis": "यह जाँच आम तौर पर श्‍वेत नमूनों पर किया जाता है जो एक नृश्‍यभिकcra से प्राप्त होते हैं; लेकिन, एक नसब या सीक्यूम नमूना का भी प्रयोग किया जा सकता है ।",
+      "labse_cosine": 0.8356661136509667,
+      "sentence_bleu": 17.88146072019407,
+      "inference_seconds": 1.5017329000402242
+    },
+    {
+      "test_split_index": 1930,
+      "pilot_terms_matched": [
+        "consolidation"
+      ],
+      "source_en": "Subpleural dominance, crazy paving (lobular septal thickening with variable alveolar filling), and consolidation may appear as the disease progresses.",
+      "reference": "रोग बढ़ने पर सबप्ल्यूरल डॉमिनेंस, क्रेजी पेविंग (परिवर्तनशील वायुकोशीय भराव के साथ पालित दीवारों का मोटा होना), और घनीकरण प्रकट हो सकते हैं।",
+      "hypothesis": "जब बीमारी बढ़ने लगती है, तो यह बीमारी धीरे - धीरे बढ़ती नज़र आती है ।",
+      "labse_cosine": 0.4510903123479698,
+      "sentence_bleu": 1.5102474580708127,
+      "inference_seconds": 0.7139601999660954
+    },
+    {
+      "test_split_index": 1933,
+      "pilot_terms_matched": [
+        "edema",
+        "consolidation"
+      ],
+      "source_en": "Macroscopy: pleurisy, pericarditis, lung consolidation and pulmonary oedema",
+      "reference": "मैक्रोस्कोपी: फुस्फुस आवरण में शोथ, पेरिकार्डिटिस, फेफड़े का घनीकरण और फुफ्फुसीय शोफ",
+      "hypothesis": "मेक्रोज़ की नक़ल: हरिमीटर, परी इम्पिलिक फ्लू, फेफड़ों का तेल और गुलदस्ता",
+      "labse_cosine": 0.552071225229801,
+      "sentence_bleu": 3.9297193407553013,
+      "inference_seconds": 0.9066951000131667
+    },
+    {
+      "test_split_index": 1935,
+      "pilot_terms_matched": [
+        "edema"
+      ],
+      "source_en": "mild pneumonia: pulmonary oedema, pneumocyte hyperplasia, large atypical pneumocytes, interstitial inflammation with lymphocytic infiltration and multinucleated giant cell formation",
+      "reference": "हल्का निमोनिया: फुफ्फुसीय शोफ, न्यूमोसाइट अतिवृद्धि, बड़े अप्रारूपी न्यूमोसाइट्स, लिम्फोसाइटिक अंतःस्पदंन के साथ अंतराकाशी सूजन और बहुकेंद्रक विशाल कोशिका निर्माण",
+      "hypothesis": "कोमल गंध: गिल्डामा ओमा, ग्रीमोमा, अति - महत्त्वपूर्ण, अर्थात्‌ एक विशाल अंतरिक्षीय प्लोत्तेजक, अण्डिक और बहु - विशाल कोशिका उत्पन्‍न करने के साथ - साथ",
+      "labse_cosine": 0.5910143411027345,
+      "sentence_bleu": 4.300662553696791,
+      "inference_seconds": 1.5662894999841228
+    },
+    {
+      "test_split_index": 1944,
+      "pilot_terms_matched": [],
+      "source_en": "Distancing guidelines also include that people stay at least 6 feet (1.8 m) apart.",
+      "reference": "दूरी बनाने के दिशानिर्देशों में यह भी शामिल है कि लोग कम से कम 6 फीट (1.8 m) दूर रहें।",
+      "hypothesis": "दूर - दूर के मार्गदर्शन में यह भी शामिल है कि लोग कम - से - कम 6 फुट (8 मीटर) अलग रहते हैं ।",
+      "labse_cosine": 0.9048633671708642,
+      "sentence_bleu": 30.405596969012933,
+      "inference_seconds": 0.9065693999873474
+    },
+    {
+      "test_split_index": 1945,
+      "pilot_terms_matched": [],
+      "source_en": "There is no medication known to be effective at preventing COVID-19.As a vaccine is not expected until 2021 at the earliest, a key part of managing COVID-19 is trying to decrease the epidemic peak, known as \"flattening the curve\".",
+      "reference": "COVID-19 को रोकने के लिए प्रभावी होने के लिए ज्ञात कोई दवा नहीं है। चूंकि कम से कम 2021 तक वैक्सीन की उम्मीद नहीं है, COVID-19 के प्रबंधन का एक महत्वपूर्ण भाग महामारी के चरम को कम करने की कोशिश करना है, जिसे \"वक्र को कम करना\" कहा जाता है।",
+      "hypothesis": "CorvVI-19 को रोकने में कोई दवा प्रभावी होने के लिए जाना जाता है। एक वैक्सीन के रूप में उम्मीद नहीं की जाती है कि पहली सदी में 2021 तक, CCPIVD -19 के प्रबंधन का एक प्रमुख हिस्सा है, जो इस महामारी को कम करने की कोशिश कर रहा है, जिसके बारे में कहा जाता है \" वक्र का निर्माण\".",
+      "labse_cosine": 0.8491335313789045,
+      "sentence_bleu": 18.693232481113537,
+      "inference_seconds": 2.6845584000693634
+    },
+    {
+      "test_split_index": 1954,
+      "pilot_terms_matched": [],
+      "source_en": "Personal hygiene and a healthy lifestyle and diet have been recommended to improve immunity.",
+      "reference": "प्रतिरक्षा को बेहतर बनाने के लिए व्यक्तिगत स्वच्छता और एक स्वस्थ जीवन शैली और आहार की अनुशंसा की गई है।",
+      "hypothesis": "अपनी साफ - सफाई और अच्छे जीने और खान - पान में सुधार लाने की सलाह दी गयी है ।",
+      "labse_cosine": 0.8046128461551147,
+      "sentence_bleu": 2.5197593442434796,
+      "inference_seconds": 0.7075448000105098
+    },
+    {
+      "test_split_index": 1973,
+      "pilot_terms_matched": [
+        "pneumothorax"
+      ],
+      "source_en": "Ventilators capable of pressure control modes and high PEEP are needed to maximise oxygen delivery while minimising the risk of ventilator-associated lung injury and pneumothorax.",
+      "reference": "वेंटिलेटर से जुड़ी फेफड़ों की क्षति और न्यूमोथोरैक्स के जोखिम को कम करते हुए ऑक्सीजन वितरण को अधिकतम करने के लिए दबाव नियंत्रण प्रणालियों और उच्च PEEP में सक्षम वेंटिलेटरों की आवश्यकता होती है।",
+      "hypothesis": "दबाव नियंत्रण मोड और उच्च PEEP की सक्षमता की आवश्यकता है ऑक्सीजन वितरण को कम करने के लिए जब कम किया जा रहा फेफड़ों को चोट और PEECPx.",
+      "labse_cosine": 0.8209862861814224,
+      "sentence_bleu": 12.093441945185488,
+      "inference_seconds": 1.4114923001034185
+    },
+    {
+      "test_split_index": 1980,
+      "pilot_terms_matched": [],
+      "source_en": "It has not undergone the clinical studies needed to show it is safe and effective for the disease.",
+      "reference": "इस पर यह दिखाने के लिए आवश्यक नैदानिक अध्ययन नहीं किए गए हैं कि यह इस रोग के लिए सुरक्षित और प्रभावी है।",
+      "hypothesis": "यह रोग के लिए सुरक्षित और प्रभावकारी है ।",
+      "labse_cosine": 0.7239581376950115,
+      "sentence_bleu": 9.859978824559903,
+      "inference_seconds": 0.7582788999425247
+    },
+    {
+      "test_split_index": 1997,
+      "pilot_terms_matched": [],
+      "source_en": "Pregnant women may be at higher risk for severe infection with COVID-19 based on data from other similar viruses, like SARS and MERS, but data for COVID-19 is lacking.In some people, COVID-19 may affect the lungs causing pneumonia.",
+      "reference": "SARS और MERS जैसे अन्य समान वायरसों से आँकड़ों के आधार पर, गर्भवती महिलाओं को COVID-19 के साथ गंभीर संक्रमण का उच्च जोखिम हो सकता है, लेकिन COVID-19 के लिए आँकड़ों में कमी है। कुछ लोगों में, COVID-19 फेफड़ों को प्रभावित करके निमोनिया उत्पन्न कर सकता है।",
+      "hypothesis": "CAAS और MCAS के जैसे, डेटा पर आधारित गंभीर संक्रमण के लिए हो सकता है, लेकिन CCPCAD-19 की कमी है. कुछ लोगों में COCOCONDD-19-19 के लिए डेटा की कमी है. कुछ लोगों में CECONDDDD-19 के कारण फेफड़ों को प्रभावित कर सकता है.",
+      "labse_cosine": 0.7515488471736173,
+      "sentence_bleu": 14.941588413783741,
+      "inference_seconds": 2.730343099916354
+    },
+    {
+      "test_split_index": 1998,
+      "pilot_terms_matched": [],
+      "source_en": "In those most severely affected, COVID-19 may rapidly progress to acute respiratory distress syndrome (ARDS) causing respiratory failure, septic shock or multi-organ failure.",
+      "reference": "सबसे गंभीर रूप से प्रभावित लोगों में, COVID-19 तीव्र श्वसन संकट सिंड्रोम (ARDS) में तेजी से विकसित हो सकता है, जिससे श्वसन विफलता, पूतिक आघात या बहु-अंग विफलता हो सकती है।",
+      "hypothesis": "उन सबसे गंभीर रूप से प्रभावित उन में, CVID-19 तेजी से श्‍वासीय व्यथा प्रमाणपत्र (साथ) के कारण श्‍वासीय असफलता, अत्यधिक आघात या बहु-तुलन असफलता उत्पन्‍न हो सकती है ।",
+      "labse_cosine": 0.8488896460849649,
+      "sentence_bleu": 15.502598750848144,
+      "inference_seconds": 1.5280651999637485
+    },
+    {
+      "test_split_index": 1999,
+      "pilot_terms_matched": [],
+      "source_en": "Complications associated with COVID-19 include sepsis, abnormal clotting and damage to the heart, kidneys and liver.",
+      "reference": "COVID-19 से जुड़ी जटिलताओं में पूतिता, असामान्य स्कंदन और हृदय, गुर्दे और यकृत को नुकसान शामिल हैं।",
+      "hypothesis": "CFVID-19 से संबंधित उपचार शामिल हैं Casscssscis, असामान्य रूप से शरीर, गुर्दे और कलेजे को क्षति और नुकसान ।",
+      "labse_cosine": 0.766881091797583,
+      "sentence_bleu": 10.108901518669622,
+      "inference_seconds": 1.1988472999073565
+    },
+    {
+      "test_split_index": 2010,
+      "pilot_terms_matched": [],
+      "source_en": "According to March data from the United States, 89% of those hospitalised had preexisting conditions.Availability of medical resources and the socioeconomics of a region may also affect mortality.",
+      "reference": "अमेरिका के मार्च के आँकड़ों के अनुसार, अस्पताल में भर्ती होने वाले 89% लोगों में पूर्वविद्यमान स्थितियाँ थी। चिकित्सा संसाधनों की उपलब्धता और एक क्षेत्र की सामाजिक-आर्थिक स्थिति भी मृत्यु दर को प्रभावित कर सकती है।",
+      "hypothesis": "अमरीका के मार्च डेटा के अनुसार, उन अस्पताल के 89 प्रतिशत लोगों को पहले से कहीं ज़्यादा हालात का सामना करना पड़ा था ।",
+      "labse_cosine": 0.813661048227092,
+      "sentence_bleu": 4.98441555160729,
+      "inference_seconds": 0.7994257999816909
+    },
+    {
+      "test_split_index": 2030,
+      "pilot_terms_matched": [],
+      "source_en": "While not all infected people develop antibodies, the presence of antibodies may provide information about how many people have been infected.",
+      "reference": "हालाँकि सभी संक्रमित लोग प्रतिरक्षी विकसित नहीं करते हैं, प्रतिरक्षी की उपस्थिति से इस बारे में जानकारी मिल सकती है कि कितने लोग संक्रमित हुए हैं।",
+      "hypothesis": "जबकि सभी संक्रमित लोगों को संक्रमित नहीं किया जा रहा है, बीमारी की मौजूदगी शायद इस बात के बारे में जानकारी दे कि कितने लोग एच. आई. वी.",
+      "labse_cosine": 0.8412320640840693,
+      "sentence_bleu": 9.4900123763462,
+      "inference_seconds": 1.0377045000204816
+    },
+    {
+      "test_split_index": 2053,
+      "pilot_terms_matched": [],
+      "source_en": "The official names COVID-19 and SARS-CoV-2 were issued on 11 February 2020.",
+      "reference": "COVID-19 और SARS-CoV-2 के औपचारिक नाम 11 फरवरी 2020 को जारी किए गए थे।",
+      "hypothesis": "आधिकारिक नाम Corv- 19 तथा SAAS- को- को- को- मेंटेनर 11 फरवरी 2020 पर जारी किया गया था.",
+      "labse_cosine": 0.8469309051514285,
+      "sentence_bleu": 8.562365224473284,
+      "inference_seconds": 0.9405419999966398
+    },
+    {
+      "test_split_index": 2059,
+      "pilot_terms_matched": [],
+      "source_en": "No medications or vaccine is approved to treat the disease.",
+      "reference": "रोग के उपचार के लिए कोई दवा या टीका अनुमोदित नहीं है।",
+      "hypothesis": "बीमारी का इलाज करने के लिए कोई दवा या वैक्सीन स्वीकार नहीं की जाती ।",
+      "labse_cosine": 0.9413617299629237,
+      "sentence_bleu": 25.748661016289674,
+      "inference_seconds": 0.5558939999900758
+    },
+    {
+      "test_split_index": 2078,
+      "pilot_terms_matched": [],
+      "source_en": "Phase III clinical trials are being conducted in the US, China and Italy.Chloroquine, previously used to treat malaria, was studied in China in February 2020, with preliminary results.",
+      "reference": "अमेरिका, चीन और इटली में चरण III नैदानिक परीक्षण आयोजित किए जा रहे हैं। पहले से ही मलेरिया के उपचार के लिए उपयोग की जाने वाली क्लोरोक्विन का फरवरी 2020 में चीन में आरंभिक परिणामों के साथ अध्ययन किया गया था।",
+      "hypothesis": "अमरीका, चीन और इटली में, मलेरिया के इलाज के लिए पहले से ही चीन में किए जा रहे तीन परीक्षणों का अध्ययन किया जा रहा है, जिसके बाद फरवरी 2020 में चीन में किए गए थे ।",
+      "labse_cosine": 0.8828743577565922,
+      "sentence_bleu": 25.336700893548766,
+      "inference_seconds": 1.2660591000458226
+    },
+    {
+      "test_split_index": 2088,
+      "pilot_terms_matched": [],
+      "source_en": "It is undergoing a phase 2 non randomised test at the national level in Italy after showing positive results in people with severe disease.",
+      "reference": "यह गंभीर रोग वाले लोगों में पॉज़िटिव परिणाम दिखाने के बाद इटली में राष्ट्रीय स्तर पर चरण 2 गैर यादृच्छिकृत परीक्षण से गुजर रही है।",
+      "hypothesis": "यह एक चरण से गुज़र रहा है जिसके बाद इटली के राष्ट्रीय स्तर में सकारात्मक परिणाम दिखाने के बाद, यह लोगों को तीव्र बीमारी से पीड़ित करता है ।",
+      "labse_cosine": 0.8192537278071765,
+      "sentence_bleu": 11.622111816655837,
+      "inference_seconds": 1.036330800037831
+    },
+    {
+      "test_split_index": 2096,
+      "pilot_terms_matched": [],
+      "source_en": "Other forms of passive antibody therapy, for example, using manufactured monoclonal antibodies, are in development.",
+      "reference": "निष्क्रिय एंटीबॉडी थेरेपी के अन्य रूप, उदाहरण के लिए निर्मित मोनोक्लोनल प्रतिरक्षियों का उपयोग करना, विकास में हैं।",
+      "hypothesis": "मिसाल के लिए, एक - दूसरे का इलाज शुरू हो रहा है ।",
+      "labse_cosine": 0.5075292907342344,
+      "sentence_bleu": 4.400023183382422,
+      "inference_seconds": 0.7800376999657601
+    }
+  ],
+  "summary_overall": {
+    "n_sentences": 209,
+    "mean_labse_cosine": 0.8073323605742323,
+    "min_labse_cosine": 0.17859830508097327,
+    "corpus_bleu": 13.498593731227643,
+    "corpus_chrf": 34.40555583242876,
+    "mean_inference_seconds": 1.1712119703361559,
+    "median_inference_seconds": 1.0299350999994203,
+    "max_inference_seconds": 4.256735700066201
+  },
+  "summary_pilot_term_subset": {
+    "n_sentences": 9,
+    "mean_labse_cosine": 0.6448668646718256,
+    "min_labse_cosine": 0.4501646392614113,
+    "corpus_bleu": 2.920775524336899,
+    "corpus_chrf": 23.223925784425656,
+    "mean_inference_seconds": 1.3015666666647627,
+    "median_inference_seconds": 1.4114923001034185,
+    "max_inference_seconds": 1.9566743000177667
+  }
+}

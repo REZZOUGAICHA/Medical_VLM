@@ -8,20 +8,15 @@ for the full task breakdown and reasoning behind each step.
 
 **Spanish has been dropped from this project** — Nadjiba confirmed she's
 covering it (along with French), so all Spanish-specific data, configs, and
-docs have been removed to avoid two people training the same pair. See
-[`docs/spec_v1_superseded_spanish_mandarin_hindi.md`](docs/spec_v1_superseded_spanish_mandarin_hindi.md)
-for the old three-language version, kept for history only — it is not
-current.
+docs have been removed to avoid two people training the same pair.
 
 **Deadline**: 7 days to have models ready, 10 days after that for training,
 before paper writing starts.
 
-**Current priority is baseline testing, not more data work or fine-tuning**
-— both other teammates have already reported real before/after numbers
-(LaBSE similarity, inference timing), and Hindi/Mandarin haven't had this
-done yet. Dataset collection for both languages is already sufficient. See
-[src/baseline_eval.py](src/baseline_eval.py) and the "Baseline testing"
-section below.
+**Status**: baseline testing is done for both languages (see
+`results/baseline_en-{zh,hi}.json`). Mandarin fine-tuning is running now.
+Hindi's data pipeline is fixed and both stage pools are built; Hindi
+training configs/kickoff are next.
 
 ## The mental model: two different jobs a dataset can do
 
@@ -33,33 +28,20 @@ section below.
 **Mandarin** has enough medical-domain data alone (NEJM-enzh, 66k pairs) to
 skip straight to a **single-stage** fine-tune directly on medical text.
 
-**Hindi** does not — its medical sources (TICO-19, Lokmat, Zenodo) total
-only ~5k pairs, dwarfed by the ~1.66M general-domain pairs available
-(IITB + BPCC). Hindi needs a **two-stage** fine-tune instead: first adapt
-the base model to Hindi generally on the general-domain pool, then take
-that checkpoint and fine-tune it again on just the pooled medical data to
-specialize it. This is the same technique the NEJM-enzh/ParaMed paper and
-IndicTrans2 both use for low-resource domain-specific MT — not something
-invented for this project.
-
-**Known follow-up before Hindi fine-tuning (Task 4, not done yet)**:
-`data/raw/en-hi/` currently holds both roles side by side (`iitb/`,
-`bpcc_ilci/` = general; `tico19/`, `lokmat_healthcare/`,
-`zenodo_healthcare/` = medical). `data_prep.py --raw-dir data/raw/en-hi`
-pools *everything* in that directory together, which would incorrectly mix
-the two stages. Before Stage 1 training starts, `data_prep.py` needs a
-`--sources` filter (or similar) so each stage can be pooled independently —
-flagging this now so it isn't a surprise later, not fixing it yet since
-baseline testing doesn't need it.
+**Hindi** does not — its medical sources total only a few thousand pairs,
+dwarfed by ~1.58M general-domain pairs (IITB + BPCC). Hindi needs a
+**two-stage** fine-tune: adapt to Hindi generally first, then specialize on
+pooled medical data. Same technique the NEJM-enzh/ParaMed paper and
+IndicTrans2 both use for low-resource domain-specific MT.
 
 ## Directions covered
 
 | Direction | Base checkpoint | Config | Status |
 |---|---|---|---|
-| EN → ZH | `Helsinki-NLP/opus-mt-en-zh` | [configs/en-zh.yaml](configs/en-zh.yaml) | ready to fine-tune (single-stage) |
-| ZH → EN | `Helsinki-NLP/opus-mt-zh-en` | [configs/zh-en.yaml](configs/zh-en.yaml) | ready to fine-tune (single-stage) |
-| EN → HI | `Helsinki-NLP/opus-mt-en-hi` | not written yet | data ready; needs two-stage configs (Task 4) |
-| HI → EN | `Helsinki-NLP/opus-mt-hi-en` | not written yet | data ready; needs two-stage configs (Task 4) |
+| EN → ZH | `Helsinki-NLP/opus-mt-en-zh` | [configs/en-zh.yaml](configs/en-zh.yaml) | **fine-tuning now** (single-stage) |
+| ZH → EN | `Helsinki-NLP/opus-mt-zh-en` | [configs/zh-en.yaml](configs/zh-en.yaml) | ready to fine-tune (single-stage), not started |
+| EN → HI | `Helsinki-NLP/opus-mt-en-hi` | not written yet | data pipeline ready (both stage pools built); configs next |
+| HI → EN | `Helsinki-NLP/opus-mt-hi-en` | not written yet | data pipeline ready (both stage pools built); configs next |
 
 ## Setup
 
@@ -67,142 +49,202 @@ baseline testing doesn't need it.
 pip install -r requirements.txt
 ```
 
-Needs a GPU with a few GB of VRAM to fine-tune (or run baseline eval) at a
-reasonable speed; scripts will run on CPU too (much slower) if none is
-available.
+CPU works for inference (baseline eval ran fine at ~1-1.4s/sentence). For
+training, CPU throughput needs to actually be measured before trusting an
+ETA — see the fine-tuning section below for why.
 
 ## Data inventory (current, real state — not a plan)
 
 ```
-data/raw/en-zh/nejm_enzh/         66,265 pairs (62,127 train / 2,036 dev / 2,102 test), medical, human
+data/raw/en-zh/nejm_enzh/         64,163 pairs (62,127 train / 2,036 dev), medical, human -- test split moved out, see below
 data/raw/en-zh/tico19/            971 pairs, medical (COVID), human -- dev split, training pool
 data/raw/zh-en/nejm_enzh/         empty -- mirror en-zh/nejm_enzh/ here if/when zh-en is trained
 
-data/raw/en-hi/iitb/              1,662,110 pairs (1,659,083 train / 520 val / 2,507 test), general, HF Arrow format
-data/raw/en-hi/bpcc_ilci/         hin_Deva.tsv, ~165k rows, general (ILCI+NLLB-Seed mixed, not separable) -- needs a parser fix, see below
+data/raw/en-hi/iitb/              1,656,008 pairs, general, extracted from HF Arrow (all 3 of IITB's own splits merged)
+data/raw/en-hi/bpcc_ilci/         165,649 pairs, general, extracted from hin_Deva.tsv (raw tsv archived at data/external_raw/bpcc_ilci/)
 data/raw/en-hi/lokmat_healthcare/ 2,202 pairs, healthcare news, human
-data/raw/en-hi/tico19/            971 pairs, medical (COVID), human -- dev split, training pool
-data/raw/en-hi/zenodo_healthcare/ 2,182 rows, medical (diagnoses/symptoms/treatment), translation method undisclosed
+data/raw/en-hi/tico19/            970 pairs, medical (COVID), human -- dev split, training pool
+data/raw/en-hi/zenodo_healthcare/ 1,022 pairs, medical, extracted from 7 free-text fields per patient record, see below
 
 data/eval/tico19_zh/              2,100 pairs, held out (test split, never trained on)
 data/eval/tico19_hi/              2,100 pairs, held out (test split, never trained on)
+data/eval/nejm_zh/                2,102 pairs, held out (NEJM's own test split, moved here -- see "test-split leakage" below)
 data/raw/eval/                    WMT18 zh-en -- not stored, fetched on demand by sacrebleu (see "Evaluate")
+
+data/processed/en-zh/             pooled train/val, ready, used by the running fine-tune
+data/processed/en-hi-general/     Stage 1 pool: iitb + bpcc_ilci (1,549,415 train / 31,620 val)
+data/processed/en-hi-medical/     Stage 2 pool: tico19 + lokmat_healthcare + zenodo_healthcare (3,985 train / 209 val)
 ```
 
-**Held pending supervisor approval, not in the pool above**: HiMed-West
-(~116,859 pairs) — its Hindi side is machine-translated (NLLB + medical
-lexicon), not human, and training a translation model on another model's
-machine translations risks inheriting that model's specific errors rather
-than learning from ground truth. The team is waiting on an explicit answer
-on whether MT-generated training data is acceptable before this is added.
+**HiMed-West is excluded, not pending** — verified against the actual JSON
+(116,859 records total, matching the number originally reported) and the
+published paper's data table: every record is already-Hindi text
+(`prompt`/`ground_truth`, machine-translated, English terms kept only as
+parenthetical glosses) plus a `source` field naming the *original English
+benchmark* (MedMCQA, MedReason, GPQA-med, ...), not the English text
+itself. There's no real English/Hindi sentence pair to extract here, and no
+join key to reliably reconstruct one. Same issue confirmed in the
+Bench/Exam/Trad files in the same repo. This was a structural finding, not
+the pending approval question it started as — the supervisor separately
+approved MT-derived data in principle, but that's moot here since there's
+no parallel data to extract in the first place.
+
+**IndicMedDialog** (github.com/ShubhamKumarNigam/IndicMedDialog) is a
+genuinely parallel EN-HI resource found afterward — noted as an optional,
+lower-priority future addition, not integrated yet. Real caveats before
+using it: synthetic (LLM-generated) dialogues, not real patient
+conversations; **CC BY-NC-ND 4.0** license (No-Derivatives clause needs a
+check before this project reformats/pools it); dialogue-turn format needs
+its own extraction into utterance pairs; small once extracted (~1,500-1,700
+pairs).
 
 **Not yet available**: ILCI Health (~25k) and EILMT Health (~15k), both
-pending approval on India's TDIL portal. Not a blocker — what's already in
-place is enough to start.
+pending approval on India's TDIL portal. Not a blocker.
 
-### TICO-19 extraction (en-zh, en-hi)
+### Extractors for non-conforming source formats
 
-`data/tico19-testset/tico19-testset/{dev,test}/*.tsv` contains ~30
-languages in an 8-column schema (`sourceLang, targetLang, sourceString,
-targetString, stringID, url, license, translator_ID`) that isn't directly
-usable by `data_prep.py`'s generic reader. `src/extract_tico19.py` pulls
-just the `sourceString`/`targetString` columns for one language pair,
-writing the dev split to the training-pool folder and the test split to
-the matching `data/eval/` folder (held out, never used in training):
+`data_prep.py`'s generic reader handles two shapes: aligned `<name>.en` +
+`<name>.hi` files, or a 2-column `.tsv`/`.csv`. Sources that don't fit that
+shape get a small dedicated extractor (same pattern each time — read the
+real format, write a clean aligned pair, leave the original untouched):
+
+| Source | Problem | Extractor |
+|---|---|---|
+| TICO-19 | 8-column schema (`sourceLang, targetLang, sourceString, targetString, ...`) | `src/extract_tico19.py` |
+| BPCC/ILCI (`hin_Deva.tsv`) | 4-column schema (`src_lang, tgt_lang, src, tgt`) — generic reader would grab the language-code columns instead of the sentences | `src/extract_bpcc_ilci.py` |
+| IITB | Hugging Face `datasets.load_from_disk()` Arrow directory, not text/tsv at all | `src/extract_iitb.py` |
+| Zenodo healthcare | 13-column structured patient records, no single "the sentence" field | `src/extract_zenodo_healthcare.py` |
 
 ```
 python src/extract_tico19.py --tico-dir data/tico19-testset/tico19-testset --lang zh --dev-out data/raw/en-zh/tico19 --test-out data/eval/tico19_zh
 python src/extract_tico19.py --tico-dir data/tico19-testset/tico19-testset --lang hi --dev-out data/raw/en-hi/tico19 --test-out data/eval/tico19_hi
+python src/extract_bpcc_ilci.py --tsv data/external_raw/bpcc_ilci/hin_Deva.tsv --out-dir data/raw/en-hi/bpcc_ilci
+python src/extract_iitb.py --iitb-dir data/raw/en-hi/iitb --out-dir data/raw/en-hi/iitb
+python src/extract_zenodo_healthcare.py --en-csv data/external_raw/zenodo_healthcare/English_dataset.csv --hi-csv data/external_raw/zenodo_healthcare/hindi_dataset.csv --out-dir data/raw/en-hi/zenodo_healthcare
 ```
 
-The other ~30 languages in `data/tico19-testset/` are left untouched (not
-copied anywhere) — candidates for deletion later if disk space matters, but
-nothing currently depends on removing them.
+The other ~30 languages in `data/tico19-testset/` are left untouched — not
+copied anywhere, candidates for deletion later if disk space matters.
 
-### Two known preprocessing issues on the newest Hindi sources
+### `zenodo_healthcare` extraction
 
-- **`bpcc_ilci/hin_Deva.tsv`**: real parallel data (`src_lang, tgt_lang,
-  src, tgt` columns, ~165k rows), but the header names don't match
-  `data_prep.py`'s "en"/"hi" column-matching, so it would currently fall
-  back to the wrong columns (the literal `eng_Latn`/`hin_Deva` language-code
-  strings, not the sentences). Needs a small dedicated parser, the same
-  pattern as `extract_tico19.py` — not written yet, not needed for baseline
-  testing.
-- **`zenodo_healthcare/{hindi,English}_dataset.csv`**: structured synthetic
-  patient records (13 columns), not sentence pairs — using them for MT
-  training means deciding which fields to concatenate into a "sentence."
-  Naive `wc -l` reports different line counts (2184 vs 2183) because some
-  fields contain embedded newlines inside quoted CSV text; parsed properly,
-  both files have 2,182 rows with identical `patient_id` order, so they
-  **are** correctly aligned — just don't use `wc -l` to check this again.
+`{hindi,English}_dataset.csv` are structured synthetic patient records (13
+columns), not sentence pairs — pooling them as-is would make the generic
+reader fall back to columns 0/1 (`patient_id`, `age`) as if they were the
+sentence. Decision made: rather than concatenate fields into one artificial
+per-patient blob, `src/extract_zenodo_healthcare.py` emits each of 7
+free-text fields (`Diagnosis`, `Remarks`, `Patient History`, `symptoms`,
+`treatment`, `timespan`, `Diagnosis Category`) as its own row when
+non-empty on both sides (all were, 2,182/2,182) — keeps each row a natural
+clinical phrase instead of a long unnatural composite. Row alignment is
+verified by comparing `patient_id` order between the two files before
+extracting anything. Yields 15,274 raw pairs -> **1,022 after exact-dedup**
+(most of the raw volume is templated/repeated categorical text across
+synthetic patients, e.g. the same `Diagnosis Category` string recurring).
+Raw CSVs archived (untouched) at `data/external_raw/zenodo_healthcare/`.
 
-`src/data_prep.py` accepts either format per source folder for datasets
-that don't need a dedicated parser:
+```
+python src/extract_zenodo_healthcare.py --en-csv data/external_raw/zenodo_healthcare/English_dataset.csv --hi-csv data/external_raw/zenodo_healthcare/hindi_dataset.csv --out-dir data/raw/en-hi/zenodo_healthcare
+```
 
-- **Aligned monolingual files**: `<name>.en` + `<name>.hi` (or `.zh`), line
-  N of one corresponds to line N of the other (standard OPUS/Moses export
-  format).
-- **Tabular**: a `.tsv`/`.csv` with two columns for source/target text. If
-  there's a header matching the language codes it's used to locate the
-  columns; otherwise the first two columns are used positionally.
+(Both files are correctly row-aligned by `patient_id` — verified with a
+real CSV parser; a naive `wc -l` shows 2184 vs 2183 lines, which is a false
+alarm from embedded newlines inside quoted fields, not a real mismatch.)
 
 ## 1. Pool + split into train/val
 
 ```
 python src/data_prep.py --lang-pair en-zh --raw-dir data/raw/en-zh --out-dir data/processed/en-zh
 python src/data_prep.py --lang-pair zh-en --raw-dir data/raw/zh-en --out-dir data/processed/zh-en
+
+# Hindi: --sources restricts pooling to a named subset, so general and medical
+# stay separate even though they're sibling subfolders under the same raw-dir.
+python src/data_prep.py --lang-pair en-hi --raw-dir data/raw/en-hi --sources iitb,bpcc_ilci --out-dir data/processed/en-hi-general
+python src/data_prep.py --lang-pair en-hi --raw-dir data/raw/en-hi --sources tico19,lokmat_healthcare --out-dir data/processed/en-hi-medical --val-ratio 0.05
 ```
 
-This pools every source subfolder for that direction, drops
-exact-duplicate and over-length pairs, shuffles with a fixed seed, and
-writes `{train,val}.<lang>` files under `--out-dir` (2% val split by
-default, see `--val-ratio`).
+Every pooling run also writes `{train,val}.source` (line-aligned with
+`{train,val}.<lang>`) recording which source subfolder each row came from —
+this is what makes a later ablation (e.g. "does adding X help or hurt")
+possible without re-extracting anything, and is required now for any future
+machine-translated source, not just HiMed.
 
-Not run for `en-hi`/`hi-en` yet — see the two-stage note above; pooling
-`data/raw/en-hi/` as-is today would mix general and medical data
-incorrectly.
+**Test-split leakage, caught and fixed**: `nejm_enzh/` originally held
+train/dev/**test** together in one pooled folder. Pooling it as-is would
+have swept the exact 2,102 held-out sentences `baseline_eval.py` scores
+against into the training set, silently invalidating any before/after
+fine-tuning comparison. Fixed by moving `nejm.test.{en,zh}` to
+`data/eval/nejm_zh/` (mirroring `eval/tico19_zh`) and updating
+`baseline_eval.py`'s path to match. Worth checking any future source the
+same way before pooling it.
 
-## 2. Fine-tune (Mandarin ready now; Hindi is Task 4, not started)
-
-```
-python src/train.py --config configs/en-zh.yaml
-python src/train.py --config configs/zh-en.yaml
-```
-
-Each run loads the pretrained checkpoint, fine-tunes with
-`Seq2SeqTrainer` (early stopping on validation BLEU, fp16 automatically if
-a GPU is present), and saves the final model to
-`models/<name>-medical/final/`.
-
-## 3. Baseline testing (do this before fine-tuning — current priority)
-
-`src/baseline_eval.py` loads each pretrained base checkpoint
-(`opus-mt-en-zh`, `opus-mt-en-hi`) with no fine-tuning, runs it on a pilot
-set of medical sentences (including negated/uncertain phrasings), and
-scores the output two ways:
-
-- **LaBSE** (primary, matches the team standard) — embeds the model's
-  output and a reference translation with `sentence-transformers/LaBSE`
-  and reports cosine similarity between the two meaning-vectors. This
-  catches cases where a translation is correct but phrased differently
-  than the reference — exactly what happens often with negation/hedging in
-  clinical text, and exactly what BLEU (which just counts matching words)
-  misses.
-- **sacreBLEU** (secondary, for comparability with anything already
-  reported using it).
-
-It also times inference **per sentence**, not batched, since that reflects
-what a real single request feels like rather than batch throughput.
+## 2. Fine-tune
 
 ```
-python src/baseline_eval.py --lang zh --model Helsinki-NLP/opus-mt-en-zh --out results/baseline_en-zh.json
-python src/baseline_eval.py --lang hi --model Helsinki-NLP/opus-mt-en-hi --out results/baseline_en-hi.json
+python src/train.py --config configs/en-zh.yaml   # running now
+python src/train.py --config configs/zh-en.yaml   # not started
 ```
+
+Each run loads the pretrained checkpoint, fine-tunes with `Seq2SeqTrainer`
+(early stopping on validation BLEU, fp16 automatically if a GPU is
+present), and saves the final model to `models/<name>-medical/final/`
+(checkpoints also saved every epoch under `--output_dir`).
+
+**CPU throughput, confirmed on a clean machine**: ~10-13s/step, steady
+across 16+ real training steps (an earlier attempt showed ~30-60s/step, but
+that coincided with a large IITB extraction job running at the same time
+and was a contention artifact, not the model's real speed -- stopped
+before any checkpoint was written and restarted cleanly). At this rate the
+full Mandarin run (11,970 steps) is roughly **36-40 hours**.
+
+Hindi's two-stage fine-tune (Stage 1 on `data/processed/en-hi-general/`,
+Stage 2 starting from Stage 1's output checkpoint on
+`data/processed/en-hi-medical/`) needs its own configs, not written yet --
+and Stage 1 specifically needs a scale decision first, see "Known gaps"
+below: at the same per-step rate, Stage 1's 1,549,415 pairs would take
+**12+ days for a single epoch**, on its own longer than the likely training
+budget.
+
+## 3. Baseline testing (done for both languages)
+
+`src/baseline_eval.py` loads each pretrained base checkpoint with no
+fine-tuning, and scores it against **real held-out human-translated data
+already in this project** — `eval/nejm_zh/` for Mandarin, `eval/tico19_hi/`
+for Hindi — never invented sentences or reference translations (an earlier
+draft of this script did that and it was corrected before running; see
+[docs/process_guide.md](docs/process_guide.md)'s "Standing rule: never
+generate ground truth"). It separately flags which of the pilot CheXpert
+labels (cardiomegaly, pleural effusion, pneumothorax, edema, "no acute
+cardiopulmonary abnormality", support devices, atelectasis, consolidation)
+actually turn up in that real data via substring search, and reports 0
+honestly for the ones that don't. It also de-tokenizes NEJM-enzh's raw
+Moses-style formatting (`@-@` hyphen-splitting, spaced punctuation,
+word-segmented Chinese) before scoring, since otherwise the model would be
+penalized for a storage artifact, not real translation quality.
+
+```
+python src/baseline_eval.py --lang zh --model Helsinki-NLP/opus-mt-en-zh --label baseline --out results/baseline_en-zh.json
+python src/baseline_eval.py --lang hi --model Helsinki-NLP/opus-mt-en-hi --label baseline --out results/baseline_en-hi.json
+```
+
+**Results** (CPU, real held-out data):
+
+| | n | mean LaBSE | corpus BLEU | corpus chrF | median ms/sentence |
+|---|---|---|---|---|---|
+| EN-ZH | 212 | 0.872 | 10.7 | 28.3 | 1177 |
+| EN-HI | 209 | 0.807 | 13.5 | 34.4 | 1030 |
+
+Concrete failures worth citing: the Mandarin model transliterated
+"atelectasis" phonetically (阿亚特西) instead of translating it (肺不张 is
+correct); the Hindi model's LaBSE score dropped to 0.645 specifically on
+the pilot-term-matched (dense pathology) sentences, e.g. turning
+"Macroscopy: pleurisy, pericarditis, lung consolidation and pulmonary
+oedema" into a near-nonsensical Hindi hallucination. Both are real evidence
+for why medical-domain fine-tuning should help, not guesses.
 
 After fine-tuning, re-run the same command against the fine-tuned
-checkpoint (`--model models/opus-mt-en-zh-medical/final`) to get a directly
-comparable before/after delta, in the same format teammates already
-reported for Arabic/German.
+checkpoint (`--model models/opus-mt-en-zh-medical/final`) for a directly
+comparable before/after delta.
 
 ## 4. Evaluate a fine-tuned model against held-out test sets
 
@@ -233,12 +275,18 @@ also dump raw translations for manual inspection.
 
 ## Known gaps to flag back to the team
 
-- HiMed-West's machine-translated-data question is still open with the
-  supervisor — affects final Hindi medical training volume either way.
+- **Hindi Stage 1 is ~24x bigger than the entire Mandarin pool (1,549,415
+  vs 63,831 train pairs), and at Mandarin's confirmed clean-machine rate
+  (~11s/step) that scales to roughly 12+ days for a single epoch of Stage
+  1 alone** on this CPU-only machine — that's longer than the whole
+  training budget by itself, before Stage 2 or a second direction. This
+  needs a decision before Hindi training is kicked off: subsample Stage 1
+  to something CPU-feasible, cap it with `max_steps` instead of a full
+  epoch, or find GPU compute. Flagging this now, not discovering it
+  mid-run.
 - ILCI Health / EILMT Health are pending TDIL portal approval — not
   blocking, just not in the pool yet.
-- `bpcc_ilci/hin_Deva.tsv` needs a dedicated parser before Stage 1 Hindi
-  training (see above) — not written yet.
-- `data_prep.py` needs a way to pool a subset of source folders (not the
-  whole raw-dir) before Hindi's two-stage split can actually be run —
-  not written yet.
+- Hindi training configs (Stage 1 + Stage 2, both directions) aren't
+  written yet — blocked on the scale decision above.
+- IndicMedDialog's CC BY-NC-ND license (specifically the No-Derivatives
+  clause) needs a quick check before it's ever integrated.

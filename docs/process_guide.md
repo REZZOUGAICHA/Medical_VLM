@@ -15,6 +15,28 @@ same claim.
 This is not a one-off tone instruction — apply it to every task below and
 every task that comes after this file, for the rest of this project.
 
+## Standing rule: never generate ground truth
+
+This applies to every task in this file and every task added after it, not
+just baseline evaluation specifically. If a task needs a "correct answer"
+to compare something against — a reference translation, a labeled example,
+an expected output — **that answer must come from real existing data,
+never be written or invented on the spot**, even as a temporary
+placeholder "to be reviewed later." An invented ground truth silently
+turns a supposedly objective measurement into a circular one, and this
+kind of shortcut tends to get carried forward into later results without
+anyone noticing it happened. If real data for a needed reference doesn't
+exist in the project yet, say so explicitly and treat that as a blocker to
+flag, not a gap to quietly fill in.
+
+**Correction, logged for the record**: an earlier version of
+`src/baseline_eval.py` used hand-written pilot sentences with reference
+translations written by the AI assistant itself, rather than pulled from
+real data. This was caught before running the script and corrected to pull
+real source/reference pairs from `nejm_enzh`'s test split (Mandarin) and
+`eval/tico19_hi/` (Hindi) instead — flagged here so the reasoning isn't
+lost if the question comes up again later.
+
 ---
 
 ## Task 1: Remove Spanish from the project
@@ -164,13 +186,30 @@ finished code silently:
 1. Loads the pretrained base model for each language pair
    (`Helsinki-NLP/opus-mt-en-zh`, `Helsinki-NLP/opus-mt-en-hi`) via
    `transformers`.
-2. Runs it on real medical sentences (not generic text) — use the pilot
-   label set already defined elsewhere in this project's docs
-   (cardiomegaly, pleural effusion, pneumothorax, edema, "no acute
-   cardiopulmonary abnormality", support devices, atelectasis,
-   consolidation), including negated and uncertain phrasings of each
-   (e.g. "no evidence of cardiomegaly", "cannot rule out pleural
-   effusion").
+2. **Pulls both the source sentences AND their reference translations
+   from real data already in this project — never generate, write, or
+   invent a "correct" translation yourself, even as a placeholder.**
+   Every published paper this project's docs cite (NEJM-enzh/ParaMed,
+   MedExpQA, PersianMedQA, IndicTrans2) evaluates against real
+   human-translated held-out test data, never invented references — an
+   AI-generated reference makes the eval circular (you'd be measuring
+   "how similar is this to what an AI guessed," not "how correct is this
+   translation"), which defeats the entire purpose of a baseline number
+   meant to appear in a paper. Concretely:
+   - **Mandarin**: pull sentence pairs from `nejm_enzh`'s own **test**
+     split (2,102 pairs, real English/Chinese pairs from professional
+     NEJM translators) — this is medical-domain and already sitting in
+     the project.
+   - **Hindi**: pull from `eval/tico19_hi/` (2,100 held-out pairs,
+     medical/COVID-domain).
+   - To reflect the pilot label list (cardiomegaly, pleural effusion,
+     etc.) specifically, search these test splits for sentences
+     containing those terms rather than writing new sentences from
+     scratch — if none exist in the held-out data, that itself is worth
+     reporting rather than working around by inventing text. (In
+     practice: both real corpora are general-medicine/COVID text, not
+     radiology reports, so most exact pilot terms turn up 0 or a
+     handful of matches — report that honestly, don't pad it out.)
 3. Scores translations using **two metrics, both required**:
    - **LaBSE** (primary metric, matches what the team has standardized
      on) — embed both the model's output and a reference translation

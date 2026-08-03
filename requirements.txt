@@ -5,3 +5,5 @@ sentencepiece>=0.2
 sacrebleu>=2.4
 PyYAML>=6.0
 accelerate>=0.30
+sentence-transformers>=3.0
+numpy

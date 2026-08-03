@@ -81,8 +81,9 @@ model expects input.
 | TICO-19 (en-hi) | 3,071 pairs total (971 dev / 2,100 test) | Medical (COVID) | Human-translated | ✅ Downloaded, extracted | https://github.com/tico-19/tico-19.github.io |
 | Anuvaad / Lokmat Healthcare | 2,202 pairs | Healthcare news | Human (professional news outlet) | ✅ Downloaded | https://anuvaad-parallel-corpus.s3-us-west-2.amazonaws.com/lokmat-healthcare_20210501_en_hi.zip |
 | BPCC (`ilci/hin_Deva.tsv`) | 62.6 MB | General — **NOT domain-separable**, ILCI merged with NLLB-Seed data with no distinguishing column | Mixed | ✅ Downloaded (needs preprocessing fix — see below) | https://huggingface.co/datasets/ai4bharat/BPCC/resolve/main/ilci/hin_Deva.tsv |
-| Zenodo Hindi Healthcare | 2,182 rows | Medical (diagnoses/symptoms/treatments) | **Translation method not disclosed on source page** | ✅ Downloaded | https://zenodo.org/records/14599295 |
-| HiMed-West | ~116,859 pairs (Q&A/reasoning format) | Medical | **Machine-translated (NLLB + medical lexicon), NOT human** | ⏸️ Held — pending supervisor's answer on whether MT-generated training data is acceptable | https://github.com/FreedomIntelligence/HiMed |
+| Zenodo Hindi Healthcare | 2,182 records -> 1,022 usable sentence pairs after extraction | Medical (diagnoses/symptoms/treatments) | **Translation method not disclosed on source page** | ✅ Downloaded, extracted | https://zenodo.org/records/14599295 |
+| HiMed-West | ~116,859 records | N/A — **excluded, not a parallel corpus** | N/A | ❌ Dropped, see below | https://github.com/FreedomIntelligence/HiMed |
+| IndicMedDialog | ~298 dialogues (~1,500–1,700 utterance pairs once extracted) | Medical dialogue (synthetic, LLM-generated then translated) | Human/native-speaker-verified translation (9.75/10 reported quality) | 💡 Optional lead, not integrated — see below | https://github.com/ShubhamKumarNigam/IndicMedDialog |
 | ILCI Health (TDIL) | ~25,000 pairs | Health-specific, clean domain label | Human-translated | ⏳ Pending TDIL portal approval | https://tdil-dc.in (search "Hindi-English Health Text Corpus-ILCI") |
 | EILMT Health (TDIL) | ~14,984 pairs | Health-specific, clean domain label | Human-translated | ⏳ Pending TDIL portal approval | https://tdil-dc.in/index.php?option=com_download&task=showresourceDetails&toolid=1786&lang=en |
 
@@ -94,20 +95,76 @@ meaningful volume of clean human-translated health data on top of what's
 already in place, but training should not be blocked on their approval
 given the 7-day deadline.
 
-**Open decision for the supervisor**: whether HiMed-West's machine-translated
-data is acceptable to include. If yes, it roughly doubles available medical
-training volume; if no, proceed with the smaller human-sourced set
-(TICO-19 + Lokmat + Zenodo + ILCI/EILMT once approved).
+**HiMed-West is excluded, not "pending" — this was resolved and closed.**
+The supervisor approved using machine-translated data if it helps, so this
+was never a quality/approval question in the end. It's a structural one:
+verified against the actual JSON (all 5 shards, 116,859 records total,
+matching the number in this doc) and cross-checked against the published
+paper's own data table — every record has only `prompt` / `Complex_CoT` /
+`ground_truth` / `source`, and `prompt`/`ground_truth` are *already Hindi*
+(machine-translated, with English medical terms kept in parentheses, e.g.
+"वृद्धि हार्मोन (Growth hormone)"). `source` names the original English
+benchmark the question came from (MedMCQA, MedReason, GPQA-med, ...) as a
+plain string label, not the English text itself, and the West split has no
+ID field to join back to those upstream English datasets even if fetched
+separately. English only ever survives as inline parenthetical glosses
+inside Hindi text, never as full parallel sentences — so there is no real
+English/Hindi sentence pair to extract here, per the standing "never invent
+ground truth" rule. This applies to the Bench/Exam/Trad files in the same
+repo too (checked, same issue).
 
-**Two preprocessing issues to fix before training on the newest sources**:
-1. `bpcc_ilci/hin_Deva.tsv` has metadata columns before the actual text —
-   a generic `src`/`tgt` column reader will grab the wrong columns. Needs a
-   small dedicated parser, similar to the one already written for TICO-19.
-2. The Zenodo healthcare CSVs initially looked row-mismatched via a plain
-   `wc -l` line count (2184 vs 2183) — this was a false alarm caused by
-   embedded newlines inside quoted CSV fields. Both files are actually 2,182
-   rows with matching `patient_id` order and are correctly aligned. Don't
-   re-flag this without checking with a real CSV parser (not `wc -l`).
+**IndicMedDialog is a genuinely parallel EN-HI resource, found afterward,
+kept as optional/lower-priority** — not something to build around or wait
+for given the deadline. Real caveats to weigh before integrating it later:
+synthetic dialogues (LLM-generated, then translated — not real patient
+conversations, and the authors flag this themselves); licensed
+**CC BY-NC-ND 4.0** (non-commercial is fine here, but the No-Derivatives
+clause needs a quick check before this project reformats/redistributes it
+in any pooled/processed form); dialogue-turn formatted, not sentence pairs,
+so it needs its own extraction step; and small once extracted (~1,500–1,700
+utterance pairs) — not a major volume boost even if used.
+
+**Preprocessing issues on the Hindi sources — status**:
+1. `bpcc_ilci/hin_Deva.tsv` had metadata columns before the actual text —
+   **fixed**: `src/extract_bpcc_ilci.py` pulls the real 165,649 usable pairs
+   into a clean aligned pair; the raw tsv is archived (untouched) at
+   `data/external_raw/bpcc_ilci/hin_Deva.tsv`.
+2. `iitb/` is stored as a Hugging Face `datasets.load_from_disk()` Arrow
+   directory, which `data_prep.py`'s generic reader never supported —
+   **fixed**: `src/extract_iitb.py` merges all three of IITB's own splits
+   (train/validation/test — nothing in this project holds IITB's test split
+   out for anything, so re-pooling it as general-domain input is fine) into
+   one clean aligned pair.
+3. The Zenodo healthcare CSVs are structured patient records (13 columns),
+   not sentence pairs — **fixed**: `src/extract_zenodo_healthcare.py` pulls
+   7 free-text fields (`Diagnosis`, `Remarks`, `Patient History`,
+   `symptoms`, `treatment`, `timespan`, `Diagnosis Category`) as their own
+   rows rather than concatenating them, per an explicit decision to
+   optimize for training-data quality over extraction effort. 15,274 raw
+   pairs -> 1,022 after exact-dedup (most of the raw volume is
+   templated/repeated text across synthetic patients). They also initially
+   looked row-mismatched via a plain `wc -l` line count (2184 vs 2183) —
+   false alarm from embedded newlines inside quoted CSV fields; both files
+   are actually 2,182 rows with matching `patient_id` order, verified with
+   a real CSV parser (not `wc -l`) both before and inside the extractor.
+4. `data_prep.py` originally pooled every subfolder under a `--raw-dir`
+   indiscriminately, which would have mixed Hindi's general-domain sources
+   (iitb, bpcc_ilci) with its medical sources (tico19, lokmat_healthcare,
+   zenodo_healthcare) if run directly against `data/raw/en-hi/` —
+   **fixed**: added `--sources` to pool only a named subset, plus per-row
+   provenance tracking (`train.source`/`val.source`, line-aligned with
+   `train.<lang>`/`val.<lang>`) so composition and, later, an ablation by
+   source, are both possible without re-extracting anything.
+5. **Separately caught while wiring up Mandarin training** (not a Hindi
+   issue, but the same class of bug): `nejm_enzh/` originally held
+   train/dev/**test** together in one pooled folder, so a naive
+   `data_prep.py` run would have swept the held-out test split — the exact
+   data `baseline_eval.py` scores against — into the training set, silently
+   invalidating any before/after fine-tuning comparison. Fixed by moving
+   `nejm.test.{en,zh}` to `data/eval/nejm_zh/` (mirroring the
+   `eval/tico19_zh` convention) and updating `baseline_eval.py`'s path to
+   match. Worth double-checking any other pooled-with-its-own-test-split
+   source the same way before pooling it.
 
 ## Baseline testing — the current priority
 
@@ -134,23 +191,35 @@ What "done" looks like, matching the team's established format:
 
 No baseline script currently exists in this project — it needs to be
 written from scratch (by Claude Code, per the accompanying `SKILL.md`
-instructions), covering: loading each pretrained base model, running it on
-the pilot medical sentence set (including negation/uncertainty
-phrasings), scoring with LaBSE (primary) and sacreBLEU (secondary), and
-timing inference per-sentence rather than batched.
+instructions), covering: loading each pretrained base model, evaluating on
+real sentence pairs pulled from existing held-out test data (`nejm_enzh`'s
+test split for Mandarin, `eval/tico19_hi/` for Hindi — never invented
+reference translations, since that would make the evaluation circular),
+scoring with LaBSE (primary) and sacreBLEU (secondary), and timing
+inference per-sentence rather than batched.
+
+**Correction, logged for the record**: an earlier draft of this baseline
+script used hand-written pilot sentences with reference translations
+written by the AI assistant itself, rather than pulled from real data.
+This was caught before running the script and corrected — flagged here so
+the reasoning isn't lost if the question comes up again later.
 
 ## Suggested next steps, in order
 
-1. **Baseline test both languages now** — highest priority given the
-   deadline and that teammates have already delivered this.
-2. **Get the supervisor's answer on HiMed-West** (machine-translated data
-   question) — doesn't block starting, but affects how much Hindi medical
-   data ends up in the final training pool.
-3. **Fine-tune Mandarin** directly on NEJM-enzh (no two-stage approach
-   needed, dataset is large enough and already medical-domain).
-4. **Fine-tune Hindi** using a two-stage approach: Stage 1 on general data
-   (IIT Bombay + BPCC), Stage 2 fine-tune on pooled medical data (TICO-19 +
-   Lokmat + Zenodo, plus HiMed-West and ILCI/EILMT if/when approved).
+1. ✅ **Baseline test both languages** — done, see `results/baseline_en-{zh,hi}.json`.
+2. ✅ **Resolved**: supervisor approved MT-derived data in principle; moot
+   for HiMed-West specifically since it turned out not to be a parallel
+   corpus at all (see Hindi table above). Nothing further to decide here.
+3. 🔄 **Fine-tune Mandarin** directly on NEJM-enzh + TICO-19 — running now,
+   confirmed ~10-13s/step on a clean CPU-only run, full run ~36-40 hours.
+4. **Fine-tune Hindi** using a two-stage approach — data pipeline is ready
+   (Stage 1 general pool: 1,549,415 pairs from IITB+BPCC; Stage 2 medical
+   pool: 3,985 pairs from TICO-19+Lokmat+Zenodo), but **Stage 1's scale
+   needs a decision before kicking it off**: at the confirmed per-step
+   rate, one epoch over 1,549,415 pairs is ~12+ days on this CPU-only
+   machine — longer than the likely training budget by itself. Options:
+   subsample Stage 1, cap training with `max_steps` rather than full
+   epochs, or move to GPU compute. Not decided yet.
 5. **Report results back to the team** in the same LaBSE/BLEU +
    before/after fine-tuning format teammates have already used, so results
    are directly comparable across all languages for the paper.

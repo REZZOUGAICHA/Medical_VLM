@@ -1,5 +1,5 @@
-"""Baseline evaluation of a *pretrained, not-yet-fine-tuned* MarianMT checkpoint
-on a pilot set of radiology-report-style medical sentences.
+"""Baseline evaluation of a *pretrained, not-yet-fine-tuned* MarianMT checkpoint,
+scored against real held-out human-translated data already in this project.
 
 Why this script exists and runs before any fine-tuning: fine-tuning without a
 baseline means there is nothing to compare against afterward -- you'd have a
@@ -7,28 +7,45 @@ model and a feeling that it's probably better, with no number to put in a
 paper. This measures the pretrained checkpoint first, so `train.py`'s output
 can later be measured with the exact same script and compared directly.
 
-The pilot sentences use the standard CheXpert/MIMIC-CXR chest-X-ray finding
-labels (cardiomegaly, pleural effusion, pneumothorax, edema, atelectasis,
-consolidation, support devices, "no acute cardiopulmonary abnormality"),
-each in three phrasings: stated directly, negated ("no evidence of X"), and
-uncertain ("X cannot be excluded"). This matters because BLEU (which scores
-by counting overlapping words) is easily fooled by these three phrasings --
-they share most of their vocabulary but mean very different things
-clinically. LaBSE embeds meaning instead of counting words, so it is used as
-the primary metric here (matching the team's standardized metric); sacreBLEU
-is kept as a secondary, more familiar number for comparability.
+*** Standing rule: never generate ground truth ***
+An earlier version of this script used hand-written pilot sentences with
+reference translations invented by Claude. That was wrong and has been
+replaced: every source/reference pair scored here is pulled verbatim from
+real, existing, human-translated data -- never written or guessed on the
+spot, even as a placeholder. Inventing a reference makes the eval circular
+(you'd be measuring "how similar is this to what an AI guessed," not "how
+correct is this translation"), which defeats the entire purpose of a number
+meant to appear in a paper. Real sources used:
+  - Mandarin: `data/eval/nejm_zh/nejm.test.{en,zh}` -- NEJM-enzh's own
+    test split (2,102 pairs), medical, professionally human-translated.
+    (Moved out of data/raw/en-zh/nejm_enzh/ into data/eval/ so data_prep.py's
+    pooling can't accidentally sweep the held-out test split into training --
+    it originally could, which would have made this baseline invalid once a
+    fine-tuned model was compared against it.)
+  - Hindi:    `data/eval/tico19_hi/tico19.{en,hi}` -- TICO-19's test split
+    (2,100 pairs), medical/COVID-domain, human-translated.
+Both are held-out test splits, never touched by data_prep.py's training
+pool, so they stay valid for a fine-tuned-model re-run later too.
 
-*** IMPORTANT CAVEAT ***
-The Chinese and Hindi reference translations in PILOT_SET below were drafted
-by Claude as scaffolding, NOT sourced from a professional clinical
-translator or verified by a native speaker. They are almost certainly
-reasonable, but "almost certainly reasonable" is not the same as "verified,"
-and this matters more than usual because clinical translation errors
-(especially around negation/hedging) can be clinically meaningful. Treat the
-LaBSE/BLEU numbers this script produces as good enough for a *relative*
-before/after fine-tuning comparison -- do not present them as validated
-ground truth in the paper until a native-speaking clinician has reviewed
-PILOT_SET's "ref" fields.
+Since the pilot label set (cardiomegaly, pleural effusion, pneumothorax,
+edema, "no acute cardiopulmonary abnormality", support devices,
+atelectasis, consolidation) comes from chest-X-ray reporting (CheXpert/
+MIMIC-CXR labels) and these two real corpora are general internal-medicine
+literature / COVID guidance -- not radiology reports -- most of those exact
+terms are rare or absent in the real data. Per the standing rule, that
+absence is reported explicitly (see "pilot_term_coverage" in the output),
+not papered over with invented sentences. Where a term *is* found, treat it
+as a rough substring match, not a guaranteed topical match -- inspect the
+matched sentence text in the report; e.g. "cardiopulmonary" mostly turns up
+"cardiopulmonary resuscitation" in NEJM, not the radiology sense.
+
+Known preprocessing fix applied here (per the spec's tokenization note):
+NEJM-enzh's raw files are Moses-style pre-tokenized (English has `@-@`
+hyphen-splitting and spaced punctuation; Chinese is word-segmented with
+spaces between words, which is not how written Chinese normally looks).
+Both are de-tokenized on the fly before translation/scoring below --
+otherwise the model would be penalized for an artifact of how the file is
+stored, not for actual translation quality.
 
 Usage:
     python src/baseline_eval.py --lang zh --model Helsinki-NLP/opus-mt-en-zh --label baseline --out results/baseline_en-zh.json
@@ -39,6 +56,7 @@ Usage:
 """
 import argparse
 import json
+import re
 import statistics
 import time
 from datetime import datetime, timezone
@@ -49,76 +67,72 @@ DEFAULT_MODEL = {
     "hi": "Helsinki-NLP/opus-mt-en-hi",
 }
 
-# Each entry: (term, polarity, English source, reference translation).
-# See the caveat above about reference translation provenance.
-PILOT_SET = {
-    "zh": [
-        ("cardiomegaly", "positive", "The chest X-ray shows cardiomegaly.", "胸片显示心脏肥大。"),
-        ("cardiomegaly", "negated", "There is no evidence of cardiomegaly.", "未见心脏肥大征象。"),
-        ("cardiomegaly", "uncertain", "Cardiomegaly cannot be excluded.", "不能排除心脏肥大。"),
-
-        ("pleural_effusion", "positive", "There is a small pleural effusion on the right side.", "右侧可见少量胸腔积液。"),
-        ("pleural_effusion", "negated", "No pleural effusion is identified.", "未见胸腔积液。"),
-        ("pleural_effusion", "uncertain", "A small pleural effusion cannot be ruled out.", "不能排除少量胸腔积液。"),
-
-        ("pneumothorax", "positive", "A pneumothorax is present on the left side.", "左侧可见气胸。"),
-        ("pneumothorax", "negated", "No pneumothorax is seen.", "未见气胸。"),
-        ("pneumothorax", "uncertain", "A small pneumothorax cannot be excluded.", "不能排除少量气胸。"),
-
-        ("edema", "positive", "There is evidence of pulmonary edema.", "可见肺水肿征象。"),
-        ("edema", "negated", "No pulmonary edema is present.", "未见肺水肿。"),
-        ("edema", "uncertain", "Mild pulmonary edema cannot be ruled out.", "不能排除轻度肺水肿。"),
-
-        ("no_acute_cardiopulmonary_abnormality", "positive", "No acute cardiopulmonary abnormality is identified.", "未见急性心肺异常。"),
-        ("no_acute_cardiopulmonary_abnormality", "negated", "There is no acute cardiopulmonary process.", "未见急性心肺病变。"),
-        ("no_acute_cardiopulmonary_abnormality", "uncertain", "No definite acute cardiopulmonary abnormality; a subtle process cannot be excluded.", "未见明确急性心肺异常，但不能排除轻微病变。"),
-
-        ("support_devices", "positive", "Support devices are noted, including an endotracheal tube in standard position.", "可见支持性装置，包括位置正常的气管插管。"),
-        ("support_devices", "negated", "No support devices are present.", "未见支持性装置。"),
-        ("support_devices", "uncertain", "Possible malposition of a support device cannot be excluded.", "不能排除支持性装置位置不当。"),
-
-        ("atelectasis", "positive", "There is mild atelectasis at the left lung base.", "左肺底可见轻度肺不张。"),
-        ("atelectasis", "negated", "No atelectasis is seen.", "未见肺不张。"),
-        ("atelectasis", "uncertain", "Subsegmental atelectasis cannot be excluded.", "不能排除亚段性肺不张。"),
-
-        ("consolidation", "positive", "There is a focal consolidation in the right lower lobe.", "右肺下叶可见局灶性实变。"),
-        ("consolidation", "negated", "No consolidation is identified.", "未见实变。"),
-        ("consolidation", "uncertain", "Early consolidation cannot be ruled out.", "不能排除早期实变。"),
-    ],
-    "hi": [
-        ("cardiomegaly", "positive", "The chest X-ray shows cardiomegaly.", "छाती के एक्स-रे में हृदय का बढ़ना (कार्डियोमेगाली) दिखाई देता है।"),
-        ("cardiomegaly", "negated", "There is no evidence of cardiomegaly.", "कार्डियोमेगाली का कोई प्रमाण नहीं है।"),
-        ("cardiomegaly", "uncertain", "Cardiomegaly cannot be excluded.", "कार्डियोमेगाली से इनकार नहीं किया जा सकता।"),
-
-        ("pleural_effusion", "positive", "There is a small pleural effusion on the right side.", "दाईं ओर थोड़ी मात्रा में फुफ्फुस बहाव (प्लूरल इफ्यूजन) मौजूद है।"),
-        ("pleural_effusion", "negated", "No pleural effusion is identified.", "कोई फुफ्फुस बहाव नहीं पाया गया।"),
-        ("pleural_effusion", "uncertain", "A small pleural effusion cannot be ruled out.", "थोड़े फुफ्फुस बहाव से इनकार नहीं किया जा सकता।"),
-
-        ("pneumothorax", "positive", "A pneumothorax is present on the left side.", "बाईं ओर न्यूमोथोरैक्स मौजूद है।"),
-        ("pneumothorax", "negated", "No pneumothorax is seen.", "कोई न्यूमोथोरैक्स नहीं दिखाई देता।"),
-        ("pneumothorax", "uncertain", "A small pneumothorax cannot be excluded.", "थोड़े न्यूमोथोरैक्स से इनकार नहीं किया जा सकता।"),
-
-        ("edema", "positive", "There is evidence of pulmonary edema.", "फुफ्फुसीय शोथ (पल्मोनरी एडिमा) के प्रमाण मौजूद हैं।"),
-        ("edema", "negated", "No pulmonary edema is present.", "कोई फुफ्फुसीय शोथ मौजूद नहीं है।"),
-        ("edema", "uncertain", "Mild pulmonary edema cannot be ruled out.", "हल्के फुफ्फुसीय शोथ से इनकार नहीं किया जा सकता।"),
-
-        ("no_acute_cardiopulmonary_abnormality", "positive", "No acute cardiopulmonary abnormality is identified.", "कोई तीव्र हृदय-फुफ्फुसीय असामान्यता नहीं पाई गई।"),
-        ("no_acute_cardiopulmonary_abnormality", "negated", "There is no acute cardiopulmonary process.", "कोई तीव्र हृदय-फुफ्फुसीय प्रक्रिया मौजूद नहीं है।"),
-        ("no_acute_cardiopulmonary_abnormality", "uncertain", "No definite acute cardiopulmonary abnormality; a subtle process cannot be excluded.", "कोई स्पष्ट तीव्र हृदय-फुफ्फुसीय असामान्यता नहीं है, लेकिन एक सूक्ष्म प्रक्रिया से इनकार नहीं किया जा सकता।"),
-
-        ("support_devices", "positive", "Support devices are noted, including an endotracheal tube in standard position.", "सहायक उपकरण देखे गए हैं, जिसमें मानक स्थिति में एंडोट्रेकियल ट्यूब शामिल है।"),
-        ("support_devices", "negated", "No support devices are present.", "कोई सहायक उपकरण मौजूद नहीं है।"),
-        ("support_devices", "uncertain", "Possible malposition of a support device cannot be excluded.", "सहायक उपकरण की संभावित गलत स्थिति से इनकार नहीं किया जा सकता।"),
-
-        ("atelectasis", "positive", "There is mild atelectasis at the left lung base.", "बाएं फेफड़े के आधार पर हल्का एटेलेक्टेसिस मौजूद है।"),
-        ("atelectasis", "negated", "No atelectasis is seen.", "कोई एटेलेक्टेसिस नहीं दिखाई देता।"),
-        ("atelectasis", "uncertain", "Subsegmental atelectasis cannot be excluded.", "सबसेगमेंटल एटेलेक्टेसिस से इनकार नहीं किया जा सकता।"),
-
-        ("consolidation", "positive", "There is a focal consolidation in the right lower lobe.", "दाएं फेफड़े के निचले लोब में फोकल कंसॉलिडेशन मौजूद है।"),
-        ("consolidation", "negated", "No consolidation is identified.", "कोई कंसॉलिडेशन नहीं पाया गया।"),
-        ("consolidation", "uncertain", "Early consolidation cannot be ruled out.", "प्रारंभिक कंसॉलिडेशन से इनकार नहीं किया जा सकता।"),
-    ],
+DATA_SOURCES = {
+    "zh": {
+        "src": Path("data/eval/nejm_zh/nejm.test.en"),
+        "tgt": Path("data/eval/nejm_zh/nejm.test.zh"),
+        "description": "NEJM-enzh test split (2,102 pairs), medical, human-translated (professional NEJM translators)",
+        "detokenize_src": True,   # Moses-style: @-@ splitting, spaced punctuation
+        "detokenize_tgt": True,   # word-segmented Chinese -> strip spaces
+    },
+    "hi": {
+        "src": Path("data/eval/tico19_hi/tico19.en"),
+        "tgt": Path("data/eval/tico19_hi/tico19.hi"),
+        "description": "TICO-19 en-hi test split (2,100 pairs), medical/COVID-domain, human-translated",
+        "detokenize_src": False,
+        "detokenize_tgt": False,
+    },
 }
+
+# (label, substring) -- substring matching is a rough proxy, not a guaranteed
+# topical match; the report includes the actual matched sentence so this can
+# be sanity-checked by eye.
+PILOT_TERMS = [
+    ("cardiomegaly", "cardiomegaly"),
+    ("pleural_effusion", "pleural effusion"),
+    ("pneumothorax", "pneumothorax"),
+    ("edema", "edema"),
+    ("no_acute_cardiopulmonary_abnormality_EXACT_PHRASE", "no acute cardiopulmonary abnormality"),
+    ("cardiopulmonary_BROAD_LOOSE_MATCH", "cardiopulmonary"),
+    ("support_devices", "support device"),
+    ("atelectasis", "atelectasis"),
+    ("consolidation", "consolidation"),
+]
+
+
+def detokenize_moses_en(text: str) -> str:
+    text = text.replace(" @-@ ", "-")
+    text = re.sub(r"\s+([,.;:!?)])", r"\1", text)
+    text = re.sub(r"([(])\s+", r"\1", text)
+    return text.strip()
+
+
+def detokenize_segmented_zh(text: str) -> str:
+    return text.replace(" ", "").strip()
+
+
+def load_pairs(src_path: Path, tgt_path: Path, detok_src: bool, detok_tgt: bool):
+    src_lines = src_path.read_text(encoding="utf-8").splitlines()
+    tgt_lines = tgt_path.read_text(encoding="utf-8").splitlines()
+    assert len(src_lines) == len(tgt_lines), f"{src_path} has {len(src_lines)} lines, {tgt_path} has {len(tgt_lines)}"
+    pairs = []
+    for s, t in zip(src_lines, tgt_lines):
+        if detok_src:
+            s = detokenize_moses_en(s)
+        if detok_tgt:
+            t = detokenize_segmented_zh(t)
+        pairs.append((s, t))
+    return pairs
+
+
+def find_term_matches(pairs, terms):
+    matches = {label: [] for label, _ in terms}
+    for i, (en, _ref) in enumerate(pairs):
+        low = en.lower()
+        for label, substring in terms:
+            if substring in low:
+                matches[label].append(i)
+    return matches
 
 
 def cosine_sim(a, b) -> float:
@@ -130,15 +144,49 @@ def cosine_sim(a, b) -> float:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--lang", required=True, choices=sorted(PILOT_SET), help="target language of the pilot set")
+    ap.add_argument("--lang", required=True, choices=sorted(DATA_SOURCES), help="target language")
     ap.add_argument("--model", default=None, help=f"checkpoint to evaluate (HF hub id or local dir). Defaults per --lang: {DEFAULT_MODEL}")
     ap.add_argument("--labse-model", default="sentence-transformers/LaBSE")
     ap.add_argument("--label", default="baseline", help="free-text tag for this run (e.g. 'baseline', 'fine-tuned'), stored in the report")
     ap.add_argument("--out", required=True, type=Path)
     ap.add_argument("--max-length", type=int, default=128)
+    ap.add_argument("--sample-size", type=int, default=200, help="random sample size drawn from the non-pilot-matched remainder of the test split (0 = use the entire remainder, i.e. the full test split)")
+    ap.add_argument("--seed", type=int, default=42)
     args = ap.parse_args()
 
     model_id = args.model or DEFAULT_MODEL[args.lang]
+    source = DATA_SOURCES[args.lang]
+    for key in ("src", "tgt"):
+        if not source[key].exists():
+            raise SystemExit(f"Expected real held-out data at {source[key]} but it doesn't exist.")
+
+    print(f"Data source: {source['description']}")
+    pairs = load_pairs(source["src"], source["tgt"], source["detokenize_src"], source["detokenize_tgt"])
+    print(f"Loaded {len(pairs)} real held-out pairs from {source['src'].name} / {source['tgt'].name}")
+
+    term_matches = find_term_matches(pairs, PILOT_TERMS)
+    pilot_term_coverage = {label: len(idxs) for label, idxs in term_matches.items()}
+    print("\nPilot term coverage in real held-out data (0 = absent, reported honestly, not filled in):")
+    for label, count in pilot_term_coverage.items():
+        print(f"  {label}: {count}")
+
+    matched_indices = sorted({i for idxs in term_matches.values() for i in idxs})
+    matched_set = set(matched_indices)
+    remaining_indices = [i for i in range(len(pairs)) if i not in matched_set]
+
+    import random
+    rng = random.Random(args.seed)
+    if args.sample_size and args.sample_size > 0:
+        sample_indices = rng.sample(remaining_indices, min(args.sample_size, len(remaining_indices)))
+    else:
+        sample_indices = remaining_indices
+    selected_indices = sorted(matched_set | set(sample_indices))
+    print(f"\nEvaluating {len(selected_indices)} sentences total: {len(matched_indices)} pilot-term matches + {len(sample_indices)} randomly sampled (seed={args.seed}) from the remainder")
+
+    index_to_terms = {}
+    for label, idxs in term_matches.items():
+        for i in idxs:
+            index_to_terms.setdefault(i, []).append(label)
 
     import torch
     from sentence_transformers import SentenceTransformer
@@ -146,7 +194,7 @@ def main():
     import sacrebleu
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Device: {device}")
+    print(f"\nDevice: {device}")
     print(f"Loading MT checkpoint: {model_id}")
     tokenizer = MarianTokenizer.from_pretrained(model_id)
     model = MarianMTModel.from_pretrained(model_id).to(device)
@@ -155,13 +203,14 @@ def main():
     print(f"Loading LaBSE: {args.labse_model}")
     labse = SentenceTransformer(args.labse_model, device=device)
 
-    pilot = PILOT_SET[args.lang]
     per_sentence = []
     hypotheses, references = [], []
 
-    for term, polarity, en, ref in pilot:
-        inputs = tokenizer([en], return_tensors="pt", truncation=True, max_length=args.max_length).to(device)
+    for n, i in enumerate(selected_indices, 1):
+        en, ref = pairs[i]
+        terms_here = index_to_terms.get(i, [])
 
+        inputs = tokenizer([en], return_tensors="pt", truncation=True, max_length=args.max_length).to(device)
         start = time.perf_counter()
         with torch.no_grad():
             generated = model.generate(**inputs, max_length=args.max_length)
@@ -176,8 +225,8 @@ def main():
         sent_bleu = sacrebleu.sentence_bleu(hyp, [ref]).score
 
         per_sentence.append({
-            "term": term,
-            "polarity": polarity,
+            "test_split_index": i,
+            "pilot_terms_matched": terms_here,
             "source_en": en,
             "reference": ref,
             "hypothesis": hyp,
@@ -187,26 +236,31 @@ def main():
         })
         hypotheses.append(hyp)
         references.append(ref)
-        print(f"[{term}/{polarity}] {elapsed*1000:.0f}ms  LaBSE={labse_score:.3f}  BLEU={sent_bleu:.1f}")
-        print(f"  en:  {en}")
-        print(f"  ref: {ref}")
-        print(f"  hyp: {hyp}")
 
-    corpus_bleu = sacrebleu.corpus_bleu(hypotheses, [references])
-    corpus_chrf = sacrebleu.corpus_chrf(hypotheses, [references])
-    labse_scores = [row["labse_cosine"] for row in per_sentence]
-    timings = [row["inference_seconds"] for row in per_sentence]
+        if n % 25 == 0 or n == len(selected_indices):
+            print(f"  [{n}/{len(selected_indices)}] {elapsed*1000:.0f}ms  LaBSE={labse_score:.3f}  BLEU={sent_bleu:.1f}" + (f"  terms={terms_here}" if terms_here else ""))
 
-    summary = {
-        "n_sentences": len(pilot),
-        "mean_labse_cosine": statistics.mean(labse_scores),
-        "min_labse_cosine": min(labse_scores),
-        "corpus_bleu": corpus_bleu.score,
-        "corpus_chrf": corpus_chrf.score,
-        "mean_inference_seconds": statistics.mean(timings),
-        "median_inference_seconds": statistics.median(timings),
-        "max_inference_seconds": max(timings),
-    }
+    def summarize(rows):
+        if not rows:
+            return None
+        labse_scores = [r["labse_cosine"] for r in rows]
+        timings = [r["inference_seconds"] for r in rows]
+        hyps = [r["hypothesis"] for r in rows]
+        refs = [r["reference"] for r in rows]
+        return {
+            "n_sentences": len(rows),
+            "mean_labse_cosine": statistics.mean(labse_scores),
+            "min_labse_cosine": min(labse_scores),
+            "corpus_bleu": sacrebleu.corpus_bleu(hyps, [refs]).score,
+            "corpus_chrf": sacrebleu.corpus_chrf(hyps, [refs]).score,
+            "mean_inference_seconds": statistics.mean(timings),
+            "median_inference_seconds": statistics.median(timings),
+            "max_inference_seconds": max(timings),
+        }
+
+    pilot_rows = [r for r in per_sentence if r["pilot_terms_matched"]]
+    summary_overall = summarize(per_sentence)
+    summary_pilot_subset = summarize(pilot_rows)
 
     report = {
         "label": args.label,
@@ -215,25 +269,38 @@ def main():
         "device": device,
         "labse_model": args.labse_model,
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "reference_translation_provenance": (
-            "Drafted by Claude as scaffolding, not verified by a native-speaking "
-            "clinical translator -- see caveat in baseline_eval.py docstring."
-        ),
+        "data_source": {
+            "src_file": str(source["src"]),
+            "tgt_file": str(source["tgt"]),
+            "description": source["description"],
+        },
+        "reference_translation_provenance": "Real human-translated held-out test data, never generated or invented.",
+        "pilot_term_coverage": pilot_term_coverage,
+        "sample_size_requested": args.sample_size,
+        "seed": args.seed,
         "per_sentence": per_sentence,
-        "summary": summary,
+        "summary_overall": summary_overall,
+        "summary_pilot_term_subset": summary_pilot_subset,
     }
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print("\n=== Summary ===")
+    print("\n=== Summary (overall, all evaluated sentences) ===")
     print(f"model:              {model_id}")
-    print(f"mean LaBSE cosine:  {summary['mean_labse_cosine']:.3f}")
-    print(f"corpus BLEU:        {summary['corpus_bleu']:.1f}")
-    print(f"corpus chrF:        {summary['corpus_chrf']:.1f}")
-    print(f"mean inference:     {summary['mean_inference_seconds']*1000:.0f} ms/sentence")
-    print(f"median inference:   {summary['median_inference_seconds']*1000:.0f} ms/sentence")
-    print(f"Report saved to {args.out}")
+    print(f"n sentences:        {summary_overall['n_sentences']}")
+    print(f"mean LaBSE cosine:  {summary_overall['mean_labse_cosine']:.3f}")
+    print(f"corpus BLEU:        {summary_overall['corpus_bleu']:.1f}")
+    print(f"corpus chrF:        {summary_overall['corpus_chrf']:.1f}")
+    print(f"mean inference:     {summary_overall['mean_inference_seconds']*1000:.0f} ms/sentence")
+    print(f"median inference:   {summary_overall['median_inference_seconds']*1000:.0f} ms/sentence")
+    if summary_pilot_subset:
+        print(f"\n=== Summary (pilot-term-matched subset only, n={summary_pilot_subset['n_sentences']}) ===")
+        print(f"mean LaBSE cosine:  {summary_pilot_subset['mean_labse_cosine']:.3f}")
+        print(f"corpus BLEU:        {summary_pilot_subset['corpus_bleu']:.1f}")
+    else:
+        print("\n(no pilot-term matches found in this real test split -- see pilot_term_coverage above)")
+    print(f"\nReport saved to {args.out}")
 
 
 if __name__ == "__main__":
