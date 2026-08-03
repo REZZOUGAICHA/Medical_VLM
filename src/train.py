@@ -85,7 +85,7 @@ def main():
         bleu = sacrebleu.corpus_bleu(decoded_preds, [decoded_labels])
         return {"bleu": bleu.score}
 
-    training_args = Seq2SeqTrainingArguments(
+    training_args_kwargs = dict(
         output_dir=str(output_dir),
         eval_strategy="epoch",
         save_strategy="epoch",
@@ -106,6 +106,18 @@ def main():
         group_by_length=cfg.get("group_by_length", False),
         dataloader_num_workers=cfg.get("dataloader_num_workers", 0),
     )
+    # Filter against whatever this installed transformers version actually
+    # accepts -- API surface (e.g. field renames) drifts across major
+    # versions, and this script needs to run unmodified on both a pinned
+    # local install and whatever Colab happens to have pulled in.
+    import dataclasses
+    valid_fields = {f.name for f in dataclasses.fields(Seq2SeqTrainingArguments)}
+    dropped = {k: v for k, v in training_args_kwargs.items() if k not in valid_fields}
+    if dropped:
+        print(f"NOTE: this transformers install doesn't support {list(dropped)} -- skipping (had no effect anyway if unsupported)")
+    training_args_kwargs = {k: v for k, v in training_args_kwargs.items() if k in valid_fields}
+
+    training_args = Seq2SeqTrainingArguments(**training_args_kwargs)
 
     trainer = Seq2SeqTrainer(
         model=model,
