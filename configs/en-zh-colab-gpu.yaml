@@ -1,0 +1,46 @@
+# Same fine-tune as configs/en-zh.yaml, retuned for GPU throughput (Colab).
+# Kept separate from the CPU config on purpose: batch size and dataloader
+# settings are hardware-dependent tuning, not methodology, so the CPU run's
+# config stays untouched. learning_rate is deliberately left unchanged from
+# the CPU config, even though batch size is 4x larger -- scaling both at once
+# would conflate a throughput change with an optimization-trajectory change,
+# and this is a small enough model/LR that the standard linear-scaling
+# argument for bumping LR with batch size doesn't clearly apply here.
+#
+# Data expected at data/processed/en-zh/{train,val}.{en,zh}
+# (same pooled data as the CPU run -- copy from Drive, see colab_train_en_zh.ipynb)
+
+base_model: Helsinki-NLP/opus-mt-en-zh
+output_dir: models/opus-mt-en-zh-medical
+
+train_src: data/processed/en-zh/train.en
+train_tgt: data/processed/en-zh/train.zh
+val_src: data/processed/en-zh/val.en
+val_tgt: data/processed/en-zh/val.zh
+
+max_source_length: 128
+max_target_length: 128
+
+num_train_epochs: 3
+learning_rate: 2.0e-5
+
+# 4x the CPU config's batch size -- this is a ~77M-param model at seq_len 128,
+# comfortably small for any Colab GPU tier (T4 and up). If `!nvidia-smi` in
+# the notebook shows headroom, this can go higher (e.g. 128) for more speed.
+per_device_train_batch_size: 64
+per_device_eval_batch_size: 64
+
+# Buckets similar-length examples into the same batch, so batches pad to the
+# length of their own examples instead of the longest in a random batch --
+# real speedup (less wasted compute on padding tokens) with no quality cost.
+group_by_length: true
+
+# Colab typically gives ~2 CPU cores; overlaps batch collation with GPU compute
+# instead of blocking on it (irrelevant on the CPU run, where dataloading was
+# never the bottleneck -- GPU compute is fast enough that it can be).
+dataloader_num_workers: 2
+
+weight_decay: 0.01
+early_stopping_patience: 3
+save_total_limit: 2
+report_to: []

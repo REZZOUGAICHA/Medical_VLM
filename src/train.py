@@ -103,6 +103,8 @@ def main():
         greater_is_better=True,
         save_total_limit=cfg.get("save_total_limit", 2),
         report_to=cfg.get("report_to", []),
+        group_by_length=cfg.get("group_by_length", False),
+        dataloader_num_workers=cfg.get("dataloader_num_workers", 0),
     )
 
     trainer = Seq2SeqTrainer(
