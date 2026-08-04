@@ -1,0 +1,38 @@
+# Hindi two-stage fine-tune, Stage 2: medical specialization.
+# base_model points at Stage 1's OUTPUT checkpoint, not the raw pretrained
+# model -- this is what makes it a two-stage fine-tune rather than two
+# independent ones. Run Stage 1 first.
+#
+# Only 3,949 train pairs (tico19 + lokmat_healthcare + zenodo_healthcare, the
+# latter with 33 untranslated-in-source rows filtered out by
+# extract_zenodo_healthcare.py) -- small enough that more epochs than usual
+# are worth it to actually learn the medical vocabulary, relying on
+# early_stopping_patience to cut it short once eval BLEU stops improving
+# rather than fixing a low epoch count in advance.
+#
+# Data expected at data/processed/en-hi-medical/{train,val}.{en,hi}
+# (produced by: python src/data_prep.py --lang-pair en-hi --raw-dir data/raw/en-hi --sources tico19,lokmat_healthcare,zenodo_healthcare --out-dir data/processed/en-hi-medical --val-ratio 0.05)
+
+base_model: models/opus-mt-en-hi-stage1-general/final
+output_dir: models/opus-mt-en-hi-medical
+
+train_src: data/processed/en-hi-medical/train.en
+train_tgt: data/processed/en-hi-medical/train.hi
+val_src: data/processed/en-hi-medical/val.en
+val_tgt: data/processed/en-hi-medical/val.hi
+
+max_source_length: 128
+max_target_length: 128
+
+num_train_epochs: 10
+learning_rate: 2.0e-5
+
+per_device_train_batch_size: 32
+per_device_eval_batch_size: 32
+group_by_length: true
+dataloader_num_workers: 2
+
+weight_decay: 0.01
+early_stopping_patience: 3
+save_total_limit: 2
+report_to: []

@@ -1,0 +1,34 @@
+# Hindi two-stage fine-tune, Stage 1: general-domain adaptation.
+# Subsampled to 98,000 train pairs (from a 1,581,035-pair pool of IITB+BPCC)
+# via `data_prep.py --max-pairs 100000` specifically to keep training time in
+# the same ballpark as the Mandarin GPU run (~27 min for 63,831 pairs) rather
+# than the ~11 hour full-pool estimate -- a deliberate scope/time trade-off,
+# not an oversight. Composition after the cap: ~90% iitb, ~10% bpcc_ilci
+# (proportional to the pre-cap pool, since the cap is a random subsample).
+#
+# Data expected at data/processed/en-hi-general/{train,val}.{en,hi}
+# (produced by: python src/data_prep.py --lang-pair en-hi --raw-dir data/raw/en-hi --sources iitb,bpcc_ilci --out-dir data/processed/en-hi-general --max-pairs 100000)
+
+base_model: Helsinki-NLP/opus-mt-en-hi
+output_dir: models/opus-mt-en-hi-stage1-general
+
+train_src: data/processed/en-hi-general/train.en
+train_tgt: data/processed/en-hi-general/train.hi
+val_src: data/processed/en-hi-general/val.en
+val_tgt: data/processed/en-hi-general/val.hi
+
+max_source_length: 128
+max_target_length: 128
+
+num_train_epochs: 3
+learning_rate: 2.0e-5
+
+per_device_train_batch_size: 64
+per_device_eval_batch_size: 64
+group_by_length: true
+dataloader_num_workers: 2
+
+weight_decay: 0.01
+early_stopping_patience: 3
+save_total_limit: 2
+report_to: []

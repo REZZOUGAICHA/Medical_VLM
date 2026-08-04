@@ -73,14 +73,26 @@ def main():
 
     pairs = []
     per_field_counts = {f: 0 for f in FREE_TEXT_FIELDS}
+    untranslated_skipped = {f: 0 for f in FREE_TEXT_FIELDS}
     for en_row, hi_row in zip(en_rows, hi_rows):
         for field in FREE_TEXT_FIELDS:
             en_val, hi_val = en_row[field].strip(), hi_row[field].strip()
-            if en_val and hi_val:
-                pairs.append((en_val, hi_val))
-                per_field_counts[field] += 1
+            if not (en_val and hi_val):
+                continue
+            if en_val == hi_val:
+                # The "Hindi" side is byte-identical to the English side -- this
+                # field was never actually translated in the source dataset
+                # (seen on informal clinical shorthand like "Talk to son, fine,
+                # comf"), not a legitimate zero-translation-needed case like a
+                # shared numeral. Training on these would teach the model that
+                # copying English through untranslated is sometimes correct.
+                untranslated_skipped[field] += 1
+                continue
+            pairs.append((en_val, hi_val))
+            per_field_counts[field] += 1
 
     print("Pairs extracted per field:", per_field_counts)
+    print("Untranslated (en==hi) rows skipped per field:", untranslated_skipped)
     before = len(pairs)
     pairs = list(dict.fromkeys(pairs))  # de-dupe exact repeats (e.g. shared Diagnosis Category text), preserve order
     print(f"Total: {before} pairs -> {len(pairs)} after exact-duplicate removal")

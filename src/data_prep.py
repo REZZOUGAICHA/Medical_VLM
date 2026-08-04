@@ -97,6 +97,7 @@ def main():
     ap.add_argument("--val-ratio", type=float, default=0.02)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--max-len-chars", type=int, default=2000, help="drop pairs where either side exceeds this many characters")
+    ap.add_argument("--max-pairs", type=int, default=None, help="cap the pooled set to at most N pairs, randomly subsampled (post-shuffle, same --seed) after dedup -- use to keep a large general-domain pool to a training-time budget without hand-picking which sources to drop")
     args = ap.parse_args()
 
     src_lang, tgt_lang = args.lang_pair.split("-")
@@ -150,6 +151,15 @@ def main():
 
     rng = random.Random(args.seed)
     rng.shuffle(all_pairs)
+
+    if args.max_pairs and len(all_pairs) > args.max_pairs:
+        print(f"Subsampling {len(all_pairs)} -> {args.max_pairs} pairs (--max-pairs, seed={args.seed})")
+        all_pairs = all_pairs[: args.max_pairs]
+        by_source_capped: dict[str, int] = {}
+        for _s, _t, src in all_pairs:
+            by_source_capped[src] = by_source_capped.get(src, 0) + 1
+        print("Composition after cap:", by_source_capped)
+
     n_val = max(1, int(len(all_pairs) * args.val_ratio))
     val_pairs = all_pairs[:n_val]
     train_pairs = all_pairs[n_val:]
