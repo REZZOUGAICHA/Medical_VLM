@@ -1,0 +1,2193 @@
+{
+  "label": "fine-tuned",
+  "model": "models/opus-mt-en-zh-medical/final",
+  "lang_pair": "en-zh",
+  "device": "cuda",
+  "labse_model": "sentence-transformers/LaBSE",
+  "timestamp_utc": "2026-08-04T15:09:10.126476+00:00",
+  "data_source": {
+    "src_file": "data/eval/nejm_zh/nejm.test.en",
+    "tgt_file": "data/eval/nejm_zh/nejm.test.zh",
+    "description": "NEJM-enzh test split (2,102 pairs), medical, human-translated (professional NEJM translators)"
+  },
+  "reference_translation_provenance": "Real human-translated held-out test data, never generated or invented.",
+  "pilot_term_coverage": {
+    "cardiomegaly": 0,
+    "pleural_effusion": 1,
+    "pneumothorax": 0,
+    "edema": 5,
+    "no_acute_cardiopulmonary_abnormality_EXACT_PHRASE": 0,
+    "cardiopulmonary_BROAD_LOOSE_MATCH": 5,
+    "support_devices": 0,
+    "atelectasis": 1,
+    "consolidation": 0
+  },
+  "sample_size_requested": 200,
+  "seed": 42,
+  "per_sentence": [
+    {
+      "test_split_index": 2,
+      "pilot_terms_matched": [],
+      "source_en": "the safety and antileukemic activity of asciminib in patients with Philadelphia chromosome-positive leukemia are unknown.",
+      "reference": "asciminib用于费城染色体阳性白血病患者的安全性和抗白血病活性尚未明确.",
+      "hypothesis": "在 费城 染色体 阳性 白血病 患者 中 , 阿斯匹尼 的 安全性 和 抗 白血病 活性 尚 不 清楚 .",
+      "labse_cosine": 0.9171224748462099,
+      "sentence_bleu": 2.0244462660665508,
+      "inference_seconds": 0.821425588000011
+    },
+    {
+      "test_split_index": 13,
+      "pilot_terms_matched": [],
+      "source_en": "dose-limiting toxic effects included asymptomatic elevations in the lipase level and clinical pancreatitis.",
+      "reference": "剂量限制性毒性作用包括无症状的脂肪酶水平升高和临床胰腺炎.",
+      "hypothesis": "剂量 限制 毒性 作用 包括 脂酶 水平 无症状 升高 和 临床 胰腺炎 .",
+      "labse_cosine": 0.9750320341471771,
+      "sentence_bleu": 3.0890553181566975,
+      "inference_seconds": 0.24429105299998355
+    },
+    {
+      "test_split_index": 26,
+      "pilot_terms_matched": [],
+      "source_en": "here we report on patients with CML in the chronic or accelerated phase.",
+      "reference": "本文报告了在慢性期或加速期CML患者中进行的研究.",
+      "hypothesis": "我们 在 本文 中 报告 了 慢性 或 加速 阶段 的 CML 患者 .",
+      "labse_cosine": 0.926453340902934,
+      "sentence_bleu": 2.8398387225677895,
+      "inference_seconds": 0.1991063049999866
+    },
+    {
+      "test_split_index": 29,
+      "pilot_terms_matched": [],
+      "source_en": "the first two authors wrote the first draft of the manuscript.",
+      "reference": "前两名作者撰写了本文初稿.",
+      "hypothesis": "前 两位 作者 撰写 了 初稿 .",
+      "labse_cosine": 0.9762391992459805,
+      "sentence_bleu": 6.567274736060395,
+      "inference_seconds": 0.1502039810000042
+    },
+    {
+      "test_split_index": 47,
+      "pilot_terms_matched": [],
+      "source_en": "molecular assessments were performed centrally (MolecularMD, Portland, Oregon).",
+      "reference": "我们集中进行了分子学评估(MolecularMD,俄勒冈州波特兰).",
+      "hypothesis": "我们 集中 进行 了 分子 评估 ( 分子 MD , Portland , 俄勒冈州 ) .",
+      "labse_cosine": 0.9531740819312657,
+      "sentence_bleu": 6.250381527944883,
+      "inference_seconds": 0.2680404590000194
+    },
+    {
+      "test_split_index": 60,
+      "pilot_terms_matched": [],
+      "source_en": "hypertension, reported in 19 % of patients, was the most commonly reported cardiovascular adverse event (Table 2).",
+      "reference": "高血压(据报告发生于19%的患者)是最常报告的心血管不良事件(表2).",
+      "hypothesis": "据 报道 , 19% 的 患者 发生 高血压 是 最 常见 的 心血管 不良 事件 ( 表 2 ) .",
+      "labse_cosine": 0.96232273398228,
+      "sentence_bleu": 4.5672118332822365,
+      "inference_seconds": 0.30553793900003257
+    },
+    {
+      "test_split_index": 79,
+      "pilot_terms_matched": [],
+      "source_en": "among 44 patients in whom a major molecular response was either achieved or maintained, all but 4 continued to receive treatment at the time of analysis; the median time in which a major molecular response was achieved was 20 weeks (range, 2 to 120), and the median duration of response was more than 61 weeks (range, 4 to 154).",
+      "reference": "在达到或维持主要分子学缓解的44例患者中,除4例之外的其他所有患者在分析时均继续接受治疗;达到主要分子学缓解的中位时间为20周(范围,2~120),中位缓解持续时间超过61周(范围,4~154).",
+      "hypothesis": "在 达到 或 保持 了 主要 分子 应答 的 44 例 患者 中 , 除 4 例 外 , 其余 均 在 分析 时 继续 接受 治疗 ; 达到 主要 分子 应答 的 中位 时间 为 20 周 ( 范围 为 2 ~ 120 周 ) , 中位 缓解 持续时间 超过 61 周 ( 范围 为 4 ~ 154 周 ) .",
+      "labse_cosine": 0.9701898136466144,
+      "sentence_bleu": 5.645514542528133,
+      "inference_seconds": 0.8850179140000023
+    },
+    {
+      "test_split_index": 86,
+      "pilot_terms_matched": [],
+      "source_en": "a major molecular response was achieved in 4 of 17 patients (24 %) and maintained in 1 of 1 patient (100 %) by 12 months, with 9 of 18 (50 %) showing improvement in their molecular-response category by 12 months (Table 4).",
+      "reference": "截至12个月时,17例患者中的4例(24%)达到了主要分子学缓解,1例患者中的1例(100%)维持了主要分子学缓解;截至12个月时,在18例患者中,有9例(50%)的分子学缓解情况类别有所改善(表4).",
+      "hypothesis": "17 例 患者 中 的 4 例 ( 24% ) 达到 了 主要 分子 应答 , 1 例 患者 中 的 1 例 ( 100% ) 在 12 个 月 时 维持 了 , 其中 9 例 ( 50% ) 在 12 个 月 时 显示 分子 应答 类别 改善 ( 表 4 ) .",
+      "labse_cosine": 0.932751410843226,
+      "sentence_bleu": 13.166397580914365,
+      "inference_seconds": 0.782825559999992
+    },
+    {
+      "test_split_index": 102,
+      "pilot_terms_matched": [],
+      "source_en": "among patients with chronic-phase CML without a T315I mutation, the incidences of complete cytogenetic response and major molecular response at 12 months were 70 % and 48 %, respectively.",
+      "reference": "在无T315I突变的慢性期CML患者中,12个月时的细胞遗传学完全缓解和主要分子学缓解发生率分别为70%和48%.",
+      "hypothesis": "在 无 T315I 突变 的 慢性 期 CML 患者 中 , 12 个 月 时 的 细胞 遗传学 完全缓解 和 主要 分子 应答 的 发生率 分别 为 70% 和 48% .",
+      "labse_cosine": 0.974386975420877,
+      "sentence_bleu": 2.6711961764401657,
+      "inference_seconds": 0.5044843489999948
+    },
+    {
+      "test_split_index": 108,
+      "pilot_terms_matched": [],
+      "source_en": "asciminib was developed to bind to the myristoyl pocket - a previously unexploited feature of ABL1 and ABL2 kinases that is key to physiological autoinhibition of the native kinase.",
+      "reference": "asciminib被设计为与豆蔻酰口袋相结合,而豆蔻酰口袋是ABL1和ABL2激酶中之前未加以利用的结构,而且是天然激酶发生生理性自抑制的关键.",
+      "hypothesis": "我们 开发 了 asciminib , 将 其 与 原发性 激酶 生理 自身 抑制 的 重要 特征 - - - 即 既往 未 开发 的 ABL1 和 ABL2 激酶 - - - 口袋 结合 .",
+      "labse_cosine": 0.8460966126404703,
+      "sentence_bleu": 1.2944532586971997,
+      "inference_seconds": 0.5686668470000313
+    },
+    {
+      "test_split_index": 122,
+      "pilot_terms_matched": [],
+      "source_en": "on the basis of a nationwide survey in 1957, covering 827 hospitals in the United States, it was estimated that a total of 1000 penicillin-related deaths occurred during the first 10 years of penicillin use.1,4",
+      "reference": "1957年一项覆盖美国827家医院的全国性调查估计,在青霉素投入使用后的10年内,共发生1,000例与青霉素相关的死亡1,4.",
+      "hypothesis": "根据 1957 年 一项 覆盖 美国 827 家 医院 的 全国 调查 , 据估计 , 在 青霉素 使用 前 10 年 期间 , 共有 1 , 000 例 青霉素 相关 死亡 1 , 4 例 .",
+      "labse_cosine": 0.968393069231818,
+      "sentence_bleu": 1.3494116947566301,
+      "inference_seconds": 0.5052396799999883
+    },
+    {
+      "test_split_index": 128,
+      "pilot_terms_matched": [],
+      "source_en": "benign cutaneous reactions such as urticaria and delayed maculopapular exanthema are the most common type of reactions.",
+      "reference": "荨麻疹和迟发型斑丘疹等良性皮肤反应是最常见的反应类型.",
+      "hypothesis": "恶性 皮肤 反应 ( 如 尿道 和 延迟 雄性 粒细胞 外膜 ) 是 最 常见 的 反应 类型 .",
+      "labse_cosine": 0.8193119979063003,
+      "sentence_bleu": 2.0244462660665508,
+      "inference_seconds": 0.3394828430000416
+    },
+    {
+      "test_split_index": 130,
+      "pilot_terms_matched": [],
+      "source_en": "penicillins have been the most common cause of drug-induced fatal and nonfatal anaphylaxis in the United States11,12 and the United Kingdom.",
+      "reference": "在美国11,12和英国,青霉素是引起致死性和非致死性药物过敏反应的最常见原因.",
+      "hypothesis": "在 美国 11 , 12 和 英国 , 青霉素 是 药物 诱发 的 致死 性 和 非 致死 性 节食症 的 最 常见 原因 .",
+      "labse_cosine": 0.9458736836734307,
+      "sentence_bleu": 1.7911710595643588,
+      "inference_seconds": 0.40480967400003465
+    },
+    {
+      "test_split_index": 131,
+      "pilot_terms_matched": [],
+      "source_en": "the lowest rate of anaphylaxis is for oral penicillins, with a report from the United Kingdom of one case of fatal anaphylaxis from oral amoxicillin in 35 years and 100 million treatment courses.13",
+      "reference": "过敏反应发生率最低的是口服青霉素类药物,据英国的一份报告,在35年(1亿个疗程)中,仅有1例口服阿莫西林引起的致死性过敏反应13.",
+      "hypothesis": "口服 青霉素 的 抗生素 发生率 最低 , 据 英国 报道 , 35 年 口服 阿莫西林 导致 的 1 例 致死 性 抗生素 , 以及 1 亿 例 治疗 课程 13 .",
+      "labse_cosine": 0.8686698751879635,
+      "sentence_bleu": 1.6961343903963388,
+      "inference_seconds": 0.5497153789999629
+    },
+    {
+      "test_split_index": 177,
+      "pilot_terms_matched": [],
+      "source_en": "these and other studies suggest that a direct penicillin challenge without skin testing is probably appropriate for children with a history of a benign rash but without a history of anaphylaxis (Figure 3).",
+      "reference": "这些研究和其他研究提示,不经皮试的直接青霉素激发很可能适合有良性皮疹病史,但无过敏史的儿童(图3).",
+      "hypothesis": "这些 研究 和 其他 研究 提示 , 未 进行 皮肤 检查 的 直接 青霉素 挑战 可能 适合 有 良性 皮疹 病史 , 但 无 哮喘 病史 的 儿童 ( 图 3 ) .",
+      "labse_cosine": 0.9416399724481925,
+      "sentence_bleu": 2.8244460759801417,
+      "inference_seconds": 0.4926777289999791
+    },
+    {
+      "test_split_index": 187,
+      "pilot_terms_matched": [],
+      "source_en": "they include the lymphocyte transformation test, which measures the proliferation of the patient 's T cells over a period of 5 to 7 days, 36 and the enzyme-linked immunosorbent spot (ELISPOT) test, which detects antigen-specific, cytokine-producing cells after 24 hours of incubation with polymorphonuclear blood cells.",
+      "reference": "体外试验包括淋巴细胞转化试验(测定5~7日期间的患者T细胞增殖)和酶联免疫吸附斑点(ELISPOT)试验(使用多形核血细胞孵育24小时后,检测生成细胞因子的抗原特异性细胞).",
+      "hypothesis": "这些 试验 包括 淋巴细胞 转化 检验 , 该 检验 测定 了 患者 T 细胞 在 5 ~ 7 天 期间 的 扩散 36 , 以及 酶 相关 免疫 吸收 点 ( ELISPOT ) 检验 , 该 检验 检测 出 24 小时 多态 血细胞 孵育 后 的 抗原 特异性 细胞 生成 细胞 .",
+      "labse_cosine": 0.9251437518978974,
+      "sentence_bleu": 3.221733470385022,
+      "inference_seconds": 0.7825765929999875
+    },
+    {
+      "test_split_index": 192,
+      "pilot_terms_matched": [],
+      "source_en": "drug-induced liver injury related to flucloxacillin, a semisynthetic antistaphylococcal penicillin in use in the United Kingdom, Europe, and Australia, has been strongly associated with HLA-B * 57: 01 in a genomewide association study, 38 and drug-induced liver injury associated with amoxicillin-clavulanic acid has been associated in multiple studies with HLA-DRB1 * 15: 01 and its haplotype, DQB1 * 06: 02, and with HLA-A * 02: 01 in northern European populations.26,39",
+      "reference": "一项全基因组相关性研究发现,与氟氯西林(在英国,欧洲和澳大利亚使用的一种半合成抗葡萄球菌青霉素)相关的药物性肝损害与HLA-B*57:01强相关38,此外,多项研究发现,在北欧人群中,与阿莫西林-克拉维酸相关的药物性肝损害与HLA-DRB1*15:01及其单倍型DQB1*06:02,以及与HLA-A*02:01相关26,39.",
+      "hypothesis": "在 一项 全 基因组 关联 研究 中 , 与 氟 氯西林 相关 的 药物 诱发 的 肝损伤 ( 一种 在 英国 , 欧洲 和 澳大利亚 使用 的 半合成 抗 司伐洛 卡 青霉素 ) 与 HLA - B * 57 : 01 密切相关 38 , 与 阿莫西林 - 克拉维 酸 相关 的 药物 诱发 肝损伤 在 HLA - DRB1 * 15 :",
+      "labse_cosine": 0.8978555903531164,
+      "sentence_bleu": 4.329351987099663,
+      "inference_seconds": 0.954228540000031
+    },
+    {
+      "test_split_index": 207,
+      "pilot_terms_matched": [],
+      "source_en": "case-control studies in the United States and United Kingdom that involved more than 50,000 patients labeled as allergic to penicillin showed increased rates of infection with methicillin-resistant S. aureus (MRSA), vancomycin-resistant enterococcus, and Clostridioides difficile (formerly Clostridium difficile).6,48",
+      "reference": "在美国和英国,对被贴上青霉素过敏标签的5万多例患者开展的病例对照研究表明,这些患者的耐甲氧西林金黄色葡萄球菌(MRSA),耐万古霉素肠球菌和艰难梭菌感染率增加6,48.",
+      "hypothesis": "美国 和 英国 的 病例 控制 研究 纳入 了 50 , 000 多名 被 标注 为 对 青霉素 过敏 的 患者 , 结果显示 耐甲状腺素 ( MRSA ) , 耐 万古霉素 肠镜 ( vancomycin ) 和 氯三分 肽 ( 既往 氯   ) 的 感染率 增加 6 , 48 .",
+      "labse_cosine": 0.928539970586219,
+      "sentence_bleu": 5.476271388596462,
+      "inference_seconds": 0.816683084000033
+    },
+    {
+      "test_split_index": 221,
+      "pilot_terms_matched": [],
+      "source_en": "these include the use of allergy-trained clinical pharmacists to perform preemptive testing in patients with a history of penicillin allergy who are at high risk for antibiotic use, 61 the use of clinical decision-support tools and specific algorithms for penicillin testing, 54 and the use of penicillin skin-testing consultation through telemedicine (since there is a paucity of allergy specialists).62,63",
+      "reference": "这些方法包括由经过过敏培训的临床药师在有青霉素过敏史且抗生素用药风险高的患者中进行预先试验61,使用临床决策支持工具和用于青霉素试验的特定流程54,以及通过远程医疗进行青霉素皮试咨询(原因是缺少过敏专科医师)62,63.",
+      "hypothesis": "这些 措施 包括 使用 过敏 训练 的 临床 药剂师 对 有 青霉素 过敏 病史 的 抗生素 使用 风险 高 的 患者 进行 预防性 检测 61 , 使用 临床 决策 支持 工具 和 青霉素 检测 的 特定 算法 54 , 以及 通过 远程 医疗 进行 青霉素 皮肤 检测 咨询 ( 因为 过敏 专科 医师 很少 ) 62 , 63 .",
+      "labse_cosine": 0.9555908740295748,
+      "sentence_bleu": 0.9196271525972168,
+      "inference_seconds": 1.2281000619999531
+    },
+    {
+      "test_split_index": 229,
+      "pilot_terms_matched": [],
+      "source_en": "the use of an amoxicillin challenge without a penicillin skin test was associated with low morbidity in a cohort of marines who had a history of selective penicillin allergy70 and in children with a history of low-risk symptoms of penicillin allergy.71",
+      "reference": "在有选择性青霉素过敏史的海军陆战队员队列中70,以及在曾有低风险青霉素过敏症状的儿童中,在未进行青霉素皮试的情况下进行的阿莫西林激发与低发病率相关71.",
+      "hypothesis": "在 有 青霉素 过敏 病史 70 的 海军 队列 和 有 青霉素 过敏 低危 症状 的 儿童 中 , 在 无 青霉素 皮肤 检测 的 情况 下 , 使用 阿莫西林 挑战 与 低 发病率 相关 71 .",
+      "labse_cosine": 0.9216627099148823,
+      "sentence_bleu": 1.3113617852675474,
+      "inference_seconds": 0.9081213750000074
+    },
+    {
+      "test_split_index": 237,
+      "pilot_terms_matched": [],
+      "source_en": "this and similar protocols have been used for intravenous and oral penicillin desensitization (Table 1 and 2) with 100 % success, allowing administration of the target dose and maintenance of first-line therapy.",
+      "reference": "本方案和类似方案已被用于青霉素静脉给药和口服脱敏(表1和表2),成功率为100%,这使得我们能够采用目标剂量,并保持一线治疗.",
+      "hypothesis": "本 试验 和 类似 的 试验 方案 被 用于 静脉 给 药 和 口服 青霉素 降低 敏感性 ( 表 1 和表 2 ) , 并 100% 成功 , 从而 能够 给予 目标 剂量 和 维持 一线 治疗 .",
+      "labse_cosine": 0.938279506643863,
+      "sentence_bleu": 2.4827169469589307,
+      "inference_seconds": 0.7486027699999909
+    },
+    {
+      "test_split_index": 241,
+      "pilot_terms_matched": [],
+      "source_en": "the incidence of both IgE-mediated and non-IgE-mediated reactions has not increased worldwide in the past 50 years, and a penicillin-allergy label has serious consequences for both individual and public health (Figure 4).",
+      "reference": "过去50年间,在全球范围内,IgE介导和非IgE介导的反应的发病率并未增加,而青霉素过敏标签在个人健康和公共卫生方面产生严重后果(图4).",
+      "hypothesis": "过去 50 年 , 全世界 IgE 介导 和 非 IgE 介导 的 反应 发生率 均 未 增加 , 青霉素 过敏 标签 对 个人 和 公众 健康 均 有 严重后果 ( 图 4 ) .",
+      "labse_cosine": 0.9804627034714474,
+      "sentence_bleu": 2.7374353552268267,
+      "inference_seconds": 0.7797291429999973
+    },
+    {
+      "test_split_index": 248,
+      "pilot_terms_matched": [],
+      "source_en": "moderate therapeutic hypothermia is currently recommended to improve neurologic outcomes in adults with persistent coma after resuscitated out-of-hospital cardiac arrest.",
+      "reference": "对于院外心脏停搏且心肺复苏成功后持续昏迷的成人,目前推荐采用中度低温治疗来改善神经系统结局.",
+      "hypothesis": "目前 建议 中度 治疗 性 低温 可 改善 院外 心脏 停搏 后 持续性 昏迷 成人 的 神经 结局 .",
+      "labse_cosine": 0.8817729118004697,
+      "sentence_bleu": 2.0244462660665508,
+      "inference_seconds": 0.45674571999995806
+    },
+    {
+      "test_split_index": 260,
+      "pilot_terms_matched": [],
+      "source_en": "in accordance with the 2015 guidelines of the International Liaison Committee on Resuscitation (ILCOR), 1 targeted temperature management with a target of 32 ° C to 36 ° C (moderate therapeutic hypothermia) is currently advocated for all patients with coma after successful resuscitation from cardiac arrest.",
+      "reference": "根据国际复苏联络委员会(InternationalLiaisonCommitteeonResuscitation,ILCOR)2015年发布的指南1,对于发生心脏停搏,且心肺复苏成功后昏迷的所有患者,目前建议以32~36℃为目标进行目标体温管理(中度低温治疗).",
+      "hypothesis": "根据 国际 复苏 联络 委员会 ( 国际 复苏 联络 委员会 ) 的 2015 年 指南 1 , 目前 提倡 将 目标 为 32 °C ~ 36 °C ( 中度 治疗 低温 ) 的 目标 体温 管理 用于 心脏 停搏 成功 复苏 后 的 所有 昏迷 患者 .",
+      "labse_cosine": 0.9416256575834494,
+      "sentence_bleu": 1.2642975505530565,
+      "inference_seconds": 0.6873415769999838
+    },
+    {
+      "test_split_index": 262,
+      "pilot_terms_matched": [],
+      "source_en": "two retrospective case-series studies suggested beneficial effects of hypothermia on both neurologic outcomes and survival among these patients, 6,7 two showed no effect, 8,9 and two suggested harm.10,11",
+      "reference": "对于这些患者的神经系统结局和生存,两项回顾性病例系列研究提示低温治疗有益6,7,两项研究提示无影响8,9,两项研究提示有害10,11.",
+      "hypothesis": "两项 回顾性 的 病例 系列 研究 提示 低温 对 这些 患者 的 神经系统 结局 和 生存期 均 有 有益 影响 , 其中 6 , 7 , 2 例 显示 无 影响 8 , 9 , 另 2 例 显示 无 危害 10 , 11 .",
+      "labse_cosine": 0.9346296657106608,
+      "sentence_bleu": 1.1498052049318417,
+      "inference_seconds": 0.6296581660000129
+    },
+    {
+      "test_split_index": 271,
+      "pilot_terms_matched": [],
+      "source_en": "the authors vouch for the completeness and accuracy of the data and for the fidelity of the trial to the protocol.",
+      "reference": "作者保证数据的完整性和准确性,以及试验对试验方案的忠实度.",
+      "hypothesis": "作者保证数据的完整性和准确性,并保证试验忠实于方案。",
+      "labse_cosine": 0.9768738658004978,
+      "sentence_bleu": 39.43223765116288,
+      "inference_seconds": 0.14994594900002767
+    },
+    {
+      "test_split_index": 275,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "exclusion criteria were a no-flow time (from collapse to initiation of cardiopulmonary resuscitation [ CPR ]) of more than 10 minutes; a low-flow time (from initiation of CPR to return of spontaneous circulation) of more than 60 minutes; major hemodynamic instability (continuous epinephrine or norepinephrine infusion > 1 μg per kilogram of body weight per minute); time from cardiac arrest to screening of more than 300 minutes; moribund condition; Child-Pugh class C cirrhosis of the liver (severe hepatic dysfunction); pregnancy or breast-feeding; status of being under guardianship; status of being an inmate at a correctional facility; previous inclusion in another randomized, controlled trial involving patients with cardiac arrest in which the neurologic outcome at 90 days was assessed as the primary end point; lack of health insurance; and decision by the next of kin for the patient not to participate.",
+      "reference": "排除标准如下:无血流时间(no-flowtime,从昏倒至开始心肺复苏[CPR])超过10分钟;低血流时间(low-flowtime,从开始CPR至恢复自主循环)超过60分钟;血流动力学严重不稳定(连续使用剂量超过每分钟1μg/kg的肾上腺素或去甲肾上腺素);从心脏停搏至筛选的间隔时间超过300分钟;处于濒死状态;患Child-PughC级肝硬化(重度肝功能障碍);处于妊娠期或哺乳期;处于被监护状态(underguardianship);监狱囚犯;之前曾纳入在心脏停搏患者中开展的其他随机,并且该试验的主要终点是90日时的神经系统结局;无医疗保险;患者的近亲决定不参与试验.",
+      "hypothesis": "排除 标准 包括 不 流量 时间 ( 从 跌倒 至 开始 心脏 肺 复苏 [ CPR ] ) 超过 10 分钟 ; 低流量 时间 ( 从 开始 CPR 至 自发 循环 恢复 ) 超过 60 分钟 ; 主要 血流 动力学 不稳定性 ( 连续 肾上腺素 或 无肾上腺素 输入 > 1 μ g / kg / min ) ; 从 心脏 停搏 至 筛查 超过 300 分钟 ;",
+      "labse_cosine": 0.8603187787228215,
+      "sentence_bleu": 5.044406211143105,
+      "inference_seconds": 0.9256952999999726
+    },
+    {
+      "test_split_index": 277,
+      "pilot_terms_matched": [],
+      "source_en": "however, French data-protection authorities require that patients be given the opportunity to decline that their data be used.",
+      "reference": "然而,法国数据保护机构要求,患者必须有机会拒绝研究者使用其数据.",
+      "hypothesis": "然而,法国数据保护部门要求向患者提供拒绝使用其数据的机会。",
+      "labse_cosine": 0.9226747518378119,
+      "sentence_bleu": 20.24518585186855,
+      "inference_seconds": 0.14428899099999626
+    },
+    {
+      "test_split_index": 284,
+      "pilot_terms_matched": [],
+      "source_en": "however, the psychologist who assessed the trial outcomes in all patients was unaware of the group assignments.",
+      "reference": "然而,评估所有患者结局的心理医师并不知晓分组情况.",
+      "hypothesis": "然而,评估所有患者试验结局的心理学家并不知道分组情况。",
+      "labse_cosine": 0.9602006819060519,
+      "sentence_bleu": 39.43223765116288,
+      "inference_seconds": 0.1896196879999934
+    },
+    {
+      "test_split_index": 285,
+      "pilot_terms_matched": [],
+      "source_en": "targeted TEMPERATURE MANAGEMENT",
+      "reference": "目标体温管理",
+      "hypothesis": "目标 基因 管理",
+      "labse_cosine": 0.6488604392872833,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.07554108800002268
+    },
+    {
+      "test_split_index": 291,
+      "pilot_terms_matched": [],
+      "source_en": "sedation was provided according to the standard protocol in each center, with dosage adjustment to obtain a Richmond Agitation-Sedation Scale score of − 5 (on a scale from − 5 [ unresponsive ] to + 4 [ combative ]).18",
+      "reference": "根据各研究中心的标准方案对患者实施镇静,通过调整剂量的方式达到里士满激越-镇静量表(RichmondAgitation-SedationScale)评分-5分(该量表的评分范围为-5[无反应]~+4分[好斗])18.",
+      "hypothesis": "根据 每个 中心 的 标准 方案 提供 镇静剂 , 调整 剂量 , 以 获得 瑞奇 孟德 戒备 量表 评分 - 5 ( 量表 从 - 5 [ 未 反应 ] 至 + 4 [ 抗 ) 18 .",
+      "labse_cosine": 0.8234583977786379,
+      "sentence_bleu": 4.747573105125849,
+      "inference_seconds": 0.5495827560000066
+    },
+    {
+      "test_split_index": 293,
+      "pilot_terms_matched": [],
+      "source_en": "in patients who had been assigned to the normothermia group, body temperature was maintained at 36.5 to 37.5 ° C for 48 hours according to the standard protocol in each ICU.",
+      "reference": "对于被分配到常温组的患者,我们根据各ICU的标准方案将其体温在36.5~37.5℃保持48小时.",
+      "hypothesis": "在 被 分配 至 常温 组 的 患者 中 , 根据 各 ICU 的 标准 方案 , 将 体温 维持 在 36.5 ~ 37.5 °C , 持续 48 小时 .",
+      "labse_cosine": 0.9680381946670902,
+      "sentence_bleu": 1.6338984401221652,
+      "inference_seconds": 0.4193151729999727
+    },
+    {
+      "test_split_index": 309,
+      "pilot_terms_matched": [],
+      "source_en": "to estimate the treatment effect on the primary outcome, we estimated the between-group difference and its 95 % confidence interval using a linear model with an identity link function.",
+      "reference": "为了估算治疗对主要结局产生的效应,我们采用线性模型和恒等联系函数(identitylinkfunction)估算了组间差异及其95%置信区间.",
+      "hypothesis": "为了 估计 治疗 对 主要 结局 的 影响 , 我们 使用 具有 识别 链接 功能 的 线性 模型 估算 了 组间 差异 及其 95% 置信区间 .",
+      "labse_cosine": 0.9463909940707081,
+      "sentence_bleu": 5.551277111446365,
+      "inference_seconds": 0.3895847239999739
+    },
+    {
+      "test_split_index": 323,
+      "pilot_terms_matched": [],
+      "source_en": "Figure 2 shows the temperature changes over time; the mean (± SD) temperature between 12 and 24 hours after randomization was 33.5 ± 1.1 ° C in the hypothermia group and 37.0 ± 0.7 ° C in the normothermia group.",
+      "reference": "图2显示了随时间推移的体温变化;在随机分组后12~24小时,低温组和常温组的平均(±SD)体温分别为33.5±1.1℃和37.0±0.7℃.",
+      "hypothesis": "图 2 显示 了 随 时间推移 的 体温 变化 ; 随机 分组 后 12 ~ 24 小时 的 平均 ( ± SD ) 体温 在 低温 组为 33.5 ± 1.1 °C , 在 常温 组为 37.0 ± 0.7 °C .",
+      "labse_cosine": 0.977140679220034,
+      "sentence_bleu": 1.4378558189726398,
+      "inference_seconds": 0.6226560050000103
+    },
+    {
+      "test_split_index": 327,
+      "pilot_terms_matched": [],
+      "source_en": "the number of patients who died within 90 days was 231 in the hypothermia group and 247 in the normothermia group (81.3 % vs. 83.2 %; difference, − 1.9 percentage points; 95 % CI, − 8.0 to 4.4).",
+      "reference": "在低温组和常温组中,90日内死亡的患者人数分别为231人和247人(81.3%vs.83.2%;差异,1.9个百分点;95%CI,-8.0~4.4).",
+      "hypothesis": "低温 组和 常温 组在 90 日内 死亡 的 患者 数量 分别 为 231 例 和 247 例 ( 81 .3% vs . 83.2% ; 差异 , - 1.9 个 百分点 ; 95% CI , - 8.0 ~ 4.4 ) .",
+      "labse_cosine": 0.9900379248545959,
+      "sentence_bleu": 28.723161058536572,
+      "inference_seconds": 0.633261435999998
+    },
+    {
+      "test_split_index": 351,
+      "pilot_terms_matched": [],
+      "source_en": "moderate therapeutic hypothermia has been shown to improve neurologic outcomes in patients with severe ischemia-reperfusion brain injury.32,33",
+      "reference": "中度低温治疗已被证明可改善重度缺血-再灌注脑损伤患者的神经系统结局32,33.",
+      "hypothesis": "中度 低温 治疗 已 被 证明 可 改善 重度 缺血 - 再灌注 脑损伤 患者 的 神经 结局 32 , 33 .",
+      "labse_cosine": 0.985583437157873,
+      "sentence_bleu": 1.8160849415439309,
+      "inference_seconds": 0.3756360309999991
+    },
+    {
+      "test_split_index": 352,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "we consequently included patients with worse cardiopulmonary-resuscitation characteristics, such as long no-flow and low-flow times and high epinephrine doses, as well as a larger proportion of patients with circulatory shock (58 % in our trial vs. 15 % in the TTM trial28).",
+      "reference": "因此,我们纳入了心肺复苏特征较差的患者(如无血流时间和低血流时间长,以及肾上腺素剂量大)以及较大比例的循环休克患者(本试验中为58%vs.TTM试验中为15%28).",
+      "hypothesis": "因此 , 我们 纳入 了 心肺 复苏 特征 较差 的 患者 , 如 长时间 无流量 , 低流量 时间 和 高 肾上腺素 剂量 , 以及 更 多 的 循环 休克 患者 ( 我们 的 试验 中 58% 对 TTM 试验 中 15% 28 ) .",
+      "labse_cosine": 0.9750486479157968,
+      "sentence_bleu": 6.548023882337439,
+      "inference_seconds": 0.6767682959999775
+    },
+    {
+      "test_split_index": 358,
+      "pilot_terms_matched": [],
+      "source_en": "first, the primary outcome was assessed during a telephone interview rather than a face-to-face interview.",
+      "reference": "首先,主要结局的评估方式是电话访谈,而非面对面访谈.",
+      "hypothesis": "首先,在电话访谈中而不是面对面访谈中评估了主要结局。",
+      "labse_cosine": 0.9432252834239094,
+      "sentence_bleu": 20.24518585186855,
+      "inference_seconds": 0.11677016899994896
+    },
+    {
+      "test_split_index": 374,
+      "pilot_terms_matched": [],
+      "source_en": "resmetirom dose was adjusted (range, 40-100 mg) at week 4 based on serum drug concentration measured at week 2.",
+      "reference": "研究者根据第2周测定的血清药物浓度,在第4周时调整resmetirom剂量(范围,40~100mg).",
+      "hypothesis": "根据 第 2 周时 测定 的 血清 药物 浓度 , 对 第 4 周时 的 Remedirom 剂量 ( 范围 , 40 ~ 100 mg ) 进行 了 调整 .",
+      "labse_cosine": 0.9086952266529889,
+      "sentence_bleu": 13.547277341758466,
+      "inference_seconds": 0.4047333909999793
+    },
+    {
+      "test_split_index": 381,
+      "pilot_terms_matched": [],
+      "source_en": "these promising results have led to the initiation of a phase III study in NASH patients with stage 2 or 3 fibrosis (NCT03900429).",
+      "reference": "由于这些很有前景的结果,研究者已在NASH伴2期或3期肝纤维化患者中启动了3期研究(NCT03900429).",
+      "hypothesis": "这些有 希望 的 结果 导致对 NASH 2 期 或 3 期 纤维化 患者 开展 了 一项 3 期 研究 ( NCT03900429 ) .",
+      "labse_cosine": 0.9180237084028654,
+      "sentence_bleu": 10.308675254291908,
+      "inference_seconds": 0.39581614299999046
+    },
+    {
+      "test_split_index": 384,
+      "pilot_terms_matched": [],
+      "source_en": "now, in a study from Japan, nearly 1300 patients with recent stroke (85 % ischemic, 15 % hemorrhagic) and BP > 130 / 80 mm Hg were randomized to a long-term target of < 120 / 80 mm Hg or < 140 / 90 mm Hg.",
+      "reference": "如今,日本的一项研究将近期发生卒中(85%缺血性,15%出血性)且血压>130/80mmHg的近1,300例患者随机分组,两组设定的长期血压目标分别为<120/80mmHg和<140/90mmHg.",
+      "hypothesis": "如今 , 在 来自 日本 的 一项 研究 中 , 近 1 , 300 例 近期 发生 卒 中 ( 85% 缺血 , 15% 出血 ) 和 血压 > 130 / 80 mmHg 的 患者 被 随机 分配 至 < 120 / 80 mmHg 或 < 140 / 90 mmHg 的 长期 目标 .",
+      "labse_cosine": 0.9499895718488339,
+      "sentence_bleu": 8.88762221635767,
+      "inference_seconds": 0.8338401230000159
+    },
+    {
+      "test_split_index": 385,
+      "pilot_terms_matched": [],
+      "source_en": "most patients had received hypertension treatment prior to their strokes.",
+      "reference": "大多数患者发生卒中前已在接受高血压治疗.",
+      "hypothesis": "大多数 患者 在 卒 中 之前 接受 过 高血压 治疗 .",
+      "labse_cosine": 0.9824220415828826,
+      "sentence_bleu": 3.7477767366779213,
+      "inference_seconds": 0.1646843990000093
+    },
+    {
+      "test_split_index": 388,
+      "pilot_terms_matched": [],
+      "source_en": "however, a difference in incidence of recurrent stroke was not statistically significant (6.2 % and 8.2 %; P = 0.15).",
+      "reference": "然而,两组的卒中复发率无显著差异(6.2%和8.2%;P=0.15).",
+      "hypothesis": "然而 , 复发性 卒 中 发生率 的 差异 在 统计学 上 无 显著性 ( 6.2% 和 8.2% ; P = 0.15 ) .",
+      "labse_cosine": 0.9027489204701398,
+      "sentence_bleu": 30.397180859593238,
+      "inference_seconds": 0.3681290900000249
+    },
+    {
+      "test_split_index": 398,
+      "pilot_terms_matched": [],
+      "source_en": "they utilized a validated dietary diabetes risk reduction score (range, 8-32; a higher score indicates a healthier diet).",
+      "reference": "他们应用了经过验证的饮食降低糖尿病风险评分(范围,8~32;评分较高表示饮食较健康).",
+      "hypothesis": "他们 使用 了 经过 验证 的 饮食 糖尿病 风险 降低 评分 ( 范围 , 8 ~ 32 分 ; 较 高 的 评分 表示 饮食 较 健康 ) .",
+      "labse_cosine": 0.9741519583155364,
+      "sentence_bleu": 18.36202042420681,
+      "inference_seconds": 0.42102610399996365
+    },
+    {
+      "test_split_index": 399,
+      "pilot_terms_matched": [],
+      "source_en": "the score is calculated based on reported intake of foods considered favorable (e.g., cereal fiber, nuts) and unfavorable (e.g., trans fats and red and processed meats) to diabetes risk.",
+      "reference": "计算该评分时依据的是对糖尿病风险有利(如谷物纤维,坚果)和不利(如反式脂肪及红肉和加工肉类)的食物摄入量.",
+      "hypothesis": "评分 的 计算 依据 是 报告 的 食物 摄入量 ( 例如 谷物 纤维 , 坚果 ) 和 不 满意 的 糖尿病 风险 ( 例如 反脂 , 红肉 和 加工 肉类 ) .",
+      "labse_cosine": 0.9335545542672786,
+      "sentence_bleu": 5.336626135787336,
+      "inference_seconds": 0.45701084800003855
+    },
+    {
+      "test_split_index": 403,
+      "pilot_terms_matched": [],
+      "source_en": "in multivariate analysis, the dietary diabetes risk reduction score was associated with lower risk for HCC (adjusted hazard ratio, 0.57 for the highest vs. lowest quartile), as well as lower cirrhosis risk (aHR, 0.55 for highest vs. lowest quartile).",
+      "reference": "在多元分析中,较高的饮食降低糖尿病风险评分与较低的HCC风险(最高与最低四分位数相比,校正风险比[aHR]为0.57)和较低的肝硬化风险(最高与最低四分位数相比,aHR为0.55)相关.",
+      "hypothesis": "在 多 变量 分析 中 , 饮食 糖尿病 风险 降低 评分 与 HCC 风险 降低 ( 校正 风险 比 , 最高 四分 位数 和 最低 四分 位数 的 风险 比为 0.57 ) 以及 肝硬化 风险 降低 ( 最高 四分 位数 和 最低 四分 位数 的 风险 比为 0.55 ) 相关 .",
+      "labse_cosine": 0.9578290863620625,
+      "sentence_bleu": 3.398428383520921,
+      "inference_seconds": 1.0979494350000323
+    },
+    {
+      "test_split_index": 405,
+      "pilot_terms_matched": [],
+      "source_en": "these findings require confirmation, especially because of incomplete data regarding hepatitis B and C infection status and the small number of HCC cases.",
+      "reference": "这些研究结果需要经过证实,重要原因是关于乙型和丙型肝炎感染状况的数据不完整,而且HCC病例数量少.",
+      "hypothesis": "这些 发现 需要 证实 , 尤其 因为 关于 乙型肝炎 和 丙型肝炎 感染 状况 的 数据 不 完整 , 而且 HCC 病例 数量 较 少 .",
+      "labse_cosine": 0.9411473138459078,
+      "sentence_bleu": 1.9822566267103439,
+      "inference_seconds": 0.50177230099996
+    },
+    {
+      "test_split_index": 415,
+      "pilot_terms_matched": [],
+      "source_en": "total fracture risk was lower in active women, but knees and arms were at higher risk with more activity.",
+      "reference": "参与体力活动的女性发生骨折的总体风险较低,但膝部和手臂骨折的风险较高.",
+      "hypothesis": "在 活动 女性 中 , 总 骨折 风险 较 低 , 但 活动 较 多 女性 的 膝关节 和 手臂 风险 较 高 .",
+      "labse_cosine": 0.9630404941247808,
+      "sentence_bleu": 1.8709718017288024,
+      "inference_seconds": 0.5185036789999913
+    },
+    {
+      "test_split_index": 420,
+      "pilot_terms_matched": [],
+      "source_en": "however, these details do help clinicians counsel patients about potential risk associated with increasing physical activity.",
+      "reference": "然而,这些详细信息的确有助于临床医师向患者说明增加体力活动的潜在风险.",
+      "hypothesis": "然而,这些细节确实有助于临床医师向患者提供与增加体力活动相关的潜在风险的咨询。",
+      "labse_cosine": 0.9458780980939635,
+      "sentence_bleu": 39.43223765116288,
+      "inference_seconds": 0.2527257779999559
+    },
+    {
+      "test_split_index": 421,
+      "pilot_terms_matched": [],
+      "source_en": "but median follow-up was only about 2 years in this large retrospective study.",
+      "reference": "但此项大型回顾性研究的中位随访时间只有2年左右.",
+      "hypothesis": "在 这项 大型 回顾性 研究 中 , 中位 随访 时间 仅为 2 年 左右 .",
+      "labse_cosine": 0.9278781284273322,
+      "sentence_bleu": 2.627961710408444,
+      "inference_seconds": 0.33739257899998165
+    },
+    {
+      "test_split_index": 437,
+      "pilot_terms_matched": [],
+      "source_en": "the primary end point was the time from randomization until investigator-assessed disease progression or death.",
+      "reference": "主要终点是从随机分组至研究者判定疾病进展或死亡的时间.",
+      "hypothesis": "主要 终点 是 从 随机 分组 至 研究者 评估 疾病 进展 或 死亡 的 时间 .",
+      "labse_cosine": 0.9772088497401874,
+      "sentence_bleu": 2.445593937240363,
+      "inference_seconds": 0.33048590999999305
+    },
+    {
+      "test_split_index": 449,
+      "pilot_terms_matched": [],
+      "source_en": "indeed, in platinum-sensitive relapsed ovarian cancer, 11-13 PARP inhibitors are active as maintenance monotherapy in patients who have tumors without BRCA mutations, although the magnitude of benefit appears lower than in patients with BRCA-mutated tumors.",
+      "reference": "实际上,在对铂类敏感的复发性卵巢癌中11-13,作为单药维持治疗的PARP抑制剂在无BRCA突变的肿瘤患者中有活性,但益处似乎小于在有BRCA突变的肿瘤患者中产生的益处.",
+      "hypothesis": "实际上,在对 铂 类药物 敏感 的 复发性 卵巢癌 中 , 在 无 BRCA 突变 的 肿瘤 患者 中 , 11 - 13 种 PARP 抑制剂 作为 维持 单药 治疗 具有 活性 , 但 获益 幅度 似乎 低于 BRCA 突变 的 肿瘤 患者 .",
+      "labse_cosine": 0.9789935968437982,
+      "sentence_bleu": 2.7072037464758405,
+      "inference_seconds": 1.0681479989999616
+    },
+    {
+      "test_split_index": 451,
+      "pilot_terms_matched": [],
+      "source_en": "in the phase 3 PAOLA-1 (PAOLA-1 / ENGOT-ov25) trial, we evaluated maintenance therapy with a PARP inhibitor (olaparib) as compared with placebo in patients with newly diagnosed advanced ovarian cancer who were receiving chemotherapy plus bevacizumab followed by bevacizumab, regardless of BRCA mutation status.",
+      "reference": "3期PAOLA-1(PAOLA-1/ENGOT-ov25)试验纳入了接受化疗+贝伐珠单抗联合治疗,随后接受贝伐珠单抗治疗的新诊断晚期卵巢癌患者(不考虑BRCA突变状态),我们在这些患者中评价了PARP抑制剂(奥拉帕利)维持治疗,并与安慰剂进行了比较.",
+      "hypothesis": "在 3 期 PAOLA - 1 ( PAOLA - 1 / ENGOT - ov 25 ) 试验 中 , 我们 在 新 诊断 的 晚期 卵巢癌 患者 中 评估 了 PARP 抑制剂 ( 奥拉 帕利 ) 维持 治疗 与 安慰剂 治疗 , 这些 患者 正在 接受 化疗 + 贝伐珠 单抗 , 随后 接受 贝伐珠 单抗 , 不论 BRCA 突变",
+      "labse_cosine": 0.9501147752422258,
+      "sentence_bleu": 1.0651969442322589,
+      "inference_seconds": 0.9077466349999668
+    },
+    {
+      "test_split_index": 458,
+      "pilot_terms_matched": [],
+      "source_en": "patients were assigned to olaparib tablets or matching placebo tablets with the use of an interactive Web or voice response system.",
+      "reference": "利用交互式网络或语音应答系统为患者分配奥拉帕利药片或匹配的安慰剂药片.",
+      "hypothesis": "患者 被 分配 使用 交互式 网络 或 语音 应答 系统 , 接受 奥拉 帕利 片剂 或 匹配 的 安慰剂 片剂 治疗 .",
+      "labse_cosine": 0.9517955670215363,
+      "sentence_bleu": 1.727223799216787,
+      "inference_seconds": 0.3444376840000132
+    },
+    {
+      "test_split_index": 460,
+      "pilot_terms_matched": [],
+      "source_en": "all the major toxic effects that were associated with chemotherapy had to have resolved to grade 1 (according to the National Cancer Institute Common Terminology Criteria for Adverse Events [ CTCAE ], version 4.03) or had to have resolved completely (except alopecia and peripheral neuropathy).",
+      "reference": "与化疗相关的所有主要毒性作用必须已经消退至1级(按照美国国立癌症研究所《不良事件通用术语标准》[CTCAE]4.03版进行分级),或者必须已经完全消退(脱发和周围神经病变除外).",
+      "hypothesis": "与 化疗 相关 的 所有 主要 毒性 作用 都 已经 达到 1 级 ( 根据 美国 国立 癌症 研究所 ( National Cancer Institute Common Terminology Criteria for Adverse Events , CTCAE ] [ CTCAE ] 第 4.03 版 ) , 或 必须 完全 缓解 ( aliopecia 和 外周神经病 除外 ) .",
+      "labse_cosine": 0.931917785837461,
+      "sentence_bleu": 4.162207733508856,
+      "inference_seconds": 0.8180935839999961
+    },
+    {
+      "test_split_index": 471,
+      "pilot_terms_matched": [],
+      "source_en": "tumor HRD status was determined with the use of the myChoice HRD Plus assay (Myriad Genetic Laboratories).",
+      "reference": "利用myChoiceHRDPlus检测(MyriadGeneticLaboratories)确定肿瘤HRD状态.",
+      "hypothesis": "肿瘤 HRD 状态 通过 MyChoice HRD Plus 检测 ( Myriad General Laboratories ) 确定 .",
+      "labse_cosine": 0.8633613789426178,
+      "sentence_bleu": 3.4585921141027365,
+      "inference_seconds": 0.3088200760000177
+    },
+    {
+      "test_split_index": 497,
+      "pilot_terms_matched": [],
+      "source_en": "a total of 30 % of the patients had a deleterious tumor BRCA mutation.",
+      "reference": "30%的患者存在有害的肿瘤BRCA突变.",
+      "hypothesis": "共有 30% 的 患者 有 有害 的 肿瘤 BRCA 突变 .",
+      "labse_cosine": 0.9845594909863074,
+      "sentence_bleu": 7.495553473355842,
+      "inference_seconds": 0.20040434000003415
+    },
+    {
+      "test_split_index": 513,
+      "pilot_terms_matched": [],
+      "source_en": "the most common serious adverse event that occurred at a higher incidence with olaparib plus bevacizumab than with placebo plus bevacizumab was anemia (34 patients [ 6 % ] in the olaparib group and 1 patient [ < 1 % ] in the placebo group).",
+      "reference": "奥拉帕利+贝伐珠单抗组发生率高于安慰剂+贝伐珠单抗组的最常见严重不良事件为贫血(奥拉帕利组34例患者[6%]和安慰剂组1例患者[<1%]).",
+      "hypothesis": "奥拉 帕利 联合 贝伐 单抗 组中 发生率 高于 安慰剂 联合 贝伐 单抗 组 的 最 常见 严重 不良 事件 为 贫血 ( 奥拉 帕利组 34 例 [ 6% ] , 安慰剂 组 1 例 [ < 1% ] ) .",
+      "labse_cosine": 0.9542772168130045,
+      "sentence_bleu": 19.367943681771347,
+      "inference_seconds": 0.6468977650000056
+    },
+    {
+      "test_split_index": 517,
+      "pilot_terms_matched": [],
+      "source_en": "new primary cancers occurred in 7 of 535 patients (1 %) in the olaparib group and in 3 of 267 patients (1 %) in the placebo group.",
+      "reference": "奥拉帕利组535例患者中的7例(1%)和安慰剂组267例患者中的3例(1%)发生了新的原发癌.",
+      "hypothesis": "奥拉 帕利组 535 例 患者 中 的 7 例 ( 1% ) 和 安慰剂 组 267 例 患者 中 的 3 例 ( 1% ) 发生 了 新发 原发癌 .",
+      "labse_cosine": 0.9859794766460802,
+      "sentence_bleu": 14.957644445778929,
+      "inference_seconds": 0.498204545999954
+    },
+    {
+      "test_split_index": 527,
+      "pilot_terms_matched": [],
+      "source_en": "the trial met its primary objective by showing a significant progression-free survival benefit in the intention-to-treat population.",
+      "reference": "本试验达到了主要目的,即在意向治疗人群中证明在无进展生存期方面有显著益处.",
+      "hypothesis": "本 试验 通过 显示 意向 治疗 人群 有 显著 的 无 进展 生存 获益 , 从而 达到 了 本 试验 的 主要 目的 .",
+      "labse_cosine": 0.9017277617708145,
+      "sentence_bleu": 1.8709718017288024,
+      "inference_seconds": 0.35801938599996674
+    },
+    {
+      "test_split_index": 543,
+      "pilot_terms_matched": [],
+      "source_en": "neither trial group had a clinically significant change in health-related quality of life.",
+      "reference": "两个试验组的健康相关生活质量均未发生有临床意义的变化.",
+      "hypothesis": "两组 的 健康 相关 生活 质量 均 无 临床 显著 变化 .",
+      "labse_cosine": 0.9619688806505292,
+      "sentence_bleu": 3.3864985683445354,
+      "inference_seconds": 0.19043386399999918
+    },
+    {
+      "test_split_index": 568,
+      "pilot_terms_matched": [],
+      "source_en": "we hypothesized that veliparib added to platinum-based chemotherapy and continued as maintenance therapy would prolong progression-free survival.",
+      "reference": "我们假设,铂类化疗加用维利帕利及随后的维利帕利维持治疗可延长患者的无进展生存期.",
+      "hypothesis": "我们假设维利帕利在 铂 类 化疗 基础 上加用 维利帕利 , 并 继续 维持 治疗 将 延长 无 进展 生存期 .",
+      "labse_cosine": 0.9088606358689177,
+      "sentence_bleu": 2.55404966647159,
+      "inference_seconds": 0.3719454459999838
+    },
+    {
+      "test_split_index": 573,
+      "pilot_terms_matched": [],
+      "source_en": "the BRCA-mutation cohort was defined as patients who had deleterious or suspected deleterious germline or tissue-based mutations, as determined by the Myriad BRACAnalysis CDx or myChoice HRD CDx assay, respectively, in BRCA1 or BRCA2.",
+      "reference": "BRCA突变队列的定义为存在有害或疑似有害的生殖细胞系突变或组织BRCA1或BRCA2突变(通过MyriadBRACAnalysisCDx或myChoiceHRDCDx检测确定)的患者.",
+      "hypothesis": "BRCA 突变 队列 的 定义 为 有 有害 或 疑似 有害 生殖系 或 基于 组织 的 突变 的 患者 , 这些 突变 分别 由 Myriad BRCA1 或 BRCA2 中 的 Myriad BRCAA 分析 CDx 或 MyChoice HRD CDx 测定 确定 .",
+      "labse_cosine": 0.9379421756952733,
+      "sentence_bleu": 0.8954307276600084,
+      "inference_seconds": 0.7304876450000393
+    },
+    {
+      "test_split_index": 576,
+      "pilot_terms_matched": [],
+      "source_en": "for exploratory analyses, the cohort of patients with nonmutated BRCA status consisted of patients with known BRCA status and no germline or tissue-based BRCA mutations.",
+      "reference": "对于探索性分析,BRCA非突变患者队列包括已知BRCA状态并且无生殖细胞系或组织BRCA突变的患者.",
+      "hypothesis": "为 探索性 分析 , BRCA 未 改变 状态 的 患者 队列 包括 已知 BRCA 状态 且 无 生殖系 或 基于 组织 的 BRCA 突变 的 患者 .",
+      "labse_cosine": 0.9796961660146446,
+      "sentence_bleu": 1.6504045595709422,
+      "inference_seconds": 0.42691943799997034
+    },
+    {
+      "test_split_index": 587,
+      "pilot_terms_matched": [],
+      "source_en": "patients who completed chemotherapy without disease progression received single-agent veliparib at a dose of 300 mg or matching placebo twice daily for 2 weeks (transition period) and then veliparib at a dose of 400 mg or matching placebo twice daily if the dose in the transition period was not associated with limiting side effects.",
+      "reference": "完成化疗且无疾病进展的患者接受了为期2周的每日2次维利帕利(每次300mg)或匹配的安慰剂单药治疗(过渡期),如果过渡期的剂量无相关的剂量限制性副作用,则患者随后接受了每日2次维利帕利(每次400mg)或匹配的安慰剂治疗.",
+      "hypothesis": "无 疾病 进展 的 完成 化疗 的 患者 接受 了 单药 维利帕利 治疗 , 剂量 为 300 mg 或 匹配 安慰剂 , 每天 2 次 , 为期 2 周 ( 过渡 期 ) , 如果 过渡 期间 的 剂量 不 与 限制性 副作用 相关 , 则 接受 剂量 为 400 mg 或 匹配 的 安慰剂 , 之后 接受 每日 2 次 的 维利帕利 治疗",
+      "labse_cosine": 0.9284815998029584,
+      "sentence_bleu": 1.3456496076279456,
+      "inference_seconds": 0.9414130640000167
+    },
+    {
+      "test_split_index": 628,
+      "pilot_terms_matched": [],
+      "source_en": "the characteristics of the patients in the BRCA-mutation cohort and the HRD cohort are shown in Tables S2 and S3, respectively.",
+      "reference": "BRCA突变队列和HRD队列的患者特征分别见表S2和S3.",
+      "hypothesis": "BRCA 突变 队列 和 HRD 队列 患者 的 特征 分别 见表 S2 和表 S3 .",
+      "labse_cosine": 0.9953028839988198,
+      "sentence_bleu": 2.627961710408444,
+      "inference_seconds": 0.2966446220000307
+    },
+    {
+      "test_split_index": 638,
+      "pilot_terms_matched": [],
+      "source_en": "analyses of progression-free survival in subgroups that were defined according to potential prognostic factors is shown in Figure 3.",
+      "reference": "在根据潜在预后因素定义的亚组中进行的无进展生存期分析见图3.",
+      "hypothesis": "根据 潜在 预后 因素 定义 的 亚组 无 进展 生存期 分析 见图 3 .",
+      "labse_cosine": 0.9834714080636039,
+      "sentence_bleu": 2.8398387225677895,
+      "inference_seconds": 0.24741809199997533
+    },
+    {
+      "test_split_index": 649,
+      "pilot_terms_matched": [],
+      "source_en": "the most common adverse event during treatment that was reported in the veliparib-throughout group was nausea (in 80 % of the patients in this group), with most events (90 %) being of grade 1 or 2.",
+      "reference": "根据报告,在治疗期间,维利帕利全程治疗组最常见的不良事件为恶心(这组患者的80%),大多数事件(90%)为1级或2级.",
+      "hypothesis": "在 维利帕利 治疗 组中 报告 的 最 常见 不良 事件 是 恶心 ( 该组 80% 的 患者 ) , 大多数 事件 ( 90% ) 为 1 级 或 2 级 .",
+      "labse_cosine": 0.9473421495279429,
+      "sentence_bleu": 9.25329498915617,
+      "inference_seconds": 0.46896573600002966
+    },
+    {
+      "test_split_index": 655,
+      "pilot_terms_matched": [],
+      "source_en": "in the maintenance phase, the percentage of patients who discontinued veliparib or placebo owing to an adverse event was 19 % in the veliparib-throughout group and 6 % in the control group.",
+      "reference": "在维持治疗期间,在维利帕利全程治疗组和对照组中,因不良事件而停止维利帕利或安慰剂治疗的患者百分比分别为19%和6%.",
+      "hypothesis": "在 维持 阶段 , 维利帕利组和 对照组因 不良 事件 停用 维利帕利 或 安慰剂 的 患者 百分比分别 为 19% 和 6% .",
+      "labse_cosine": 0.9634626051307896,
+      "sentence_bleu": 4.108053662461269,
+      "inference_seconds": 0.38550023999999894
+    },
+    {
+      "test_split_index": 657,
+      "pilot_terms_matched": [],
+      "source_en": "health-RELATED QUALITY-OF-LIFE ASSESSMENTS",
+      "reference": "健康相关生活质量评估",
+      "hypothesis": "健康 相关 质量 的 临床 评估",
+      "labse_cosine": 0.8344385566195545,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.10928695900003049
+    },
+    {
+      "test_split_index": 663,
+      "pilot_terms_matched": [],
+      "source_en": "the prolongation of progression-free survival was seen across a broad population of patients, including those with and those without disease that was amenable to a primary surgical cytoreduction attempt and those with and those without an identifiable tumor feature that has been associated with PARP inhibitor activity.",
+      "reference": "我们在广泛的患者人群(包括适合和不适合初始肿瘤细胞减灭术的肿瘤患者,以及有和无与PARP抑制剂活性相关的肿瘤特征的患者)中观察到无进展生存期延长.",
+      "hypothesis": "在 广泛 的 患者 人群 中 观察 到 无 进展 生存期 的 延长 , 包括 有 和 无 疾病 的 患者 , 这些 患者 可 接受 一项 主要 的 手术 细胞 减灭 尝试 , 以及 有 或 无 与 PARP 抑制剂 活性 相关 的 可 识别 肿瘤 特征 的 患者 .",
+      "labse_cosine": 0.8870689340496998,
+      "sentence_bleu": 0.8496070958802302,
+      "inference_seconds": 0.6937793449999958
+    },
+    {
+      "test_split_index": 668,
+      "pilot_terms_matched": [],
+      "source_en": "few studies have combined PARP inhibitors with standard chemotherapy doses for the treatment of ovarian cancer.22,40",
+      "reference": "将PARP抑制剂与标准化疗联合用于治疗卵巢癌的研究很少22,40.",
+      "hypothesis": "很少 的 研究 将 PARP 抑制剂 与 标准 化疗 剂量 联合 用于 卵巢癌 治疗 22 , 40 .",
+      "labse_cosine": 0.9663159124449886,
+      "sentence_bleu": 2.1476912089159055,
+      "inference_seconds": 0.316697615999999
+    },
+    {
+      "test_split_index": 671,
+      "pilot_terms_matched": [],
+      "source_en": "however, the carboplatin dose was reduced to an AUC of 4 mg per milliliter per minute, and olaparib was administered at a dose of 200 mg (in capsules) twice daily for 10 days of a 21-day cycle (dose intensity, 24 %).",
+      "reference": "然而,卡铂剂量被降低至AUC4mg/(mL·min),而奥拉帕利剂量为每日2次,每次200mg(胶囊),并且在21日周期中用药10日(剂量强度,24%).",
+      "hypothesis": "然而 , 卡 铂 剂量 降低 至 4 mg / min / mL , 奥拉 帕利 剂量 每日 2 次 , 剂量 为 200 mg ( 胶囊 内 ) , 持续 21 日 周期 10 天 ( 剂量 强度 , 24% ) .",
+      "labse_cosine": 0.9311980907141137,
+      "sentence_bleu": 11.792247006517115,
+      "inference_seconds": 0.7204585759999986
+    },
+    {
+      "test_split_index": 678,
+      "pilot_terms_matched": [],
+      "source_en": "at the time, we hypothesized that concurrent application of agents with effects on DNA damage response in patients who had not received chemotherapy previously would improve clinical outcomes.",
+      "reference": "当时我们假设,在未接受过化疗的患者中,同时应用对DNA损伤应答有作用的药物可改善患者结局.",
+      "hypothesis": "当时,我们假设,在既往未 接受过 化疗 的 患者 中, 同时 应用 对 DNA 损伤 应答 有 影响 的 药物 将 改善 临床 结局 .",
+      "labse_cosine": 0.9713065587787967,
+      "sentence_bleu": 1.9011755113058344,
+      "inference_seconds": 0.4928641700000185
+    },
+    {
+      "test_split_index": 683,
+      "pilot_terms_matched": [],
+      "source_en": "if the trial had incorporated a maintenance-only group and shown results similar to those seen in the veliparib-throughout group, the relative contributions of concurrent and maintenance veliparib therapy in the veliparib-throughout group might have been more definitively assessed.",
+      "reference": "假如本试验最初包含了维利帕利仅用于维持治疗组,并且该组与维利帕利全程治疗组的结果相似,则我们也许可以在维利帕利全程治疗组中比较明确地评估维利帕利联合治疗和维利帕利维持治疗的相对益处.",
+      "hypothesis": "如果本 试验 纳入 了 仅 维持 治疗 的 一组 , 并 显示 了 与 维利帕利 治疗 组 相似 的 结果 , 那么 维利帕利 治疗 组 同时 维持 治疗 和 维利帕利 治疗 的 相对 贡献 可能 已经 得到 了 更 明确 的 评估 .",
+      "labse_cosine": 0.9037616593213518,
+      "sentence_bleu": 1.121617874316939,
+      "inference_seconds": 0.898163468000007
+    },
+    {
+      "test_split_index": 702,
+      "pilot_terms_matched": [],
+      "source_en": "unfortunately, up to 85 % of the patients with advanced ovarian cancer have a disease recurrence after completing chemotherapy.",
+      "reference": "不幸的是,高达85%的晚期卵巢癌患者在完成化疗后会出现复发.",
+      "hypothesis": "遗憾 , 多达 85% 的 晚期 卵巢癌 患者 在 完成 化疗 后 出现 疾病 复发 .",
+      "labse_cosine": 0.9832762975678284,
+      "sentence_bleu": 3.0098043843528286,
+      "inference_seconds": 0.3719250499999589
+    },
+    {
+      "test_split_index": 733,
+      "pilot_terms_matched": [],
+      "source_en": "this end point was evaluated in a time-to-event analysis and was assessed by blinded independent central review.",
+      "reference": "该终点在至事件发生时间分析中进行评估,并通过盲法独立集中审核的方式进行评估.",
+      "hypothesis": "我们 在 一项 时间 至 活动 分析 中 评估 了 这一 终点 , 并 采用 盲法 独立 的 集中 审核 方法 进行 了 评估 .",
+      "labse_cosine": 0.8541083744726927,
+      "sentence_bleu": 1.7911710595643588,
+      "inference_seconds": 0.47971101100000624
+    },
+    {
+      "test_split_index": 753,
+      "pilot_terms_matched": [],
+      "source_en": "in the population with homologous-recombination deficiency, the interim analysis showed an estimated probability of 24-month survival of 91 % in the niraparib group and 85 % in the placebo group (hazard ratio, 0.61; 95 % CI, 0.27 to 1.39).",
+      "reference": "在同源重组缺陷人群中,期中分析显示尼拉帕利组和安慰剂组在24个月时的生存概率估计值分别为91%和85%(风险比,0.61;95%CI,0.27~1.39).",
+      "hypothesis": "在 具有 同源 重组 缺陷 的 人群 中 , 中期 分析 显示 , 尼 拉帕 利组 24 个 月 生存率 估计 为 91% , 安慰剂 组为 85% ( 风险 比 , 0.61 ; 95% CI , 0.27 ~ 1.39 ) .",
+      "labse_cosine": 0.9536343701483484,
+      "sentence_bleu": 26.986549843169193,
+      "inference_seconds": 0.9374604129999966
+    },
+    {
+      "test_split_index": 781,
+      "pilot_terms_matched": [],
+      "source_en": "niraparib extends treatment beyond chemotherapy and provides a sustained progression-free survival benefit for those at risk for early relapse, including the one third of patients who had a partial response to platinum-based chemotherapy (8.3 months vs. 5.6 months with placebo; hazard ratio, 0.60).",
+      "reference": "尼拉帕利又为这一患者人群增加了除化疗之外的新疗法,而且在有早期复发风险的患者中显著延长了无进展生存期,其中有1/3是铂类化疗后达到部分缓解的患者(尼拉帕利组8.3个月vs.安慰剂组5.6个月;风险比,0.60).",
+      "hypothesis": "尼 拉帕 利 将 治疗 扩展 至 化疗 之外 , 并且 为 有 早期 复发 风险 的 患者 提供 持续 无 进展 生存 获益 , 包括 对 铂 类药物 化疗 有 部分 应答 的 患者 中 的 1 / 3 ( 8.3 个 月 vs . 5.6 个 月 使用 安慰剂 ; 风险 比 , 0.60 ) .",
+      "labse_cosine": 0.9100503223653432,
+      "sentence_bleu": 4.92690764126807,
+      "inference_seconds": 1.0733972270000436
+    },
+    {
+      "test_split_index": 786,
+      "pilot_terms_matched": [],
+      "source_en": "in the patients who had tumors with homologous-recombination deficiency, niraparib provided a significant clinical benefit over placebo with respect to the median duration of progression-free survival both in patients with BRCA mutations (22.1 months vs. 10.9 months; hazard ratio, 0.40) and in those without BRCA mutations (19.6 months vs. 8.2 months; hazard ratio, 0.50).",
+      "reference": "在患同源重组缺陷肿瘤的患者中,在有BRCA突变的患者(22.1个月vs.10.9个月;风险比,0.40)和无BRCA突变的患者(19.6个月vs.8.2个月;风险比,0.50)中,尼拉帕利与安慰剂相比在中位无进展生存期方面产生了显著临床益处.",
+      "hypothesis": "在 有 同种 重组 缺陷 的 肿瘤 患者 中 , 在 BRCA 突变 患者 ( 22.1 个 月 vs . 10.9 个 月 ; 风险 比 , 0.40 ) 和 无 BRCA 突变 患者 ( 19.6 个 月 vs . 8.2 个 月 ; 风险 比 , 0.50 ) 的 中位 无 进展 生存期 方面 , 尼 拉帕利 与 安慰剂 相比 ,",
+      "labse_cosine": 0.950844835682423,
+      "sentence_bleu": 4.865014278297996,
+      "inference_seconds": 0.9507138109999573
+    },
+    {
+      "test_split_index": 789,
+      "pilot_terms_matched": [],
+      "source_en": "these analyses suggest that treatment with niraparib after first-line platinum-based chemotherapy extends benefit to all patients.",
+      "reference": "这些分析提示,在一线铂类化疗后,尼拉帕利的益处可扩大到总体人群.",
+      "hypothesis": "这些 分析 提示 , 一线 铂 类 化疗 后 的 尼 拉帕利 治疗 使 所有 患者 获益 .",
+      "labse_cosine": 0.8857648648761572,
+      "sentence_bleu": 2.55404966647159,
+      "inference_seconds": 0.2866687220000017
+    },
+    {
+      "test_split_index": 816,
+      "pilot_terms_matched": [],
+      "source_en": "OS at median follow-up of 18 months was similar with panitumumab alone or with chemotherapy (62.4 % and 66.4 %); rates of response and disease control were also similar in the two arms.",
+      "reference": "中位随访18个月时,帕尼单抗单药治疗与帕尼单抗联合化疗的OS相似(62.4%和66.4%);两组的缓解率和疾病控制率也相似.",
+      "hypothesis": "在 18 个 月 的 中位 随访 时 , 帕尼 单抗 单独 治疗 或 化疗 的 OS 相似 ( 62 .4% 和 66.4% ) ; 两组 的 缓解 和 疾病 控制 率 也 相似 .",
+      "labse_cosine": 0.9650561845846679,
+      "sentence_bleu": 4.45846686713744,
+      "inference_seconds": 0.5910921839999901
+    },
+    {
+      "test_split_index": 825,
+      "pilot_terms_matched": [],
+      "source_en": "only one PE was subsegmental.",
+      "reference": "只有1例亚段肺栓塞.",
+      "hypothesis": "仅 一种 PE 是 亚段 .",
+      "labse_cosine": 0.605958943535044,
+      "sentence_bleu": 8.116697886877475,
+      "inference_seconds": 0.11380116800000906
+    },
+    {
+      "test_split_index": 860,
+      "pilot_terms_matched": [],
+      "source_en": "in this randomized trial, about 1300 people with type 2 diabetes (mean age, 68) received supplementation with ω-3 fatty acids, vitamin D3 (2000 IU / day), both, or placebo.",
+      "reference": "在这项随机试验中,约1,300例2型糖尿病患者(平均年龄68岁)补充了ω-3脂肪酸,维生素D3(2,000IU/d),上述两种补充剂或安慰剂.",
+      "hypothesis": "在 这项 随机 试验 中 , 约 1 , 300 例 2 型 糖尿病 患者 ( 平均年龄 68 岁 ) 接受 了  - 3 脂肪酸 , 维生素 D3 ( 2 , 000 IU / d ) 或 安慰剂 的 补充 治疗 .",
+      "labse_cosine": 0.965454257597666,
+      "sentence_bleu": 4.392487796991639,
+      "inference_seconds": 0.6170108219999975
+    },
+    {
+      "test_split_index": 866,
+      "pilot_terms_matched": [],
+      "source_en": "despite the biologic plausibility of a beneficial effect for vitamin D or ω-3 fatty acids, these findings indicate that neither compound likely will prevent or slow progression of kidney disease in patients with type 2 diabetes.",
+      "reference": "尽管补充维生素D或ω-3脂肪酸在生物学上是合理的,但这些研究结果表明,两种化合物都不太可能阻止或减缓2型糖尿病患者的肾脏病进展.",
+      "hypothesis": "尽管 对 维生素 D 或  - 3 脂肪酸 有 有益 的 生物学 合理性 , 但 这些 发现 表明 , 在 2 型 糖尿病 患者 中 , 两种 化合物 均 不会 预防 或 减缓 肾脏 疾病 的 进展 .",
+      "labse_cosine": 0.9400105808963939,
+      "sentence_bleu": 1.2753998269755913,
+      "inference_seconds": 0.5386785840000243
+    },
+    {
+      "test_split_index": 869,
+      "pilot_terms_matched": [],
+      "source_en": "in this article, we describe how public health agencies have been adopting pathogen genomics to improve their effectiveness in almost all domains of infectious disease.",
+      "reference": "我们在本文中介绍了公共卫生机构如何通过病原体基因组学来提高几乎所有传染病领域的工作成效.",
+      "hypothesis": "在 本文 中 , 我们 描述 了 公共卫生 机构 如何 采用 病原体 基因组学 来 提高 其 在 传染病 几乎 所有 领域 的 有效性 .",
+      "labse_cosine": 0.9634643088209246,
+      "sentence_bleu": 1.5732934811145336,
+      "inference_seconds": 0.3601383069999997
+    },
+    {
+      "test_split_index": 872,
+      "pilot_terms_matched": [],
+      "source_en": "next-generation sequencing (also called \" high-throughput sequencing \") is reshaping communicable disease surveillance, allowing for earlier detection and more precise investigation of outbreaks.",
+      "reference": "二代测序(也称为\"高通量测序\")正在重塑传染病监测工作,使我们能够更早地发现并更精确地调查疾病暴发.",
+      "hypothesis": "下一代测序 (也称为 \" 高通量测序 \" )正在重塑传染病监测,从而能够更早地发现和更精确地调查疫情。",
+      "labse_cosine": 0.9329570082396662,
+      "sentence_bleu": 48.61555413051454,
+      "inference_seconds": 0.29515098400003126
+    },
+    {
+      "test_split_index": 877,
+      "pilot_terms_matched": [],
+      "source_en": "the era of next-generation sequencing began with the commercial release of massively parallel pyrosequencing in 2005, the first fundamental advance in sequencing technology since the invention of Sanger sequencing in the 1970s.1,2",
+      "reference": "二代测序的时代始于2005年大规模并行焦磷酸测序的商业化,这是自20世纪70年代桑格测序发明以来测序技术的第一次根本性进步1,2.",
+      "hypothesis": "下一代 测序 时代 始于 2005 年 大规模 平行 测序 的 商业 释放 , 这是 20 世纪 70 年代 桑格 测序 发明 后 , 测序 技术 的 第一个 根本 进展 1 , 2 .",
+      "labse_cosine": 0.9158879343021861,
+      "sentence_bleu": 1.3355980882200826,
+      "inference_seconds": 0.5253163539999832
+    },
+    {
+      "test_split_index": 879,
+      "pilot_terms_matched": [],
+      "source_en": "in public health, these developments were both exciting, because of the myriad potential applications including bacterial whole-genome sequencing, 4 and intimidating, because of the barriers - implementing next-generation sequencing would require investment in sequencing equipment as well as high-performance computing infrastructure to move, store, and analyze large volumes of sequence data.",
+      "reference": "在公共卫生领域,效率的提高和成本的降低都令人兴奋,因为有无数的潜在应用(包括细菌全基因组测序)4,同时也令人畏惧,因为面临许多障碍--实施二代测序需要对测序设备做出投资,而且也需要高性能计算基础设施来传输,存储和分析大量的序列数据.",
+      "hypothesis": "在公共卫生领域,由于 细菌 基因组 测序 的 多种 潜在 应用 , 包括 细菌 基因组 测序 4 和 恐惧 , 这些 发展 都 令人兴奋 , 因为 存在 障碍 , 实施 下一代 测序 需要 在 测序 设备 以及 高性能 计算 基础设施 方面 进行 投资 , 以 移动 , 储存 和 分析 大量 测序 数据 .",
+      "labse_cosine": 0.8664009175696964,
+      "sentence_bleu": 2.000245408596587,
+      "inference_seconds": 0.8322305949999986
+    },
+    {
+      "test_split_index": 883,
+      "pilot_terms_matched": [],
+      "source_en": "applications of Pathogen Genomics",
+      "reference": "病原体基因组学的应用",
+      "hypothesis": "病原体 基因组学 的 应用",
+      "labse_cosine": 1.0,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.09601091499996528
+    },
+    {
+      "test_split_index": 897,
+      "pilot_terms_matched": [],
+      "source_en": "whole-genome sequencing data are inherently digital, standardized, and much less dependent on the choice of laboratory protocol.",
+      "reference": "全基因组测序数据在本质上是数字化,标准化的,因而对所选实验室方案的依赖性要低得多.",
+      "hypothesis": "全 基因组 测序 数据 具有 内在 的 数字化 , 标准化 , 并且 更 不 依赖于 实验室 方案 的 选择 .",
+      "labse_cosine": 0.9033695106251225,
+      "sentence_bleu": 2.5197593442434796,
+      "inference_seconds": 0.319948356999987
+    },
+    {
+      "test_split_index": 900,
+      "pilot_terms_matched": [],
+      "source_en": "costs for whole-genome sequencing (approximately $ 200 to $ 250 per isolate, including consumables, labor, equipment, maintenance, and overhead, according to an unpublished analysis) are currently still higher than those for pulsed-field gel electrophoresis (approximately $ 100 according to the same analysis), although the higher costs may be partly or entirely offset by eliminating the need for traditional phenotyping assays.",
+      "reference": "全基因组测序的成本(根据一项未发表的分析,其成本为每个分离株200~250美元,包括耗材,劳动力,设备,维护和管理费用)目前仍高于脉冲场凝胶电泳(根据上述分析,其成本约为100美元),但全基因组测序不再需要传统的表型检测,这样可以部分或全部抵消其所高出的成本.",
+      "hypothesis": "全 基因组 测序 费用 ( 根据 未 发表 的 分析 , 包括 消耗品 , 人工 , 设备 , 维持 和 管理 费用 , 每 分离 株 约 200 ~ 250 美元 ) 目前 仍 高于 脉搏 场 凝胶 电极 的 费用 ( 根据 同一 分析 , 约 100 美元 ) , 但 较 高 的 费用 可能 被 消除 传统 表型 分析 的 需求 所",
+      "labse_cosine": 0.9258555559755074,
+      "sentence_bleu": 3.3098038777799292,
+      "inference_seconds": 0.9576877559999843
+    },
+    {
+      "test_split_index": 901,
+      "pilot_terms_matched": [],
+      "source_en": "in addition, advances in sequencing technology and laboratory automation may further reduce the costs of whole-genome sequencing.",
+      "reference": "此外,测序技术的进步和实验室自动化可能会进一步降低全基因组测序的成本.",
+      "hypothesis": "此外,测序技术的取得和实验室自动化可能进一步降低全基因组测序费用。",
+      "labse_cosine": 0.9715345585581738,
+      "sentence_bleu": 39.43223765116288,
+      "inference_seconds": 0.1794299680000222
+    },
+    {
+      "test_split_index": 904,
+      "pilot_terms_matched": [],
+      "source_en": "in the United Kingdom, where whole-genome sequencing has been in routine use for Shiga toxin-producing E. coli since at least 2015, the number of clusters detected has doubled.33",
+      "reference": "在英国,全基因组测序至少从2015年起已被常规用于检测产志贺毒素大肠埃希菌,而检测到的菌群数量增加了1倍33.",
+      "hypothesis": "在英国,自2015年时起,全基因组测序一直被常规用于生产毒药性大肠杆菌的什加人肉,检出组数翻了一番33 .",
+      "labse_cosine": 0.8531664888897923,
+      "sentence_bleu": 13.134549472120788,
+      "inference_seconds": 0.32538053500002206
+    },
+    {
+      "test_split_index": 916,
+      "pilot_terms_matched": [],
+      "source_en": "if the approach can be made practical and cost-effective, it will enable rapid inference of drug susceptibility, which is already quite accurate for most first-line drugs and will improve as more data become available.42,46",
+      "reference": "如果这种方法能够变得实用和具有成本效益,它将能够快速推断出药物敏感性,这对于大多数一线药物而言已经相当准确,并将随着数据的增多而不断改善42,46.",
+      "hypothesis": "如果该方法可行且符合成本效率,则能够快速推导出对药物敏感度,对大多数一线药物而言,这已经相当准确,并且随着获得更 多数据,将改善42 , 46 .",
+      "labse_cosine": 0.9621503588833802,
+      "sentence_bleu": 3.716499092256818,
+      "inference_seconds": 0.416331466000031
+    },
+    {
+      "test_split_index": 922,
+      "pilot_terms_matched": [],
+      "source_en": "influenza",
+      "reference": "流感",
+      "hypothesis": "流感",
+      "labse_cosine": 1.0,
+      "sentence_bleu": 100.00000000000004,
+      "inference_seconds": 0.055587990999981685
+    },
+    {
+      "test_split_index": 935,
+      "pilot_terms_matched": [],
+      "source_en": "parasitic DISEASES",
+      "reference": "寄生虫病",
+      "hypothesis": "寄生虫 病变",
+      "labse_cosine": 0.9261474571739932,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.07195966000000453
+    },
+    {
+      "test_split_index": 939,
+      "pilot_terms_matched": [],
+      "source_en": "this approach enables the accurate detection of all known potential human parasitic agents present in a blood sample with a single test.",
+      "reference": "该方法通过单次检测即可准确检出血液样本中所有已知的潜在人类寄生虫.",
+      "hypothesis": "这一方法能够准确检测出血液样本中存在的所有已知潜在人类寄生物制剂,并进行单一检验。",
+      "labse_cosine": 0.9410601840622778,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.20666445499995234
+    },
+    {
+      "test_split_index": 940,
+      "pilot_terms_matched": [],
+      "source_en": "early validation data suggest that this new assay is at least as sensitive as standard PCR for parasites found in blood.61",
+      "reference": "早期的验证数据提示,这一新的检测方法对血液内寄生虫的敏感性至少与标准PCR同样高61.",
+      "hypothesis": "早期 验证 数据 提示 , 对于 血液 中 发现 的 寄生虫 , 这项 新 的 检测 至少 与 标准 PCR 同样 敏感 61 .",
+      "labse_cosine": 0.9537791900800623,
+      "sentence_bleu": 1.8709718017288024,
+      "inference_seconds": 0.35080813100000796
+    },
+    {
+      "test_split_index": 944,
+      "pilot_terms_matched": [],
+      "source_en": "for surveillance at the country or regional level, however, it is a cost-effective and efficient way to assess drug resistance and to target treatment recommendations more precisely.",
+      "reference": "然而,对于国家或地区一级的监测而异,这是一种成本效益高且效率高的耐药性评估方法,并且可以更精确地确定治疗建议.",
+      "hypothesis": "然而,对于国家或区域层面的监测,这是一种以成本-效益高和效率高的办法来评估耐药性,并更精确地针对治疗建议。",
+      "labse_cosine": 0.9433242258063561,
+      "sentence_bleu": 13.540372457315735,
+      "inference_seconds": 0.26203304099999514
+    },
+    {
+      "test_split_index": 954,
+      "pilot_terms_matched": [],
+      "source_en": "for hospital-acquired infections, next-generation sequencing is proving to be an invaluable tool for identifying and investigating outbreaks69,70 and also provides a better understanding of transmission at both the hospital70 and the community69,71 level.",
+      "reference": "对于医院获得性感染,二代测序已被证明是发现和调查疾病暴发的宝贵工具69,70,并增进了我们对医院70和社区69,71疾病传播的了解.",
+      "hypothesis": "对于 医院 获得 的 感染 , 新一代 测序 被 证明 是 识别 和 调查 疾病 暴发 的 宝贵 工具 69 , 70 , 也 有助于 更好 地 了解 医院 70 和 社区 69 , 71 的 传播 情况 .",
+      "labse_cosine": 0.9205737190043676,
+      "sentence_bleu": 1.2413584734794654,
+      "inference_seconds": 0.6185861349999868
+    },
+    {
+      "test_split_index": 955,
+      "pilot_terms_matched": [],
+      "source_en": "community-level molecular surveillance for hepatitis C clusters has also proven useful.75",
+      "reference": "在社区水平对丙型肝炎病例集群进行的分子监测也被证明是有用的75.",
+      "hypothesis": "对丙型肝炎 聚体 进行 的 社区 分子 监测 也 被 证明 是 有用 的 75 .",
+      "labse_cosine": 0.9420325649565752,
+      "sentence_bleu": 2.627961710408444,
+      "inference_seconds": 0.321342608000009
+    },
+    {
+      "test_split_index": 970,
+      "pilot_terms_matched": [],
+      "source_en": "progress is currently needed in several areas.",
+      "reference": "目前有几个领域需要取得进展.",
+      "hypothesis": "目前,几个领域需要取得进展。",
+      "labse_cosine": 0.9823510400130836,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.10477058100002523
+    },
+    {
+      "test_split_index": 976,
+      "pilot_terms_matched": [],
+      "source_en": "data INTEGRATION AND DATA SCIENCE",
+      "reference": "数据整合与数据科学",
+      "hypothesis": "数据 整合 和 数据 统计",
+      "labse_cosine": 0.8982793595126863,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.12886307200000147
+    },
+    {
+      "test_split_index": 982,
+      "pilot_terms_matched": [],
+      "source_en": "software TO FACILITATE NEXT-GENERATION SEQUENCING WORKFLOWS",
+      "reference": "推进二代测序工作流程的软件",
+      "hypothesis": "用于 促进 下 一期 研究 的 软件",
+      "labse_cosine": 0.6513676122396238,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.23385410200000933
+    },
+    {
+      "test_split_index": 988,
+      "pilot_terms_matched": [],
+      "source_en": "challenges",
+      "reference": "挑战",
+      "hypothesis": "挑战",
+      "labse_cosine": 1.0000000000000002,
+      "sentence_bleu": 100.00000000000004,
+      "inference_seconds": 0.0650098430000412
+    },
+    {
+      "test_split_index": 997,
+      "pilot_terms_matched": [],
+      "source_en": "single-molecule, long-read sequencing technology, most notably the MinION (Oxford Nanopore Technologies), already has niche uses within public health because of its portability but also has the potential to reduce batch sizes and turnaround times.82",
+      "reference": "由于其便携性,单分子大片段测序技术(最著名的是MinION[OxfordNanoporeTechnologies])已经在公共卫生领域找到一定用武之地,而且该技术有可能每批检测的样本数量和返回结果所需的时间82.",
+      "hypothesis": "单 分子 , 远读 测序 技术 , 最 突出 的 是 MiniON ( Oxford Nanopore Technologies ) , 由于 其 可 移植性 , 已经 在 公共卫生 领域 有 独特 的 应用 , 但 也 有 可能 减少 批量 量 和 逆转 时间 82 .",
+      "labse_cosine": 0.8425965056775302,
+      "sentence_bleu": 1.2443969494386207,
+      "inference_seconds": 0.9499536490000082
+    },
+    {
+      "test_split_index": 1004,
+      "pilot_terms_matched": [],
+      "source_en": "next-generation sequencing and bioinformatics are transforming the response to infectious disease outbreaks, providing new insights into disease emergence and transmission, expediting pathogen characterization, and promoting data sharing (Figure 2).",
+      "reference": "二代测序和生物信息学正在改变我们对传染病暴发的应对方式,增进我们对疾病发生和传播的了解,加速对病原体的特征鉴定,并促进数据共享(图2).",
+      "hypothesis": "下一代测序和生物信息学正在改变对传染病暴发的应答,为疾病出现和传播提供新的见解,加速病原体特征鉴定,并促进数据共享(图2)。",
+      "labse_cosine": 0.9344553932435727,
+      "sentence_bleu": 38.16330911371337,
+      "inference_seconds": 0.40542483099994797
+    },
+    {
+      "test_split_index": 1005,
+      "pilot_terms_matched": [],
+      "source_en": "in public health, sequencing is already routine in many core domains, including foodborne bacterial pathogens, tuberculosis, influenza, and antimicrobial resistance.",
+      "reference": "在公共卫生领域,测序已成为许多核心领域的常规工作,包括食源性细菌病原体,结核病,流感和抗生素耐药性.",
+      "hypothesis": "在公共卫生领域,在很多核心领域,包括食物传播的细菌病原体、结核病、流感和抗菌耐药方面,测序已经是常规工作。",
+      "labse_cosine": 0.9648272151802874,
+      "sentence_bleu": 10.175282441454787,
+      "inference_seconds": 0.3585123369999792
+    },
+    {
+      "test_split_index": 1012,
+      "pilot_terms_matched": [],
+      "source_en": "for anyone considering a career in public health, this is an exciting time to jump in.",
+      "reference": "对于考虑从事公共卫生事业的人而言,现在是激动人心的投身时机.",
+      "hypothesis": "对于 任何 考虑 公共卫生 领域 职业 的 人 而言 , 这是 一个 激动人心 的 时候 .",
+      "labse_cosine": 0.8893863783893399,
+      "sentence_bleu": 2.908317710573758,
+      "inference_seconds": 0.3472709839999766
+    },
+    {
+      "test_split_index": 1017,
+      "pilot_terms_matched": [],
+      "source_en": "although the magnitude of the effect of intermittent fasting on life-span extension is variable (influenced by sex, diet, and genetic factors), studies in mice and nonhuman primates show consistent effects of caloric restriction on the health span (see the studies listed in Section S3 in the Supplementary Appendix, available with the full text of this article at NEJM.org).",
+      "reference": "虽然间歇性断食在延长寿命方面产生的影响大小有差异(受性别,饮食和遗传因素的影响),但对小鼠和非人灵长类动物开展的研究表明,限制热量摄入对健康寿命产生的影响是一致的(见补充附录S3部分列出的研究,补充附录与本文全文可在NEJM.org获取).",
+      "hypothesis": "虽然 间歇性 空腹 对 延长 生命 的 影响 程度 存在 差异 ( 受到 性别 , 饮食 和 遗传 因素 的 影响 ) , 但 小鼠 和 非人 灵长类动物 的 研究 显示 热量 限制 对 健康 范围 的 影响 是 一致 的 ( 见 补充 附录 S3 部分 列出 的 研究 , 补充 附录 与 本文 全文 可 在 NEJM . org 获取 )",
+      "labse_cosine": 0.9662504707884418,
+      "sentence_bleu": 1.6262850471799455,
+      "inference_seconds": 1.3711187540000083
+    },
+    {
+      "test_split_index": 1020,
+      "pilot_terms_matched": [],
+      "source_en": "during fasting, cells activate pathways that enhance intrinsic defenses against oxidative and metabolic stress and those that remove or repair damaged molecules (Figure 1).5",
+      "reference": "断食期间,细胞可激活发挥以下功能的通路:增强对氧化和代谢应激的内在防御,以及清除或修复受损分子(图1)5.",
+      "hypothesis": "在 空腹 期间 , 细胞 激活 能够 增强 抗氧化性 和 代谢性 应激 的 内在 防御 , 以及 去除 或 修复 受损 分子 的 内在 防御 的 通路 ( 图 1 ) 5 .",
+      "labse_cosine": 0.9280930256421508,
+      "sentence_bleu": 4.971656282820335,
+      "inference_seconds": 0.5001634590000208
+    },
+    {
+      "test_split_index": 1025,
+      "pilot_terms_matched": [],
+      "source_en": "here, we review studies in animals and humans that have shown how intermittent fasting affects general health indicators and slows or reverses aging and disease processes.",
+      "reference": "我们在本文中综述了证明间歇性断食如何影响一般健康状况指标以及如何减缓或逆转衰老和疾病进程的动物和人体研究.",
+      "hypothesis": "在 这里 , 我们 综述 了 动物 和 人 的 研究 , 这些 研究 表明 间歇性 空腹 如何 影响 一般 健康 指标 , 并 减缓 或 逆转 老龄化 和 疾病 过程 .",
+      "labse_cosine": 0.9393647741088187,
+      "sentence_bleu": 1.1599713834969503,
+      "inference_seconds": 0.4610659569999598
+    },
+    {
+      "test_split_index": 1031,
+      "pilot_terms_matched": [],
+      "source_en": "glucose and fatty acids are the main sources of energy for cells.",
+      "reference": "葡萄糖和脂肪酸是细胞的主要能量来源.",
+      "hypothesis": "葡萄糖 和 脂肪酸 是 细胞 的 主要 能量来源 .",
+      "labse_cosine": 1.0000000000000002,
+      "sentence_bleu": 4.767707020457095,
+      "inference_seconds": 0.15513592799999287
+    },
+    {
+      "test_split_index": 1078,
+      "pilot_terms_matched": [],
+      "source_en": "physical and Cognitive Effects of Intermittent Fasting",
+      "reference": "间歇性断食对躯体和认知的影响",
+      "hypothesis": "间期 快速 发作 的 体力 和 认知 效应",
+      "labse_cosine": 0.7234371378044865,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.15425439000000551
+    },
+    {
+      "test_split_index": 1080,
+      "pilot_terms_matched": [],
+      "source_en": "for example, despite having similar body weight, mice maintained on alternate-day fasting have better running endurance than mice that have unlimited access to food.",
+      "reference": "例如,在体重相似的情况下,隔日断食的小鼠与进食无限制的小鼠相比具有较好的跑步耐力.",
+      "hypothesis": "例如,尽管小鼠的体重相似,但与无限制地获取食物的小鼠相比,在隔日空腹时保持小鼠的运行耐力更好。",
+      "labse_cosine": 0.9035973909433169,
+      "sentence_bleu": 14.535768424205482,
+      "inference_seconds": 0.3198655859999917
+    },
+    {
+      "test_split_index": 1085,
+      "pilot_terms_matched": [],
+      "source_en": "in a study involving overweight adults with mild cognitive impairment, 12 months of caloric restriction led to improvements in verbal memory, executive function, and global cognition.39",
+      "reference": "一项研究纳入了有轻度认知障碍的超重成人,结果表明为期12个月的限制热量摄入改善了语言记忆,执行功能和整体认知功能39.",
+      "hypothesis": "在 一项 纳入 轻度 认知障碍 超重 成人 患者 的 研究 中 , 12 个 月 的 热量 限制 改善 了 语言 记忆 , 执行 功能 和 全球 认知 39 .",
+      "labse_cosine": 0.9452433686330692,
+      "sentence_bleu": 1.6338984401221652,
+      "inference_seconds": 0.5049721869999644
+    },
+    {
+      "test_split_index": 1086,
+      "pilot_terms_matched": [],
+      "source_en": "more recently, a large, multicenter, randomized clinical trial showed that 2 years of daily caloric restriction led to a significant improvement in working memory.40",
+      "reference": "最近,一项大型多中心,随机临床试验显示,为期2年的每日限制热量摄入显著改善了工作记忆40.",
+      "hypothesis": "最近 , 一项 大型 , 多 中心 , 随机 临床试验 表明 , 2 年 的 每日 热量 限制 使 工作 记忆 显著 改善 40 .",
+      "labse_cosine": 0.9817424182452418,
+      "sentence_bleu": 3.78786561257948,
+      "inference_seconds": 0.37592255200002
+    },
+    {
+      "test_split_index": 1087,
+      "pilot_terms_matched": [],
+      "source_en": "there is certainly a need to undertake further studies of intermittent fasting and cognition in older people, particularly given the absence of any pharmacologic therapies that influence brain aging and progression of neurodegenerative diseases.12",
+      "reference": "我们绝对有必要在老年人中进一步研究间歇性断食与认知功能,尤其是考虑到目前尚无任何可影响脑部衰老和神经退行性疾病进展的药物疗法12.",
+      "hypothesis": "当然 , 我们 需要 对 老年人 间歇性 空腹 和 认知 进行 进一步 研究 , 尤其 是 鉴于 缺乏 影响 脑衰老 和 神经 退化性 疾病 进展 的 药物 治疗 12 .",
+      "labse_cosine": 0.9196043461306833,
+      "sentence_bleu": 1.4763939041893883,
+      "inference_seconds": 0.5116668430000004
+    },
+    {
+      "test_split_index": 1094,
+      "pilot_terms_matched": [],
+      "source_en": "likewise, members of the Calorie Restriction Society, who follow the CRON (Calorie Restriction with Optimal Nutrition) diet, 43-45 have low rates of diabetes mellitus, with low levels of insulin-like growth factor 1, growth hormone, and markers of inflammation and oxidative stress.4,20,33,43",
+      "reference": "同样地,遵循CRON(CalorieRestrictionwithOptimalNutrition,热量限制与最佳营养)饮食43-45的热量限制学会(CalorieRestrictionSociety)成员的糖尿病发病率也较低,并且胰岛素样生长因子1,生长激素及炎症和氧化应激标志物的水平较低4,20,33,43.",
+      "hypothesis": "同样 地 , 遵循 COREON ( Calorie 限制性 饮食 与 最佳 营养 ) 饮食 的 卡罗瑞 限制性 学会 43 - 45 成员 的 糖尿病 发病率 较 低 , 胰岛素 样 生长因子 1 ( 生长激素 ) 水平 较 低 , 炎症 和 氧化应激 的 标志物 也 较 低 4 , 20 , 33 , 43 .",
+      "labse_cosine": 0.962684366567209,
+      "sentence_bleu": 1.1754281596509946,
+      "inference_seconds": 0.8565174469999874
+    },
+    {
+      "test_split_index": 1095,
+      "pilot_terms_matched": [],
+      "source_en": "a multicenter study showed that daily caloric restriction improves many cardiometabolic risk factors in nonobese humans.46-50",
+      "reference": "一项多中心研究表明,每日限制热量摄入改善了非肥胖人群的许多心血管代谢危险因素46-50.",
+      "hypothesis": "一项 多 中心 研究 表明 , 每日 热量 限制 可 改善 非 肥胖 人 的 许多 心脏代谢 危险 因素 46 - 50 .",
+      "labse_cosine": 0.9592630556569035,
+      "sentence_bleu": 6.586656967644003,
+      "inference_seconds": 0.3275861839999834
+    },
+    {
+      "test_split_index": 1098,
+      "pilot_terms_matched": [],
+      "source_en": "however, in a 12-month study comparing alternate-day fasting, daily caloric restriction, and a control diet, participants in both intervention groups lost weight but did not have any improvements in insulin sensitivity, lipid levels, or blood pressure, as compared with participants in the control group.54",
+      "reference": "然而,在一项为期12个月,比较隔日断食,每日限制热量摄入和对照饮食的研究中,与对照组参与者相比,两个干预组参与者的体重均有所减轻,但胰岛素敏感性,血脂水平和血压并无任何改善54.",
+      "hypothesis": "然而 , 在 一项 为期 12 个 月 的 比较 空腹 , 每日 热量 限制 和 对照 饮食 的 研究 中 , 两个 干预 组 的 参与者 体重 减轻 , 但 与 对照组 的 参与者 相比 , 胰岛素 敏感性 , 血脂 水平 或 血压 没有 改善 54 .",
+      "labse_cosine": 0.9867187720106186,
+      "sentence_bleu": 2.151159633747987,
+      "inference_seconds": 0.7833374219999882
+    },
+    {
+      "test_split_index": 1107,
+      "pilot_terms_matched": [],
+      "source_en": "since then, numerous studies in animals have shown that daily caloric restriction or alternate-day fasting reduces the occurrence of spontaneous tumors during normal aging in rodents and suppresses the growth of many types of induced tumors while increasing their sensitivity to chemotherapy and irradiation.7-9,60",
+      "reference": "自此之后,大量动物研究表明,每日限制热量摄入或隔日断食可在啮齿类动物正常衰老期间减少自发性肿瘤的发生,并且可抑制多类诱发性肿瘤的生长,同时提高肿瘤对化疗和放疗的敏感性7-9,60.",
+      "hypothesis": "此后 , 许多 动物 研究 表明 , 每日 热量 限制 或 隔日 空腹 减少 了 鼠类 正常 老龄化 期间 自发性 肿瘤 的 发生 , 抑制 了 许多 类型 诱发 肿瘤 的 生长 , 同时 增加 了 它们 对 化疗 和 照射 的 敏感性 7 - 9 , 60 .",
+      "labse_cosine": 0.9477161205966026,
+      "sentence_bleu": 1.1652512227907519,
+      "inference_seconds": 0.7768894359999763
+    },
+    {
+      "test_split_index": 1128,
+      "pilot_terms_matched": [],
+      "source_en": "in one study, patients who adhered to the alternate-day fasting regimen had an elevated serum level of ketone bodies on energy-restriction days and lost weight over a 2-month period, during which asthma symptoms and airway resistance were mitigated.17",
+      "reference": "在一项研究中,坚持隔日断食方案的患者在限制热量摄入之日表现出血清酮体水平升高,并且2个月期间体重减轻,与此同时哮喘症状减轻,气道阻力减小17.",
+      "hypothesis": "在 一项 研究 中 , 依从 隔日 空腹 方案 的 患者 在 能量 限制 日时 的 酮 体 血清 水平 升高 , 并且 在 2 个 月 期间 体重减轻 , 在此期间 哮喘 症状 和 气道 耐药 减少 17 .",
+      "labse_cosine": 0.9522121874457381,
+      "sentence_bleu": 1.3339264902154053,
+      "inference_seconds": 0.60657252499999
+    },
+    {
+      "test_split_index": 1140,
+      "pilot_terms_matched": [],
+      "source_en": "several studies have shown beneficial effects of intermittent fasting in animal models of traumatic head or spinal cord injury.",
+      "reference": "数项研究表明间歇性断食在颅脑损伤和脊髓损伤的动物模型产生有益作用.",
+      "hypothesis": "一些 研究 已经 表明 间歇性 空腹 对 创伤性 头部 或 脊髓 损伤 动物 模型 有益 .",
+      "labse_cosine": 0.8807788405030119,
+      "sentence_bleu": 2.445593937240363,
+      "inference_seconds": 0.3194081259999848
+    },
+    {
+      "test_split_index": 1141,
+      "pilot_terms_matched": [],
+      "source_en": "intermittent fasting after injury was also effective in ameliorating cognitive deficits in a mouse model of traumatic brain injury.80",
+      "reference": "在颅脑损伤的小鼠模型中,损伤后的间歇性断食也可有效改善认知缺陷80.",
+      "hypothesis": "在 创伤性 脑损伤 小鼠 模型 中 , 损伤 后 间歇性 空腹 也 有效 改善 认知 缺陷 80 .",
+      "labse_cosine": 0.9635358556208902,
+      "sentence_bleu": 2.55404966647159,
+      "inference_seconds": 0.3282262600000081
+    },
+    {
+      "test_split_index": 1142,
+      "pilot_terms_matched": [],
+      "source_en": "when initiated either before or after cervical or thoracic spinal cord injury, intermittent fasting reduces tissue damage and improves functional outcomes in rats.",
+      "reference": "在大鼠中,颈髓或胸髓损伤之前或之后开始的间歇性断食减轻了组织损伤并改善了功能性结局.",
+      "hypothesis": "在 宫颈 或 胸部 脊髓 损伤 之前 或 之后 开始 时 , 间歇性 空腹 减少 了 组织 损伤 , 改善 了 大鼠 的 功能 结局 .",
+      "labse_cosine": 0.9322889451866821,
+      "sentence_bleu": 1.7179060012299232,
+      "inference_seconds": 0.41101001699996687
+    },
+    {
+      "test_split_index": 1187,
+      "pilot_terms_matched": [],
+      "source_en": "because acute coronary syndromes are associated with higher risks of recurrent events and exacerbated inflammation, we conducted the Colchicine Cardiovascular Outcomes Trial (COLCOT) to evaluate the effects of colchicine on cardiovascular outcomes as well as its long-term safety profile in patients who had recently had a myocardial infarction.",
+      "reference": "由于急性冠脉综合征与较高的复发性事件风险和炎症加重风险相关,因此我们开展了COLCOT(秋水仙碱心血管结局试验,ColchicineCardiovascularOutcomesTrial),目的是在近期发生心肌梗死的患者中评估秋水仙碱对心血管结局的影响以及秋水仙碱的长期安全性.",
+      "hypothesis": "由于 急性 冠脉 综合征 与 更 高 的 复发 风险 和 更 严重 的 炎症 相关 , 因此 我们 开展 了 科奇 滨 心血管 结局 试验 ( Collchicine Cardiovascular Outcomes Trial , COLCOT ) , 以 评估 科奇林 对 心血管 结局 的 影响 , 以及 其 在 最近 发生 心肌梗死 的 患者 中 的",
+      "labse_cosine": 0.9369819021125448,
+      "sentence_bleu": 1.6939836607563896,
+      "inference_seconds": 0.9027171769999995
+    },
+    {
+      "test_split_index": 1202,
+      "pilot_terms_matched": [],
+      "source_en": "the secondary end points consisted of the components of the primary efficacy end point; a composite of death from cardiovascular causes, resuscitated cardiac arrest, myocardial infarction, or stroke; and total mortality in time-to-event analyses.",
+      "reference": "次要终点是在至事件发生时间的分析中主要疗效终点的各构成部分,由心血管原因死亡,复苏成功的心脏停搏,心肌梗死或卒中构成的复合终点,以及总死亡率.",
+      "hypothesis": "次要 终点 包括 主要 疗效 终点 的 构成 部分 , 由 心血管 原因 死亡 , 复发性 心脏 停搏 , 心肌梗死 或 卒 中 构成 的 复合 终点 , 以及 至 事件 发生 时间 分析 中 的 总死亡率 .",
+      "labse_cosine": 0.9501437854715751,
+      "sentence_bleu": 1.4491339833989647,
+      "inference_seconds": 0.6104890249999926
+    },
+    {
+      "test_split_index": 1204,
+      "pilot_terms_matched": [],
+      "source_en": "additional prespecified exploratory end points included the change from baseline to 6 months in the high-sensitivity C-reactive protein level and the change from baseline to 12 months in the white-cell count.",
+      "reference": "其他预先设定的探索性终点包括高敏C反应蛋白水平从基线至6个月的变化,以及白细胞计数从基线至12个月的变化.",
+      "hypothesis": "其他 预设 的 探索性 终点 包括 高敏 C 反应 蛋白 水平 从 基线 至 6 个 月 的 变化 以及 白细胞 计数 从 基线 至 12 个 月 的 变化 .",
+      "labse_cosine": 0.9948740150164022,
+      "sentence_bleu": 1.199348129252962,
+      "inference_seconds": 0.4723377130000017
+    },
+    {
+      "test_split_index": 1224,
+      "pilot_terms_matched": [],
+      "source_en": "no missing data were imputed except for age in cases in which information on the day or the month and day of birth was missing.",
+      "reference": "除了对年龄(出生日或出生月日信息缺失)数据进行填补之外,本试验未对其他缺失数据进行填补.",
+      "hypothesis": "除了在出生日或出生月和出生日信息缺失的病例中年龄外,未填补任何缺失数据。",
+      "labse_cosine": 0.8812478477464332,
+      "sentence_bleu": 5.197112497172873,
+      "inference_seconds": 0.21048470199997382
+    },
+    {
+      "test_split_index": 1261,
+      "pilot_terms_matched": [],
+      "source_en": "the adjusted geometric mean percent changes from baseline to 1 year in the total white-cell count were − 18.8 % in the colchicine group and − 19.0 % in the placebo group, with no significant difference between groups (0.3 percentage points; 95 % CI, − 2.2 to 2.7).",
+      "reference": "从基线至1年时,秋水仙碱组和安慰剂组白细胞总计数变化百分比的经校正几何平均值分别为-18.8%和-19.0%,两组无显著差异(0.3个百分点;95%CI,-2.2~2.7).",
+      "hypothesis": "白细胞 总 计数 从 基线 至 1 年 的 校正 几何 平均值 变化 分别 为 - 18.8% 和 - 19.0% , 两组间 无 显著 差异 ( 0.3 个 百分点 ; 95% CI , - 2.2 ~ 2.7 ) .",
+      "labse_cosine": 0.9448979298454872,
+      "sentence_bleu": 15.523573891212676,
+      "inference_seconds": 0.776609322000013
+    },
+    {
+      "test_split_index": 1278,
+      "pilot_terms_matched": [],
+      "source_en": "the most common adverse events observed were gastrointestinal.",
+      "reference": "最常见的不良事件为胃肠道不良事件.",
+      "hypothesis": "最 常见 的 不良 事件 为 胃肠道 .",
+      "labse_cosine": 0.9635969914737279,
+      "sentence_bleu": 5.522397783539471,
+      "inference_seconds": 0.2448801049999929
+    },
+    {
+      "test_split_index": 1290,
+      "pilot_terms_matched": [],
+      "source_en": "in conclusion, among patients with a recent myocardial infarction, colchicine at a dose of 0.5 mg daily led to a significantly lower percentage of patients with ischemic cardiovascular events than placebo.",
+      "reference": "总之,在近期发生心肌梗死的患者中,每日0.5mg剂量的秋水仙碱与安慰剂相比显著降低了发生缺血性心血管事件的患者百分比.",
+      "hypothesis": "总之,在 最近 发生 心肌梗死 的 患者 中 , 每日 0.5 mg 剂量 的 科奇林 使 缺血性 心血管 事件 患者 的 百分比 显著 低于 安慰剂 .",
+      "labse_cosine": 0.9138234204027523,
+      "sentence_bleu": 3.300809119141885,
+      "inference_seconds": 0.5667570680000154
+    },
+    {
+      "test_split_index": 1294,
+      "pilot_terms_matched": [],
+      "source_en": "average-risk adults with life expectancy of > 10 years should start screening at age 50 and should discontinue screening after age 75.",
+      "reference": "•预期寿命超过10年的一般风险成人应从50岁开始接受筛查,75岁后停止筛查.",
+      "hypothesis": "预期 寿命 > 10 岁 的 平均 危险 成人 患者 应 在 50 岁 时 开始 筛查 , 75 岁 后 应 停止 筛查 .",
+      "labse_cosine": 0.9484401970576672,
+      "sentence_bleu": 1.7911710595643588,
+      "inference_seconds": 0.4600453769999717
+    },
+    {
+      "test_split_index": 1329,
+      "pilot_terms_matched": [],
+      "source_en": "participants were classified as normotensive (blood pressure < 140 / 90 mm Hg) or hypertensive (≥ 140 / 90 mm Hg).",
+      "reference": "参与者被分成血压正常(血压<140/90mmHg)或高血压(≥140/90mmHg).",
+      "hypothesis": "参与者 被 归类 为 标准 血压 < 140 / 90 mmHg 或 高血压 ( ± 140 / 90 mmHg ) .",
+      "labse_cosine": 0.9471864442000406,
+      "sentence_bleu": 14.528679532351443,
+      "inference_seconds": 0.441591682999956
+    },
+    {
+      "test_split_index": 1330,
+      "pilot_terms_matched": [],
+      "source_en": "normotensive individuals included those with treated hypertension.",
+      "reference": "血压正常的参与者包括得到治疗的高血压患者.",
+      "hypothesis": "规范化 患者 包括 接受 过 治疗 的 高血压 患者 .",
+      "labse_cosine": 0.8837788208152877,
+      "sentence_bleu": 4.196114906296549,
+      "inference_seconds": 0.2759789689999934
+    },
+    {
+      "test_split_index": 1355,
+      "pilot_terms_matched": [],
+      "source_en": "however, the proportion of patients with adverse events was higher in the closed-loop group (14 % vs. 4 %; P = 0.05).",
+      "reference": "但闭环组中发生不良事件的患者比例较高(14%vs.4%;P=0.05).",
+      "hypothesis": "然而 , 闭环 组中 不良 事件 患者 比例 较 高 ( 14% vs . 4% ; P = 0.05 ) .",
+      "labse_cosine": 0.9868758078516163,
+      "sentence_bleu": 53.306401870899435,
+      "inference_seconds": 0.5112867510000001
+    },
+    {
+      "test_split_index": 1380,
+      "pilot_terms_matched": [],
+      "source_en": "practicing physicians despair that the focus on costs has reduced them to cogs in the health care business machine, with daily reminders of ever-growing productivity expectations on top of crushing regulatory and clerical burdens.",
+      "reference": "令执业医师感到沮丧的是,对医疗费用的关注已使他们沦为医疗商业机器上的螺丝钉,每天都提醒他们,除了监管部门施加的沉重负担,各种繁忙的书面工作,他们还被寄望于不断提高生产效率.",
+      "hypothesis": "医师们对关注成本已经降低到医疗 机器的认知系统感到沮丧,他们每天提醒人们,除了压抑监管和文书工作负担之外,生产力期望不断提高。",
+      "labse_cosine": 0.8508248961009255,
+      "sentence_bleu": 4.408194605881708,
+      "inference_seconds": 0.46102018200002703
+    },
+    {
+      "test_split_index": 1386,
+      "pilot_terms_matched": [],
+      "source_en": "they have heard the promises of a better future, when technology and new models of care will enhance the quality of care and their own professional satisfaction.",
+      "reference": "医师们曾被许诺未来会更好,到那时技术和新治疗模式将提高医疗质量和他们职业满意度.",
+      "hypothesis": "他们已经听到关于未来更美好的希望,届时技术和新的保健模式将提高保健质量和自身专业满意度。",
+      "labse_cosine": 0.8612432447783597,
+      "sentence_bleu": 19.716118825581447,
+      "inference_seconds": 0.27176430500003335
+    },
+    {
+      "test_split_index": 1391,
+      "pilot_terms_matched": [],
+      "source_en": "I would suggest that the solutions outlined above - allowing more time with patients when needed and designating coordinating physicians to reduce the fragmentation of health care - merit similar consideration.",
+      "reference": "我认为前文列出的解决方案(让医师有充足的时间诊治需要投入较多时间的患者,并指定协调医师来整合碎片化的医疗)也值得考虑.",
+      "hypothesis": "我建议,上述解决方案---- 允许在有需要时有更长时间与患者接触,并指定协调医师来减少医疗保健的支离破碎状况---- 值得考虑。",
+      "labse_cosine": 0.7341861564295663,
+      "sentence_bleu": 5.693025330278465,
+      "inference_seconds": 0.29122454899999184
+    },
+    {
+      "test_split_index": 1395,
+      "pilot_terms_matched": [],
+      "source_en": "there is no app for that.",
+      "reference": "没有任何APP能帮助我们建立信任关系.",
+      "hypothesis": "并 没有 应用 的 应用 .",
+      "labse_cosine": 0.5460892169424666,
+      "sentence_bleu": 8.116697886877475,
+      "inference_seconds": 0.09907496300002094
+    },
+    {
+      "test_split_index": 1410,
+      "pilot_terms_matched": [],
+      "source_en": "the simple practice of assigning a coordinating physician to all patients could make intrateam communication and integration of care the norm rather than the exception.",
+      "reference": "为所有患者指派一名协调医师这一简单做法即可使医疗团队的内部沟通和医疗的整合成为常态,而非例外.",
+      "hypothesis": "将 协调医师 分配 到 所有 患者 的 简单做法 可能 使 团队 内 沟通 和 治疗 整合 成为 常规 , 而 非 例外 .",
+      "labse_cosine": 0.9080507358082313,
+      "sentence_bleu": 1.9582248325011242,
+      "inference_seconds": 0.33503980400001865
+    },
+    {
+      "test_split_index": 1453,
+      "pilot_terms_matched": [],
+      "source_en": "these changes can be made at the local level, for example, by redesigning schedules and templates to build in flexibility based on either individual appointment types or clinic half-days.",
+      "reference": "这些转变可以在地方级别进行,例如重新设计工作日程和模板,使其具有一定的弹性,弹性可以依据个人约诊类型,也可以依据医师的半个工作日设定.",
+      "hypothesis": "这些 变化 可以 在地方一级 进行 , 例如 通过 重新设计 时间表 和 样本 , 根据 个体 预约 类型 或 门诊 的 半日 建立 灵活性 .",
+      "labse_cosine": 0.9023917705364426,
+      "sentence_bleu": 2.0705706652424007,
+      "inference_seconds": 0.34969063500000175
+    },
+    {
+      "test_split_index": 1457,
+      "pilot_terms_matched": [],
+      "source_en": "leading change efforts may be difficult, but changes that clearly benefit patients are more likely to succeed than changes that are designed to enhance financial performance.",
+      "reference": "领导变革可能很难,但明显有利于患者的变革比旨在提高财务业绩的变革更有可能取得成功.",
+      "hypothesis": "领导 变革 的 努力 可能 很 困难 , 但 与 旨在 提高 财务 绩效 的 变革 相比 , 明显 有益于 患者 的 变革 更 可能 成功 .",
+      "labse_cosine": 0.9727261841161793,
+      "sentence_bleu": 1.6504045595709422,
+      "inference_seconds": 0.3974731029999816
+    },
+    {
+      "test_split_index": 1472,
+      "pilot_terms_matched": [],
+      "source_en": "secondary end points included pain relief (at 2 hours), sustained pain relief (from 2 to 24 hours), sustained freedom from pain (from 2 to 24 hours), and absence of symptoms associated with migraine (photophobia, phonophobia, and nausea) at 2 hours.",
+      "reference": "次要终点包括疼痛缓解(在2小时),持续疼痛缓解(2~24小时),持续无疼痛(2~24小时)以及在2小时无偏头痛相关症状(畏光,畏声和恶心).",
+      "hypothesis": "次要 终点 包括 缓解 疼痛 ( 2 小时 ) , 持续 缓解 疼痛 ( 2 ~ 24 小时 ) , 持续 缓解 疼痛 ( 2 ~ 24 小时 ) , 持续 消除 疼痛 ( 2 ~ 24 小时 ) , 以及 2 小时 时 无 偏头痛 相关 症状 ( 晕厥 , 晕厥 和 恶心 ) .",
+      "labse_cosine": 0.9878107384731734,
+      "sentence_bleu": 5.9703448812578594,
+      "inference_seconds": 0.7816061860000332
+    },
+    {
+      "test_split_index": 1483,
+      "pilot_terms_matched": [],
+      "source_en": "calcitonin gene-related peptide (CGRP) is a neurotransmitter expressed in peripheral sensory trigeminal neurons that innervate the pain-sensitive dura and meningeal blood vessels.",
+      "reference": "降钙素基因相关肽(CGRP)是由分布于对痛觉敏感的硬脑膜和脑膜血管的外周感觉三叉节神经神经元所表达的一种神经递质.",
+      "hypothesis": "钙素 基因 相关 肽 ( CGRP ) 是 一种 在 外周 感觉 三角 神经元 中 表达 的 神经 传递 剂 , 外周 感觉 三角 神经元 在 内排出 对 疼痛 敏感 的 杜拉 血管 和 脑膜 血管 .",
+      "labse_cosine": 0.9421506429338048,
+      "sentence_bleu": 3.985677924984253,
+      "inference_seconds": 0.6282761379999897
+    },
+    {
+      "test_split_index": 1484,
+      "pilot_terms_matched": [],
+      "source_en": "the transmitter is released during a migraine attack and facilitates pain transmission in the trigeminovascular system.5",
+      "reference": "该神经递质在偏头痛发作时释放,促进疼痛在三叉神经血管系统内传递5.",
+      "hypothesis": "发射机在 偏头痛 发作 期间 释放 , 并 便于 三 基因 血管 系统 的 疼痛 传播 5 .",
+      "labse_cosine": 0.8130036617926374,
+      "sentence_bleu": 2.719665272174911,
+      "inference_seconds": 0.30726413799999364
+    },
+    {
+      "test_split_index": 1488,
+      "pilot_terms_matched": [],
+      "source_en": "this randomized, double-blind, placebo-controlled, parallel-group trial was conducted at 89 centers in the United States from July 22, 2016, to December 14, 2017.",
+      "reference": "这项随机,双盲,安慰剂对照,平行组试验于2016年7月22日至2017年12月14日在美国的89个试验中心开展.",
+      "hypothesis": "这项 随机 , 双盲 , 安慰剂 对照 , 平行 组 试验 于 2016 年 7 月 22 日至 2017 年 12 月 14 日 在 美国 的 89 个 中心 进行 .",
+      "labse_cosine": 0.9889663668064576,
+      "sentence_bleu": 4.906081629292278,
+      "inference_seconds": 0.5089303500000142
+    },
+    {
+      "test_split_index": 1496,
+      "pilot_terms_matched": [],
+      "source_en": "visit 4 was the safety follow-up visit, which occurred 4 weeks after the initial dose.",
+      "reference": "访视4是在首剂给药后4周进行的安全性随访.",
+      "hypothesis": "访视 4 是 安全性 随访 , 首次 给 药后 4 周 进行 访视 .",
+      "labse_cosine": 0.978466464863191,
+      "sentence_bleu": 2.8398387225677895,
+      "inference_seconds": 0.25664088299998866
+    },
+    {
+      "test_split_index": 1518,
+      "pilot_terms_matched": [],
+      "source_en": "in the case of persistent or recurring moderate or severe headache, participants were allowed to take an optional second dose or their own rescue medication 2 to 48 hours after the initial dose.",
+      "reference": "对于持续性或复发性中或重度头痛,我们允许参与者在首剂给药后2~48小时服用可选的第二剂或自己的挽救药物.",
+      "hypothesis": "对于 持续性 或 复发性 中度 或 重度 头痛 , 允许 参与者 在 初始 给 药 后 2 ~ 48 小时 服用 可选 的 第二 剂量 或 自身 的 挽救 药物 .",
+      "labse_cosine": 0.9735806050643196,
+      "sentence_bleu": 1.5784309053930103,
+      "inference_seconds": 0.4981755279999902
+    },
+    {
+      "test_split_index": 1531,
+      "pilot_terms_matched": [],
+      "source_en": "participants were asked to rate their ability to perform normal activities (a prespecified, exploratory efficacy end point) with the use of a single-question Functional Disability Scale before the initial dose and at 1, 2, 4, and 8 hours after the dose.",
+      "reference": "我们要求参与者在首剂给药前以及在首剂给药后1,2,4和8小时应用单一问题功能性失能量表(FunctionalDisabilityScale)评价自己的日常活动的能力(一个预设的探索性疗效终点).",
+      "hypothesis": "我们 要求 参与者 在 初始 给 药 之前 , 以及 给 药 后 1 , 2 , 4 和 8 小时 , 使用 单题 功能性 残疾 量表 评估 其 进行 正常 活动 ( 预设 的 探索性 疗效 终点 ) 的 能力 .",
+      "labse_cosine": 0.9164119332576781,
+      "sentence_bleu": 1.1493330194206166,
+      "inference_seconds": 0.6551414280000358
+    },
+    {
+      "test_split_index": 1533,
+      "pilot_terms_matched": [],
+      "source_en": "data on adverse events were collected and evaluated by the investigators, who were unaware of the trial-group assignments, 48 hours after the initial dose, 48 hours after the optional second dose, and within 30 days after the last dose.",
+      "reference": "在首剂给药后48小时,可选的第二剂给药后48小时和最后一剂给药后30日内,由不知晓试验分组的研究者收集和评价了不良事件数据.",
+      "hypothesis": "不良 事件 的 数据 由 研究者 收集 和 评估 , 研究者 不 知晓 试验 分组 情况 , 初始 给 药 后 48 小时 , 选择性 第二 给 药 后 48 小时 , 末次 给 药 后 30 天内 .",
+      "labse_cosine": 0.9339267656969324,
+      "sentence_bleu": 1.2413584734794654,
+      "inference_seconds": 0.5921298190000357
+    },
+    {
+      "test_split_index": 1552,
+      "pilot_terms_matched": [],
+      "source_en": "testing of secondary end points was undertaken only if significance was shown for the difference between the ubrogepant dose and placebo for both primary end points.",
+      "reference": "只有ubrogepant剂量和安慰剂之间的两个主要终点均有显著差异时,才对次要终点进行检验.",
+      "hypothesis": "次要 终点 的 检验 仅 以 雄激素 给 药 剂量 和 安慰剂 之间 两个 主要 终点 的 差异 的 显著性 为 条件 .",
+      "labse_cosine": 0.7979015124996132,
+      "sentence_bleu": 1.6466642419110007,
+      "inference_seconds": 0.37543532000000823
+    },
+    {
+      "test_split_index": 1556,
+      "pilot_terms_matched": [],
+      "source_en": "the baseline score on the Functional Disability Scale was also included as a covariate for the analysis.",
+      "reference": "功能性失能量表的基线评分也被作为协变量纳入分析.",
+      "hypothesis": "功能性 残疾 量表 的 基线 评分 也 作为 分析 的 协 变量 纳入 .",
+      "labse_cosine": 0.934721212717801,
+      "sentence_bleu": 2.8398387225677895,
+      "inference_seconds": 0.22492076200001065
+    },
+    {
+      "test_split_index": 1558,
+      "pilot_terms_matched": [],
+      "source_en": "a total of 1672 participants underwent randomization; 559 were assigned to the placebo group, 556 to the 50-mg ubrogepant group, and 557 to the 100-mg ubrogepant group.",
+      "reference": "共计1,672例参与者被随机分组;559例被分配至安慰剂组,556例被分配至50mgubrogepant组,557例被分配至100mgubrogepant组.",
+      "hypothesis": "共有 1 , 672 名 参与者 被 随机 分组 ; 559 名 被 分配 至 安慰剂 组 , 556 名 被 分配 至 50 mg ubrogipeant 组 , 557 名 被 分配 至 100 mg ubrogimpant 组 .",
+      "labse_cosine": 0.957025099248693,
+      "sentence_bleu": 1.3705063051209185,
+      "inference_seconds": 0.6498170379999806
+    },
+    {
+      "test_split_index": 1565,
+      "pilot_terms_matched": [],
+      "source_en": "the additional dose of ubrogepant for pharmacokinetic analysis was taken at visit 3 by 424 participants in the 50-mg ubrogepant group and 453 in the 100-mg ubrogepant group; these data have not yet been fully analyzed.",
+      "reference": "在访视3,50mgubrogepant组424例参与者和100mgubrogepant组453例参与者服用了另外1剂ubrogepant,用于药代动力学分析;对这些数据的分析尚未完成.",
+      "hypothesis": "50 mg ubrogepant 组和 100 mg ubrogepant 组分别有 424 名 和 453 名 参与者 在 访视 3 时 接受 了 额外 剂量 的 药代 动力学 分析 ; 这些 数据 尚未 得到 充分 分析 .",
+      "labse_cosine": 0.8868048263782669,
+      "sentence_bleu": 1.2944532586971997,
+      "inference_seconds": 0.6420408039999757
+    },
+    {
+      "test_split_index": 1578,
+      "pilot_terms_matched": [],
+      "source_en": "the number of participants who had pain relief at 2 hours was 224 of 456 (49.1 %) in the placebo group, 256 of 422 (60.7 %) in the 50-mg ubrogepant group (P = 0.002, adjusted for multiplicity, for the comparison with placebo), and 275 of 448 (61.4 %) in the 100-mg ubrogepant group (P = 0.002) (Table 2).",
+      "reference": "安慰剂组456例参与者中的224例(49.1%),50mgubrogepant组422例参与者中的256例(60.7%;多重性校正后,与安慰剂相比,P=0.002)和100mgubrogepant组448例参与者中的275例(61.4%;P=0.002)在2小时疼痛缓解(表2).",
+      "hypothesis": "安慰剂 组 2 小时 止痛 缓解 的 参与者 人数 如下 : 安慰剂 组 456 例 中 的 224 例 ( 49.1% ) , 50 mg ubrogimpant 组 422 例中 的 256 例 ( 6% ) ( P = 0.002 , 根据 多重性 校正 后 与 安慰剂 的 比较 ) , 100 mg ubrogimpant 组 448 例中 的",
+      "labse_cosine": 0.8897201666166107,
+      "sentence_bleu": 9.010469109887135,
+      "inference_seconds": 0.9697476110000025
+    },
+    {
+      "test_split_index": 1622,
+      "pilot_terms_matched": [],
+      "source_en": "our trial was an international, expertise-based, randomized, controlled trial.",
+      "reference": "本试验是一项以专业技能为基础的国际性随机,对照试验.",
+      "hypothesis": "我们 的 试验 是 一项 国际性 , 基于 专业技能 , 随机 , 对照 的 试验 .",
+      "labse_cosine": 0.9115049608349057,
+      "sentence_bleu": 2.908317710573758,
+      "inference_seconds": 0.235952492000024
+    },
+    {
+      "test_split_index": 1636,
+      "pilot_terms_matched": [],
+      "source_en": "the data analyst remained unaware of the treatment groups throughout the trial and while performing analyses.",
+      "reference": "数据分析员在整个试验期间和进行分析时不知晓分组情况.",
+      "hypothesis": "在 整个 试验 期间 和 进行 分析 时 , 数据分析师 仍然 不 知晓 治疗 组 .",
+      "labse_cosine": 0.8679707875174452,
+      "sentence_bleu": 2.445593937240363,
+      "inference_seconds": 0.2673867290000089
+    },
+    {
+      "test_split_index": 1637,
+      "pilot_terms_matched": [],
+      "source_en": "to facilitate the expertise-based trial design, 10 we set expertise thresholds for surgeons \" participation.",
+      "reference": "为了采用以专业技能为基础的试验设计10,我们为参与试验的手术医师设定了专业技能标准.",
+      "hypothesis": "为了便利以专业技能为基础的试验设计,10 我们为外科医生 \" 参与 \" 设定了专业技能阈值。",
+      "labse_cosine": 0.9015644857823323,
+      "sentence_bleu": 5.522397783539471,
+      "inference_seconds": 0.23313203399999338
+    },
+    {
+      "test_split_index": 1645,
+      "pilot_terms_matched": [],
+      "source_en": "separate independent data and safety monitoring boards coordinated by the National Institutes of Health and Canadian Institutes of Health Research monitored trial safety and reviewed all serious adverse events.",
+      "reference": "分别由美国国立卫生研究院和加拿大卫生研究院协调的独立数据和安全监察委员会监察了试验安全性,并审核了所有严重不良事件.",
+      "hypothesis": "独立 的 数据 和 安全 监察 委员会 由 美国 国家 卫生 研究院 和 加拿大 卫生 研究院 协调 , 对 试验 安全性 进行 监测 , 并 审查 所有 严重 不良 事件 .",
+      "labse_cosine": 0.9482212210062445,
+      "sentence_bleu": 1.4262733286728255,
+      "inference_seconds": 0.6118744959999844
+    },
+    {
+      "test_split_index": 1651,
+      "pilot_terms_matched": [],
+      "source_en": "the primary analysis was conducted with a proportional-hazards model and a competing-risk framework (with death as the competing risk), with the percentage of patients with a primary end-point event, analyzed in a time-to-event analysis, as the outcome.",
+      "reference": "使用比例风险模型和竞争风险框架(死亡为竞争风险)进行了主要分析,并将发生主要终点事件的患者百分比作为结局,在至事件发生的时间分析中进行了分析.",
+      "hypothesis": "主要 分析 采用 比例 风险 模型 和 竞争 风险 框架 ( 死亡 为 竞争 风险 ) 进行 , 主要 终点 事件 患者 百分比 以 时间 至 事件 分析 为 结局 .",
+      "labse_cosine": 0.9640621973244221,
+      "sentence_bleu": 1.6961343903963388,
+      "inference_seconds": 0.6692954019999888
+    },
+    {
+      "test_split_index": 1666,
+      "pilot_terms_matched": [],
+      "source_en": "we also performed multiple sensitivity analyses.",
+      "reference": "我们还进行了多项敏感性分析.",
+      "hypothesis": "我们 还 进行 了 多重 敏感性 分析 .",
+      "labse_cosine": 0.9800404617951924,
+      "sentence_bleu": 5.522397783539471,
+      "inference_seconds": 0.16523425599996244
+    },
+    {
+      "test_split_index": 1669,
+      "pilot_terms_matched": [],
+      "source_en": "all analyses were performed with SAS, version 9.4 (SAS Institute), and R, version 3.6.0 (R Project for Statistical Computing).",
+      "reference": "所有分析均采用SAS软件9.4版(SASInstitute)和R软件3.6.0版(RProjectforStatisticalComputing)完成.",
+      "hypothesis": "所有 分析 均 采用 SAS 9.4 版 ( SAS Institute ) 和 R 3.6.0 版 ( R Project for Statistical Computing ) 进行 .",
+      "labse_cosine": 0.9549682293770623,
+      "sentence_bleu": 2.352622489487909,
+      "inference_seconds": 0.5774065619999647
+    },
+    {
+      "test_split_index": 1685,
+      "pilot_terms_matched": [],
+      "source_en": "subgroup analyses did not show any effect modification. (details regarding the sensitivity and subgroup analyses are provided in Tables S12, S13, and S15.)",
+      "reference": "亚组分析未显示效应改变(有关灵敏度和亚组分析的详细信息见表S12,S13和S15).",
+      "hypothesis": "亚组 分析 未 显示 任何 效应 改变 ( 敏感性 和 亚组 分析 的 详细信息 见表 S12 , S13 和 S15 ) .",
+      "labse_cosine": 0.9822788659215105,
+      "sentence_bleu": 4.108053662461269,
+      "inference_seconds": 0.4844968219999828
+    },
+    {
+      "test_split_index": 1720,
+      "pilot_terms_matched": [],
+      "source_en": "pooled estimates from randomized, controlled trials suggest a risk of dislocation after total hip arthroplasty that is more than 2.5 times as great as that associated with hemiarthroplasty (9 % vs. 3 %; relative risk, 2.53; 95 % CI, 1.05 to 6.10).5",
+      "reference": "来自随机对照试验的合并估计值提示,全髋关节置换术后的脱位风险是股骨头置换术后的2.5倍(9%vs.3%;相对危险度,2.53;95%CI,1.05~6.10)5.",
+      "hypothesis": "随机对照 试验 的 汇总 估计值 提示 , 总 关节 血管 动脉 改变 后 发生 的 失常 风险 是 与 造血 相关 的 风险 的 2.5 倍 以上 ( 9% vs . 3% ; 相对 危险度 , 2.53 ; 95% CI , 1.05 ~ 6.10 ) 5 .",
+      "labse_cosine": 0.8903432895170083,
+      "sentence_bleu": 37.26514544692222,
+      "inference_seconds": 1.0492024630000287
+    },
+    {
+      "test_split_index": 1730,
+      "pilot_terms_matched": [],
+      "source_en": "in the United States, an estimated 155,000 persons per year are treated by emergency medical services (EMS) for out-of-hospital cardiac arrest, and approximately 8 % survive.6",
+      "reference": "在美国,估计每年有155,000人因院外心脏停搏接受急救医疗(EMS),其中约有8%存活下来6.",
+      "hypothesis": "在 美国 , 每年 估计 有 155 , 000 人 因 院外 心脏 停搏 接受 急诊 治疗 , 约 8% 存活 6 .",
+      "labse_cosine": 0.9562490029976137,
+      "sentence_bleu": 2.224972978585352,
+      "inference_seconds": 0.5004181900000049
+    },
+    {
+      "test_split_index": 1731,
+      "pilot_terms_matched": [],
+      "source_en": "in Europe, annual occurrence is estimated to be 128,000 to 275,000 persons, and approximately 10 % survive.3,7,8",
+      "reference": "在欧洲,估计每年发生128,000~275,000例,其中约有10%存活下来3,7,8.",
+      "hypothesis": "在 欧洲 , 每年 的 发生率 估计 为 128 , 000 ~ 275 , 000 人 , 约 10% 存活 3 , 7 , 8 .",
+      "labse_cosine": 0.9574802543781527,
+      "sentence_bleu": 2.075273865705644,
+      "inference_seconds": 0.5030820230000472
+    },
+    {
+      "test_split_index": 1733,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "a key concept in the successful treatment of patients with out-of-hospital cardiac arrest is the strategy known as the \" chain of survival, \" which emphasizes a system-of-care approach that includes early access to care and consists of five key links: early recognition of cardiac arrest and activation of the emergency-response system; immediate, high-quality cardiopulmonary resuscitation (CPR); rapid defibrillation; basic and advanced EMS; and advanced life support and postarrest care.12",
+      "reference": "院外心脏停搏患者治疗成功的一个关键概念是被称为\"生存链\"的策略,该策略强调包含早期获得治疗在内的系统化治疗方法,包括5个关键环节:早期识别心脏停搏和启动紧急响应系统;立即实施高质量的心肺复苏(CPR);快速除颤;基础和高级EMS;高级生命支持和停搏后的治疗12.",
+      "hypothesis": "成功 治疗 院外 心脏 停搏 患者 的 一个 关键 概念 是 称为 \" 生存链 \" 的 策略 , 它 强调 包括 早期 获得 治疗 的 系统 治疗 方法 , 包括 5 个 关键 环节 : 早期 识别 心脏 停搏 和 激活 急诊 应答 系统 ; 即刻 高质量 的 心肺 复苏 ( CPR ) ; 快速 除颤 ; 基础 和 晚期 EMS ; 晚期",
+      "labse_cosine": 0.9775887564606831,
+      "sentence_bleu": 6.077225084202486,
+      "inference_seconds": 0.9929811210000707
+    },
+    {
+      "test_split_index": 1734,
+      "pilot_terms_matched": [],
+      "source_en": "research in cardiac arrest resuscitation has affirmed that the most important links in the chain of survival are the earliest ones - recognition of cardiac arrest and initiation of CPR, both of which are performed largely by lay bystanders.13",
+      "reference": "对心脏停搏复苏所做的研究证实,生存链中最重要的环节是最早的两个环节,即识别心脏停搏和启动CPR,这两个环节基本上是由非专业的旁观者实施13.",
+      "hypothesis": "心脏 停搏 复苏 研究 证实 , 生存 链 中 最 重要 的 环节 是 最早 的 环节 - - 即 识别 心脏 停搏 和 开始 CPR , 这 两者 均 主要 由 旁观者 进行 13 .",
+      "labse_cosine": 0.95595284273363,
+      "sentence_bleu": 1.3494116947566301,
+      "inference_seconds": 0.591408791000049
+    },
+    {
+      "test_split_index": 1736,
+      "pilot_terms_matched": [],
+      "source_en": "physicians have a role in helping to make the lay public aware of the importance of bystander contribution to favorable outcomes.",
+      "reference": "医师可帮助普通公众了解旁观者在促进心脏停搏患者获得良好结局方面具有重要意义.",
+      "hypothesis": "医师可发挥作用,帮助普通大众认识旁观者对良好结局所作贡献的重要性。",
+      "labse_cosine": 0.8224790277516492,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.17877098600001773
+    },
+    {
+      "test_split_index": 1737,
+      "pilot_terms_matched": [],
+      "source_en": "in addition, although physicians are not directly involved in bystander response to cardiac arrest, they should know how to support these resuscitation efforts, encourage appropriate education for lay providers, and advocate for placement of automated external defibrillators (AEDs) for public access.",
+      "reference": "此外,尽管医师并不直接参与旁观者对心脏停搏做出的应对,但他们应知晓如何为旁观者所做的心肺复苏提供支持,鼓励为非专业人员提供适当的教育,并且提倡放置自动体外除颤器(AED)供公众使用.",
+      "hypothesis": "此外,尽管医师并未直接参与旁观者对心脏 停搏的应答,但他们应该了解如何支持这些复苏努力,鼓励对非专业医务人员进行适当教育,并提倡将自动外部 除颤器(AED)放置到公众获取处。",
+      "labse_cosine": 0.9661816127552064,
+      "sentence_bleu": 13.834368456410946,
+      "inference_seconds": 0.42572831900008623
+    },
+    {
+      "test_split_index": 1752,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "to overcome this confusion, the 2010 American Heart Association (AHA) Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care eliminated the \" look, listen, and feel \" approach for bystanders, which it had previously emphasized, and instead recommended immediate activation of the emergency-response system and initiation of chest compressions for any adult who is unresponsive and either is not breathing or is having gasping respirations.27",
+      "reference": "为了消除上述困扰,2010年的美国心脏学会(AmericanHeartAssociation,AHA)心肺复苏和心血管疾病急救指南(GuidelinesforCardiopulmonaryResuscitationandEmergencyCardiovascularCare)删除了之前强调的旁观者\"一看二听三感觉\"的方法,而是建议立即启动应急系统,并且对无反应并且无呼吸或喘息的成人启动胸外按压27.",
+      "hypothesis": "为了 克服 这一 混淆 , 美国 心脏 学会 ( American Heart Association , AHA ) 2010 年 《 心肺 复苏 和 心血管 急诊 治疗 指南 》 消除 了 旁观者 的 \" 看 , 听 和 感觉 \" 方法 , 此前 已经 强调 了 该 方法 , 相反 , 该 指南 建议 立即 激活 急诊 系统 , 并 开始 对 无 反应 且 无 呼吸 或 呼吸",
+      "labse_cosine": 0.9158912873959292,
+      "sentence_bleu": 2.6857536427907847,
+      "inference_seconds": 0.9766423390000227
+    },
+    {
+      "test_split_index": 1758,
+      "pilot_terms_matched": [],
+      "source_en": "recognition of a medical emergency, including collapse with possible cardiac arrest, should be followed by prompt activation of the emergency-response system.12",
+      "reference": "识别出医疗紧急情况(包括可能发生心脏停搏的晕倒)之后,应立即启动应急系统12.",
+      "hypothesis": "疾病 紧急 事件 ( 包括 可能 发生 心脏 停搏 的 心房 崩溃 ) 应 被 识别 为 紧急 事件 , 之后 应 迅速 激活 急救 系统 12 .",
+      "labse_cosine": 0.8986156810000745,
+      "sentence_bleu": 1.996819088094332,
+      "inference_seconds": 0.3978118249999625
+    },
+    {
+      "test_split_index": 1769,
+      "pilot_terms_matched": [],
+      "source_en": "this strategy of identifying and deploying the closest AED has been quite successful in simulation studies37 but has been found to be less effective in studies of real-world dispatch programs.38,39",
+      "reference": "确定并指出AED最近地点的策略在模拟研究中相当成功37,但在现实世界开展的调度研究却发现其效果较差38,39.",
+      "hypothesis": "在 模拟 研究 37 中 , 这种 识别 和 使用 最 接近 的 AED 的 策略 相当 成功 , 但 在 真实世界 发送 项目 的 研究 中 发现 效果 较差 38 , 39 .",
+      "labse_cosine": 0.9016495674480355,
+      "sentence_bleu": 1.2944532586971997,
+      "inference_seconds": 0.4944531950000055
+    },
+    {
+      "test_split_index": 1778,
+      "pilot_terms_matched": [
+        "cardiopulmonary_BROAD_LOOSE_MATCH"
+      ],
+      "source_en": "cardiopulmonary Resuscitation",
+      "reference": "心肺复苏",
+      "hypothesis": "心肺 复苏",
+      "labse_cosine": 1.0,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.057227101999956176
+    },
+    {
+      "test_split_index": 1785,
+      "pilot_terms_matched": [],
+      "source_en": "the benefits of lay rescuer ventilations early in cardiac arrest, particularly if the ventilations are delivered by untrained bystanders, are therefore questionable.",
+      "reference": "因此,在心脏停搏早期由非专业人员实施人工呼吸的益处值得怀疑,尤其是由未经培训的旁观者实施人工呼吸的情况下.",
+      "hypothesis": "因此,心脏 停搏 早期 便行 救援 人员 通气 的 益处 , 尤其 是 如果 通气 由 未经 训练 的 旁观者 提供 , 则 值得 怀疑 .",
+      "labse_cosine": 0.8858889130703422,
+      "sentence_bleu": 3.300809119141885,
+      "inference_seconds": 0.4697635050000599
+    },
+    {
+      "test_split_index": 1799,
+      "pilot_terms_matched": [],
+      "source_en": "the benefit of bystander CPR increased as the time to initial defibrillation increased.58",
+      "reference": "旁观者CPR带来的益处随着初次除颤时间的延迟而增加58.",
+      "hypothesis": "随着 初次 除颤 时间 的 增加 , 旁观者 CPR 的 获益 增加 58 .",
+      "labse_cosine": 0.9271631130686329,
+      "sentence_bleu": 2.8398387225677895,
+      "inference_seconds": 0.22257349599999543
+    },
+    {
+      "test_split_index": 1820,
+      "pilot_terms_matched": [],
+      "source_en": "when comparing the initial (2000-2002) and final (2015-2017) 2-year segments of the study period, the authors noted an overall increase in the number of patients in whom defibrillation was performed by bystanders (from 2.0 % to 11.2 %) and first responders (from 3.8 % to 8.2 %).",
+      "reference": "将上述研究期的最初2年(2000-2002年)和最后2年(2015-2017年)进行比较时,作者观察到由旁观者(从2.0%增加至11.2%)和第一响应者(从3.8%增加至8.2%)实施除颤的患者人数有所增加.",
+      "hypothesis": "在 比较 本 研究期 的 初始 部分 ( 2000 年 ) 和 最终 部分 ( 2015 -2017 年 ) 2 年 时 , 作者 指出 , 由 旁观者 进行 除颤 的 患者 ( 从 2.0% 增加 至 11.2% ) 和 首发 缓解 者 ( 从 3.8% 增加 至 8.2% ) 的 患者 数量 总体 增加 .",
+      "labse_cosine": 0.9553794408811619,
+      "sentence_bleu": 2.875384775586596,
+      "inference_seconds": 0.7930388360000507
+    },
+    {
+      "test_split_index": 1842,
+      "pilot_terms_matched": [],
+      "source_en": "a 4-minute kiosk-based training session, including video instruction and practice sessions with feedback, appears to be more effective than video instruction alone.81",
+      "reference": "在培训站进行的4分钟培训课程(包括视频教学和有反馈的实践课程)可能比单纯视频教学更加有效81.",
+      "hypothesis": "4 分钟 的 信息 中心 培训 , 包括 视频 指导 和 有 反馈 的 实践 课程 , 似乎 比 单独 视频 指导 更 有效 81 .",
+      "labse_cosine": 0.9131037094685245,
+      "sentence_bleu": 1.4445809981770859,
+      "inference_seconds": 0.3701270190000514
+    },
+    {
+      "test_split_index": 1844,
+      "pilot_terms_matched": [],
+      "source_en": "the World Health Organization has endorsed the \" Kids Save Lives \" training initiative, which recommends that school-age children receive 2 hours of CPR training annually.78",
+      "reference": "世界卫生组织支持\"儿童挽救生命\"(KidsSaveLives)培训计划,该计划建议学龄儿童每年接受2小时的CPR培训78.",
+      "hypothesis": "世界卫生组织 (World Health Organization ) 已经 批准 了 \" 儿童 拯救 生命 \" 培训 倡议 , 该 倡议 建议 学龄儿童 每年 接受 2 小时 的 CPR 培训 78 .",
+      "labse_cosine": 0.9489558550905682,
+      "sentence_bleu": 1.943043650185126,
+      "inference_seconds": 0.4256780240000353
+    },
+    {
+      "test_split_index": 1854,
+      "pilot_terms_matched": [],
+      "source_en": "many people have wondered whether these drugs can be beneficial for patients with HF, including those without diabetes.",
+      "reference": "许多人希望了解这些药物对心力衰竭患者是否有益,包括未患糖尿病的患者.",
+      "hypothesis": "许多 人 一直 质疑 这些 药物 是否 对 HF 患者 , 包括 无 糖尿病 患者 有益 .",
+      "labse_cosine": 0.7840234716838076,
+      "sentence_bleu": 2.719665272174911,
+      "inference_seconds": 0.2514003329999923
+    },
+    {
+      "test_split_index": 1862,
+      "pilot_terms_matched": [],
+      "source_en": "the benefit was consistent across subgroups, including those without diabetes.",
+      "reference": "各亚组的获益一致,包括未患糖尿病的患者.",
+      "hypothesis": "亚组间 获益 一致 , 包括 无 糖尿病 的 亚组 .",
+      "labse_cosine": 0.9170500144726058,
+      "sentence_bleu": 4.990049701936832,
+      "inference_seconds": 0.18074095299994042
+    },
+    {
+      "test_split_index": 1863,
+      "pilot_terms_matched": [],
+      "source_en": "dapagliflozin was statistically better in measures of worsening HF (9.7 % vs. 13.4 %) and cardiovascular death (9.6 % vs. 11.5 %).",
+      "reference": "在心力衰竭恶化(9.7%vs.13.4%)和心血管原因死亡(9.6%vs.11.5%)方面,达格列净组的指标在统计学上较优.",
+      "hypothesis": "达格 列净 的 HF 恶化 ( 9.7% vs . 13.4% ) 和 心血管 死亡 ( 9.6% vs . 11.5% ) 指标 在 统计学 上 较 好 .",
+      "labse_cosine": 0.911463740448256,
+      "sentence_bleu": 44.099108133768446,
+      "inference_seconds": 0.4239908799999057
+    },
+    {
+      "test_split_index": 1884,
+      "pilot_terms_matched": [],
+      "source_en": "as clinicians, we should not rely on the Apple Watch, but neither can we ignore these results.",
+      "reference": "作为临床医师,我们不应依赖苹果手表,但也不能忽略这些结果.",
+      "hypothesis": "作为临床医师,我们不应依赖苹果手表,但我们也不能忽视这些结果。",
+      "labse_cosine": 0.9883447908009797,
+      "sentence_bleu": 54.75182535069452,
+      "inference_seconds": 0.1463360840000405
+    },
+    {
+      "test_split_index": 1886,
+      "pilot_terms_matched": [],
+      "source_en": "however, the benefit was not seen in patients with the most severe injuries.",
+      "reference": "但在损伤严重程度最高的患者中未观察到益处.",
+      "hypothesis": "然而,在有 最 重度 损伤 的 患者 中未 观察 到 获益 .",
+      "labse_cosine": 0.959954020098899,
+      "sentence_bleu": 3.0890553181566975,
+      "inference_seconds": 0.1874817409999423
+    },
+    {
+      "test_split_index": 1898,
+      "pilot_terms_matched": [],
+      "source_en": "adjuvant chemotherapy has been shown to confer a modest incremental survival benefit for patients with stage III colon cancer (N Engl J Med 2004; 350: 2343).",
+      "reference": "目前已证明辅助化疗可小幅增加Ⅲ期结肠癌患者的生存获益(NEnglJMed2004;350:2343).",
+      "hypothesis": "辅助 化疗 已 被 证明 对 III 期 结肠癌 患者 具有 适度 的 增量 生存 获益 ( N Engl J Med 2004 ; 350 : 2343 ) .",
+      "labse_cosine": 0.913566091900872,
+      "sentence_bleu": 17.098323692758395,
+      "inference_seconds": 0.4246648360000336
+    },
+    {
+      "test_split_index": 1899,
+      "pilot_terms_matched": [],
+      "source_en": "recent studies support reducing the duration of adjuvant therapy from a standard 6 months to 3 months for lower-risk patients (NEJM JW Oncol Hematol May 2018 and N Engl J Med 2018; 378: 1177).",
+      "reference": "近期有研究支持将低危患者的辅助治疗持续时间从常规6个月缩短至3个月(NEJMJWOncolHematolMay2018andNEnglJMed2018;378:1177).",
+      "hypothesis": "最近 的 研究 支持 将 低危 患者 的 辅助 治疗 持续时间 从 标准 的 6 个 月 缩短 至 3 个 月 ( NEJM JW Oncol Hematol May 2018 and N Engl J Med 2018 ; 378 : 1177)。",
+      "labse_cosine": 0.9365500016713745,
+      "sentence_bleu": 8.773393531104272,
+      "inference_seconds": 0.6624638739999682
+    },
+    {
+      "test_split_index": 1917,
+      "pilot_terms_matched": [],
+      "source_en": "to validate these findings, the investigators analyzed data from ASIAN-HF, a study of 4500 patients with HFrEF.",
+      "reference": "为了验证这些结果,研究者分析纳入4,500例HFrEF患者的ASIAN-HF的数据.",
+      "hypothesis": "为 验证 这些 发现 , 研究者 分析 了 来自 ASIAN - HF 的 数据 , ASIAN - HF 是 对 4 , 500 例 HFrEF 患者 进行 的 一项 研究 .",
+      "labse_cosine": 0.9611312490020463,
+      "sentence_bleu": 1.4262733286728255,
+      "inference_seconds": 0.48593352600005346
+    },
+    {
+      "test_split_index": 1922,
+      "pilot_terms_matched": [],
+      "source_en": "nevertheless, the data support sex-specific studies to analyze optimal drug doses.",
+      "reference": "但这些数据支持我们针对不同性别患者开展研究,分析药物最佳剂量.",
+      "hypothesis": "然而,数据支持针对不同性别人群的临床研究,以分析最佳剂量的药物。",
+      "labse_cosine": 0.882664204090641,
+      "sentence_bleu": 10.682175159905853,
+      "inference_seconds": 0.15949045899992598
+    },
+    {
+      "test_split_index": 1941,
+      "pilot_terms_matched": [],
+      "source_en": "laboratory evaluation reportedly revealed a normal level of corticotropin in the blood and a normal increase in the serum cortisol level after intravenous administration of cosyntropin.",
+      "reference": "据报告,实验室检查结果显示,静脉给予促皮质素(cosyntropin)后,血液促肾上腺皮质激素水平正常,血清皮质醇水平正常升高.",
+      "hypothesis": "据 报道 , 实验室 评估 显示 , 经 静脉 给 联合 合成素 后 , 血液 皮质激素 水平 正常 升高 , 血清 皮质激素 水平 正常 升高 .",
+      "labse_cosine": 0.8620161582268828,
+      "sentence_bleu": 3.802351022611669,
+      "inference_seconds": 0.6104598349999151
+    },
+    {
+      "test_split_index": 1942,
+      "pilot_terms_matched": [],
+      "source_en": "the white-cell count was 850 per microliter (reference range, 4200 to 9900), the hemoglobin level 9.2 g per deciliter (reference range, 13.0 to 17.4), the platelet count 61,000 per microliter (reference range, 140,000 to 440,000), and the mean corpuscular volume 89 fl (reference range, 82 to 100).",
+      "reference": "白细胞计数为850/μL(参考范围,4,200~9,900),血红蛋白水平为9.2g/dL(参考范围,13.0~17.4),血小板计数为61,000/μL(参考范围,140,000~440,000),平均红细胞容积为89fL(参考范围,82~100).",
+      "hypothesis": "白细胞 计数 为 850 / mL ( 参照 范围 , 4200 ~ 9900 ) , 血红蛋白 水平 为 9.2 g / dL ( 参照 范围 , 13.0 ~ 17.4 ) , 血小板 计数 为 61 , 000 / mL ( 参照 范围 , 140 , 000 ~ 440 , 000 ) , 平均 体积 为 89 格 ( 参照 范围 , 82 ~ 100",
+      "labse_cosine": 0.9473870687793777,
+      "sentence_bleu": 15.47097357563083,
+      "inference_seconds": 1.2310295869999663
+    },
+    {
+      "test_split_index": 1947,
+      "pilot_terms_matched": [
+        "edema"
+      ],
+      "source_en": "magnetic resonance cholangiopancreatography revealed a small amount of pericholecystic fluid and mild edema in the right paracolic gutter that suggested an infiltrative process; the biliary ducts appeared normal, and no intrahepatic iron deposition was seen.",
+      "reference": "磁共振胰胆管造影显示少量囊周积液和右侧结肠旁沟轻度水肿,提示浸润过程;胆管正常,肝内未见铁沉积.",
+      "hypothesis": "磁共振 胆管 血管 造影术 显示 右侧 旁路沟 内 有 少量 的 围 孔 液 和 轻度 水肿 , 提示 存在 浸润 过程 ; 胆管 似乎 正常 , 未 观察 到 肝内 铁 沉积 .",
+      "labse_cosine": 0.9504713440995947,
+      "sentence_bleu": 1.539373025281168,
+      "inference_seconds": 0.8156098040000188
+    },
+    {
+      "test_split_index": 1952,
+      "pilot_terms_matched": [],
+      "source_en": "the temperature was 36.6 ° C, the pulse 91 beats per minute, the blood pressure 119 / 71 mm Hg while the patient was in the supine position (75 / 48 while he was standing), the respiratory rate 16 breaths per minute, the oxygen saturation 95 % while he was breathing ambient air, and the weight 74.9 kg.",
+      "reference": "体温为36.6℃,脉搏为91次/分,患者处于仰卧位时,血压为119/71mmHg(站立时,血压为75/48mmHg),呼吸频率为16次/分,患者呼吸环境空气时,氧饱和度为95%,体重为74.9kg.",
+      "hypothesis": "体温 为 36.6 °C , 脉搏 91 次 / min , 患者 处于 舒平 状态 时 的 血压 为 119 / 71 mmHg ( 站立 时为 75 / 48 ) , 呼吸 率 为 16 / min , 呼吸 环境 空气 时 的 氧 饱和度 为 95% , 体重 为 74.9 kg .",
+      "labse_cosine": 0.9696302653637348,
+      "sentence_bleu": 2.558056031202496,
+      "inference_seconds": 1.144909296000037
+    },
+    {
+      "test_split_index": 1953,
+      "pilot_terms_matched": [
+        "edema"
+      ],
+      "source_en": "he was pale, appeared ill, and had marked edema of the legs and periorbital region.",
+      "reference": "患者肤色苍白,呈病容,腿部和眶周明显水肿.",
+      "hypothesis": "他 脸色 苍白 , 出现 病情 , 腿部 和 围 轨道 区域 有 明显 水肿 .",
+      "labse_cosine": 0.8653781980217438,
+      "sentence_bleu": 3.21858262703621,
+      "inference_seconds": 0.4510343350000312
+    },
+    {
+      "test_split_index": 1959,
+      "pilot_terms_matched": [
+        "atelectasis"
+      ],
+      "source_en": "radiography of the chest revealed atelectasis but was otherwise normal.",
+      "reference": "胸片显示肺不张,但其他方面正常.",
+      "hypothesis": "胸片 显示 阿特 来卡 西 , 但 在 其他 情况 下 正常 .",
+      "labse_cosine": 0.7602565613401234,
+      "sentence_bleu": 3.673526562988939,
+      "inference_seconds": 0.19827754300001743
+    },
+    {
+      "test_split_index": 1960,
+      "pilot_terms_matched": [
+        "pleural_effusion"
+      ],
+      "source_en": "computed tomography (CT) of the chest, performed after the administration of intravenous contrast material, revealed small bilateral pleural effusions and no evidence of lymphadenopathy; CT of the abdomen and pelvis revealed normal hepatic parenchyma, a moderate amount of ascites, mild splenomegaly, and no evidence of lymphadenopathy.",
+      "reference": "静脉注射造影剂后进行的胸部计算机断层扫描(CT)显示双侧少量胸腔积液,无淋巴结肿大迹象;腹部及盆腔CT显示肝实质正常,中等量的腹水,脾轻度肿大,无淋巴结肿大的迹象.",
+      "hypothesis": "静脉 造影 材料 给 药后 进行 的 胸部 计算机断层 扫描 ( CT ) 显示 了 小幅 双侧 胸膜 溶液 , 没有 淋巴细胞 病 的 证据 ; 腹部 和 盆腔 的 CT 显示 出 正常 的 肝 过敏 , 有 中等 剂量 的 血管 肿块 , 轻度 肿块 , 没有 淋巴细胞 病 的 证据 .",
+      "labse_cosine": 0.9480084276492281,
+      "sentence_bleu": 3.2998928639199248,
+      "inference_seconds": 0.8938575669999409
+    },
+    {
+      "test_split_index": 1980,
+      "pilot_terms_matched": [],
+      "source_en": "the triggers for HLH are all associated with dysregulation of the immune system and include immunodeficiency syndromes (e.g., the Chédiak-Higashi syndrome or Griscelli 's syndrome), rheumatologic disorders, HIV infection, Epstein-Barr virus (EBV) infection, and hematologic cancer.",
+      "reference": "HLH的诱发因素均与免疫系统失调相关,包括免疫缺陷综合征(如Chédiak-Higashi综合征或Griscelli综合征),风湿病,HIV感染,EB病毒(EBV)感染和血液系统癌症.",
+      "hypothesis": "HLH 的 触发 因素 均 与 免疫系统 的 调控 不全 相关 , 包括 免疫 缺陷 综合征 ( 如 切地 亚克 - 希加希 综合征 或 格里塞利 综合征 ) , 风湿 疾病 , HIV 感染 , Epstein - Barr 病毒 ( EBV ) 感染 和 血液学 癌症 .",
+      "labse_cosine": 0.9584122855835172,
+      "sentence_bleu": 4.423845441747253,
+      "inference_seconds": 0.740941017999944
+    },
+    {
+      "test_split_index": 1997,
+      "pilot_terms_matched": [],
+      "source_en": "medications included pantoprazole, levothyroxine, lisinopril, metoprolol, and aspirin; treatment with amoxicillin caused nausea, and treatment with simvastatin caused myalgia.",
+      "reference": "用药包括泮托拉唑,左甲状腺素,赖诺普利,美托洛尔和阿司匹林;阿莫西林引起恶心,辛伐他汀引起肌痛.",
+      "hypothesis": "药物 包括 帕托拉唑 , 左甲状腺素 , 利希诺普利 , 美托 洛罗 和 阿司匹林 ; 阿莫西林 治疗 引起 恶心 , 辛伐他汀 治疗 引起 心肌梗死 .",
+      "labse_cosine": 0.9016623195544646,
+      "sentence_bleu": 7.575731225158963,
+      "inference_seconds": 0.5527907169999935
+    },
+    {
+      "test_split_index": 1998,
+      "pilot_terms_matched": [],
+      "source_en": "the patient was single and lived alone in a rural area of New England.",
+      "reference": "患者单身,独自生活在新英格兰农村地区.",
+      "hypothesis": "该 患者 为 单人 , 单独 生活 在 新英格兰 的 农村 地区 .",
+      "labse_cosine": 0.9725054092803974,
+      "sentence_bleu": 3.673526562988939,
+      "inference_seconds": 0.18639811500008818
+    },
+    {
+      "test_split_index": 1999,
+      "pilot_terms_matched": [],
+      "source_en": "he had previously worked in health care but had retired several years before admission.",
+      "reference": "患者之前从事医疗工作,但入院时已退休数年.",
+      "hypothesis": "他 既往 在 医疗 部门 工作 , 但 在 入院 前 已经 退休 数 年 .",
+      "labse_cosine": 0.877164038751189,
+      "sentence_bleu": 2.908317710573758,
+      "inference_seconds": 0.21957091799993123
+    },
+    {
+      "test_split_index": 2004,
+      "pilot_terms_matched": [
+        "edema"
+      ],
+      "source_en": "periorbital edema and purpura were seen, along with well-circumscribed erosions and nodules on both legs, with overlying crust in various stages of healing.",
+      "reference": "可见眶周水肿和紫癜,伴有双腿界限清楚的糜烂和结节,且上覆处于不同的愈合阶段的硬痂.",
+      "hypothesis": "我们 观察 到 围 轨道 水肿 和  帕 , 以及 两条腿 均 存在 精密 的 积水 和 结节 , 并 在 愈合 的 不同 阶段 出现 了 覆盖 结壳 .",
+      "labse_cosine": 0.7701773772697474,
+      "sentence_bleu": 1.6338984401221652,
+      "inference_seconds": 0.49916669100002764
+    },
+    {
+      "test_split_index": 2011,
+      "pilot_terms_matched": [
+        "edema"
+      ],
+      "source_en": "given the finding of periorbital edema, a CT scan of the face, obtained without the administration of intravenous contrast material, showed ill-defined areas of increased attenuation along the preseptal soft tissues and within the inferior orbital areas bilaterally, with no signs of a focal drainable collection.",
+      "reference": "考虑到眶周水肿,我们在未进行造影剂静脉注射的情况下进行了面部CT扫描,结果显示沿着双侧眶隔前软组织以及在眶下区域内,有界限不清的衰减增加区域,未见可引流的局部积液.",
+      "hypothesis": "鉴于 围 轨道 水肿 的 发现 , 在 未 给予 静脉 造影剂 的 情况 下 , 进行 的 CT 面部 扫描 显示 , 前 软组织 和 次要 的 轨道 区域 内 的 狭窄 程度 增加 , 定义 不 明确 , 且 无 焦点 可 排出 的 收集 迹象 .",
+      "labse_cosine": 0.856834514526032,
+      "sentence_bleu": 1.1133308819227488,
+      "inference_seconds": 0.6782736210000166
+    },
+    {
+      "test_split_index": 2012,
+      "pilot_terms_matched": [],
+      "source_en": "magnetic resonance imaging of the face and orbits was performed before and after the administration of intravenous contrast material.",
+      "reference": "我们在静脉注射造影剂前后对面部和眼眶进行了磁共振成像.",
+      "hypothesis": "在 静脉 造影 材料 给 药前 和 给 药后 对 脸部 和 轨道 进行 磁共振 成像 .",
+      "labse_cosine": 0.8342596737824198,
+      "sentence_bleu": 2.2869567780619007,
+      "inference_seconds": 0.35438503599993965
+    },
+    {
+      "test_split_index": 2020,
+      "pilot_terms_matched": [
+        "edema"
+      ],
+      "source_en": "during the next 7 days, the patient noted increasing energy, decreased edema in the legs, and resolution of fever.",
+      "reference": "在随后7日期间,患者精力改善,腿部水肿减轻,发热消退.",
+      "hypothesis": "在 接下来 的 7 天内 , 患者 发现 能量 增加 , 腿部 水肿 减少 和 发热 缓解 .",
+      "labse_cosine": 0.9297325914311693,
+      "sentence_bleu": 2.8265205879007453,
+      "inference_seconds": 0.2879891640000096
+    },
+    {
+      "test_split_index": 2033,
+      "pilot_terms_matched": [],
+      "source_en": "approximately 10 to 35 % of patients with non-Hodgkin 's lymphoma present with extranodal disease at the time of diagnosis.6",
+      "reference": "10%~35%的非霍奇金淋巴瘤患者在诊断时有结外淋巴瘤6.",
+      "hypothesis": "约 10% ~ 35% 的 非霍奇金 淋巴瘤 患者 在 诊断 时 存在 淋巴瘤 外 淋巴瘤 6 .",
+      "labse_cosine": 0.9655926127284138,
+      "sentence_bleu": 19.835441454182888,
+      "inference_seconds": 0.3048261349999848
+    },
+    {
+      "test_split_index": 2056,
+      "pilot_terms_matched": [],
+      "source_en": "approximately 17 % of patients with subcutaneous panniculitis-like T-cell lymphoma present with secondary HLH, and these patients have a worse prognosis than those who do not present with secondary HLH.9",
+      "reference": "在皮下脂膜炎样T细胞淋巴瘤患者中,约有17%患继发性HLH,这些患者的预后比未患继发性HLH的患者差9.",
+      "hypothesis": "在 有 次要 HLH 的 皮下 胰腺炎 样 T 细胞 淋巴瘤 患者 中 , 约 17% 有 次要 HLH , 这些 患者 的 预后 较差 9 .",
+      "labse_cosine": 0.9339193680289601,
+      "sentence_bleu": 1.8884748972625875,
+      "inference_seconds": 0.5452060620000339
+    },
+    {
+      "test_split_index": 2062,
+      "pilot_terms_matched": [],
+      "source_en": "gamma-delta T cells make up less than 5 % of circulating lymphocytes but are abundant in the skin and gut.",
+      "reference": "γ-δT细胞在循环淋巴细胞中只占不到5%,但在皮肤和肠道中大量存在.",
+      "hypothesis": "γ - delta T 细胞 占 循环 淋巴细胞 的 不到 5% , 但 在 皮肤 和 肠道 中 仍 富集 .",
+      "labse_cosine": 0.9463904508648345,
+      "sentence_bleu": 3.8229746997386336,
+      "inference_seconds": 0.30960276799999065
+    },
+    {
+      "test_split_index": 2081,
+      "pilot_terms_matched": [],
+      "source_en": "beta F1 (an antibody for the T-cell beta chain antigen receptor) and T-cell receptor delta staining were both positive in the atypical lymphocytes (Figure 4I and 4J).",
+      "reference": "在不典型淋巴细胞中,βF1(T细胞β链抗原受体的抗体)和T细胞受体δ染色均为阳性(图4I和4J).",
+      "hypothesis": "β F1 ( T 细胞 β 链 抗原 受体 的 抗体 ) 和 T 细胞 受体 delta 染色剂 在 非典型 淋巴细胞 中 均 为 阳性 ( 图 4I 和 图 4J ) .",
+      "labse_cosine": 0.9336353263821344,
+      "sentence_bleu": 2.8244460759801417,
+      "inference_seconds": 0.5684333499999639
+    },
+    {
+      "test_split_index": 2091,
+      "pilot_terms_matched": [],
+      "source_en": "a bronchoscopy was negative.",
+      "reference": "支气管镜检查结果为阴性.",
+      "hypothesis": "支气管镜检查为阴性。",
+      "labse_cosine": 0.9162071085543076,
+      "sentence_bleu": 0.0,
+      "inference_seconds": 0.09731203399996957
+    },
+    {
+      "test_split_index": 2099,
+      "pilot_terms_matched": [],
+      "source_en": "dysfunction of TNFAIP3 has been associated with autoinflammatory disease in humans and increased production of interferon-γ and tumor necrosis factor a by T cells during in vitro stimulation.13,14",
+      "reference": "目前已经发现TNFAIP3功能障碍与人类自身炎症性疾病以及体外刺激期间T细胞导致的γ干扰素和肿瘤坏死因子a生成增加相关13,14.",
+      "hypothesis": "TNFAIP3 功能障碍 与 人体 自身炎症 以及 T 细胞 在 体外 刺激 期间 干扰素 - γ 和 肿瘤 坏死 因子 a 的 生成 增加 相关 13 , 14 .",
+      "labse_cosine": 0.9503170067272114,
+      "sentence_bleu": 1.3353534059549443,
+      "inference_seconds": 0.47543902600000365
+    }
+  ],
+  "summary_overall": {
+    "n_sentences": 212,
+    "mean_labse_cosine": 0.9243147741800511,
+    "min_labse_cosine": 0.5460892169424666,
+    "corpus_bleu": 5.017493567032251,
+    "corpus_chrf": 46.67243865313816,
+    "mean_inference_seconds": 0.48523834673113053,
+    "median_inference_seconds": 0.4463130089999936,
+    "max_inference_seconds": 1.3711187540000083
+  },
+  "summary_pilot_term_subset": {
+    "n_sentences": 12,
+    "mean_labse_cosine": 0.9008088737360724,
+    "min_labse_cosine": 0.7602565613401234,
+    "corpus_bleu": 3.092017631575345,
+    "corpus_chrf": 31.336589831164325,
+    "mean_inference_seconds": 0.6211269069166718,
+    "median_inference_seconds": 0.677520958499997,
+    "max_inference_seconds": 0.9929811210000707
+  }
+}
