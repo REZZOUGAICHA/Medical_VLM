@@ -216,7 +216,6 @@ def main():
     labse = SentenceTransformer(args.labse_model, device=device)
 
     per_sentence = []
-    hypotheses, references = [], []
 
     for n, i in enumerate(selected_indices, 1):
         en, ref = pairs[i]
@@ -252,9 +251,6 @@ def main():
             "sentence_bleu": sent_bleu,
             "inference_seconds": elapsed,
         })
-        hypotheses.append(hyp_scored)
-        references.append(ref)
-
         if n % 25 == 0 or n == len(selected_indices):
             print(f"  [{n}/{len(selected_indices)}] {elapsed*1000:.0f}ms  LaBSE={labse_score:.3f}  BLEU={sent_bleu:.1f}" + (f"  terms={terms_here}" if terms_here else ""))
 
