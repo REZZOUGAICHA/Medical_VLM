@@ -74,6 +74,17 @@ DATA_SOURCES = {
         "description": "NEJM-enzh test split (2,102 pairs), medical, human-translated (professional NEJM translators)",
         "detokenize_src": True,   # Moses-style: @-@ splitting, spaced punctuation
         "detokenize_tgt": True,   # word-segmented Chinese -> strip spaces
+        # A model fine-tuned on nejm_enzh's raw (never-detokenized) training pool
+        # learns to output space-segmented Chinese too, matching its training
+        # data's storage format. That's a formatting artifact, not a translation
+        # quality difference -- a native reader reads both forms identically --
+        # but it wrecks word-level metrics (BLEU) since it creates a token-
+        # granularity mismatch against the properly-detokenized reference above.
+        # Confirmed on the first fine-tuned run: stripping spaces from the
+        # hypothesis only (leaving the reference untouched) moved corpus BLEU
+        # from 5.0 to 27.8, vs. 10.7 for the pretrained baseline -- the raw
+        # (un-normalized) score was actively misleading, not just noisy.
+        "normalize_hyp_for_scoring": True,
     },
     "hi": {
         "src": Path("data/eval/tico19_hi/tico19.en"),
@@ -81,6 +92,7 @@ DATA_SOURCES = {
         "description": "TICO-19 en-hi test split (2,100 pairs), medical/COVID-domain, human-translated",
         "detokenize_src": False,
         "detokenize_tgt": False,
+        "normalize_hyp_for_scoring": False,  # Hindi uses spaces between words natively, nothing to strip
     },
 }
 
@@ -219,10 +231,15 @@ def main():
         elapsed = time.perf_counter() - start
 
         hyp = tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
+        # Score against a normalized form when the checkpoint is known to emit
+        # a formatting artifact (see DATA_SOURCES comment) -- the raw `hyp` is
+        # still what's stored below, for transparency about what the model
+        # actually produced.
+        hyp_scored = detokenize_segmented_zh(hyp) if source.get("normalize_hyp_for_scoring") else hyp
 
-        emb = labse.encode([hyp, ref], normalize_embeddings=False)
+        emb = labse.encode([hyp_scored, ref], normalize_embeddings=False)
         labse_score = cosine_sim(emb[0], emb[1])
-        sent_bleu = sacrebleu.sentence_bleu(hyp, [ref]).score
+        sent_bleu = sacrebleu.sentence_bleu(hyp_scored, [ref]).score
 
         per_sentence.append({
             "test_split_index": i,
@@ -230,11 +247,12 @@ def main():
             "source_en": en,
             "reference": ref,
             "hypothesis": hyp,
+            "hypothesis_scored": hyp_scored if hyp_scored != hyp else None,
             "labse_cosine": labse_score,
             "sentence_bleu": sent_bleu,
             "inference_seconds": elapsed,
         })
-        hypotheses.append(hyp)
+        hypotheses.append(hyp_scored)
         references.append(ref)
 
         if n % 25 == 0 or n == len(selected_indices):
@@ -245,7 +263,7 @@ def main():
             return None
         labse_scores = [r["labse_cosine"] for r in rows]
         timings = [r["inference_seconds"] for r in rows]
-        hyps = [r["hypothesis"] for r in rows]
+        hyps = [r["hypothesis_scored"] or r["hypothesis"] for r in rows]
         refs = [r["reference"] for r in rows]
         return {
             "n_sentences": len(rows),
