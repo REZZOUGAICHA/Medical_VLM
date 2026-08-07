@@ -38,14 +38,14 @@ def main():
     args = ap.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Device: {device}")
-    print(f"Loading checkpoint: {args.model}")
+    print(f"Device: {device}", flush=True)
+    print(f"Loading checkpoint: {args.model}", flush=True)
     tokenizer = MarianTokenizer.from_pretrained(args.model)
     model = MarianMTModel.from_pretrained(args.model).to(device)
     model.eval()
 
     lines = args.in_path.read_text(encoding="utf-8").splitlines()
-    print(f"Translating {len(lines)} lines, batch size {args.batch_size}")
+    print(f"Translating {len(lines)} lines, batch size {args.batch_size}", flush=True)
 
     outputs = []
     for start in range(0, len(lines), args.batch_size):
@@ -59,7 +59,7 @@ def main():
             decoded = [detokenize_segmented_zh(d) for d in decoded]
         outputs.extend(decoded)
         done = min(start + args.batch_size, len(lines))
-        print(f"  {done}/{len(lines)}", end="\r")
+        print(f"  {done}/{len(lines)}", end="\r", flush=True)
 
     print()
     assert len(outputs) == len(lines), f"line count mismatch: {len(outputs)} outputs vs {len(lines)} inputs"
